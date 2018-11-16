@@ -5,6 +5,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log('test reducer ', action)
   switch (action.type) {
     case "CHANGE_TEXT":
       return {

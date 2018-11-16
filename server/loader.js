@@ -18,6 +18,9 @@ import manifest from '../build/asset-manifest.json';
 
 // Some optional Redux functions related to user authentication
 import { setCurrentUser, logoutUser } from '../src/modules/auth';
+// import rootSaga from '../src/modules/saga';
+import rootSaga from '../src/modules/rootSaga';
+
 
 // LOADER
 export default (req, res) => {
@@ -84,7 +87,7 @@ export default (req, res) => {
      
       const renderCallback = routeMarkup => {
 
-          // console.log('done frontload')
+          console.log('done render')
           if (context.url) {
             // If context has a url property, then we need to handle a redirection in Redux Router
             res.writeHead(302, {
@@ -150,9 +153,9 @@ export default (req, res) => {
             <Loadable.Capture report={m => modules.push(m)}>
               <Provider store={store}>
                 <StaticRouter location={req.url} context={context}>
-                  <Frontload isServer={true}>
+                  {/*<Frontload isServer={true}>*/}
                     <App />
-                  </Frontload>
+                  {/*</Frontload>*/}
                 </StaticRouter>
               </Provider>
             </Loadable.Capture>
@@ -160,7 +163,8 @@ export default (req, res) => {
         ));
       
      
-      store.runSaga().done.then(() => {
+      store.runSaga(rootSaga).done.then(() => {
+        console.log('done saga')
         render(store).then(renderCallback);
       });
 

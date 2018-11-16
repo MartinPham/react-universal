@@ -3,12 +3,12 @@ import { connectRouter } from "connected-react-router";
 
 import auth from "./auth";
 import profile from "./profile";
-import test from "./test";
+// import test from "./test";
 
-export default history =>
+export default (history, injectedReducers) =>
   combineReducers({
     router: connectRouter(history),
     auth,
     profile,
-    test
+    ...injectedReducers
   });

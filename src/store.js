@@ -4,7 +4,7 @@ import { routerMiddleware } from "connected-react-router";
 import thunk from "redux-thunk";
 import { createBrowserHistory, createMemoryHistory } from "history";
 import createRootReducer from "./modules";
-import rootSaga from "./modules/saga";
+// import rootSaga from "./modules/saga";
 
 
 
@@ -51,18 +51,29 @@ export default (url = "/") => {
     delete window.__PRELOADED_STATE__;
   }
 
+
+
   // Create the store
   const store = createStore(
-    createRootReducer(history),
+    state => state,
     initialState,
     composedEnhancers
   );
 
 
 
-  // sagaMiddleware.run(rootSaga);
-  store.runSaga = () => sagaMiddleware.run(rootSaga);
+  store.history = history;
+  const reducer = createRootReducer(store.history);
 
+  store.replaceReducer(reducer);
+
+
+  // sagaMiddleware.run(rootSaga);
+  // store.runSaga = () => sagaMiddleware.run(rootSaga);
+  store.runSaga = sagaMiddleware.run;
+  store.injectedReducers = {}; // Reducer registry
+  store.injectedSagas = {}; // Saga registry
+  
   store.close = () => store.dispatch(END);
 
   return {
