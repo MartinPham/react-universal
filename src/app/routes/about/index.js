@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Page from '../../components/page';
 import { changeText } from '../../../modules/test';
 
-import { frontloadConnect } from 'react-frontload'
+// import { frontloadConnect } from 'react-frontload'
 
 
 import { connect } from 'react-redux';
@@ -14,6 +14,7 @@ class About extends Component {
 	componentWillMount() {
 		console.log('componentWillMount')
         this.props.changeText('will mount');
+        this.props.changeText('will mount xxx');
     }
 	render()
 	{
@@ -45,25 +46,25 @@ const mapDispatch = dispatch => ({
 });
 
 
-
+/*
 const frontload = async props =>
 {
 	const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1000)));
 	props.changeText(data);
 }
- 
-
-// export default connect(
-//   mapState,
-//   mapDispatch
-// )(About);
+*/
 
 export default connect(
   mapState,
   mapDispatch
-)(
-  frontloadConnect(frontload, {
-    onMount: true,
-    onUpdate: false
-  })(About)
-);
+)(About);
+
+// export default connect(
+//   mapState,
+//   mapDispatch
+// )(
+//   frontloadConnect(frontload, {
+//     onMount: true,
+//     onUpdate: false
+//   })(About)
+// );

@@ -8,7 +8,7 @@ import { renderToString } from 'react-dom/server';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
-import { Frontload, frontloadServerRender } from 'react-frontload';
+// import { Frontload, frontloadServerRender } from 'react-frontload';
 import Loadable from 'react-loadable';
 
 // Our store, entrypoint, and manifest
@@ -84,7 +84,7 @@ export default (req, res) => {
      
       const renderCallback = routeMarkup => {
 
-          console.log('done frontload')
+          // console.log('done frontload')
           if (context.url) {
             // If context has a url property, then we need to handle a redirection in Redux Router
             res.writeHead(302, {
@@ -128,6 +128,7 @@ export default (req, res) => {
           }
         }
      
+      /*
       const render = (store, renderCallback) => 
         frontloadServerRender(() =>
           renderToString(
@@ -142,6 +143,21 @@ export default (req, res) => {
             </Loadable.Capture>
           )
         )
+      */
+      const render = (store, renderCallback) => 
+        new Promise(resolve => 
+          resolve(renderToString(
+            <Loadable.Capture report={m => modules.push(m)}>
+              <Provider store={store}>
+                <StaticRouter location={req.url} context={context}>
+                  <Frontload isServer={true}>
+                    <App />
+                  </Frontload>
+                </StaticRouter>
+              </Provider>
+            </Loadable.Capture>
+          )
+        ));
       
      
       store.runSaga().done.then(() => {

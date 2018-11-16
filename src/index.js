@@ -19,9 +19,9 @@ store.runSaga();
 const index = (appComponent) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Frontload noServerRender={true}>
+      {/*<Frontload noServerRender={true}>*/}
         { appComponent }
-      </Frontload>
+      {/*</Frontload>*/}
     </ConnectedRouter>
   </Provider>
 );
