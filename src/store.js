@@ -1,8 +1,12 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware, { END } from 'redux-saga';
 import { routerMiddleware } from "connected-react-router";
 import thunk from "redux-thunk";
 import { createBrowserHistory, createMemoryHistory } from "history";
 import createRootReducer from "./modules";
+import rootSaga from "./modules/saga";
+
+
 
 // A nice helper to tell us if we're on the server
 export const isServer = !(
@@ -30,7 +34,10 @@ export default (url = "/") => {
     }
   }
 
-  const middleware = [thunk, routerMiddleware(history)];
+  // create the saga middleware
+  const sagaMiddleware = createSagaMiddleware();
+
+  const middleware = [sagaMiddleware, thunk, routerMiddleware(history)];
   const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers
@@ -50,6 +57,13 @@ export default (url = "/") => {
     initialState,
     composedEnhancers
   );
+
+
+
+  // sagaMiddleware.run(rootSaga);
+  store.runSaga = () => sagaMiddleware.run(rootSaga);
+
+  store.close = () => store.dispatch(END);
 
   return {
     store,
