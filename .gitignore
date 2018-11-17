@@ -1,7 +1,13 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+node_modules/**/*
+.idea/*
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
 
-# dependencies
-/node_modules
+
 
 # testing
 /coverage

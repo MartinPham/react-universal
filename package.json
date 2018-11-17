@@ -1,9 +1,16 @@
 {
-  "name": "cra-ssr",
+  "name": "empty-project-template",
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "homepage": "https://cra-ssr.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+
+    "expo": "^31.0.2",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -23,7 +30,7 @@
     "md5-file": "^4.0.0",
     "morgan": "^1.9.1",
     "query-string": "^6.2.0",
-    "react": "^16.5.2",
+
     "react-dom": "^16.5.2",
     "react-frontload": "^1.0.3",
     "react-helmet": "^5.2.0",
@@ -40,8 +47,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+
     "eject": "react-scripts eject",
-    "serve": "cross-env NODE_ENV=production node ./server/index.js"
+
+    "serve": "cross-env NODE_ENV=production node ./server/index.js",
+
+    "estart": "expo start",
+    "eandroid": "expo start --android",
+    "eios": "expo start --ios",
+    "eeject": "expo eject"
   },
   "browserslist": [
     ">0.2%",
@@ -62,6 +76,7 @@
   "devDependencies": {
     "husky": "^1.1.0",
     "prettier": "1.14.3",
-    "pretty-quick": "^1.7.0"
+    "pretty-quick": "^1.7.0",
+    "babel-preset-expo": "^5.0.0"
   }
 }

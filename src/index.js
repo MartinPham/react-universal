@@ -2,12 +2,12 @@ import React from 'react';
 import { render, hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import Loadable from 'react-loadable';
-// import { Frontload } from 'react-frontload';
+import { Frontload } from 'react-frontload';
 import { ConnectedRouter } from 'connected-react-router';
-import createStore from './store';
-import rootSaga from "./modules/rootSaga";
+import createStore from './utils/redux/createStore';
+import rootSaga from "./saga";
 
-import App from './app/app';
+import App from './components/App';
 import './index.css';
 
 // Create a store and get back itself and its history object
@@ -20,9 +20,9 @@ store.runSaga(rootSaga);
 const index = (appComponent) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      {/*<Frontload noServerRender={true}>*/}
+      <Frontload noServerRender={true}>
         { appComponent }
-      {/*</Frontload>*/}
+      </Frontload>
     </ConnectedRouter>
   </Provider>
 );
@@ -40,8 +40,8 @@ if (root.hasChildNodes() === true) {
   render(index(<App/>), root);
 
   if (module.hot) {
-    module.hot.accept('./app/app', () => {
-      const NextApplication = require('./app/app').default;
+    module.hot.accept('./components/App', () => {
+      const NextApplication = require('./components/App').default;
       render(index(<NextApplication/>), root);
     })
   }
