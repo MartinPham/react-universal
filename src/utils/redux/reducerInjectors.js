@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 
 import checkStore from './checkStore';
-import createRootReducer from '../modules';
+import createRootReducer from '../../modules/index';
 
 export function injectReducerFactory(store, isValid) {
 	return function injectReducer(key, reducer) {

@@ -8,18 +8,17 @@ import { renderToString } from 'react-dom/server';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
-// import { Frontload, frontloadServerRender } from 'react-frontload';
+import { Frontload, frontloadServerRender } from 'react-frontload';
 import Loadable from 'react-loadable';
 
-// Our store, entrypoint, and manifest
-import createStore from '../src/store';
-import App from '../src/app/app';
 import manifest from '../build/asset-manifest.json';
+import createStore from "../src/utils/redux/createStore";
+import App from "../src/components/App";
 
 // Some optional Redux functions related to user authentication
-import { setCurrentUser, logoutUser } from '../src/modules/auth';
+// import { setCurrentUser, logoutUser } from '../src/modules/auth';
 // import rootSaga from '../src/modules/saga';
-import rootSaga from '../src/modules/rootSaga';
+// import rootSaga from '../src/modules/rootSaga';
 
 
 // LOADER
@@ -61,11 +60,11 @@ export default (req, res) => {
 
       // If the user has a cookie (i.e. they're signed in) - set them as the current user
       // Otherwise, we want to set the current state to be logged out, just in case this isn't the default
-      if ('mywebsite' in req.cookies) {
-        store.dispatch(setCurrentUser(req.cookies.mywebsite));
-      } else {
-        store.dispatch(logoutUser());
-      }
+      // if ('mywebsite' in req.cookies) {
+      //   store.dispatch(setCurrentUser(req.cookies.mywebsite));
+      // } else {
+      //   store.dispatch(logoutUser());
+      // }
 
       const context = {};
       const modules = [];
@@ -87,7 +86,7 @@ export default (req, res) => {
      
       const renderCallback = routeMarkup => {
 
-          console.log('done render')
+          // console.log('done render')
           if (context.url) {
             // If context has a url property, then we need to handle a redirection in Redux Router
             res.writeHead(302, {
@@ -114,7 +113,7 @@ export default (req, res) => {
 
             // NOTE: Disable if you desire
             // Let's output the title, just to see SSR is working as intended
-            console.log('THE TITLE', helmet.title.toString());
+            // console.log('THE TITLE', helmet.title.toString());
 
             // Pass all this nonsense into our HTML formatting function above
             const html = injectHTML(htmlData, {
@@ -131,7 +130,7 @@ export default (req, res) => {
           }
         }
      
-      /*
+
       const render = (store, renderCallback) => 
         frontloadServerRender(() =>
           renderToString(
@@ -146,16 +145,19 @@ export default (req, res) => {
             </Loadable.Capture>
           )
         )
-      */
+
+        render(store).then(renderCallback);
+        // store.close();
+
+     
+     /*
       const render = (store, renderCallback) => 
         new Promise(resolve => 
           resolve(renderToString(
             <Loadable.Capture report={m => modules.push(m)}>
               <Provider store={store}>
                 <StaticRouter location={req.url} context={context}>
-                  {/*<Frontload isServer={true}>*/}
                     <App />
-                  {/*</Frontload>*/}
                 </StaticRouter>
               </Provider>
             </Loadable.Capture>
@@ -170,6 +172,7 @@ export default (req, res) => {
 
       render(store);
       store.close();
+      */
 
 
 

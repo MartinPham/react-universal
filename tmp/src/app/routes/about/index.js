@@ -4,15 +4,15 @@ import reducer from '../../../modules/test';
 import saga from '../../../modules/saga';
 import { changeText } from '../../../modules/test';
 
-// import { frontloadConnect } from 'react-frontload'
+import { frontloadConnect } from 'react-frontload'
 
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 
-import injectReducer from '../../../redux/injectReducer';
-import injectSaga from '../../../redux/injectSaga';
+import injectReducer from '../../../utils/redux/injectReducer';
+import injectSaga from '../../../utils/redux/injectSaga';
 
 
 
@@ -55,13 +55,13 @@ const mapDispatch = dispatch => ({
 });
 
 
-/*
+
 const frontload = async props =>
 {
 	const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1000)));
 	props.changeText(data);
 }
-*/
+
 
 const withConnect = connect(
   mapState,
@@ -74,13 +74,18 @@ const withConnect = connect(
 const withReducer = injectReducer({ key: "test", reducer });
 const withSaga = injectSaga({ key: "test", saga });
 
-Page.displayName = "test";
+Page.displayName = "About";
 
 export default compose(
 	withReducer,
 	withSaga,
 	withConnect,
-)(About);
+)(
+  frontloadConnect(frontload, {
+    onMount: true,
+    onUpdate: false
+  })(About)
+);
 
 // export default connect(
 //   mapState,

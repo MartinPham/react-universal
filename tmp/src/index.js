@@ -5,7 +5,7 @@ import Loadable from 'react-loadable';
 import { Frontload } from 'react-frontload';
 import { ConnectedRouter } from 'connected-react-router';
 import createStore from './utils/redux/createStore';
-import rootSaga from "./saga";
+import rootSaga from "./modules/rootSaga";
 
 import App from './components/App';
 import './index.css';
