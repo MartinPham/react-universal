@@ -16,17 +16,23 @@ REACT UNIVERSAL
 
 **Browser**
 
+![](./docs/browser.png)
+
 ```
 yarn start
 ```
 
 **Native**
 
+![](./docs/native.png)
+
 ```
 expo start
 ```
 
 **Server**
+
+![](./docs/node.png)
 
 ```
 yarn build && yarn serve
