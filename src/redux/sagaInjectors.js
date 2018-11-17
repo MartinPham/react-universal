@@ -60,10 +60,19 @@ export function injectSagaFactory(store, isValid) {
 			/* eslint-disable no-param-reassign */
 
 			console.log('inject saga ' + key)
+
+			const task = store.runSaga(saga, args);
+
+
 			store.injectedSagas[key] = {
 				...newDescriptor,
-				task: store.runSaga(saga, args),
+				task,
 			};
+
+			// while(task.isRunning())
+			// {
+
+			// }
 			/* eslint-enable no-param-reassign */
 		}
 	};
