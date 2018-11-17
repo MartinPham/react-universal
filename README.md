@@ -3,8 +3,8 @@ REACT UNIVERSAL
 *made with Recioto della Valpolicella*
 
 * Browser || Native || Server
-* Without **eject**
 * Create React App 2.0 & Expo
+* Without **eject**
 * Redux (with injector)
 * Saga (with injector)
 * Reselect
