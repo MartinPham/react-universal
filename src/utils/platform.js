@@ -5,11 +5,11 @@ export const PLATFORM_UNDEFINED = 'undefined';
 
 let platform = PLATFORM_UNDEFINED;
 
-if (typeof document != 'undefined') {
+if (typeof document !== 'undefined') {
   // I'm on the web!
   platform = PLATFORM_BROWSER;
 }
-else if (typeof navigator != 'undefined' && navigator.product == 'ReactNative') {
+else if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
   // I'm in react-native
   platform = PLATFORM_NATIVE;
 }

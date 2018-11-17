@@ -59,7 +59,7 @@ export function injectSagaFactory(store, isValid) {
 		if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
 			/* eslint-disable no-param-reassign */
 
-			console.log('inject saga ' + key)
+			// console.log('inject saga ' + key)
 
 			const task = store.runSaga(saga, args);
 

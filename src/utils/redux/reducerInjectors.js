@@ -27,7 +27,7 @@ export function injectReducerFactory(store, isValid) {
 		// 
 		// 
 		const rootReducer = createRootReducer(store.history, store.injectedReducers);
-		console.log(rootReducer);
+		// console.log(rootReducer);
   		store.replaceReducer(rootReducer);
 	};
 }

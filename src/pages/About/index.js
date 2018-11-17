@@ -34,7 +34,7 @@ class Component extends React.Component {
             <Text> </Text>
             <Text> </Text>
             <Text> </Text>
-            <Text>Hello world!!!</Text>
+            <Text>ABOUT US</Text>
             <Text>text: {this.props.text}</Text>
             <Text>altText: {this.props.altText}</Text>
 

@@ -1,4 +1,5 @@
-export default {
-    text: "ciao",
-    altText: "...",
-}
+import { fromJS } from 'immutable';
+
+export default fromJS({
+
+});

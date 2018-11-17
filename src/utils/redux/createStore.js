@@ -6,9 +6,6 @@ import { routerMiddleware } from "connected-react-router";
 import { createBrowserHistory, createMemoryHistory } from "history";
 import platform, {PLATFORM_NATIVE, PLATFORM_NODE} from "../platform";
 
-import { combineReducers } from "redux";
-import { connectRouter } from "connected-react-router";
-
 import createRootReducer from "./createRootReducer";
 
 export default (url = "/") => {
