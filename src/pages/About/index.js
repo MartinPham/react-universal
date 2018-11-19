@@ -1,6 +1,5 @@
 import React from 'react';
 import {ID} from "./constants";
-// import { Text, View, TextInput, Button } from 'react-native';
 
 
 
@@ -19,10 +18,11 @@ import altTextSelector from "./selectors/altTextSelector";
 // import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from "../../utils/platform";
 
 
-let View = (props) => (<div {...props}/>);
-let Text = (props) => (<div {...props}/>);
-let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
-let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
+import { Text, View, TextInput, Button } from 'react-native';
+// let View = (props) => (<div {...props}/>);
+// let Text = (props) => (<div {...props}/>);
+// let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
+// let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
 
 
 

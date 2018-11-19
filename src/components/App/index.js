@@ -4,6 +4,7 @@ import {ID} from "./constants";
 
 
 import { connect } from 'react-redux';
+import { Switch } from 'react-router';
 import { compose } from 'redux';
 import injectReducer from '../../utils/redux/injectReducer';
 import injectSaga from '../../utils/redux/injectSaga';
@@ -11,16 +12,16 @@ import reducer from './reducer';
 import saga from './saga';
 import routes from "../../config/routes";
 import DynamicRoute from "../../components/DynamicRoute";
-
+// import { Route } from 'react-router-dom';
 
 
 class Component extends React.Component {
     render()
     {
-        return (<>
+        return (
+        <Switch>
             {Object.keys(routes).map(key => {
                 const route = routes[key];
-
                 return (
                     <DynamicRoute
                         id={key}
@@ -40,14 +41,16 @@ class Component extends React.Component {
                     />
                 );
             })}
-        </>);
+        </Switch>
+        );
     }
 }
 
 Component.displayName = ID;
 
+export default Component;
 
-
+/*
 const mapState = state => ({
 
 });
@@ -72,3 +75,4 @@ export default compose(
     withSaga,
     withConnect,
 )(Component);
+*/

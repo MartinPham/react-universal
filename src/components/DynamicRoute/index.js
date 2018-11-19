@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-// import { Route } from 'react-router-native';
+// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-native';
 import {ID} from './constants';
 import routeMounted from './actions/routeMounted';
 
