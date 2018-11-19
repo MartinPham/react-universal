@@ -1,8 +1,8 @@
 
 
 
-import Home from '../pages/Home/async';
-import About from '../pages/About/async';
+import Home from '../nativePages/Home';
+import About from '../nativePages/About';
 
 
 

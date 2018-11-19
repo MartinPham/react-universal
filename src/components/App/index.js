@@ -3,14 +3,14 @@ import {ID} from "./constants";
 
 
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Switch } from 'react-router';
-import { compose } from 'redux';
-import injectReducer from '../../utils/redux/injectReducer';
-import injectSaga from '../../utils/redux/injectSaga';
-import reducer from './reducer';
-import saga from './saga';
-import routes from "../../config/routes";
+// import { compose } from 'redux';
+// import injectReducer from '../../utils/redux/injectReducer';
+// import injectSaga from '../../utils/redux/injectSaga';
+// import reducer from './reducer';
+// import saga from './saga';
+// import routes from "../../config/routes";
 import DynamicRoute from "../../components/DynamicRoute";
 // import { Route } from 'react-router-dom';
 
@@ -18,12 +18,14 @@ import DynamicRoute from "../../components/DynamicRoute";
 class Component extends React.Component {
     render()
     {
+        let routes = this.props.routes;
         return (
         <Switch>
             {Object.keys(routes).map(key => {
                 const route = routes[key];
                 return (
                     <DynamicRoute
+                        routeComponent={this.props.routeComponent}
                         id={key}
                         key={key}
                         exact={
@@ -33,6 +35,7 @@ class Component extends React.Component {
                         }
                         path={route.url}
                         component={route.component}
+
                         firewall={route.firewall}
                         user={
                             this.context.user ? this.context.user.toJS() : null

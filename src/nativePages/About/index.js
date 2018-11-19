@@ -2,6 +2,7 @@ import React from 'react';
 import {ID} from "./constants";
 
 
+
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from '../../utils/redux/injectReducer';
@@ -17,14 +18,11 @@ import altTextSelector from "./selectors/altTextSelector";
 // import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from "../../utils/platform";
 
 
-// import { Text, View, TextInput, Button } from 'react-native';
-// import { Link } from "react-router-native";
-import { Link } from "react-router-dom";
-
-let View = (props) => (<div {...props}/>);
-let Text = (props) => (<div {...props}/>);
-let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
-let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
+import { Text, View, TextInput, Button } from 'react-native';
+// let View = (props) => (<div {...props}/>);
+// let Text = (props) => (<div {...props}/>);
+// let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
+// let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
 
 
 
@@ -36,7 +34,7 @@ class Component extends React.Component {
             <Text> </Text>
             <Text> </Text>
             <Text> </Text>
-            <Text>Hello world!!!</Text>
+            <Text>ABOUT US</Text>
             <Text>text: {this.props.text}</Text>
             <Text>altText: {this.props.altText}</Text>
 
@@ -46,12 +44,6 @@ class Component extends React.Component {
                 onPress={() => this.props.changeText("I am from the Button")}
                 title="Hey"
             />
-
-            <Link
-                to={`/about`}
-            >
-                <Text>Go to About</Text>
-            </Link>
         </View>);
     }
 }

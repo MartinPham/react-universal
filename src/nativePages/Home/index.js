@@ -17,14 +17,14 @@ import altTextSelector from "./selectors/altTextSelector";
 // import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from "../../utils/platform";
 
 
-// import { Text, View, TextInput, Button } from 'react-native';
-// import { Link } from "react-router-native";
-import { Link } from "react-router-dom";
-
-let View = (props) => (<div {...props}/>);
-let Text = (props) => (<div {...props}/>);
-let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
-let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
+import { Text, View, TextInput, Button } from 'react-native';
+import { Link } from "react-router-native";
+// import { Link } from "react-router-dom";
+//
+// let View = (props) => (<div {...props}/>);
+// let Text = (props) => (<div {...props}/>);
+// let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
+// let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
 
 
 

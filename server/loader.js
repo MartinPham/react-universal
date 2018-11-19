@@ -15,6 +15,9 @@ import manifest from '../build/asset-manifest.json';
 import createStore from "../src/utils/redux/createStore";
 import App from "../src/components/App";
 
+import { Route } from 'react-router-dom';
+import routes from "../src/config/routes";
+
 // Some optional Redux functions related to user authentication
 // import { setCurrentUser, logoutUser } from '../src/modules/auth';
 // import rootSaga from '../src/modules/saga';
@@ -129,7 +132,11 @@ export default (req, res) => {
             res.send(html);
           }
         }
-     
+
+        const appProps = {
+            routeComponent: Route,
+            routes,
+        };
 
       const render = (store, renderCallback) => 
         frontloadServerRender(() =>
@@ -138,7 +145,7 @@ export default (req, res) => {
               <Provider store={store}>
                 <StaticRouter location={req.url} context={context}>
                   <Frontload isServer={true}>
-                    <App />
+                    <App {...appProps} />
                   </Frontload>
                 </StaticRouter>
               </Provider>

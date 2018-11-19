@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Route } from 'react-router-dom';
-import { Route } from 'react-router-native';
+// import { Route } from 'react-router-native';
 import {ID} from './constants';
 import routeMounted from './actions/routeMounted';
 
@@ -25,8 +25,9 @@ class Component extends React.Component {
 	}
 
 	render() {
-		return (({ component: Component, firewall, user, token, ...parameters }) => {
+		return (({ routeComponent, component: Component, firewall, user, token, ...parameters }) => {
 			let component = props => <Component {...props} />;
+			let Route = routeComponent;
 
 			// //log('>>>', id)
 
