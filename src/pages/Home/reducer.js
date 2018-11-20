@@ -4,6 +4,7 @@ import changeTextReducer from "./reducers/changeTextReducer";
 import changeAltTextReducer from "./reducers/changeAltTextReducer";
 
 export default (state = initialState, action) => {
+    console.log('Run reducers, state = ', state, ' action = ',action);
     switch(action.type) {
         case CHANGE_TEXT:
             return changeTextReducer(state, action);

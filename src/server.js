@@ -25,7 +25,7 @@ import routes from "../src/config/routes";
 
 
 // LOADER
-export default (req, res) => {
+export default (htmlFile, req, res) => {
   /*
     A simple helper function to prepare the HTML markup. This loads:
       - Page title
@@ -48,7 +48,7 @@ export default (req, res) => {
 
   // Load in our HTML file from our build
   fs.readFile(
-    path.resolve(__dirname, '../build/index.html'),
+    htmlFile,
     'utf8',
     (err, htmlData) => {
       // If there's an error... serve up something nasty
@@ -119,6 +119,9 @@ export default (req, res) => {
             // console.log('THE TITLE', helmet.title.toString());
 
             // Pass all this nonsense into our HTML formatting function above
+
+            console.log('server state', store.getState());
+
             const html = injectHTML(htmlData, {
               html: helmet.htmlAttributes.toString(),
               title: helmet.title.toString(),
@@ -145,13 +148,15 @@ export default (req, res) => {
               <Provider store={store}>
                 <StaticRouter location={req.url} context={context}>
                   <Frontload isServer={true}>
-                    <App {...appProps} />
+                      <div id="AppComponent" key="AppComponent">
+                          <App {...appProps} />
+                      </div>
                   </Frontload>
                 </StaticRouter>
               </Provider>
             </Loadable.Capture>
           )
-        )
+        );
 
         render(store).then(renderCallback);
         // store.close();

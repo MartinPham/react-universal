@@ -23,7 +23,9 @@ const index = (appComponent) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Frontload noServerRender={true}>
-        { appComponent }
+          <div id="AppComponent" key="AppComponent">
+              { appComponent }
+          </div>
       </Frontload>
     </ConnectedRouter>
   </Provider>
@@ -37,17 +39,20 @@ const appProps = {
 const root = document.querySelector('#root');
 
 if (root.hasChildNodes() === true) {
+    console.log('hydrate')
   // If it's an SSR, we use hydrate to get fast page loads by just
   // attaching event listeners after the initial render
   Loadable.preloadReady().then(() => {
     hydrate(index(<App {...appProps}/>), root);
   });
 } else {
+    console.log('render')
   // If we're not running on the server, just render like normal
   render(index(<App {...appProps}/>), root);
 
   if (module.hot) {
     module.hot.accept('./components/App', () => {
+        console.log('hot render')
       const NextApplication = require('./components/App').default;
       render(index(<NextApplication {...appProps}/>), root);
     })

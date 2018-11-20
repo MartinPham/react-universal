@@ -1,42 +1,106 @@
-const md5File = require('md5-file');
+// Express requirements
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
+const forceDomain = require('forcedomain');
+const Loadable = require('react-loadable');
+const cookieParser = require('cookie-parser');
 
-// CSS styles will be imported on load and that complicates matters... ignore those bad boys!
-const ignoreStyles = require('ignore-styles');
-const register = ignoreStyles.default;
+// Our loader - this basically acts as the entry point for each page load
+const server = require('../server-build');
 
-// We also want to ignore all image requests
-// When running locally these will load from a standard import
-// When running on the server, we want to load via their hashed version in the build folder
-const extensions = ['.gif', '.jpeg', '.jpg', '.png', '.svg'];
+// Create our express app using the port optionally specified
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-// Override the default style ignorer, also modifying all image requests
-register(ignoreStyles.DEFAULT_EXTENSIONS, (mod, filename) => {
-  if (!extensions.find(f => filename.endsWith(f))) {
-    // If we find a style
-    return ignoreStyles.noOp();
-  } else {
-    // If we find an image
-    const hash = md5File.sync(filename).slice(0, 8);
-    const bn = path.basename(filename).replace(/(\.\w{3})$/, `.${hash}$1`);
+// NOTE: UNCOMMENT THIS IF YOU WANT THIS FUNCTIONALITY
+/*
+  Forcing www and https redirects in production, totally optional.
 
-    mod.exports = `/static/media/${bn}`;
+  http://mydomain.com
+  http://www.mydomain.com
+  https://mydomain.com
+
+  Resolve to: https://www.mydomain.com
+*/
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(
+//     forceDomain({
+//       hostname: 'www.mydomain.com',
+//       protocol: 'https'
+//     })
+//   );
+// }
+
+// Compress, parse, log, and raid the cookie jar
+app.use(compression());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'));
+app.use(cookieParser());
+
+// Set up homepage, static assets, and capture everything else
+const htmlFile = path.resolve(__dirname, '../build/index.html');
+const loader = (req, res) => server.default(htmlFile, req, res);
+app.use(express.Router().get('/', loader));
+app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(loader);
+
+// We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
+Loadable.preloadAll().then(() => {
+  app.listen(PORT, console.log(`App listening on port ${PORT}!`));
+});
+
+// Handle the bugs somehow
+app.on('error', error => {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  const bind = typeof PORT === 'string' ? 'Pipe ' + PORT : 'Port ' + PORT;
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
   }
 });
 
-// Set up babel to do its thing... env for the latest toys, react-app for CRA
-// Notice three plugins: the first two allow us to use import rather than require, the third is for code splitting
-// Polyfill is required for Babel 7, polyfill includes a custom regenerator runtime and core-js
-require('@babel/polyfill');
-require('@babel/register')({
-  ignore: [/\/(build|node_modules)\//],
-  presets: ['@babel/preset-env', '@babel/preset-react'],
-  plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    'dynamic-import-node',
-    'react-loadable/babel'
-  ]
+
+
+
+
+/*
+const express = require('express');
+const render = require('../server-build');
+const path = require('path');
+const fs = require('fs');
+
+const server = express();
+const port = 8080;
+
+server.get('/', (request, response) => {
+	return render.default(
+    path.resolve(__dirname, '../build/index.html'),
+    request, 
+    response
+  );
 });
 
-// Now that the nonsense is over... load up the server entry point
-require('./server');
+
+// server.use(express.static(path.resolve(__dirname, '../server-build')));
+server.use(express.static(path.resolve(__dirname, '../build')));
+
+server.listen(port, () => console.log(`Server is listening on port ${port}!`))
+*/
+
+

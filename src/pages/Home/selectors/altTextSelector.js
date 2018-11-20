@@ -5,4 +5,5 @@ import {ID} from "../constants";
 const main = rootState => (rootState[ID] || initialState);
 
 export default () =>
-    createSelector(main, state => state.get('altText'));
+    // createSelector(main, state => state.get('altText'));
+    createSelector(main, state => state.altText);

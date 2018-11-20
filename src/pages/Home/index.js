@@ -20,17 +20,20 @@ import altTextSelector from "./selectors/altTextSelector";
 // import { Text, View, TextInput, Button } from 'react-native';
 // import { Link } from "react-router-native";
 import { Link } from "react-router-dom";
+import {frontloadConnect} from "react-frontload";
 
 let View = (props) => (<div {...props}/>);
 let Text = (props) => (<div {...props}/>);
-let Button = (props) => (<button {...props} onClick={props.onPress}>{props.title}</button>);
-let TextInput = (props) => (<input {...props} onChange={(event) => props.onChangeText(event.target.value)}/>);
+let Button = ({onPress, title, ...props}) => (<button {...props} onClick={onPress}>{title}</button>);
+let TextInput = ({onChangeText, ...props}) => (<input {...props} onChange={(event) => onChangeText(event.target.value)}/>);
 
 
 
 class Component extends React.Component {
     render()
     {
+        console.log('render with props', this.props, global.window && window.store && window.store.getState());
+
         return (<View>
             <Text> </Text>
             <Text> </Text>
@@ -56,6 +59,9 @@ class Component extends React.Component {
     }
 }
 
+
+
+
 Component.displayName = ID;
 
 
@@ -72,11 +78,11 @@ const mapDispatch = dispatch => ({
 
 
 
-// const frontload = async props =>
-// {
-    // const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1000)));
-    // props.changeText(data);
-// };
+const frontload = async props =>
+{
+    const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1000)));
+    props.changeText(data);
+};
 
 
 const withConnect = connect(
@@ -91,20 +97,20 @@ const withReducer = injectReducer({ key: ID, reducer });
 const withSaga = injectSaga({ key: ID, saga });
 
 
-// export default compose(
-//     withReducer,
-//     withSaga,
-//     withConnect,
-// )(
-//     frontloadConnect(frontload, {
-//         onMount: true,
-//         onUpdate: false
-//     })(Component)
-// );
-
-
 export default compose(
     withReducer,
     withSaga,
     withConnect,
-)(Component);
+)(
+    frontloadConnect(frontload, {
+        onMount: true,
+        onUpdate: false
+    })(Component)
+);
+
+
+// export default compose(
+//     withReducer,
+//     withSaga,
+//     withConnect,
+// )(Component);

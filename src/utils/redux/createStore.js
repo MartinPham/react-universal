@@ -4,9 +4,10 @@ import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from "connected-react-router";
 // import thunk from "redux-thunk";
 import { createBrowserHistory, createMemoryHistory } from "history";
-import platform, {PLATFORM_NATIVE, PLATFORM_NODE} from "../platform";
+import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE, PLATFORM_NODE} from "../platform";
 
 import createRootReducer from "./createRootReducer";
+// import {fromJS} from "immutable";
 
 export default (url = "/") => {
     // Create a history depending on the environment
@@ -44,18 +45,47 @@ export default (url = "/") => {
     );
 
     // Do we have preloaded state available? Great, save it.
-    const initialState = !(platform === PLATFORM_NODE) ? window.__PRELOADED_STATE__ : {};
+    // const initialState = !(platform === PLATFORM_NODE) ? window.__PRELOADED_STATE__ : {};
+    let initialState = (platform === PLATFORM_BROWSER) ? window.__PRELOADED_STATE__ : undefined;
 
     // Delete it once we have it stored in a variable
-    if (!(platform === PLATFORM_NODE)) {
-        delete window.__PRELOADED_STATE__;
+    // if (!(platform === PLATFORM_NODE)) {
+    // if (platform === PLATFORM_BROWSER)
+    // {
+    //     delete window.__PRELOADED_STATE__;
+    // }
+    //
+    // if (typeof initialState !== 'undefined')
+    // {
+    //     for(let key in initialState)
+    //     {
+    //         if(key !== 'router')
+    //         {
+    //             initialState[key] = fromJS(initialState[key]);
+    //         }
+    //     }
+    // } else {
+    //     initialState = {};
+    // }
+
+    if (typeof initialState !== 'undefined')
+    {
+
+    } else {
+        initialState = {};
     }
 
+    if(platform === PLATFORM_BROWSER)
+    {
+        window.__PRELOADED_STATE__ = initialState;
+    }
+
+    console.log('initialState', initialState);
 
 
     // Create the store
     const store = createStore(
-        state => state,
+        (state = initialState, action) => state,
         initialState,
         composedEnhancers
     );
@@ -81,6 +111,11 @@ export default (url = "/") => {
 
 
     // store.close = () => store.dispatch(END);
+
+    if(platform === PLATFORM_BROWSER)
+    {
+        window.store = store;
+    }
 
     return {
         store,
