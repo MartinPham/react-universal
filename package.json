@@ -42,10 +42,12 @@
     "redux-saga": "^0.16.2",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "ws": "^6.1.2"
   },
   "scripts": {
     "build-server": "node scripts/build-server",
+    "start-server": "node scripts/start-server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

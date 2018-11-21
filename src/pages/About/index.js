@@ -38,7 +38,7 @@ class Component extends React.Component {
             <Text> </Text>
             <Text> </Text>
             <Text> </Text>
-            <Text>ABOUT US!!!</Text>
+            <Text>OBOUT US - CHI SIAMO HO!!!</Text>
             <Text>text: </Text>
             <Text>altText: </Text>
 

@@ -15,6 +15,8 @@ import './index.css';
 // Create a store and get back itself and its history object
 const { store, history } = createStore();
 
+
+
 store.runSaga(rootSaga);
 
 // Running locally, we should run on a <ConnectedRouter /> rather than on a <StaticRouter /> like on the server

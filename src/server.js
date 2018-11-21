@@ -1,6 +1,6 @@
 // Express requirements
-import path from 'path';
-import fs from 'fs';
+// import path from 'path';
+// import fs from 'fs';
 
 // React requirements
 import React from 'react';
@@ -11,7 +11,7 @@ import { StaticRouter } from 'react-router';
 import { Frontload, frontloadServerRender } from 'react-frontload';
 import Loadable from 'react-loadable';
 
-import manifest from '../build/asset-manifest.json';
+// import manifest from '../build/asset-manifest.json';
 import createStore from "../src/utils/redux/createStore";
 import App from "../src/components/App";
 
@@ -25,7 +25,8 @@ import routes from "../src/config/routes";
 
 
 // LOADER
-export default (htmlFile, req, res) => {
+export default (fs, htmlFile, assetFile, ws, req, res) => {
+  const manifest = JSON.parse(fs.readFileSync(assetFile, 'utf8'));
   /*
     A simple helper function to prepare the HTML markup. This loads:
       - Page title
@@ -42,6 +43,11 @@ export default (htmlFile, req, res) => {
       `<div id="root">${body}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`
     );
     data = data.replace('</body>', scripts.join('') + '</body>');
+
+    if(ws)
+    {
+      data = data.replace('</body>','<script>var connection = new WebSocket("ws://localhost:'+ws+'/");connection.onmessage = e => location.reload();</script>' + '</body>');
+    }
 
     return data;
   };
@@ -120,7 +126,7 @@ export default (htmlFile, req, res) => {
 
             // Pass all this nonsense into our HTML formatting function above
 
-            console.log('server state', store.getState());
+            // console.log('server state', store.getState());
 
             const html = injectHTML(htmlData, {
               html: helmet.htmlAttributes.toString(),
