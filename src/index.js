@@ -23,7 +23,7 @@ const index = (appComponent) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Frontload noServerRender={true}>
-          <div id="AppComponent" key="AppComponent">
+          <div id="appContainer" key="appContainer">
               { appComponent }
           </div>
       </Frontload>

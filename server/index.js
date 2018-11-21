@@ -13,7 +13,7 @@ const server = require('../server-build');
 
 // Create our express app using the port optionally specified
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 // NOTE: UNCOMMENT THIS IF YOU WANT THIS FUNCTIONALITY
 /*
@@ -46,6 +46,7 @@ const htmlFile = path.resolve(__dirname, '../build/index.html');
 const loader = (req, res) => server.default(htmlFile, req, res);
 app.use(express.Router().get('/', loader));
 app.use(express.static(path.resolve(__dirname, '../build')));
+// app.use(express.static(path.resolve(__dirname, '../server-build')));
 app.use(loader);
 
 // We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!

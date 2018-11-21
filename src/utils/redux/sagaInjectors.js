@@ -1,10 +1,10 @@
-import isEmpty from 'lodash/isEmpty';
-import isFunction from 'lodash/isFunction';
-import isString from 'lodash/isString';
-import invariant from 'invariant';
-import conformsTo from 'lodash/conformsTo';
+// import isEmpty from 'lodash/isEmpty';
+// import isFunction from 'lodash/isFunction';
+// import isString from 'lodash/isString';
+// import invariant from 'invariant';
+// import conformsTo from 'lodash/conformsTo';
 
-import checkStore from './checkStore';
+// import checkStore from './checkStore';
 
 export const RESTART_ON_REMOUNT = '@@saga-injector/restart-on-remount';
 export const DAEMON = '@@saga-injector/daemon';
@@ -13,28 +13,28 @@ export const ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount';
 
 const allowedModes = [RESTART_ON_REMOUNT, DAEMON, ONCE_TILL_UNMOUNT];
 
-const checkKey = key =>
-	invariant(
-		isString(key) && !isEmpty(key),
-		'(app/utils...) injectSaga: Expected `key` to be a non empty string',
-	);
+// const checkKey = key =>
+// 	invariant(
+// 		isString(key) && !isEmpty(key),
+// 		'(app/utils...) injectSaga: Expected `key` to be a non empty string',
+// 	);
 
-const checkDescriptor = descriptor => {
-	const shape = {
-		saga: isFunction,
-		mode: mode => isString(mode) && allowedModes.includes(mode),
-	};
-	invariant(
-		conformsTo(descriptor, shape),
-		'(app/utils...) injectSaga: Expected a valid saga descriptor',
-	);
-};
+// const checkDescriptor = descriptor => {
+// 	const shape = {
+// 		saga: isFunction,
+// 		mode: mode => isString(mode) && allowedModes.includes(mode),
+// 	};
+// 	invariant(
+// 		conformsTo(descriptor, shape),
+// 		'(app/utils...) injectSaga: Expected a valid saga descriptor',
+// 	);
+// };
 
 export function injectSagaFactory(store, isValid) {
 	return function injectSaga(key, descriptor = {}, args) {
-		if (!isValid) {
-			checkStore(store);
-		}
+		// if (!isValid) {
+		// 	checkStore(store);
+		// }
 
 		const newDescriptor = {
 			...descriptor,
@@ -42,8 +42,8 @@ export function injectSagaFactory(store, isValid) {
 		};
 		const { saga, mode } = newDescriptor;
 
-		checkKey(key);
-		checkDescriptor(newDescriptor);
+		// checkKey(key);
+		// checkDescriptor(newDescriptor);
 
 		let hasSaga = Reflect.has(store.injectedSagas, key);
 
@@ -80,11 +80,11 @@ export function injectSagaFactory(store, isValid) {
 
 export function ejectSagaFactory(store, isValid) {
 	return function ejectSaga(key) {
-		if (!isValid) {
-			checkStore(store);
-		}
+		// if (!isValid) {
+		// 	checkStore(store);
+		// }
 
-		checkKey(key);
+		// checkKey(key);
 
 		if (Reflect.has(store.injectedSagas, key)) {
 			const descriptor = store.injectedSagas[key];
@@ -101,7 +101,7 @@ export function ejectSagaFactory(store, isValid) {
 }
 
 export default function getInjectors(store) {
-	checkStore(store);
+	// checkStore(store);
 
 	return {
 		injectSaga: injectSagaFactory(store, true),

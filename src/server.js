@@ -148,7 +148,7 @@ export default (htmlFile, req, res) => {
               <Provider store={store}>
                 <StaticRouter location={req.url} context={context}>
                   <Frontload isServer={true}>
-                      <div id="AppComponent" key="AppComponent">
+                      <div id="appContainer" key="appContainer">
                           <App {...appProps} />
                       </div>
                   </Frontload>
