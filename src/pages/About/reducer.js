@@ -1,9 +1,13 @@
 import initialState from './state';
-import {CHANGE_ALT_TEXT, CHANGE_TEXT} from "./constants";
+import {ID, CHANGE_ALT_TEXT, CHANGE_TEXT} from "./constants";
 import changeTextReducer from "./reducers/changeTextReducer";
 import changeAltTextReducer from "./reducers/changeAltTextReducer";
+import getPreloadState from "../../utils/redux/getPreloadState";
 
-export default (state = initialState, action) => {
+const preloadedInitialState = getPreloadState(ID, initialState);
+
+
+export default (state = preloadedInitialState, action) => {
     switch(action.type) {
         case CHANGE_TEXT:
             return changeTextReducer(state, action);

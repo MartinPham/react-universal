@@ -1,3 +1,7 @@
+import {ID} from './constants';
 import initialState from './state';
+import getPreloadState from "./utils/redux/getPreloadState";
 
-export default (state = initialState, action) => state
+const preloadedInitialState = getPreloadState(ID, initialState);
+
+export default (state = preloadedInitialState, action) => state
