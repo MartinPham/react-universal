@@ -1,0 +1,68 @@
+// Custom transition example: Reveal
+// In
+.revealIn.pageTransition-enter > .Page,
+.revealOut-back.pageTransition-enter > .Page {
+  // Start New page in
+  xopacity: 0;
+  z-index: 2;
+  // clip-path: circle(0% at 10px 10px);
+
+  position: absolute;
+}
+
+.revealIn.pageTransition-enter.pageTransition-enter-active > .Page,
+.revealOut-back.pageTransition-enter.pageTransition-enter-active > .Page {
+  // End New page in
+  xopacity: 1;
+  // clip-path: circle(100% at 50% 50%);
+  transition: all 300ms;
+}
+
+.revealIn.pageTransition-exit > .Page,
+.revealOut-back.pageTransition-exit > .Page {
+  // Start Old page out
+  z-index: 1;
+  //opacity: 1;
+  //filter: blur(0);
+}
+
+.revealIn.pageTransition-exit.pageTransition-exit-active > .Page,
+.revealOut-back.pageTransition-exit.pageTransition-exit-active > .Page {
+  // End Old page out
+  //opacity: 0.5;
+  //filter: blur(10px);
+  transition: all 300ms;
+}
+
+// Out
+.revealOut.pageTransition-enter > .Page,
+.revealIn-back.pageTransition-enter > .Page {
+  // Start New page in
+  z-index: 1;
+  xopacity: 0;
+
+  //position: absolute;
+}
+
+.revealOut.pageTransition-enter.pageTransition-enter-active > .Page,
+.revealIn-back.pageTransition-enter.pageTransition-enter-active > .Page {
+  // End New page in
+  xopacity: 1;
+  transition: all 200ms;
+}
+
+.revealOut.pageTransition-exit > .Page,
+.revealIn-back.pageTransition-exit > .Page {
+  // Start Old page out
+  z-index: 10;
+  xopacity: 1;
+
+  position: absolute;
+}
+
+.revealOut.pageTransition-exit.pageTransition-exit-active > .Page,
+.revealIn-back.pageTransition-exit.pageTransition-exit-active > .Page {
+  // End Old page out
+  xopacity: 0.5;
+  transition: all 450ms;
+}

@@ -1,0 +1,36 @@
+.Page {
+  //position: absolute;
+  //top: 0px;
+  //left: 0px;
+  //bottom: 0px;
+  //right: 0px;
+	
+	background: #fff;
+
+
+	height: calc(100vh - 64px);
+	//height: calc(100vh - 64px - 56px);
+
+
+	&.animated {
+		animation-duration: 200ms;
+		animation-fill-mode: both;
+	}
+	
+	&.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+		animation-delay: 150ms;
+	}
+}
+
+
+@-webkit-keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}

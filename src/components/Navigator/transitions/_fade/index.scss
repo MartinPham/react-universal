@@ -1,0 +1,60 @@
+// Custom transition example: Fade
+// In
+.fadeIn.pageTransition-enter > .Page,
+.fadeOut-back.pageTransition-enter > .Page {
+  // Start New page in
+  opacity: 0;
+  z-index: 2;
+  // clip-path: circle(0% at 10px 10px);
+}
+
+.fadeIn.pageTransition-enter.pageTransition-enter-active > .Page,
+.fadeOut-back.pageTransition-enter.pageTransition-enter-active > .Page {
+  // End New page in
+  opacity: 1;
+  // clip-path: circle(100% at 50% 50%);
+  transition: all 500ms;
+}
+
+.fadeIn.pageTransition-exit > .Page,
+.fadeOut-back.pageTransition-exit > .Page {
+  // Start Old page out
+  z-index: 1;
+  opacity: 1;
+}
+
+.fadeIn.pageTransition-exit.pageTransition-exit-active > .Page,
+.fadeOut-back.pageTransition-exit.pageTransition-exit-active > .Page {
+  // End Old page out
+  opacity: 0;
+  transition: all 500ms;
+}
+
+// Out
+.fadeOut.pageTransition-enter > .Page,
+.fadeIn-back.pageTransition-enter > .Page {
+  // Start New page in
+  z-index: 1;
+  opacity: 0;
+}
+
+.fadeOut.pageTransition-enter.pageTransition-enter-active > .Page,
+.fadeIn-back.pageTransition-enter.pageTransition-enter-active > .Page {
+  // End New page in
+  opacity: 1;
+  transition: all 500ms;
+}
+
+.fadeOut.pageTransition-exit > .Page,
+.fadeIn-back.pageTransition-exit > .Page {
+  // Start Old page out
+  z-index: 2;
+  opacity: 1;
+}
+
+.fadeOut.pageTransition-exit.pageTransition-exit-active > .Page,
+.fadeIn-back.pageTransition-exit.pageTransition-exit-active > .Page {
+  // End Old page out
+  opacity: 0;
+  transition: all 500ms;
+}
