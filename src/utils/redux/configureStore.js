@@ -1,6 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import createRootReducer from './createRootReducer';
+import createReducer from './createReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,7 +22,7 @@ export default function configureStore(initialState = {}, history) {
 
 
 	const store = createStore(
-		createRootReducer(),
+		createReducer(),
 		initialState,
 		composeEnhancers(...enhancers),
 	);
@@ -33,8 +33,8 @@ export default function configureStore(initialState = {}, history) {
 	store.injectedSagas = {}; // Saga registry
 
 	if (module.hot) {
-		module.hot.accept('./createRootReducer', () => {
-			store.replaceReducer(createRootReducer(store.injectedReducers));
+		module.hot.accept('./createReducer', () => {
+			store.replaceReducer(createReducer(store.injectedReducers));
 		});
 	}
 
