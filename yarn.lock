@@ -9979,13 +9979,6 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-spring@^6.1.10:
-  version "6.1.10"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-6.1.10.tgz#ae28796dccfb32baa02d34fb94289c2088f63a1b"
-  integrity sha512-msMoHyXHzb3KdHNY6Yo6wm1t+1GKjy6k2kqaYT3bG6nM//HOL5798OD6Qg719SEDskRDh2vXxIyJ5KEoAUbecA==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-
 react-timer-mixin@^0.13.2:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz#75a00c3c94c13abe29b43d63b4c65a88fc8264d3"
