@@ -1,0 +1,14 @@
+build:
+  image: node:latest
+  stage: build
+  script:
+    - npm install --global yarn
+    - yarn
+    - yarn build:all
+
+# e2e-test:
+#   image: cypress/base
+#   stage: test
+#   script:
+#     - npm install cypress
+#     - $(npm bin)/cypress run
