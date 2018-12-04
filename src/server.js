@@ -9,7 +9,7 @@ import createHistory from 'history/createMemoryHistory';
 
 
 import App from './components/App';
-import log from 'utils/log';
+// import log from 'utils/log';
 import saga from './components/App/saga';
 
 import configureStore from './utils/redux/configureStore';
