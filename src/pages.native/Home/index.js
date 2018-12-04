@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
-import { frontloadConnect } from "react-frontload";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
@@ -23,31 +22,35 @@ import altTextSelector from "./selectors/altTextSelector";
 
 import { Heading } from "./styles";
 
+import { SafeAreaView as View, Text, Button, TextInput } from 'react-native';
 
-
-class Component extends React.Component {
+class Page extends Component {
     render()
     {
         log('render with props', this.props);
 
-        return (<div>
-            <Heading>Hello world!!! ops</Heading>
-            <p>text: {this.props.text}</p>
-            <p>altText: {this.props.altText}</p>
+        return (<View>
+        	<Text></Text>
+        	<Text></Text>
+            <Heading>Hello world!!!</Heading>
 
-            <input type="text" value={this.props.text} onChange={(event) => this.props.changeText(event.target.value)}/>
+            <Text>text: {this.props.text}</Text>
+            <Text>altText: {this.props.altText}</Text>
 
-            <button
-                onClick={() => this.props.changeText("I am from the Button")}
-            >Hey</button>
-        </div>);
+            <TextInput value={this.props.text} onChangeText={(value) => this.props.changeText(value)}/>
+
+            <Button
+                onPress={() => this.props.changeText("I am from the Button")}
+                title="Hey"
+            />
+        </View>);
     }
 }
 
 
 
 
-Component.displayName = ID;
+Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
@@ -87,16 +90,5 @@ export default compose(
     withReducer,
     withSaga,
     withConnect,
-)(
-    frontloadConnect(frontload, {
-        onMount: true,
-        onUpdate: false
-    })(Component)
-);
+)(Page);
 
-
-// export default compose(
-//     withReducer,
-//     withSaga,
-//     withConnect,
-// )(Component);

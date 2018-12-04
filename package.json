@@ -1,24 +1,12 @@
 {
   "name": "react-craco-universal",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "history": "^4.7.2",
-    "immutable": "^4.0.0-rc.12",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-frontload": "^1.0.3",
-    "react-helmet": "^5.2.0",
-    "react-loadable": "^5.5.0",
-    "react-redux": "^5.1.1",
-    "react-router": "^4.3.1",
-    "react-scripts": "2.1.1",
-    "redux": "^4.0.1",
-    "redux-saga": "^0.16.2",
-    "reselect": "^4.0.0",
-    "styled-components": "^4.1.2"
-  },
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "e-start": "expo start",
+    "e-android": "expo start --android",
+    "e-ios": "expo start --ios",
+    "e-eject": "expo eject",
     "rs-start": "react-scripts start",
     "rs-build": "react-scripts build",
     "rs-test": "react-scripts test",
@@ -31,6 +19,37 @@
     "build:all": "touch .building-all && npm run build:server && npm run build && rm .building-all",
     "start:server": "cross-env NODE_PATH=src node scripts/startServer 3000"
   },
+  "dependencies": {
+    "expo": "^31.0.2",
+    "history": "^4.7.2",
+    "immutable": "^4.0.0-rc.12",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-frontload": "^1.0.3",
+    "react-helmet": "^5.2.0",
+    "react-loadable": "^5.5.0",
+    "react-native": "^0.57.7",
+    "react-redux": "^5.1.1",
+    "react-router": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "reselect": "^4.0.0",
+    "styled-components": "^4.1.2"
+  },
+  "devDependencies": {
+    "@craco/craco": "^3.1.1",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-expo": "^5.0.0",
+    "chokidar": "^2.0.4",
+    "clear-module": "^3.0.0",
+    "cookie-parser": "^1.4.3",
+    "cross-env": "^5.2.0",
+    "find-free-port": "^2.0.0",
+    "npm-run": "^5.0.1",
+    "webpack-node-externals": "^1.7.2",
+    "ws": "^6.1.2"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -40,15 +59,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "@craco/craco": "^3.1.1",
-    "chokidar": "^2.0.4",
-    "clear-module": "^3.0.0",
-    "cookie-parser": "^1.4.3",
-    "cross-env": "^5.2.0",
-    "find-free-port": "^2.0.0",
-    "npm-run": "^5.0.1",
-    "webpack-node-externals": "^1.7.2",
-    "ws": "^6.1.2"
-  }
+  "private": true
 }
