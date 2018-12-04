@@ -5,28 +5,44 @@ import { Router } from 'react-router';
 import { Frontload } from 'react-frontload';
 import Loadable from 'react-loadable';
 import createHistory from 'history/createBrowserHistory';
+import sharedHistory from 'utils/sharedHistory';
 
 // import * as serviceWorker from './serviceWorker';
 
 import App from 'components/App';
+import historyChanged from 'components/App/actions/historyChanged';
+import resetHistory from 'components/App/actions/resetHistory';
 import log from 'utils/log';
 
 
 import configureStore from 'utils/redux/configureStore';
 
 
-const history = createHistory();
+const historyWrapper = sharedHistory(createHistory());
 const store = configureStore({});
 const rootElement = document.getElementById('root');
 
+historyWrapper.history.listen(location => {
+	store.dispatch(historyChanged(location));
+});
+
+const historyResetter = () => {
+	store.dispatch(resetHistory({
+		...historyWrapper.history.location,
+		transition: 'slideLeft'
+	}));
+};
+
 const createApp = (AppComponent) => (
-	<Provider store={store}>
-		<Router history={history}>
-			<Frontload noServerRender={true}>
-				<AppComponent/>
-			</Frontload>
-		</Router>
-	</Provider>
+	<div id='app'>
+		<Provider store={store}>
+			<Router history={historyWrapper.history}>
+				<Frontload noServerRender={true}>
+					<AppComponent/>
+				</Frontload>
+			</Router>
+		</Provider>
+	</div>
 );
 
 
@@ -34,10 +50,14 @@ if (rootElement.hasChildNodes() === true) {
 	log.warn('React Hydrate App from SSR');
   	Loadable.preloadReady().then(() => {
     	ReactDOM.hydrate(createApp(App), rootElement);
+
+    	historyResetter();
   	});
 } else {
 	log.warn('React Render App');
   	ReactDOM.render(createApp(App), rootElement);
+
+    historyResetter();
 }
 
 if (module.hot) {

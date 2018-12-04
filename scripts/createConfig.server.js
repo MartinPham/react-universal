@@ -35,7 +35,7 @@ const nodeExternals = require('webpack-node-externals');
 craWebpackConfig.output.path = resolveApp('build');
 craWebpackConfig.target = 'node';
 craWebpackConfig.devtool = false;
-craWebpackConfig.entry = [resolveModule('server.js')];
+craWebpackConfig.entry = [resolveModule('index.server.js')];
 
 craWebpackConfig.output.filename = 'index.js';
 craWebpackConfig.output.chunkFilename = 'js/[name].[chunkhash:8].chunk.js';

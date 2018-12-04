@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -6,10 +7,6 @@ import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
 import log from 'utils/log';
 
-import push from 'components/Navigator/actions/push';
-import go from 'components/Navigator/actions/go';
-import goBack from 'components/Navigator/actions/goBack';
-import goForward from 'components/Navigator/actions/goForward';
 
 import reducer from './reducer';
 import saga from './saga';
@@ -19,27 +16,36 @@ import { createStructuredSelector } from 'reselect';
 
 import { ID } from "./constants";
 
-import render from './render';
 
-class Page extends Component {
-	render() {
-		return render(this, this.props, this.state);
-	}
+import render from './render';
+import selectTransition from './selectors/selectTransition';
+import selectDirection from './selectors/selectDirection';
+
+
+
+class Component extends React.Component {
+    render()
+    {
+        return render(this, this.props, this.state);
+    }
 }
 
-Page.displayName = ID;
+
+
+
+Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-
+	transition: selectTransition(),
+    direction: selectDirection(),
 });
 
 const mapDispatch = dispatch => ({
-    push: (path, data, transition) => dispatch(push(path, data, transition)),
-    go: (index) => dispatch(go(index)),
-    goBack: () => dispatch(goBack()),
-    goForward: () => dispatch(goForward()),
+
 });
+
+
 
 
 const withConnect = connect(
@@ -58,4 +64,4 @@ export default compose(
     withReducer,
     withSaga,
     withConnect,
-)(Page);
+)(Component);

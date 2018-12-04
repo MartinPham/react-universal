@@ -8,6 +8,7 @@ import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
 import log from 'utils/log';
 
+import push from 'components/Navigator/actions/push';
 
 import reducer from './reducer';
 import saga from './saga';
@@ -21,26 +22,16 @@ import changeText from "./actions/changeText";
 import textSelector from "./selectors/textSelector";
 import altTextSelector from "./selectors/altTextSelector";
 
-import { Heading } from "./styles";
+import render from './render';
+import goBack from "../../components/Navigator/actions/goBack";
+import goForward from "../../components/Navigator/actions/goForward";
 
 
 
 class Component extends React.Component {
     render()
     {
-        log('render with props', this.props);
-
-        return (<div>
-            <Heading>Hello world!!! ops</Heading>
-            <p>text: {this.props.text}</p>
-            <p>altText: {this.props.altText}</p>
-
-            <input type="text" value={this.props.text} onChange={(event) => this.props.changeText(event.target.value)}/>
-
-            <button
-                onClick={() => this.props.changeText("I am from the Button")}
-            >Hey</button>
-        </div>);
+        return render(this, this.props, this.state);
     }
 }
 
@@ -59,6 +50,9 @@ const mapDispatch = dispatch => ({
     changeText: (text) => {
         dispatch(changeText(text))
     },
+    push: (path, data, transition) => dispatch(push(path, data, transition)),
+    goBack: () => dispatch(goBack()),
+    goForward: () => dispatch(goForward()),
 });
 
 

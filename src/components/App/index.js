@@ -1,21 +1,11 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router';
+import { Component } from 'react';
 
-import Home from '../../pages/Home';
-import About from '../../pages/About';
+import routes from 'config/routes';
+import render from './render';
 
 class App extends Component {
 	render() {
-		return (
-			<div>
-				<Switch>
-					<Route path="/about" component={About}/>
-
-					
-					<Route path="/" exact={true} component={Home}/>
-				</Switch>
-			</div>
-		);
+		return render(this, this.props, this.state, routes);
 	}
 }
 
