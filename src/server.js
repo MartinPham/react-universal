@@ -67,7 +67,8 @@ export default (html, manifest, liveReloadServer) => (req, res) => {
 						    }
 						});
 					</script>
-					` + '</body>');
+					</body>
+					`);
 			}
 			return data;
 		};
