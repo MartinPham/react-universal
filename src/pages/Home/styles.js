@@ -15,4 +15,13 @@ export const ItemImage = styled.div`
   margin: 50px;
   cursor: pointer;
   outline: none;
+  
+  transition: all 200ms;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 `;
