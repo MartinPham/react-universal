@@ -54,11 +54,11 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 							history.navigator.dispatch(navigateAction);
 						};
 
-	// 					history.goBack = () => {
-	// 						const navigateAction = NavigationActions.back();
-	// 
-	// 						history.navigator.dispatch(navigateAction);
-	// 					};
+						history.goBack = () => {
+							const navigateAction = NavigationActions.back();
+	
+							history.navigator.dispatch(navigateAction);
+						};
 
 
 			        	const historyWrapper = sharedHistory(history);
