@@ -43,10 +43,10 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             </ItemImage>
 
             <Button
-                onPress={() => $props.push('About', {}, 'flyLeft')}
+                onPress={() => $props.push('/about', {}, 'flyLeft')}
                 title="Go about" />
             <Button
-                onPress={() => $props.push('Contact', {}, 'flyLeft')}
+                onPress={() => $props.push('/contact', {}, 'flyLeft')}
                 title="Go contact" />
 
             <Button

@@ -45,10 +45,23 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 						let history = {};
 						history.navigator = nav;
+						history.routes = $routes;
 
 						history.push = (path) => {
+							let routeId = 'Home';
+
+							for(let id in history.routes)
+							{
+								if(history.routes[id].path === path)
+								{
+									routeId = id;
+									break;
+								}
+							};
+
+
 							const navigateAction = NavigationActions.navigate({
-								routeName: path
+								routeName: routeId
 							});
 
 							history.navigator.dispatch(navigateAction);
@@ -58,6 +71,14 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 							const navigateAction = NavigationActions.back();
 	
 							history.navigator.dispatch(navigateAction);
+						};
+
+						history.goForward = () => {
+							
+						};
+
+						history.go = () => {
+							
 						};
 
 
