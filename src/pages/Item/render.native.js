@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Text, TextInput, SafeAreaView as View} from "react-native";
+import {Button, Text, TextInput, View} from "react-native";
 import {ItemBanner} from "./styles";
 import pho from "images/pho.jpg";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Button, Text, TextInput, SafeAreaView as View, ImageBackground} from "react-native";
+import {Image, Button, Text, TextInput, View, ImageBackground} from "react-native";
 import {Heading, ItemImage} from "./styles";
 import pho from "images/pho.jpg";
 import log from "utils/log";
@@ -43,11 +43,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             </ItemImage>
 
             <Button
-                onPress={() => $props.push('About', {}, 'flyLeft')}
-                title="Go about" />
-            <Button
-                onPress={() => $props.push('Contact', {}, 'flyLeft')}
-                title="Go contact" />
+                onPress={() => $props.push('/about', {}, 'flyLeft')}
+                title="Go about (flyLeft)" />
 
             <Button
                 onPress={() => $props.push('/about', {}, 'flyUp')}

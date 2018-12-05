@@ -1,8 +1,4 @@
-import React from 'react';
 
-export default ($this, $props, $state, $routes, ...$extra) => {
-    return $props.children;
-}
 
 /*
 import React from 'react';
@@ -16,7 +12,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
     );
 }
 */
-/*
+
 
 import React from 'react';
 import { Switch, Route } from 'react-router';
@@ -142,4 +138,3 @@ export default ($this, $props, $state, $routes, ...$extra) => {
         />
     );
 }
-*/
