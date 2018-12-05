@@ -5,10 +5,10 @@ export default (originPosition) => {
 
     const window = Dimensions.get('window');
 
-    transform['slideLeft'] = {};
-    transform['slideRight'] = {};
+    transform['flyLeft'] = {};
+    transform['flyRight'] = {};
 
-    transform['slideLeft'].forward = transform['slideRight'].back = {
+    transform['flyLeft'].forward = transform['flyRight'].back = {
         entering: {
             from: {
                 opacity: 0,
@@ -23,27 +23,27 @@ export default (originPosition) => {
         exiting: {
             from: {
                 opacity: 1,
-                left: 0
+                left: 0,
             },
             to: {
                 opacity: 0,
-                left: -window.width
+                left: -window.width * 0.2
             },
             zIndex: 1
         }
     };
 
-    transform['slideLeft'].back = transform['slideRight'].forward = {
+    transform['flyLeft'].back = transform['flyRight'].forward = {
         entering: {
             from: {
                 opacity: 0,
-                left: -window.width
+                left: -window.width * 0.2
             },
             to: {
                 opacity: 1,
-                left: 0
+                left: 0,
             },
-            zIndex: 10
+            zIndex: 1
         },
         exiting: {
             from: {
@@ -54,16 +54,16 @@ export default (originPosition) => {
                 opacity: 0,
                 left: window.width
             },
-            zIndex: 1
+            zIndex: 10
         }
     };
 
 
 
-    transform['slideUp'] = {};
-    transform['slideDown'] = {};
+    transform['flyUp'] = {};
+    transform['flyDown'] = {};
 
-    transform['slideUp'].forward = transform['slideDown'].back = {
+    transform['flyUp'].forward = transform['flyDown'].back = {
         entering: {
             from: {
                 opacity: 0,
@@ -82,35 +82,35 @@ export default (originPosition) => {
             },
             to: {
                 opacity: 0,
-                top: -window.height
+                top: window.height * 0.1
             },
             zIndex: 1
 
         }
     };
 
-    transform['slideUp'].back = transform['slideDown'].forward = {
+    transform['flyUp'].back = transform['flyDown'].forward = {
         entering: {
             from: {
                 opacity: 0,
-                top: -window.height
+                top: window.height * 0.1
             },
             to: {
                 opacity: 1,
                 top: 0
             },
-            zIndex: 10
+            zIndex: 1
         },
         exiting: {
             from: {
-                opacity: 0,
+                opacity: 1,
                 top: 0
             },
             to: {
-                opacity: 1,
+                opacity: 0,
                 top: window.height
             },
-            zIndex: 1
+            zIndex: 10
 
         }
     };

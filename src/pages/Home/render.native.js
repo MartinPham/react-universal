@@ -1,6 +1,9 @@
 import React from 'react';
-import {Button, Text, TextInput, SafeAreaView as View} from "react-native";
-import {Heading} from "./styles";
+import {Image, Button, Text, TextInput, SafeAreaView as View, ImageBackground} from "react-native";
+import {Heading, ItemImage} from "./styles";
+import pho from "images/pho.jpg";
+import log from "utils/log";
+import {getBoundingRect} from "../../utils/dom";
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -17,14 +20,38 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 title="Hey"
             />
 
+            <ItemImage
+                onPress={(event, ref) => {
+                    ref.measureInWindow((x, y, width, height) => {
+                        // console.log(x, y, width, height)
+
+                        let position = {
+                            top: y,
+                            left: x,
+                            width: width,
+                            height: height,
+                        };
+
+                        $props.push('/item', {}, 'revealIn', position);
+                    })
+                }}
+            >
+                <Image source={pho} style={{
+                    width: '100%',
+                    height: '100%',
+                }}/>
+            </ItemImage>
 
             <Button
-                onPress={() => $props.push('/about', {}, 'slideLeft')}
-                title="Go about (slideLeft)" />
+                onPress={() => $props.push('About', {}, 'flyLeft')}
+                title="Go about" />
+            <Button
+                onPress={() => $props.push('Contact', {}, 'flyLeft')}
+                title="Go contact" />
 
             <Button
-                onPress={() => $props.push('/about', {}, 'slideUp')}
-                title="Go about (slideUp)" />
+                onPress={() => $props.push('/about', {}, 'flyUp')}
+                title="Go about (flyUp)" />
 
 
             <Button

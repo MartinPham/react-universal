@@ -1,11 +1,16 @@
 import React from 'react';
 import {Button, Text, TextInput, SafeAreaView as View} from "react-native";
+import {ItemBanner} from "./styles";
+import pho from "images/pho.jpg";
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
         <View>
-            <Text>About</Text>
+            <ItemBanner
+                source={pho}
+            />
+            <Text>Item</Text>
             <Button
                 onPress={() => $props.push('/contact', {}, 'slideLeft')}
                 title="Go Contact (slideLeft)" />
