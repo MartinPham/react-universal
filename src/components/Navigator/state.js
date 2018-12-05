@@ -5,4 +5,5 @@ export default {
 	location: null,
 	direction: 'forward',
 	transition: 'slideLeft',
+    originPosition: {}
 }

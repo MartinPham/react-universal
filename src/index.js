@@ -7,6 +7,7 @@ import Loadable from 'react-loadable';
 import createHistory from 'history/createBrowserHistory';
 import sharedHistory from 'utils/sharedHistory';
 
+
 // import * as serviceWorker from './serviceWorker';
 
 import App from 'components/App';
@@ -17,6 +18,7 @@ import log from 'utils/log';
 
 import configureStore from 'utils/redux/configureStore';
 
+import 'styles.scss';
 
 const historyWrapper = sharedHistory(createHistory());
 const store = configureStore({});

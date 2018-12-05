@@ -1,6 +1,8 @@
 import React from 'react';
-import {Heading} from "./styles";
-
+import { Heading, ItemImage } from "./styles";
+import pho from 'images/pho.jpg';
+import log from "utils/log";
+import {getBoundingRect} from "utils/dom";
 
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
@@ -11,17 +13,31 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
             <input type="text" value={$props.text} onChange={(event) => $props.changeText(event.target.value)}/>
 
+            <br/>
+            <br/>
+
+            <ItemImage
+                image={pho}
+                onClick={(event) => {
+                    const target = event.currentTarget;
+                    let position = getBoundingRect(target);
+                    log(target, position);
+
+                    $props.push('/item', {}, 'revealIn', position);
+                }}
+            />
+
             <button
                 onClick={() => $props.changeText("I am from the Button")}
             >Hey</button>
 
             <button
-                onClick={() => $props.push('/about', {}, 'slideLeft')}
-            >Go about (slideLeft)</button>
+                onClick={() => $props.push('/about', {}, 'flyLeft')}
+            >Go about (flyLeft)</button>
 
             <button
-                onClick={() => $props.push('/about', {}, 'slideUp')}
-            >Go about (slideUp)</button>
+                onClick={() => $props.push('/about', {}, 'flyUp')}
+            >Go about (flyUp)</button>
         </div>
     );
 }

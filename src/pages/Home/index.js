@@ -50,7 +50,7 @@ const mapDispatch = dispatch => ({
     changeText: (text) => {
         dispatch(changeText(text))
     },
-    push: (path, data, transition) => dispatch(push(path, data, transition)),
+    push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
     goBack: () => dispatch(goBack()),
     goForward: () => dispatch(goForward()),
 });
@@ -59,7 +59,6 @@ const mapDispatch = dispatch => ({
 
 const frontload = async props =>
 {
-	log('frontload async...')
     const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1)));
     props.changeText(data);
 };

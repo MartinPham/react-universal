@@ -15,6 +15,7 @@ export default (state, action) => {
 
 	let currentLocation = newState.get('location');
 	let currentTransition = newState.get('transition');
+	let currentOriginPosition = newState.get('originPosition');
 
 
 
@@ -37,6 +38,7 @@ export default (state, action) => {
 
 
         location = location.set('transition', currentTransition);
+        location = location.set('originPosition', currentOriginPosition);
 
 
 		stack = stack.push(location);
@@ -54,6 +56,7 @@ export default (state, action) => {
             let nextOfExistedLocation = stack.get(existedLocationIndex + 1);
 
             newState = newState.set('transition', nextOfExistedLocation.get('transition'));
+            newState = newState.set('originPosition', nextOfExistedLocation.get('originPosition'));
 
 		} else {
             direction = 'forward';
@@ -62,6 +65,7 @@ export default (state, action) => {
             let existedLocation = stack.get(existedLocationIndex);
 
             newState = newState.set('transition', existedLocation.get('transition'));
+            newState = newState.set('originPosition', existedLocation.get('originPosition'));
 
         }
 

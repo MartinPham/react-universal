@@ -5,138 +5,16 @@
 // .pageTransition-appear-active {
 
 // }
+
 .pageTransition {
-	&> div {
+	&> .pageTransitionContent {
 		
-	position: absolute;
-	width: 100%;
-	height: 100vh;
-	}
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		background: #fff;
 
-
-	// Left - Right
-	&.slideLeft-forward, &.slideRight-back {
-		.pageTransition-enter {
-			transition: all 1000ms;
-
-			transform: translateX(100%);
-
-			&.pageTransition-enter-active {
-				transform: translateX(0);
-			}
-		}
-
-
-		.pageTransition-enter-done {
-		}
-
-		.pageTransition-exit {
-			transition: all 1000ms;
-
-			transform: translateX(0);
-
-			&.pageTransition-exit-active {
-				transform: translateX(-100%);
-			}
-		}
-
-
-		.pageTransition-exit-done {
-		}
-	}
-
-
-	&.slideLeft-back, &.slideRight-forward {
-		.pageTransition-enter {
-			transition: all 1000ms;
-
-			transform: translateX(-100%);
-
-			&.pageTransition-enter-active {
-				transform: translateX(0);
-			}
-		}
-
-
-		.pageTransition-enter-done {
-		}
-
-		.pageTransition-exit {
-			transition: all 1000ms;
-
-			transform: translateX(0);
-
-			&.pageTransition-exit-active {
-				transform: translateX(+100%);
-			}
-		}
-
-
-		.pageTransition-exit-done {
-		}
-	}
-
-
-	// Up - Down
-	&.slideUp-forward, &.slideDown-back {
-		.pageTransition-enter {
-			transition: all 1000ms;
-
-			transform: translateY(100%);
-
-			&.pageTransition-enter-active {
-				transform: translateY(0);
-			}
-		}
-
-
-		.pageTransition-enter-done {
-		}
-
-		.pageTransition-exit {
-			transition: all 1000ms;
-
-			transform: translateY(0);
-
-			&.pageTransition-exit-active {
-				transform: translateY(-100%);
-			}
-		}
-
-
-		.pageTransition-exit-done {
-		}
-	}
-
-
-	&.slideUp-back, &.slideDown-forward {
-		.pageTransition-enter {
-			transition: all 1000ms;
-
-			transform: translateY(-100%);
-
-			&.pageTransition-enter-active {
-				transform: translateX(0);
-			}
-		}
-
-
-		.pageTransition-enter-done {
-		}
-
-		.pageTransition-exit {
-			transition: all 1000ms;
-
-			transform: translateY(0);
-
-			&.pageTransition-exit-active {
-				transform: translateY(+100%);
-			}
-		}
-
-
-		.pageTransition-exit-done {
-		}
+		overflow: hidden;
 	}
 }
 
