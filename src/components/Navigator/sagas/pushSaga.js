@@ -1,5 +1,5 @@
 import sharedHistory from 'utils/sharedHistory';
-import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from 'utils/platform';
+// import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from 'utils/platform';
 
 export default function*({path}) {
 	const history = sharedHistory().history;
