@@ -32,11 +32,11 @@ let originPosition = {};
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
     BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
-}
+};
 
 export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
     BackHandler.removeEventListener('hardwareBackPress', $this.handleBackPress);
-}
+};
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -59,7 +59,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
                                 console.log(location.pathname, transition, direction, originPosition, state);
 
-                                const component = (<Switch location={location}>{$props.children}</Switch>);
+                                const component = (<Switch location={location}>{$this.routeList}</Switch>);
+                                // const component = (<Switch location={location}>{$props.children}</Switch>);
 
                                 if(state === 'entered' || state === 'exited')
                                 {

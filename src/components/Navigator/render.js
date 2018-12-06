@@ -23,8 +23,8 @@ export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) 
 export default ($this, $props, $state, ...$extra) => {
 
 
-    // const location = $props.location.toJS();
-    const location = sharedHistory().history.location;
+    const location = $props.location.toJS();
+    // const location = sharedHistory().history.location;
 
     let styleInjection = null;
 

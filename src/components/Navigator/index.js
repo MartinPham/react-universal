@@ -46,21 +46,21 @@ class Component extends React.Component {
         this.props.token
     );
 
-    shouldComponentUpdate(nextProps, nextState)
-    {
-        if(
-            !Immutable.is(this.props.user,  nextProps.user)
-            || this.props.token != nextProps.token
-            || this.props.transition != nextProps.transition
-            || this.props.direction != nextProps.direction
-            || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
-            // || !Immutable.is(this.props.location,  nextProps.location)
-        ) {
-            console.log('nav should update');
-            return true;
-        }
-        return false;
-    }
+    // shouldComponentUpdate(nextProps, nextState)
+    // {
+    //     if(
+    //         !Immutable.is(this.props.user,  nextProps.user)
+    //         || this.props.token != nextProps.token
+    //         || this.props.transition != nextProps.transition
+    //         || this.props.direction != nextProps.direction
+    //         || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
+    //         || !Immutable.is(this.props.location,  nextProps.location)
+    //     ) {
+    //         console.log('nav should update');
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     componentDidMount() {
         componentDidMount(this, this.props, this.state);
@@ -93,7 +93,7 @@ const mapState = createStructuredSelector({
 	transition: selectTransition(),
     direction: selectDirection(),
     originPosition: selectOriginPosition(),
-    // location: selectLocation(),
+    location: selectLocation(),
     user: selectUser(),
     token: selectToken()
 });
