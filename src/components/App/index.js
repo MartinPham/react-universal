@@ -23,7 +23,7 @@ class App extends React.Component {
 
 
                         const pathPrefix = (process.env.PUBLIC_URL || '');
-                        
+
 
                         return (
                             <Route
