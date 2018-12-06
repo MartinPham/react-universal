@@ -26,10 +26,26 @@ import selectUser from "../AuthProvider/selectors/selectUser";
 import selectToken from "../AuthProvider/selectors/selectToken";
 import selectLocation from "./selectors/selectLocation";
 import Immutable from "immutable";
+import createRouteComponents from "./utils/createRouteComponents";
+import RouteList from "./RouteList";
 
 
 
 class Component extends React.Component {
+    // routeList = (
+    //     <RouteList
+    //         routes={this.props.routes}
+    //         user={this.props.user}
+    //         token={this.props.token}
+    //     />
+    // );
+
+    routeList = createRouteComponents(
+        this.props.routes,
+        this.props.user,
+        this.props.token
+    );
+
     shouldComponentUpdate(nextProps, nextState)
     {
         if(
@@ -38,9 +54,9 @@ class Component extends React.Component {
             || this.props.transition != nextProps.transition
             || this.props.direction != nextProps.direction
             || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
-            || !Immutable.is(this.props.location,  nextProps.location)
+            // || !Immutable.is(this.props.location,  nextProps.location)
         ) {
-            console.log('nav should update')
+            console.log('nav should update');
             return true;
         }
         return false;
@@ -77,7 +93,7 @@ const mapState = createStructuredSelector({
 	transition: selectTransition(),
     direction: selectDirection(),
     originPosition: selectOriginPosition(),
-    location: selectLocation(),
+    // location: selectLocation(),
     user: selectUser(),
     token: selectToken()
 });

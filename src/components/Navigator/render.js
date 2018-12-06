@@ -9,6 +9,7 @@ import './transitions/fly/styles.scss';
 import './transitions/reveal/styles.scss';
 
 import log from "utils/log";
+import sharedHistory from "../../utils/sharedHistory";
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
     
@@ -20,35 +21,10 @@ export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) 
 
 
 export default ($this, $props, $state, ...$extra) => {
-    const routeComponents =
-	Object.keys($props.routes).map((routeId) => {
-        const route = $props.routes[routeId];
 
-        // console.log(`${process.env.PUBLIC_URL}${route.path}`);
 
-        let finalPath = (process.env.PUBLIC_URL || '') + route.path;
-        // console.log(finalPath);
-
-        let Component = route.source;
-
-        return (
-            <Route
-                key={routeId}
-                path={finalPath}
-                render={() => {
-                    if(typeof route.firewall !== 'undefined')
-                    {
-                        Component = route.firewall(Component, $props.user, $props.token);
-                    }
-
-                    return (<Component/>);
-                }}
-                exact={typeof route.exact === 'undefined' ? false : route.exact}
-            />
-        );
-    });
-
-    const location = $props.location.toJS();
+    // const location = $props.location.toJS();
+    const location = sharedHistory().history.location;
 
     let styleInjection = null;
 
@@ -106,7 +82,7 @@ export default ($this, $props, $state, ...$extra) => {
                     unmountOnExit={false}
                 >
                     <div className="pageTransitionContent">
-                        <Switch location={location}>{routeComponents}</Switch>
+                        <Switch location={location}>{$this.routeList}</Switch>
                     </div>
                 </CSSTransition>
             </TransitionGroup>
