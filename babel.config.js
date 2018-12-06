@@ -1,3 +1,5 @@
+// THIS FILE IS FOR REACT-NATIVE
+
 module.exports = function(api) {
 	api.cache(false);
 

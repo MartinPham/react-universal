@@ -9,7 +9,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <ItemBanner
                 image={pho}
             />
-            Item
+            Item ups zz
             <button
                 onClick={() => $props.push('/contact', {}, 'slideLeft')}
             >Go Contact (slideLeft)</button>

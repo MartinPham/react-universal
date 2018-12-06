@@ -1,10 +1,17 @@
 import { combineReducers } from "redux";
 
-import reducer from "components/App/reducer";
+import appReducer from "components/App/reducer";
+import authProviderReducer from "components/AuthProvider/reducer";
+import navigatorReducer from "components/Navigator/reducer";
 
+import {ID as AppID} from "components/App/constants";
+import {ID as AuthProviderID} from "components/AuthProvider/constants";
+import {ID as NavigatorID} from "components/Navigator/constants";
 
 export default (injectedReducers) =>
     combineReducers({
-        App: reducer,
+        [AppID]: appReducer,
+        [AuthProviderID]: authProviderReducer,
+        [NavigatorID]: navigatorReducer,
         ...injectedReducers
     });

@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 
 // import reducer from './reducer';
 // import saga from './saga';
-import goBack from './actions/goBack';
 
 import { createStructuredSelector } from 'reselect';
 
@@ -18,34 +17,32 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 
-import render, {componentDidMount, componentWillUnmount} from './render';
-import selectTransition from './selectors/selectTransition';
-import selectDirection from './selectors/selectDirection';
-import selectOriginPosition from "./selectors/selectOriginPosition";
-import selectUser from "../AuthProvider/selectors/selectUser";
-import selectToken from "../AuthProvider/selectors/selectToken";
-import selectLocation from "./selectors/selectLocation";
+import render from './render';
+import selectUser from "./selectors/selectUser";
+import selectToken from "./selectors/selectToken";
+import updateUser from "./actions/updateUser";
+import logout from "./actions/logout";
+import Immutable from "immutable";
+
 
 
 
 class Component extends React.Component {
-    componentDidMount() {
-        componentDidMount(this, this.props, this.state);
-    }
 
-    componentWillUnmount() {
-        componentWillUnmount(this, this.props, this.state);
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        if(
+            !Immutable.is(this.props.user,  nextProps.user)
+            || this.props.token != nextProps.token
+        ) {
+            return true;
+        }
+        return false;
     }
-
-    handleBackPress = () => {
-        console.log('back!');
-        this.props.goBack();
-        return true;
-    };
 
     render()
     {
-        console.log('nav render');
+        console.log('auth render');
         return render(this, this.props, this.state);
     }
 }
@@ -57,16 +54,13 @@ Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	transition: selectTransition(),
-    direction: selectDirection(),
-    originPosition: selectOriginPosition(),
-    location: selectLocation(),
     user: selectUser(),
     token: selectToken()
 });
 
 const mapDispatch = dispatch => ({
-    goBack: () => dispatch(goBack())
+    updateUser: () => dispatch(updateUser()),
+    logout: () => dispatch(logout())
 });
 
 
@@ -76,7 +70,6 @@ const withConnect = connect(
     mapState,
     mapDispatch
 );
-
 
 export default withConnect(Component);
 
