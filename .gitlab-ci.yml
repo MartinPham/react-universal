@@ -27,6 +27,7 @@ pages:
   - yarn build:all
   - rm -rf public
   - mv build public
+  - ls -la public
   artifacts:
     paths:
     - public # mandatory, other folder won't work
