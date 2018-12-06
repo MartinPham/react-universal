@@ -13,7 +13,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                         // console.log(`${process.env.PUBLIC_URL}${route.path}`);
 
                         let finalPath = (process.env.PUBLIC_URL || '') + route.path;
-
+                        console.log(finalPath);
+                        
                         return (
                             <Route
                                 key={routeId}

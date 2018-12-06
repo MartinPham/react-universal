@@ -16,7 +16,7 @@ import saga from './components/App/saga';
 import configureStore from './utils/redux/configureStore';
 
 
-export default (html, manifest, liveReloadServer) => (req, res) => {
+export default (basename, html, manifest, liveReloadServer) => (req, res) => {
 
 	const historyWrapper = sharedHistory(createHistory());
 	const store = configureStore({}, historyWrapper.history);
@@ -31,7 +31,7 @@ export default (html, manifest, liveReloadServer) => (req, res) => {
             <div id='app'>
 				<Loadable.Capture report={m => modules.push(m)}>
 					<Provider store={store}>
-						<Router location={req.url} context={context} history={historyWrapper.history}>
+						<Router basename={basename} location={req.url} context={context} history={historyWrapper.history}>
 							<Frontload isServer={true}>
 								<App/>
 							</Frontload>
