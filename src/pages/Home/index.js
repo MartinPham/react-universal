@@ -28,11 +28,7 @@ import goForward from "../../components/Navigator/actions/goForward";
 
 
 
-class Component extends React.Component {
-    shouldComponentUpdate()
-    {
-        return false;
-    }
+class Page extends React.Component {
     render()
     {
 
@@ -44,7 +40,7 @@ class Component extends React.Component {
 
 
 
-Component.displayName = ID;
+Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
@@ -90,8 +86,8 @@ export default compose(
     // frontloadConnect(frontload, {
     //     onMount: true,
     //     onUpdate: false
-    // })(Component)
-    Component
+    // })(Page)
+    Page
 );
 
 
@@ -99,4 +95,4 @@ export default compose(
 //     withReducer,
 //     withSaga,
 //     withConnect,
-// )(Component);
+// )(Page);
