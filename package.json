@@ -19,10 +19,13 @@
     "build:server": "touch .building && rm -rf build && rm -rf build-server && cross-env NODE_PATH=src node scripts/buildServer && mv build build-server && rm .building",
     "build:client": "touch .building && rm -rf build && cross-env NODE_PATH=src node scripts/buildClient && rm .building",
     "build:all": "touch .building-all && npm run build:server && npm run build && rm .building-all",
-    "start:server": "cross-env NODE_PATH=src node scripts/startServer 3000"
+    "start:server": "cross-env NODE_PATH=src node scripts/startServer 3000",
+    "predeploy": "npm run build:all",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "expo": "^31.0.2",
+    "gh-pages": "^2.0.1",
     "history": "^4.7.2",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.6.3",
