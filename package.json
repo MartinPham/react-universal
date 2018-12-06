@@ -1,6 +1,7 @@
 {
-  "name": "react-craco-universal",
+  "name": "react-universal",
   "version": "0.1.0",
+  "homepage": "https://martinpham.gitlab.io/react-universal",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "e-start": "expo start",
