@@ -15,7 +15,7 @@ import AuthProvider from "../AuthProvider";
 // import './transitions/reveal/styles.scss';
 
 
-import transitionsModules from './transitions';
+import transitionModules from 'transitions';
 
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
@@ -39,9 +39,9 @@ export default ($this, $props, $state, ...$extra) => {
                 let transitionModuleName = '';
 
 
-                for(let moduleId in transitionsModules)
+                for(let moduleId in transitionModules)
                 {
-                    const module = transitionsModules[moduleId];
+                    const module = transitionModules[moduleId];
 
                     if((new RegExp(module.test)).test(transition))
                     {

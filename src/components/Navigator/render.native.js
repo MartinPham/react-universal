@@ -16,12 +16,11 @@ import React from 'react';
 import {BackHandler} from 'react-native';
 import { Switch, Route } from 'react-router';
 import { Transition, TransitionGroup } from 'react-transition-group';
-import TransitionView from './transitions.native/TransitionView';
+import TransitionView from 'transitions.native/TransitionView';
 
-import createSlideTransform from './transitions.native/slide';
-import createRevealTransform from './transitions.native/reveal';
-import createFlyTransform from './transitions.native/fly';
-import AuthProvider from "../AuthProvider";
+import AuthProvider from 'components/AuthProvider';
+
+import transitionModules from 'transitions.native';
 
 
 
@@ -94,37 +93,21 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                                     elevation: 1
                                 };
 
-                                if(
-                                    transition === 'slideLeft'
-                                    || transition === 'slideRight'
-                                    || transition === 'slideUp'
-                                    || transition === 'slideDown'
-                                ) {
-                                    transform = {
-                                        ...transform,
-                                        ...createSlideTransform(originPosition)
-                                    };
-                                }
-                                else if(
-                                    transition === 'flyLeft'
-                                    || transition === 'flyRight'
-                                    || transition === 'flyUp'
-                                    || transition === 'flyDown'
-                                ) {
-                                    transform = {
-                                        ...transform,
-                                        ...createFlyTransform(originPosition)
-                                    };
-                                }
-                                else if(
-                                    transition === 'revealIn'
-                                    || transition === 'revealOut'
-                                ) {
+                                for(let moduleId in transitionModules)
+                                {
+                                    const module = transitionModules[moduleId];
 
-                                    transform = {
-                                        ...transform,
-                                        ...createRevealTransform(originPosition)
-                                    };
+
+                                    if((new RegExp(module.test)).test(transition))
+                                    {
+                                        
+                                        transform = {
+                                            ...transform,
+                                            ...module.transformer.default(originPosition)
+                                        };
+
+                                        break;
+                                    }
                                 }
 
 
