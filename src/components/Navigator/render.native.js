@@ -1,5 +1,3 @@
-
-
 /*
 import React from 'react';
 import { Switch } from 'react-router';
@@ -23,6 +21,7 @@ import TransitionView from './transitions.native/TransitionView';
 import createSlideTransform from './transitions.native/slide';
 import createRevealTransform from './transitions.native/reveal';
 import createFlyTransform from './transitions.native/fly';
+import AuthProvider from "../AuthProvider";
 
 
 
@@ -32,11 +31,11 @@ let originPosition = {};
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
     BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
-};
+}
 
 export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
     BackHandler.removeEventListener('hardwareBackPress', $this.handleBackPress);
-};
+}
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -59,8 +58,13 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
                                 console.log(location.pathname, transition, direction, originPosition, state);
 
-                                const component = (<Switch location={location}>{$this.routeList}</Switch>);
-                                // const component = (<Switch location={location}>{$props.children}</Switch>);
+                                const component = (
+                                    <AuthProvider>
+                                        <Switch location={location}>
+                                            {$props.children}
+                                        </Switch>
+                                    </AuthProvider>
+                                );
 
                                 if(state === 'entered' || state === 'exited')
                                 {

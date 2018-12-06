@@ -33,7 +33,7 @@ export const Heading = styled.Text`
 `;
 
 export const ItemImage = styled(ManagedTouchableOpacity)`
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   margin: 20px;
 `;

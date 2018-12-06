@@ -50,8 +50,11 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 title="Go about (flyLeft)" />
 
             <Button
-                onPress={() => $props.push('/about', {}, 'flyUp')}
-                title="Go about (flyUp)" />
+                onPress={() => $props.push('/dashboard', {}, 'flyUp')}
+                title="Go dashboard (flyUp)" />
+            <Button
+                onPress={() => $props.push('/login', {}, 'flyUp')}
+                title="Go login (flyUp)" />
 
 
             <Button

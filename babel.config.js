@@ -13,7 +13,9 @@ module.exports = function(api) {
                     "alias": {
 						"^pages/(.+)/async$": "./src/pages/\\1", // ignore async component
 						"^styles$": "styles.native", // different style
-						"^render$": "render.native" // different render
+						"^render$": "render.native", // different render
+						"^utils/storage$": "./src/utils/storage.native", // different storage
+						"^utils/reactotron$": "./src/utils/reactotron.native" // different storage
                     }
                 }
             ],

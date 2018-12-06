@@ -1,10 +1,4 @@
 export default {
-    browse() {
-        return Object.keys(localStorage).reduce((obj, str) => {
-            obj[str] = this.read(str);
-            return obj;
-        }, {});
-    },
 
     read(itemKey) {
         const item = localStorage.getItem(itemKey);
@@ -21,9 +15,5 @@ export default {
 
     delete(itemKey) {
         localStorage.removeItem(itemKey);
-    },
-
-    deleteAll() {
-        localStorage.clear();
-    },
+    }
 };

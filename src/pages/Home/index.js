@@ -29,9 +29,14 @@ import goForward from "../../components/Navigator/actions/goForward";
 
 
 class Component extends React.Component {
+    shouldComponentUpdate()
+    {
+        return false;
+    }
     render()
     {
-        console.log('home render');
+
+        console.log('HOME RENDER: Home')
         return render(this, this.props, this.state);
     }
 }
@@ -60,8 +65,8 @@ const mapDispatch = dispatch => ({
 
 const frontload = async props =>
 {
-    const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-    props.changeText(data);
+    // const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
+    // props.changeText(data);
 };
 
 
@@ -82,10 +87,11 @@ export default compose(
     withSaga,
     withConnect,
 )(
-    frontloadConnect(frontload, {
-        onMount: true,
-        onUpdate: false
-    })(Component)
+    // frontloadConnect(frontload, {
+    //     onMount: true,
+    //     onUpdate: false
+    // })(Component)
+    Component
 );
 
 

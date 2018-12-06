@@ -22,6 +22,7 @@ import goForward from "../../components/Navigator/actions/goForward";
 
 class Page extends React.Component {
     render() {
+        console.log('PAGE RENDER: Contact')
         return render(this, this.props, this.state);
     }
 }

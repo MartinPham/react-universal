@@ -9,6 +9,9 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                     name: 'Martin'
                 }, 'nekot')}
             >Login</button>
+            <button
+                onClick={() => $props.push('/', {}, 'flyDown')}
+            >Go Home</button>
 
         </div>
     );

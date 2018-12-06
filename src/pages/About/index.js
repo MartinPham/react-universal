@@ -23,7 +23,7 @@ import render from './render';
 
 class Page extends React.Component {
 	render() {
-	    console.log('about render')
+	    console.log('PAGE RENDER: About');
 		return render(this, this.props, this.state);
 	}
 }

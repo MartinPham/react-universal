@@ -24,6 +24,7 @@ import render from './render';
 
 class Page extends React.Component {
 	render() {
+        console.log('PAGE RENDER: Item');
 		return render(this, this.props, this.state);
 	}
 }

@@ -17,6 +17,8 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 import render from './render';
+import logout from "../../components/AuthProvider/actions/logout";
+import selectUser from "../../components/AuthProvider/selectors/selectUser";
 
 
 class Page extends React.Component {
@@ -30,11 +32,12 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-
+	user: selectUser()
 });
 
 const mapDispatch = dispatch => ({
     updateUser: (user, token) => dispatch(updateUser(user, token)),
+    logout: () => dispatch(logout()),
 });
 
 

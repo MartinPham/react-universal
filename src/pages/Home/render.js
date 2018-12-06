@@ -45,6 +45,11 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <br/>
 
             <button
+                onClick={() => $props.push('/login', {}, 'flyUp')}
+            >Go login (flyUp)</button>
+            <br/>
+
+            <button
                 onClick={() => $props.goBack()}
              >Go Back</button>
             <br/>

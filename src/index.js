@@ -6,12 +6,11 @@ import { Frontload } from 'react-frontload';
 import Loadable from 'react-loadable';
 import createHistory from 'history/createBrowserHistory';
 import sharedHistory from 'utils/sharedHistory';
-
+// import 'utils/reactotron';
 
 // import * as serviceWorker from './serviceWorker';
 
 import App from 'components/App';
-import AuthProvider from 'components/AuthProvider';
 import historyChanged from 'components/App/actions/historyChanged';
 import resetHistory from 'components/App/actions/resetHistory';
 import log from 'utils/log';
@@ -50,13 +49,13 @@ const authPreload = () => {
 const createApp = (AppComponent) => (
 	<div id='app'>
 		<Provider store={store}>
-            <AuthProvider>
 				<Router history={historyWrapper.history}>
-					<Frontload noServerRender={true}>
-						<AppComponent/>
-					</Frontload>
+						<Frontload noServerRender={true}>
+
+								<AppComponent/>
+
+						</Frontload>
 				</Router>
-            </AuthProvider>
 		</Provider>
 	</div>
 );
@@ -90,6 +89,8 @@ if (module.hot) {
 		ReactDOM.render(createApp(App), rootElement);
 	});
 }
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -42,7 +42,7 @@ class Component extends React.Component {
 
     render()
     {
-        console.log('auth render');
+        console.log('------------ Render Auth');
         return render(this, this.props, this.state);
     }
 }
