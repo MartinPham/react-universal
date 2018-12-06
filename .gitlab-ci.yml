@@ -1,10 +1,10 @@
-build:
-  image: node:latest
-  stage: build
-  script:
-    - npm install --global yarn
-    - yarn
-    - yarn build:all
+#build:
+#  image: node:latest
+#  stage: build
+#  script:
+#    - npm install --global yarn
+#    - yarn
+#    - yarn build:all
 
 # e2e-test:
 #   image: cypress/base
@@ -12,3 +12,22 @@ build:
 #   script:
 #     - npm install cypress
 #     - $(npm bin)/cypress run
+
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+ 
+  stage: deploy
+  script:
+  - npm install --global yarn
+  - yarn
+  - yarn build:all
+  - rm -rf public
+  - mv build public
+  artifacts:
+    paths:
+    - public # mandatory, other folder won't work
+  only:
+  - master # or dev, the branch you want to publish
