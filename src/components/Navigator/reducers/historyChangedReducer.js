@@ -1,5 +1,5 @@
 import {fromJS} from "immutable";
-import log from 'utils/log';
+// import log from 'utils/log';
 
 export default (state, action) => {
 	let newState = state;

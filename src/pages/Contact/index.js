@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
-import log from 'utils/log';
+// import log from 'utils/log';
 
 import push from 'components/Navigator/actions/push';
 
@@ -20,7 +20,7 @@ import render from './render';
 import goBack from "../../components/Navigator/actions/goBack";
 import goForward from "../../components/Navigator/actions/goForward";
 
-class Page extends Component {
+class Page extends React.Component {
     render() {
         return render(this, this.props, this.state);
     }

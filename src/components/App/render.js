@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
+import { Route } from 'react-router';
 import Navigator from 'components/Navigator';
 
 

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
-import log from 'utils/log';
+// import log from 'utils/log';
 
 
 import reducer from './reducer';
