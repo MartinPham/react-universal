@@ -13,6 +13,7 @@
 #     - npm install cypress
 #     - $(npm bin)/cypress run
 
+image: node:latest
 
 pages:
   cache:
