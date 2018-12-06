@@ -64,6 +64,8 @@ const createApp = (AppComponent) => (
 authPreload();
 historyResetter();
 
+console.log('env', process.env);
+
 
 if (rootElement.hasChildNodes() === true) {
 	log.warn('React Hydrate App from SSR');

@@ -7,6 +7,8 @@ import Dashboard from 'pages/Dashboard/async';
 import Contact from 'pages/Contact/async';
 import checkAuthenticatedUser from "../firewalls/checkAuthenticatedUser";
 
+
+
 export default {
     About: {
         path: "/about",

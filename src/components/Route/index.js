@@ -21,6 +21,8 @@ class Component extends React.Component {
 
         let component = parameters.source;
 
+        // let finalPath = (process.env.PUBLIC_URL || '') + path;
+
         if (
             firewall !== null &&
             typeof firewall !== 'undefined'
@@ -28,6 +30,8 @@ class Component extends React.Component {
             console.log('=> Route render: firewall ' + id);
             component = firewall(component, this.props);
         }
+
+        // console.log(finalPath);
 
         return (
             <Route

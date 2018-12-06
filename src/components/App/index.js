@@ -21,24 +21,18 @@ class App extends React.Component {
                     Object.keys(routes).map((routeId) => {
                         const route = routes[routeId];
 
-                        // console.log(`${process.env.PUBLIC_URL}${route.path}`);
 
-                        // let finalPath = (process.env.PUBLIC_URL || '') + route.path;
-                        // console.log(finalPath);
-                        //
-                        // let component = route.source;
-
-                        // if(typeof route.firewall !== 'undefined')
-                        // {
-                        //     component = route.firewall(component, user, token);
-                        // }
-
+                        const pathPrefix = (process.env.PUBLIC_URL || '');
+                        
 
                         return (
                             <Route
                                 key={routeId}
                                 id={routeId}
-                                {...route}
+                                {...{
+                                    ...route,
+                                    path: pathPrefix + route.path
+                                }}
                             />
                         );
                     })
