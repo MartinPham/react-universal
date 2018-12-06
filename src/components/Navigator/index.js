@@ -25,10 +25,27 @@ import selectOriginPosition from "./selectors/selectOriginPosition";
 import selectUser from "../AuthProvider/selectors/selectUser";
 import selectToken from "../AuthProvider/selectors/selectToken";
 import selectLocation from "./selectors/selectLocation";
+import Immutable from "immutable";
 
 
 
 class Component extends React.Component {
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        if(
+            !Immutable.is(this.props.user,  nextProps.user)
+            || this.props.token != nextProps.token
+            || this.props.transition != nextProps.transition
+            || this.props.direction != nextProps.direction
+            || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
+            || !Immutable.is(this.props.location,  nextProps.location)
+        ) {
+            console.log('nav should update')
+            return true;
+        }
+        return false;
+    }
+
     componentDidMount() {
         componentDidMount(this, this.props, this.state);
     }

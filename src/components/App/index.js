@@ -1,11 +1,11 @@
-import { Component } from 'react';
+import React from 'react';
 
 import routes from 'config/routes';
-import render from './render';
+import Navigator from "../Navigator";
 
-class App extends Component {
+class App extends React.Component {
 	render() {
-		return render(this, this.props, this.state, routes);
+		return (<Navigator routes={routes} />);
 	}
 }
 

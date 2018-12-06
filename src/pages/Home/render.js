@@ -28,7 +28,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 onClick={(event) => {
                     const target = event.currentTarget;
                     let position = getBoundingRect(target);
-                    log(target, position);
+                    // log(target, position);
 
                     $props.push('/item', {}, 'revealIn', position);
                 }}
