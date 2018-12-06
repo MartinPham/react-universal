@@ -33,7 +33,7 @@ class Component extends React.Component {
     {
         if(
             !Immutable.is(this.props.user,  nextProps.user)
-            || this.props.token != nextProps.token
+            || this.props.token !== nextProps.token
         ) {
             return true;
         }

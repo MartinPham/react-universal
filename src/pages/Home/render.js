@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, ItemImage } from "./styles";
 import pho from 'images/pho.jpg';
-import log from "utils/log";
+// import log from "utils/log";
 import {getBoundingRect} from "utils/dom";
 
 export default ($this, $props, $state, $routes, ...$extra) => {

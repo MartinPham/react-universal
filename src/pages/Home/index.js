@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import { frontloadConnect } from "react-frontload";
+// import { frontloadConnect } from "react-frontload";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
@@ -63,11 +63,11 @@ const mapDispatch = dispatch => ({
 
 
 
-const frontload = async props =>
-{
+// const frontload = async props =>
+// {
     // const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
     // props.changeText(data);
-};
+// };
 
 
 const withConnect = connect(

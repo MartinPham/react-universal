@@ -10,7 +10,7 @@ import './transitions/reveal/styles.scss';
 
 import log from "utils/log";
 import AuthProvider from "../AuthProvider";
-import Navigator from "./index";
+// import Navigator from "./index";
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
 
