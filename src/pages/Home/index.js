@@ -31,7 +31,7 @@ import goForward from "../../components/Navigator/actions/goForward";
 class Component extends React.Component {
     render()
     {
-        console.log('home render')
+        console.log('render')
         return render(this, this.props, this.state);
     }
 }

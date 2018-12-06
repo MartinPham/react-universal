@@ -28,12 +28,14 @@ const historyResetter = () => {
     }));
 };
 
+historyResetter();
+
 
 export default class AppComponent extends Component {
 	componentDidMount()
 	{
 
-        historyResetter();
+        // historyResetter();
 	}
 
 	render() {

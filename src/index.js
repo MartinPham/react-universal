@@ -11,14 +11,17 @@ import sharedHistory from 'utils/sharedHistory';
 // import * as serviceWorker from './serviceWorker';
 
 import App from 'components/App';
+import AuthProvider from 'components/AuthProvider';
 import historyChanged from 'components/App/actions/historyChanged';
 import resetHistory from 'components/App/actions/resetHistory';
 import log from 'utils/log';
+import storage from 'utils/storage';
 
 
 import configureStore from 'utils/redux/configureStore';
 
 import 'styles.scss';
+import updateUser from "components/AuthProvider/actions/updateUser";
 
 const historyWrapper = sharedHistory(createHistory());
 const store = configureStore({});
@@ -35,31 +38,46 @@ const historyResetter = () => {
 	}));
 };
 
+const authPreload = () => {
+    const localUser = storage.read('user');
+    const localToken = storage.read('token');
+
+
+    store.dispatch(updateUser(localUser, localToken));
+};
+
+
 const createApp = (AppComponent) => (
 	<div id='app'>
 		<Provider store={store}>
-			<Router history={historyWrapper.history}>
-				<Frontload noServerRender={true}>
-					<AppComponent/>
-				</Frontload>
-			</Router>
+            <AuthProvider>
+				<Router history={historyWrapper.history}>
+					<Frontload noServerRender={true}>
+						<AppComponent/>
+					</Frontload>
+				</Router>
+            </AuthProvider>
 		</Provider>
 	</div>
 );
+
+
+authPreload();
+historyResetter();
 
 
 if (rootElement.hasChildNodes() === true) {
 	log.warn('React Hydrate App from SSR');
   	Loadable.preloadReady().then(() => {
     	ReactDOM.hydrate(createApp(App), rootElement);
-
-    	historyResetter();
+    	// historyResetter();
+        // authPreload();
   	});
 } else {
 	log.warn('React Render App');
   	ReactDOM.render(createApp(App), rootElement);
-
-    historyResetter();
+    // historyResetter();
+    // authPreload();
 }
 
 if (module.hot) {

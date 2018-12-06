@@ -11,13 +11,11 @@ export default ($this, $props, $state, $routes, ...$extra) => {
     const user = '';
     const token = '';
 
-    /*
     return (
         <Navigator routes={routes} />
     );
-    */
 
-
+    /*
     return (
         <Navigator>
                 {
@@ -49,5 +47,5 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 }
         </Navigator>
     );
-
+    */
 }

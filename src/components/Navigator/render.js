@@ -20,8 +20,8 @@ export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) 
 
 
 export default ($this, $props, $state, ...$extra) => {
+    // const routeComponents = $props.children;
 
-	/*
     const routeComponents =
 	Object.keys($props.routes).map((routeId) => {
         const route = $props.routes[routeId];
@@ -80,12 +80,12 @@ export default ($this, $props, $state, ...$extra) => {
 
     try {
 
-
-        //import('./transitions/' + transitionModuleName)
-        //    .then(module => {
-        //        module.default()
-        //    });
-
+        /*
+        import('./transitions/' + transitionModuleName)
+            .then(module => {
+                module.default()
+            });
+        */
         const transitionModule = require('./transitions/' + transitionModuleName).default;
 
         styleInjection = (<style jsx="">{transitionModule(originPosition)}</style>);
@@ -113,10 +113,8 @@ export default ($this, $props, $state, ...$extra) => {
             </TransitionGroup>
 		</>
     );
-	*/
 
-	const routeComponents = $props.children;
-
+	/*
     return (
 			<Route
 				render={({ location }) => {
@@ -185,5 +183,5 @@ export default ($this, $props, $state, ...$extra) => {
 				}}
 			/>
     );
-
+    */
 }

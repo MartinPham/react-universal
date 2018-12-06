@@ -17,6 +17,9 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <button
                 onClick={() => $props.changeText("I am from the Button")}
             >Hey</button>
+            <button
+                onClick={() => $props.changeText("1")}
+            >Hey 1</button>
             <br/>
             <br/>
 
@@ -37,8 +40,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <br/>
 
             <button
-                onClick={() => $props.push('/about', {}, 'flyUp')}
-            >Go about (flyUp)</button>
+                onClick={() => $props.push('/dashboard', {}, 'flyUp')}
+            >Go dashboard (flyUp)</button>
             <br/>
 
             <button

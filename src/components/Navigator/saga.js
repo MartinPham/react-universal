@@ -6,6 +6,7 @@ import goBackSaga from "./sagas/goBackSaga";
 import goForwardSaga from "./sagas/goForwardSaga";
 
 export default function*() {
+	console.log('run nav saga')
 	yield all([
 		takeLatest(PUSH, pushSaga),
 		takeLatest(GO, goSaga),

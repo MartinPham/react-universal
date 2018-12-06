@@ -1,6 +1,7 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './createReducer';
+import createSaga from './createSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -31,6 +32,8 @@ export default function configureStore(initialState = {}, history) {
 	store.runSaga = sagaMiddleware.run;
 	store.injectedReducers = {}; // Reducer registry
 	store.injectedSagas = {}; // Saga registry
+
+	store.runSaga(createSaga);
 
 	if (module.hot) {
 		module.hot.accept('./createReducer', () => {
