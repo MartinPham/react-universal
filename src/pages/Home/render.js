@@ -30,7 +30,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                     let position = getBoundingRect(target);
                     // log(target, position);
 
-                    $props.push('/item', {}, 'revealIn', position);
+                    // $props.push('/item', {}, 'revealIn', position);
+                    $props.push('/item2', {}, 'fluidIn', position);
                 }}
             />
 

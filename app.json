@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "native",
-    "slug": "native",
+    "name": "react-universal",
+    "slug": "react-universal",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": [
@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "REACT UNIVERSAL (Browser || Native || Server)\nCreate React App 2.0 & Expo 1.4 & CRACO\nWithout eject\nRedux (with injector)\nSaga (with injector)\nReselect\nImmutableJS\nReact Router with History and Animation\nReact Frontload for server & client\nSEO friendly with Helmet",
+    "githubUrl": "https://github.com/martinpham/react-universal"
   }
 }

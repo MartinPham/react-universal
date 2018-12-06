@@ -12,16 +12,16 @@ export const ItemImage = styled.div`
   background-position: center center;
   width: 250px;
   height: 250px;
-  margin: 50px;
+  margin: 60px;
   cursor: pointer;
   outline: none;
   
   transition: all 200ms;
   
   &:hover {
-    transform: scale(1.1);
+    /*transform: scale(1.1);*/
   }
   &:active {
-    transform: scale(0.9);
+    /*transform: scale(0.9);*/
   }
 `;

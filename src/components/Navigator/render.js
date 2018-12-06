@@ -7,6 +7,7 @@ import './styles.scss';
 import './transitions/slide/styles.scss';
 import './transitions/fly/styles.scss';
 import './transitions/reveal/styles.scss';
+import './transitions/fluid/styles.scss';
 
 import log from "utils/log";
 import AuthProvider from "../AuthProvider";
@@ -32,6 +33,11 @@ export default ($this, $props, $state, ...$extra) => {
 
                 let transitionModuleName = '';
                 if(
+                    transition === 'fluidIn'
+                    || transition === 'fluidIn'
+                ) {
+                    transitionModuleName = 'fluid';
+                }else if(
                     transition === 'revealIn'
                     || transition === 'revealOut'
                 ) {
@@ -75,7 +81,8 @@ export default ($this, $props, $state, ...$extra) => {
                         <TransitionGroup className={`pageTransition ${$props.transition}-${$props.direction}`}>
                             <CSSTransition
                                 key={location.key}
-                                timeout={280}
+                                xtimeout={280}
+                                timeout={1}
                                 classNames="pageTransition"
                                 mountOnEnter={false}
                                 unmountOnExit={false}
