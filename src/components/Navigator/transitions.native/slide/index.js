@@ -18,7 +18,8 @@ export default (originPosition) => {
                 opacity: 1,
                 left: 0
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         },
         exiting: {
             from: {
@@ -29,7 +30,8 @@ export default (originPosition) => {
                 opacity: 0,
                 left: -window.width
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         }
     };
 
@@ -43,7 +45,8 @@ export default (originPosition) => {
                 opacity: 1,
                 left: 0
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         },
         exiting: {
             from: {
@@ -54,7 +57,8 @@ export default (originPosition) => {
                 opacity: 0,
                 left: window.width
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         }
     };
 

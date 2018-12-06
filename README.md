@@ -9,11 +9,13 @@ REACT UNIVERSAL
 * Saga (with injector)
 * Reselect
 * ImmutableJS
-* React Router with History
+* React Router with History and **Animation**
 * React Frontload for server & client
 * SEO friendly with Helmet
 
 ![](./screenshot.png)
+
+[Screencast](https://www.youtube.com/watch?v=e9-ldOOhduI)
 
 
 **Server**

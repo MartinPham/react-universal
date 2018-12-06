@@ -10,6 +10,7 @@ import log from 'utils/log';
 
 import reducer from './reducer';
 import saga from './saga';
+import goBack from './actions/goBack';
 
 import { createStructuredSelector } from 'reselect';
 
@@ -17,7 +18,7 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 
-import render from './render';
+import render, {componentDidMount, componentWillUnmount} from './render';
 import selectTransition from './selectors/selectTransition';
 import selectDirection from './selectors/selectDirection';
 import selectOriginPosition from "./selectors/selectOriginPosition";
@@ -25,6 +26,20 @@ import selectOriginPosition from "./selectors/selectOriginPosition";
 
 
 class Component extends React.Component {
+    componentDidMount() {
+        componentDidMount(this, this.props, this.state);
+    }
+
+    componentWillUnmount() {
+        componentWillUnmount(this, this.props, this.state);
+    }
+
+    handleBackPress = () => {
+        console.log('back!')
+        this.props.goBack();
+        return true;
+    }
+
     render()
     {
         return render(this, this.props, this.state);
@@ -44,7 +59,7 @@ const mapState = createStructuredSelector({
 });
 
 const mapDispatch = dispatch => ({
-
+    goBack: () => dispatch(goBack())
 });
 
 

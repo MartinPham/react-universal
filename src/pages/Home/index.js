@@ -59,7 +59,7 @@ const mapDispatch = dispatch => ({
 
 const frontload = async props =>
 {
-    const data = await (new Promise(resolve => setTimeout(() => resolve('ok async'), 1)));
+    const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
     props.changeText(data);
 };
 

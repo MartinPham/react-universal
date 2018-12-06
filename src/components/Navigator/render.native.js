@@ -15,6 +15,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 
 import React from 'react';
+import {BackHandler} from 'react-native';
 import { Switch, Route } from 'react-router';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import TransitionView from './transitions.native/TransitionView';
@@ -28,6 +29,15 @@ import createFlyTransform from './transitions.native/fly';
 let direction = 'forward';
 let transition = 'slideLeft';
 let originPosition = {};
+
+export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
+    BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
+}
+
+export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
+    BackHandler.removeEventListener('hardwareBackPress', $this.handleBackPress);
+}
+
 
 export default ($this, $props, $state, $routes, ...$extra) => {
     direction = $props.direction;
@@ -47,7 +57,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                         >
                             {(state) => {
 
-                                // console.log(location.pathname, transition, direction, originPosition, state);
+                                console.log(location.pathname, transition, direction, originPosition, state);
 
                                 const component = (<Switch location={location}>{$props.children}</Switch>);
 
@@ -55,7 +65,13 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                                 {
                                     return component;
                                 }
-
+                                // if(state === 'entered')
+                                // {
+                                //     state = 'entering';
+                                // } else if(state === 'exited')
+                                // {
+                                //     return component;
+                                // }
                                 // let zIndex = 1;
                                 //
                                 // if(state === 'entering')
@@ -69,7 +85,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                                 transform[transition][direction][state] = {
                                     from: {},
                                     to: {},
-                                    zIndex: 1
+                                    zIndex: 1,
+                                    elevation: 1
                                 };
 
                                 if(
@@ -119,7 +136,10 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
                                 return (
                                     <TransitionView
-                                        style={{zIndex: transform[transition][direction][state].zIndex}}
+                                        style={{
+                                            zIndex: transform[transition][direction][state].zIndex,
+                                            elevation: transform[transition][direction][state].elevation
+                                        }}
                                         from={transform[transition][direction][state].from}
                                         to={transform[transition][direction][state].to}
                                         duration={300}

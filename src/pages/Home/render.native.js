@@ -9,6 +9,9 @@ import {getBoundingRect} from "../../utils/dom";
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
         <View>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
             <Heading>Hello world!!! ops</Heading>
             <Text>text: {$props.text}</Text>
             <Text>altText: {$props.altText}</Text>

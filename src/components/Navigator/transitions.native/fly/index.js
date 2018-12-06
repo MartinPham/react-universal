@@ -18,7 +18,8 @@ export default (originPosition) => {
                 opacity: 1,
                 left: 0
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         },
         exiting: {
             from: {
@@ -29,7 +30,8 @@ export default (originPosition) => {
                 opacity: 0,
                 left: -window.width * 0.2
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         }
     };
 
@@ -43,7 +45,8 @@ export default (originPosition) => {
                 opacity: 1,
                 left: 0,
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         },
         exiting: {
             from: {
@@ -54,7 +57,8 @@ export default (originPosition) => {
                 opacity: 0,
                 left: window.width
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         }
     };
 
@@ -73,7 +77,8 @@ export default (originPosition) => {
                 opacity: 1,
                 top: 0
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         },
         exiting: {
             from: {
@@ -84,7 +89,8 @@ export default (originPosition) => {
                 opacity: 0,
                 top: window.height * 0.1
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
 
         }
     };
@@ -99,7 +105,8 @@ export default (originPosition) => {
                 opacity: 1,
                 top: 0
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         },
         exiting: {
             from: {
@@ -110,7 +117,8 @@ export default (originPosition) => {
                 opacity: 0,
                 top: window.height
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
 
         }
     };

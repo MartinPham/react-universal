@@ -42,7 +42,7 @@ export default class TransitionView extends React.Component {
 
         let style = {
             ...this.props.style,
-            elevation: 3,
+            // elevation: 3,
             position: 'absolute',
             backgroundColor: '#ffffff',
             height: '100%',

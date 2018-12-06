@@ -24,14 +24,16 @@ export default (originPosition) => {
                 width: window.width,
                 height: window.height
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         },
         exiting: {
             from: {
             },
             to: {
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         }
     };
 
@@ -41,7 +43,8 @@ export default (originPosition) => {
             },
             to: {
             },
-            zIndex: 1
+            zIndex: 1,
+            elevation: 1
         },
         exiting: {
             from: {
@@ -56,7 +59,8 @@ export default (originPosition) => {
                 width: originPosition.width,
                 height: originPosition.height
             },
-            zIndex: 10
+            zIndex: 10,
+            elevation: 10
         }
     };
 

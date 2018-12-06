@@ -4,6 +4,9 @@ import {Button, Text, TextInput, View} from "react-native";
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
         <View>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
             <Text>Contact</Text>
 
             <Button

@@ -5,14 +5,18 @@ import {Button, Text, TextInput, View} from "react-native";
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
         <View>
+            
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
             <Text>About</Text>
             <Button
-                onPress={() => $props.push('/contact', {}, 'slideLeft')}
-                title="Go Contact (slideLeft)" />
+                onPress={() => $props.push('/contact', {}, 'flyLeft')}
+                title="Go Contact (flyLeft)" />
 
             <Button
-                onPress={() => $props.push('/contact', {}, 'slideUp')}
-                title="Go Contact (slideUp)" />
+                onPress={() => $props.push('/contact', {}, 'flyUp')}
+                title="Go Contact (flyUp)" />
 
 
             <Button

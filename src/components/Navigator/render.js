@@ -10,6 +10,15 @@ import './transitions/reveal/styles.scss';
 
 import log from "utils/log";
 
+export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
+    
+}
+
+export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
+    
+}
+
+
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
 			<Route
@@ -64,7 +73,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 							<TransitionGroup className={`pageTransition ${$props.transition}-${$props.direction}`}>
 								<CSSTransition
 									key={location.key}
-									timeout={300}
+									timeout={250}
 									classNames="pageTransition"
 									mountOnEnter={false}
 									unmountOnExit={false}

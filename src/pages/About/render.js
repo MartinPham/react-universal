@@ -6,12 +6,13 @@ export default ($this, $props, $state, $routes, ...$extra) => {
         <div>
             About
             <button
-                onClick={() => $props.push('/contact', {}, 'slideLeft')}
-            >Go Contact (slideLeft)</button>
+                onClick={() => $props.push('/contact', {}, 'flyLeft')}
+            >Go Contact (flyLeft)</button>
+            <br/>
 
             <button
-                onClick={() => $props.push('/contact', {}, 'slideUp')}
-            >Go Contact (slideUp)</button>
+                onClick={() => $props.push('/contact', {}, 'flyUp')}
+            >Go Contact (flyUp)</button>
 
             <br/>
 
@@ -19,14 +20,17 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <button
                 onClick={() => $props.goBack()}
             >Go Back</button>
+            <br/>
 
             <button
                 onClick={() => $props.goForward()}
             >Go Forward</button>
 
+            <br/>
             <button
                 onClick={() => $props.go(-2)}
             >Go -2</button>
+            <br/>
             <button
                 onClick={() => $props.go(2)}
             >Go +2</button>
