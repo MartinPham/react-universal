@@ -8,13 +8,19 @@ import selectUser from "components/AuthProvider/selectors/selectUser";
 import selectToken from "components/AuthProvider/selectors/selectToken";
 
 import {connect} from "react-redux";
+import platform, {PLATFORM_CLI} from "utils/platform";
 
 import render from './render';
 
 class Component extends BaseComponent {
-    shouldComponentUpdate() {
+    shouldComponentUpdate(nextProps, nextState) {
+    	if(platform === PLATFORM_CLI)
+    	{
+    		return true; // seems ink refresh the route wrongly
+    	}
         return false;
     }
+
 
     render() {
         return render(this, this.props, this.state);

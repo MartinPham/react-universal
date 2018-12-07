@@ -44,6 +44,10 @@ class Component extends BaseComponent {
     //     return false;
     // }
 
+	// componentDidUpdate() {
+	// 	console.log('nav update')
+	// }
+
     componentDidMount() {
         componentDidMount(this, this.props, this.state);
     }

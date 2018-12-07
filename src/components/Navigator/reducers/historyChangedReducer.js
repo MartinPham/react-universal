@@ -2,6 +2,7 @@ import {fromJS} from "immutable";
 // import log from 'utils/log';
 
 export default (state, action) => {
+	// console.log('history changed', action)
 	let newState = state;
 
 	let location = fromJS(action.location);

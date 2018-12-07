@@ -24,7 +24,7 @@ import render from './render';
 
 class Page extends BasePage {
 	render() {
-	    console.log('PAGE RENDER: About');
+	    // console.log('PAGE RENDER: About');
 		return render(this, this.props, this.state);
 	}
 }

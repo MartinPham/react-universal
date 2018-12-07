@@ -16,7 +16,7 @@ export default ($this, $props, $state, ...$extra) => {
         typeof firewall !== 'undefined'
     ) {
         // console.log('=> Route render: firewall ' + id);
-        Component = firewall(Component, this.props);
+        Component = firewall(Component, $props);
     }
 
     // console.log(Component);

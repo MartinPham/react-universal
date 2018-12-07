@@ -36,6 +36,7 @@
     "ink-gradient": "^0.1.1",
     "ink-redux": "^1.0.0",
     "ink-router": "^0.6.0",
+    "ink-select-input": "^2.0.0",
     "ink-text-animation": "^0.1.0",
     "ink-text-input": "^2.0.0",
     "query-string": "5",
