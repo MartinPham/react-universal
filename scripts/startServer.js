@@ -35,6 +35,7 @@ const run = () => {
 		const path = require('path');
 		const fs = require('fs');
 		const ipAddress = require('ip').address();
+		const qrcode = require('qrcode-terminal');
 
 		const package = require(path.resolve(__dirname, '../package.json'));
 		const homepage = package.homepage;
@@ -216,6 +217,8 @@ const run = () => {
 
 			server.listen(port, function() {
 				console.log(`> Server is listening on http://localhost:${port}${pathname} (External http://${ipAddress}:${port}${pathname})`);
+				console.log(``);
+				qrcode.generate(`http://${ipAddress}:${port}${pathname}`);
 			});
 			// server = app.listen(port, () => {
 			// 	console.log(`> Server is listening on http://localhost:${port} (External http://${ipAddress}:${port})`);

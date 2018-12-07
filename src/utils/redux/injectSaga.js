@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseComponent from 'components/Component';
 import PropTypes from 'prop-types';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
@@ -16,7 +17,7 @@ import getInjectors from './sagaInjectors';
  *
  */
 export default ({ key, saga, mode }) => WrappedComponent => {
-	class InjectSaga extends React.Component {
+	class InjectSaga extends BaseComponent {
 		static WrappedComponent = WrappedComponent;
 		static contextTypes = {
 			store: PropTypes.object.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BaseComponent from 'components/Component';
 
 import { connect } from 'react-redux';
 // import { compose } from 'redux';
@@ -27,7 +27,7 @@ import Immutable from "immutable";
 
 
 
-class Component extends React.Component {
+class Component extends BaseComponent {
 
     shouldComponentUpdate(nextProps, nextState)
     {

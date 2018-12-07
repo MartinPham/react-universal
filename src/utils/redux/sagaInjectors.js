@@ -103,6 +103,12 @@ export function ejectSagaFactory(store, isValid) {
 export default function getInjectors(store) {
 	// checkStore(store);
 
+	
+	if(typeof store ==='undefined')
+	{
+		store = global.store;
+	}
+	
 	return {
 		injectSaga: injectSagaFactory(store, true),
 		ejectSaga: ejectSagaFactory(store, true),

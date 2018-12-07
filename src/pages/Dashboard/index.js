@@ -1,4 +1,5 @@
 import React from 'react';
+import BasePage from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,7 +22,7 @@ import logout from "../../components/AuthProvider/actions/logout";
 import selectUser from "../../components/AuthProvider/selectors/selectUser";
 
 
-class Page extends React.Component {
+class Page extends BasePage {
 
 	render() {
 		return render(this, this.props, this.state);

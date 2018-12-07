@@ -1,4 +1,5 @@
 import React from 'react';
+import BasePage from 'pages/Page';
 
 
 // import { frontloadConnect } from "react-frontload";
@@ -28,12 +29,13 @@ import goForward from "../../components/Navigator/actions/goForward";
 
 
 
-class Page extends React.Component {
+class Page extends BasePage {
     render()
     {
 
-        console.log('HOME RENDER: Home')
+        // console.log('HOME RENDER: Home')
         return render(this, this.props, this.state);
+        // return null;
     }
 }
 
@@ -41,6 +43,9 @@ class Page extends React.Component {
 
 
 Page.displayName = ID;
+
+//export default Page;
+
 
 
 const mapState = createStructuredSelector({

@@ -5,7 +5,7 @@ import authProviderSaga  from 'components/AuthProvider/saga';
 import navigatorSaga  from 'components/Navigator/saga';
 
 export default function* () {
-    console.log('saga run')
+    // console.log('saga run')
     yield all([
         appSaga(),
         authProviderSaga(),

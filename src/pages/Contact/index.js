@@ -1,4 +1,5 @@
 import React from 'react';
+import BasePage from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -20,7 +21,7 @@ import render from './render';
 import goBack from "../../components/Navigator/actions/goBack";
 import goForward from "../../components/Navigator/actions/goForward";
 
-class Page extends React.Component {
+class Page extends BasePage {
     render() {
         console.log('PAGE RENDER: Contact')
         return render(this, this.props, this.state);

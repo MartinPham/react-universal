@@ -16,7 +16,7 @@ import React from 'react';
 import {BackHandler} from 'react-native';
 import { Switch, Route } from 'react-router';
 import { Transition, TransitionGroup } from 'react-transition-group';
-import TransitionView from 'transitions.native/TransitionView';
+import TransitionView from 'components/TransitionView.native';
 
 import AuthProvider from 'components/AuthProvider';
 

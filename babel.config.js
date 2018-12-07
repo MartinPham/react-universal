@@ -1,7 +1,14 @@
 // THIS FILE IS FOR REACT-NATIVE
 
+
 module.exports = function(api) {
 	api.cache(false);
+
+	if(true || process.env && process.env.NODE_ENV ==='cli')
+	{
+		// avoid override cli config
+		return {};
+	}
 
 	return {
 		presets: ['babel-preset-expo'],

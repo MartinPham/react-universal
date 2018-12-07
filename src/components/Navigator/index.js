@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseComponent from 'components/Component';
 
 
 import { connect } from 'react-redux';
@@ -28,7 +29,7 @@ import selectOriginPosition from "./selectors/selectOriginPosition";
 
 
 
-class Component extends React.Component {
+class Component extends BaseComponent {
 
     // shouldComponentUpdate(nextProps, nextState)
     // {
@@ -59,7 +60,7 @@ class Component extends React.Component {
 
     render()
     {
-        console.log('nav render');
+        // console.log('nav render');
         return render(this, this.props, this.state);
     }
 }

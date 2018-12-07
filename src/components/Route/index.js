@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseComponent from 'components/Component';
 import { Route } from 'react-router';
 import {ID} from "./constants";
 import {createStructuredSelector} from "reselect";
@@ -8,7 +9,7 @@ import selectToken from "components/AuthProvider/selectors/selectToken";
 
 import {connect} from "react-redux";
 
-class Component extends React.Component {
+class Component extends BaseComponent {
     shouldComponentUpdate() {
         return false;
     }
@@ -16,7 +17,7 @@ class Component extends React.Component {
     render() {
         const {id, path, exact, firewall, user, token, ...parameters} = {...this.props};
 
-        console.log('=> Route render ' + id);
+        // console.log('=> Route render ' + id);
 
 
         let component = parameters.source;
@@ -27,7 +28,7 @@ class Component extends React.Component {
             firewall !== null &&
             typeof firewall !== 'undefined'
         ) {
-            console.log('=> Route render: firewall ' + id);
+            // console.log('=> Route render: firewall ' + id);
             component = firewall(component, this.props);
         }
 

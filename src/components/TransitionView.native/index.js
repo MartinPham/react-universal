@@ -1,7 +1,8 @@
 import React from "react";
+import BaseComponent from 'components/Component';
 import {Animated} from "react-native";
 
-export default class TransitionView extends React.Component {
+export default class TransitionView extends BaseComponent {
     constructor(props)
     {
         super(props);

@@ -6,7 +6,7 @@ import './styles.scss';
 
 
 import log from "utils/log";
-import AuthProvider from "../AuthProvider";
+import AuthProvider from "components/AuthProvider";
 // import Navigator from "./index";
 
 

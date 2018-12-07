@@ -1,4 +1,5 @@
 import React from 'react';
+import BasePage from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -22,7 +23,7 @@ import { ID } from "./constants";
 import render from './render';
 
 
-class Page extends React.Component {
+class Page extends BasePage {
 	render() {
         console.log('PAGE RENDER: Item');
 		return render(this, this.props, this.state);

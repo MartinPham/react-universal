@@ -1,4 +1,5 @@
 import React from 'react';
+import BaseComponent from 'components/Component';
 import {ID} from "./constants";
 import {createStructuredSelector} from "reselect";
 
@@ -6,7 +7,7 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import push from "components/Navigator/actions/push";
 
-class Component extends React.Component {
+class Component extends BaseComponent {
     shouldComponentUpdate() {
         return false;
     }

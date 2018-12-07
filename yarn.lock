@@ -2667,7 +2667,7 @@ clear-module@^3.0.0:
     caller-path "^2.0.0"
     resolve-from "^4.0.0"
 
-cli-cursor@^2.1.0:
+cli-cursor@^2.0.0, cli-cursor@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-2.1.0.tgz#b35dac376479facc3e94747d41d0d0f5238ffcb5"
   integrity sha1-s12sN2R5+sw+lHR9QdDQ9SOP/LU=
@@ -5398,6 +5398,13 @@ has-ansi@^2.0.0:
   dependencies:
     ansi-regex "^2.0.0"
 
+has-ansi@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-3.0.0.tgz#36077ef1d15f333484aa7fa77a28606f1c655b37"
+  integrity sha1-Ngd+8dFfMzSEqn+neihgbxxlWzc=
+  dependencies:
+    ansi-regex "^3.0.0"
+
 has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
@@ -5818,6 +5825,11 @@ indent-string@^2.1.0:
   dependencies:
     repeating "^2.0.0"
 
+indent-string@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-3.2.0.tgz#4a5fd6d27cc332f37e5419a504dbb837105c9289"
+  integrity sha1-Sl/W0nzDMvN+VBmlBNu4NxBckok=
+
 indexes-of@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
@@ -5850,6 +5862,66 @@ ini@^1.3.4, ini@~1.3.0:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
   integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+
+ink-broadcast@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ink-broadcast/-/ink-broadcast-0.3.0.tgz#2f0a38168f5ec61c160407e0c195471cb59cb650"
+  integrity sha1-Lwo4Fo9exhwWBAfgwZVHHLWctlA=
+  dependencies:
+    ink "^0.4.1"
+    invariant "^2.2.2"
+    prop-types "^15.6.0"
+
+ink-redux@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ink-redux/-/ink-redux-1.0.0.tgz#d4bbae9ab769f56eb2949973a07ab726c13d9d1d"
+  integrity sha512-2rftDFr4m75x/ea0QYlXFxO+RdNKnCMSkgLVkpXGmJ3QGssI1WbVTxRtsY3Cwem4yxQTOGkywG8U7X8cR/JCBg==
+
+ink-router@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ink-router/-/ink-router-0.6.0.tgz#39e9728648687da6c45d77d9a06d14a74146da7b"
+  integrity sha1-OelyhkhofabEXXfZoG0Up0FG2ns=
+  dependencies:
+    history "^4.7.2"
+    ink "^0.4.1"
+    ink-broadcast "^0.3.0"
+    path-to-regexp "^2.1.0"
+    prop-types "^15.6.0"
+    yargs-parser "^9.0.2"
+
+ink-text-input@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ink-text-input/-/ink-text-input-2.0.0.tgz#dffc9d298ffd68dcd953b5a497dcd0ddbfa30237"
+  integrity sha512-tBsEgypOTSDuNx/U3EnljAzLRo0amNaldW+0j5BCPhaSZMf+WdUpbbuy1+RIp1x6PRfjQ9dNkxHBpFg/Gv87Yw==
+  dependencies:
+    has-ansi "^3.0.0"
+    prop-types "^15.5.10"
+
+ink@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/ink/-/ink-0.4.1.tgz#8f93fcf5e0f2d671558256ba38a632b56bd2452b"
+  integrity sha512-42rsCNdZ7X0eHKZpFwspffIaxJ2Qa5Vciwzl9+G1Uvw6Asb2gH/ohilRFhtzeVV1jH/FGbgQTKlcl2ADjx3Qjw==
+  dependencies:
+    arrify "^1.0.1"
+    chalk "^2.0.1"
+    indent-string "^3.1.0"
+    is-equal-shallow "^0.1.3"
+    lodash.flattendeep "^4.4.0"
+    log-update "^2.1.0"
+    prop-types "^15.5.10"
+
+ink@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/ink/-/ink-0.5.1.tgz#fc989c6c82f30f4667e711310b5134e8f7f2b17a"
+  integrity sha512-y+mE4HJ6rml4MQfLnKylTBinhtv3OmbBDaUKj2pNKti/1oLQGBhIMGDhpjy3kp4ILUV5+/TZBtlxbsEeO7e6SA==
+  dependencies:
+    arrify "^1.0.1"
+    chalk "^2.0.1"
+    indent-string "^3.1.0"
+    is-equal-shallow "^0.1.3"
+    lodash.flattendeep "^4.4.0"
+    log-update "^2.1.0"
+    prop-types "^15.5.10"
 
 inquirer@6.2.0:
   version "6.2.0"
@@ -7155,6 +7227,11 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
+lodash.flattendeep@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
+  integrity sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=
+
 lodash.map@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
@@ -7244,6 +7321,15 @@ lodash.zipobject@^4.1.3:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+
+log-update@^2.1.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/log-update/-/log-update-2.3.0.tgz#88328fd7d1ce7938b29283746f0b1bc126b24708"
+  integrity sha1-iDKP19HOeTiykoN0bwsbwSayRwg=
+  dependencies:
+    ansi-escapes "^3.0.0"
+    cli-cursor "^2.0.0"
+    wrap-ansi "^3.0.1"
 
 loglevel@^1.4.1:
   version "1.6.1"
@@ -8689,6 +8775,11 @@ path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
+path-to-regexp@^2.1.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
+  integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
+
 path-type@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
@@ -9657,6 +9748,11 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
+
+qrcode-terminal@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/qrcode-terminal/-/qrcode-terminal-0.12.0.tgz#bb5b699ef7f9f0505092a3748be4464fe71b5819"
+  integrity sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==
 
 qs@6.5.2, qs@~6.5.2:
   version "6.5.2"
@@ -12433,6 +12529,14 @@ wrap-ansi@^2.0.0:
   dependencies:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
+
+wrap-ansi@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-3.0.1.tgz#288a04d87eda5c286e060dfe8f135ce8d007f8ba"
+  integrity sha1-KIoE2H7aXChuBg3+jxNc6NAH+Lo=
+  dependencies:
+    string-width "^2.1.1"
+    strip-ansi "^4.0.0"
 
 wrappy@1:
   version "1.0.2"

@@ -35,6 +35,11 @@ export function injectReducerFactory(store, isValid) {
 
 export default function getInjectors(store) {
 	// checkStore(store);
+	
+	if(typeof store ==='undefined')
+	{
+		store = global.store;
+	}
 
 	return {
 		injectReducer: injectReducerFactory(store, true),

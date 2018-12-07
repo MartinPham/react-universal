@@ -1,4 +1,6 @@
 import React from 'react';
+
+import BaseComponent from 'components/Component';
 import PropTypes from 'prop-types';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 
@@ -14,7 +16,7 @@ import getInjectors from './reducerInjectors';
 export default ({ key, reducer }) => WrappedComponent => {
 	// console.log('gonna inject ', key)
 
-	class ReducerInjector extends React.Component {
+	class ReducerInjector extends BaseComponent {
 		static WrappedComponent = WrappedComponent;
 		static contextTypes = {
 			store: PropTypes.object.isRequired,
@@ -24,9 +26,11 @@ export default ({ key, reducer }) => WrappedComponent => {
 			'Component'})`;
 
 
+
 		injectors = getInjectors(this.context.store);
 
 		componentWillMount() {
+			
 
 			// console.log('inject now');
 		

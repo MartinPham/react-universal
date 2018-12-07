@@ -1,45 +1,16 @@
 import React from 'react';
-// import {Route} from 'react-router';
-import Route from 'components/Route';
+import BaseComponent from 'components/Component';
 
-import routes from 'config/routes';
-import Navigator from "components/Navigator";
-// import AuthProvider from 'components/AuthProvider';
+
+import render from './render';
 
 
 
+class App extends BaseComponent {
 
 
-class App extends React.Component {
 	render() {
-	    console.log('--- Render App');
-
-        return (
-            <Navigator>
-
-                {
-                    Object.keys(routes).map((routeId) => {
-                        const route = routes[routeId];
-
-
-                        const pathPrefix = (process.env.PUBLIC_URL || '');
-
-
-                        return (
-                            <Route
-                                key={routeId}
-                                id={routeId}
-                                {...{
-                                    ...route,
-                                    path: pathPrefix + route.path
-                                }}
-                            />
-                        );
-                    })
-                }
-
-            </Navigator>
-        );
+        return render(this, this.props, this.state);
 	}
 }
 
