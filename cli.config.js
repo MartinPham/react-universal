@@ -18,6 +18,7 @@ module.exports = {
 	],
 	plugins: [
 		'@babel/plugin-proposal-class-properties',
+		'@babel/plugin-syntax-dynamic-import',
 		'@babel/plugin-proposal-export-default-from',
 		[
 			'@babel/plugin-transform-react-jsx', {
@@ -36,6 +37,8 @@ module.exports = {
 					'^react-redux$': 'ink-redux', // different redux
 					'^react-router$': 'ink-router', // different redux
 					'^react$': './cli/react', // different react
+					'^(.*)\.(png|jpg|gif)$': './cli/noop', // no image
+					'^(.*)\.(css|scss)$': './cli/noop', // no css
 					'^transitions$': './src/transitions.cli', // different react
 					'^components/Component$': './src/components/Component.cli', // different Component
 					// '\.\/render': './render.cli', // different render - not working

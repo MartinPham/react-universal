@@ -1435,6 +1435,11 @@ ansi-cyan@^0.1.1:
   dependencies:
     ansi-wrap "0.1.0"
 
+ansi-escapes@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-2.0.0.tgz#5bae52be424878dd9783e8910e3fc2922e83c81b"
+  integrity sha1-W65SvkJIeN2Xg+iRDj/Cki6DyBs=
+
 ansi-escapes@^3.0.0, ansi-escapes@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-3.1.0.tgz#f73207bb81207d75fd6c83f125af26eea378ca30"
@@ -2119,6 +2124,11 @@ base64-js@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.1.2.tgz#d6400cac1c4c660976d90d07a04351d89395f5e8"
   integrity sha1-1kAMrBxMZgl22Q0HoENR2JOV9eg=
+
+base64-js@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.0.tgz#a39992d723584811982be5e290bb6a53d86700f1"
+  integrity sha1-o5mS1yNYSBGYK+XikLtqU9hnAPE=
 
 base64-js@^1.0.2, base64-js@^1.1.2, base64-js@^1.2.3:
   version "1.3.0"
@@ -6748,6 +6758,14 @@ istanbul-reports@^1.5.1:
   dependencies:
     handlebars "^4.0.3"
 
+iterm2-version@^2.1.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/iterm2-version/-/iterm2-version-2.3.0.tgz#ae64000461e02b5f1fe5331f0b9f0ec71ce0e138"
+  integrity sha1-rmQABGHgK18f5TMfC58Oxxzg4Tg=
+  dependencies:
+    app-path "^2.1.0"
+    plist "^2.0.1"
+
 iterm2-version@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/iterm2-version/-/iterm2-version-3.0.0.tgz#fdf609712b6214e206a2e1b320f311f195117d4f"
@@ -9314,6 +9332,15 @@ plist@2.0.1:
   integrity sha1-CjLKlIGxw2TpLhjcVch23p0B2os=
   dependencies:
     base64-js "1.1.2"
+    xmlbuilder "8.2.2"
+    xmldom "0.1.x"
+
+plist@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/plist/-/plist-2.1.0.tgz#57ccdb7a0821df21831217a3cad54e3e146a1025"
+  integrity sha1-V8zbeggh3yGDEhejytVOPhRqECU=
+  dependencies:
+    base64-js "1.2.0"
     xmlbuilder "8.2.2"
     xmldom "0.1.x"
 
@@ -12098,6 +12125,23 @@ temp@0.8.3:
   dependencies:
     os-tmpdir "^1.0.0"
     rimraf "~2.2.6"
+
+term-image@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/term-image/-/term-image-0.1.2.tgz#a170daffa50553de9095fa02fcd40f4925570608"
+  integrity sha512-8KRH5dk6HXUvRqiLMxhKRjQk1DlOrA7qDjdrssxf6Jc8KUNmuu07P1LWW4vuq8xkaLiKYy7T263xSUQR5nV4nw==
+  dependencies:
+    "@sindresorhus/jimp" "^0.3.0"
+    chalk "^2.4.1"
+    term-img "^2.1.0"
+
+term-img@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/term-img/-/term-img-2.1.0.tgz#8ff0c9e03b50d861f27bff083e60670f109fa260"
+  integrity sha512-j78Y+26QYTTWvtVVCmDx94idvQm6p59E+xRfQDSevIyM8dg45uUAtr/xbu13l0BeKrebPyUpgh8PM3noXlIBkw==
+  dependencies:
+    ansi-escapes "^2.0.0"
+    iterm2-version "^2.1.0"
 
 term-img@^3.0.0:
   version "3.0.0"
