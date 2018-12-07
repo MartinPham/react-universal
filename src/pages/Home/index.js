@@ -20,12 +20,12 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 import changeText from "./actions/changeText";
-import textSelector from "./selectors/textSelector";
-import altTextSelector from "./selectors/altTextSelector";
+import selectText from "./selectors/selectText";
+import selectAltText from "./selectors/selectAltText";
 
 import render from './render';
-import goBack from "../../components/Navigator/actions/goBack";
-import goForward from "../../components/Navigator/actions/goForward";
+import goBack from "components/Navigator/actions/goBack";
+import goForward from "components/Navigator/actions/goForward";
 
 
 
@@ -49,8 +49,8 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-    text: textSelector(),
-    altText: altTextSelector(),
+    text: selectText(),
+    altText: selectAltText(),
 });
 
 const mapDispatch = dispatch => ({

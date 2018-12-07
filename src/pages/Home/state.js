@@ -2,5 +2,5 @@
 
 export default {
             text: "ciao",
-            altText: "...",
+            altText: ""
         }

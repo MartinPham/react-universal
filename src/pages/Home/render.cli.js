@@ -5,6 +5,7 @@ import TextInput from 'ink-text-input';
 import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
 import SelectInput from 'ink-select-input';
+import Spinner from 'ink-spinner';
 
 export default ($this, $props, $state, $routes, ...$extra) => {
 	const handleSelect = item => {
@@ -41,21 +42,21 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 			</Gradient>       		
 
             <div>text: {$props.text}</div>
-            <div>altText: {$props.altText}</div>
+            <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>
 
             <SelectInput items={items} onSelect={handleSelect}/>
 
-             {/*
+
        	    Enter something:
        	   
        	    <TextInput
        	        value={$props.text}
        	        onChange={(value) => $props.changeText(value)}
        	        onSubmit={(value) => {
-       	        	console.log('submited => ', value)
+       	        	
        	        }}
        	    />
-       	    */}
+
        	</div>
     );
 }
