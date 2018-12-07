@@ -17,7 +17,7 @@ REACT UNIVERSAL
 
 [Live demo](https://martinpham.gitlab.io/react-universal/)
 
-[Screencast](https://www.youtube.com/watch?v=e9-ldOOhduI)
+[Screencast](https://youtu.be/FGLXWDszOF4)
 
 
 **Server**
