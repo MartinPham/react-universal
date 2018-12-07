@@ -38,7 +38,7 @@ module.exports = {
 					'^react$': './cli/react', // different react
 					'^transitions$': './src/transitions.cli', // different react
 					'^components/Component$': './src/components/Component.cli', // different Component
-					// '\.\/render': './render.cli', // different render
+					// '\.\/render': './render.cli', // different render - not working
 					'^pages/(.+)/async$': './src/pages/\\1', // ignore async component
 					'^utils/storage$': './src/utils/storage.cli', // ignore async component
 				}
@@ -47,8 +47,7 @@ module.exports = {
 
 			        let path = resolvePath(sourcePath, currentFile, opts);
 
-
-			        if(sourcePath === './render')
+			        if(sourcePath === './render') // manual fix
 			        {
 			        	path = './render.cli';
 			        }

@@ -9,7 +9,6 @@ import routes from 'config/routes';
 export default ($this, $props, $state, ...$extra) => {
         return (
             <Navigator>
-
                 {
                     Object.keys(routes).map((routeId) => {
                         const route = routes[routeId];

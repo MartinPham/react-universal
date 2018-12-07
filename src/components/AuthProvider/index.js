@@ -42,7 +42,7 @@ class Component extends BaseComponent {
 
     render()
     {
-        console.log('------------ Render Auth');
+        // console.log('------------ Render Auth');
         return render(this, this.props, this.state);
     }
 }
