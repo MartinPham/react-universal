@@ -32,8 +32,20 @@ yarn build:all && yarn start:server
 yarn start
 ```
 
+**Browser (production)**
+
+```
+yarn build && yarn start:client
+```
+
 **Native**
 
 ```
 yarn e-start
+```
+
+**Command line**
+
+```
+yarn start:cli
 ```
