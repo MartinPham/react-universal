@@ -2,9 +2,9 @@ REACT UNIVERSAL
 ===
 *made with Recioto della Valpolicella*
 
-* Browser || Native || Server
-* Create React App 2.0 & Expo 1.4 & CRACO
-* Without **eject**
+* Browser || Native || Server || Command line
+* Create React App 2.0 & Expo 1.4 & Ink
+* CRACO without **eject**
 * Redux (with injector)
 * Saga (with injector)
 * Reselect
@@ -13,7 +13,7 @@ REACT UNIVERSAL
 * React Frontload for server & client
 * SEO friendly with Helmet
 
-![](./screenshot.png)
+![](./screenshot.jpg)
 
 [Live demo](https://martinpham.gitlab.io/react-universal/)
 

@@ -4,7 +4,7 @@
 module.exports = function(api) {
 	api.cache(false);
 
-	if(true || process.env && process.env.NODE_ENV ==='cli')
+	if(process.env && process.env.NODE_ENV ==='cli')
 	{
 		// avoid override cli config
 		return {};

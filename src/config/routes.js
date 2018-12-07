@@ -5,7 +5,7 @@ import About from 'pages/About/async';
 import Login from 'pages/Login/async';
 import Dashboard from 'pages/Dashboard/async';
 import Contact from 'pages/Contact/async';
-import checkAuthenticatedUser from "../firewalls/checkAuthenticatedUser";
+import checkAuthenticatedUser from "firewalls/checkAuthenticatedUser";
 
 
 
@@ -19,7 +19,7 @@ export default {
         source: Contact
     },
     Item: {
-        path: "/item/:a/b/:c",
+        path: "/item",
         source: Item
     },
     Login: {

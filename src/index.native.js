@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import BaseComponent from 'components/Component';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import createHistory from 'history/createMemoryHistory';
@@ -48,7 +49,7 @@ authPreload().then(() => {
 });
 
 
-export default class AppComponent extends Component {
+export default class AppComponent extends BaseComponent {
 	componentDidMount()
 	{
 
