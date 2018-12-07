@@ -6,6 +6,11 @@ import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
 import SelectInput from 'ink-select-input';
 import Spinner from 'ink-spinner';
+import Image from 'components/Image.cli';
+
+
+
+
 
 export default ($this, $props, $state, $routes, ...$extra) => {
 	const handleSelect = item => {
@@ -39,7 +44,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
        	<div>
 			<Gradient name="rainbow">
 				<BigText text="Hello world!!! Ops"/>
-			</Gradient>       		
+			</Gradient>       	
 
             <div>text: {$props.text}</div>
             <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>

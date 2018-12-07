@@ -33,6 +33,7 @@
     "immutable": "^4.0.0-rc.12",
     "ink": "^0.5.1",
     "ink-big-text": "^0.3.0",
+    "ink-box": "^0.1.0",
     "ink-gradient": "^0.1.1",
     "ink-redux": "^1.0.0",
     "ink-router": "^0.6.0",
@@ -54,7 +55,8 @@
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",
-    "styled-components": "^4.1.2"
+    "styled-components": "^4.1.2",
+    "terminal-image": "^0.1.2"
   },
   "devDependencies": {
     "@craco/craco": "^3.1.1",
