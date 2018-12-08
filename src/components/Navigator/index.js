@@ -20,53 +20,53 @@ import { ID } from "./constants";
 
 
 import render, {componentDidMount, componentWillUnmount} from './render';
-import selectTransition from './selectors/selectTransition';
-import selectDirection from './selectors/selectDirection';
-import selectOriginPosition from "./selectors/selectOriginPosition";
-// import selectUser from "../AuthProvider/selectors/selectUser";
-// import selectToken from "../AuthProvider/selectors/selectToken";
+import transitionSelector from './selectors/transitionSelector';
+import directionSelector from './selectors/directionSelector';
+import originPositionSelector from "./selectors/originPositionSelector";
+// import userSelector from "../AuthProvider/selectors/userSelector";
+// import tokenSelector from "../AuthProvider/selectors/tokenSelector";
 // import Immutable from "immutable";
 
 
 
 class Component extends BaseComponent {
 
-    // shouldComponentUpdate(nextProps, nextState)
-    // {
-    //     if (
-    //         this.props.transition != nextProps.transition
-    //         || this.props.direction != nextProps.direction
-    //         || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
-    //     ) {
-    //         console.log('nav should update');
-    //         return true;
-    //     }
-    //     return false;
-    // }
+	// shouldComponentUpdate(nextProps, nextState)
+	// {
+	//     if (
+	//         this.props.transition != nextProps.transition
+	//         || this.props.direction != nextProps.direction
+	//         || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
+	//     ) {
+	//         console.log('nav should update');
+	//         return true;
+	//     }
+	//     return false;
+	// }
 
 	// componentDidUpdate() {
 	// 	console.log('nav update')
 	// }
 
-    componentDidMount() {
-        componentDidMount(this, this.props, this.state);
-    }
+	componentDidMount() {
+		componentDidMount(this, this.props, this.state);
+	}
 
-    componentWillUnmount() {
-        componentWillUnmount(this, this.props, this.state);
-    }
+	componentWillUnmount() {
+		componentWillUnmount(this, this.props, this.state);
+	}
 
-    handleBackPress = () => {
-        console.log('back!');
-        this.props.goBack();
-        return true;
-    };
+	handleBackPress = () => {
+		console.log('back!');
+		this.props.goBack();
+		return true;
+	};
 
-    render()
-    {
-        // console.log('nav render');
-        return render(this, this.props, this.state);
-    }
+	render()
+	{
+		// console.log('nav render');
+		return render(this, this.props, this.state);
+	}
 }
 
 
@@ -76,23 +76,23 @@ Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	transition: selectTransition(),
-    direction: selectDirection(),
-    originPosition: selectOriginPosition(),
-    // user: selectUser(),
-    // token: selectToken()
+	transition: transitionSelector(),
+	direction: directionSelector(),
+	originPosition: originPositionSelector(),
+	// user: userSelector(),
+	// token: tokenSelector()
 });
 
 const mapDispatch = dispatch => ({
-    goBack: () => dispatch(goBack())
+	goBack: () => dispatch(goBack())
 });
 
 
 
 
 const withConnect = connect(
-    mapState,
-    mapDispatch
+	mapState,
+	mapDispatch
 );
 
 

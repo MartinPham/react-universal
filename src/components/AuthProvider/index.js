@@ -18,8 +18,8 @@ import { ID } from "./constants";
 
 
 import render from './render';
-import selectUser from "./selectors/selectUser";
-import selectToken from "./selectors/selectToken";
+import userSelector from "./selectors/userSelector";
+import tokenSelector from "./selectors/tokenSelector";
 import updateUser from "./actions/updateUser";
 import logout from "./actions/logout";
 import Immutable from "immutable";
@@ -29,27 +29,27 @@ import platform, {PLATFORM_CLI} from "utils/platform";
 
 class Component extends BaseComponent {
 
-    shouldComponentUpdate(nextProps, nextState)
-    {
-    	if(platform === PLATFORM_CLI)
-    	{
-    		return true; // seems ink refresh the route wrongly
-    	}
+	shouldComponentUpdate(nextProps, nextState)
+	{
+		if(platform === PLATFORM_CLI)
+		{
+			return true; // seems ink refresh the route wrongly
+		}
 
-        if(
-            !Immutable.is(this.props.user,  nextProps.user)
-            || this.props.token !== nextProps.token
-        ) {
-            return true;
-        }
-        return false;
-    }
+		if(
+			!Immutable.is(this.props.user,  nextProps.user)
+			|| this.props.token !== nextProps.token
+		) {
+			return true;
+		}
+		return false;
+	}
 
-    render()
-    {
-        // console.log('------------ Render Auth');
-        return render(this, this.props, this.state);
-    }
+	render()
+	{
+		// console.log('------------ Render Auth');
+		return render(this, this.props, this.state);
+	}
 }
 
 
@@ -59,21 +59,21 @@ Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-    user: selectUser(),
-    token: selectToken()
+	user: userSelector(),
+	token: tokenSelector()
 });
 
 const mapDispatch = dispatch => ({
-    updateUser: () => dispatch(updateUser()),
-    logout: () => dispatch(logout())
+	updateUser: () => dispatch(updateUser()),
+	logout: () => dispatch(logout())
 });
 
 
 
 
 const withConnect = connect(
-    mapState,
-    mapDispatch
+	mapState,
+	mapDispatch
 );
 
 export default withConnect(Component);
@@ -84,8 +84,8 @@ const withSaga = injectSaga({ key: ID, saga });
 
 
 export default compose(
-    withReducer,
-    withSaga,
-    withConnect,
+	withReducer,
+	withSaga,
+	withConnect,
 )(Component);
 */

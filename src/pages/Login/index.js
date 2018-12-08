@@ -18,8 +18,8 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 import render from './render';
-import selectUser from "components/AuthProvider/selectors/selectUser";
-import selectToken from "components/AuthProvider/selectors/selectToken";
+import userSelector from "components/AuthProvider/selectors/userSelector";
+import tokenSelector from "components/AuthProvider/selectors/tokenSelector";
 import push from "components/Navigator/actions/push";
 import sharedHistory from "utils/sharedHistory";
 
@@ -28,26 +28,26 @@ import queryString from 'query-string';
 class Page extends BasePage {
 	gonnaLeave = false;
 
-    loggedInCheck = () => {
-    	setTimeout(() => {
-    		if(this.gonnaLeave)
+	loggedInCheck = () => {
+		setTimeout(() => {
+			if(this.gonnaLeave)
 			{
 				return;
 			}
-            if(this.props.user && this.props.token)
-            {
-                this.gonnaLeave = true;
+			if(this.props.user && this.props.token)
+			{
+				this.gonnaLeave = true;
 
-            	// console.log('>>>', sharedHistory().history.location)
+				// console.log('>>>', sharedHistory().history.location)
 				const location = sharedHistory().history.location;
 
-                const queryParams = queryString.parse(location.search);
+				const queryParams = queryString.parse(location.search);
 
-                // console.log(queryParams);
+				// console.log(queryParams);
 
-                this.props.push(queryParams.refererUrl || '/', {}, 'flyDown');
-                // this.props.push('/dashboard', {}, 'flyDown');
-            }
+				this.props.push(queryParams.refererUrl || '/', {}, 'flyDown');
+				// this.props.push('/dashboard', {}, 'flyDown');
+			}
 		}, 500);
 
 	};
@@ -61,12 +61,12 @@ class Page extends BasePage {
 	// }
 
 	render() {
-        // console.log('PAGE RENDER: Login');
+		// console.log('PAGE RENDER: Login');
 
-        if(this.props.user && this.props.token)
-        {
-            return null;
-        }
+		if(this.props.user && this.props.token)
+		{
+			return null;
+		}
 
 		return render(this, this.props, this.state);
 	}
@@ -76,19 +76,19 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	user: selectUser(),
-	token: selectToken()
+	user: userSelector(),
+	token: tokenSelector()
 });
 
 const mapDispatch = dispatch => ({
-    updateUser: (user, token) => dispatch(updateUser(user, token)),
-    push: (path, data, transition) => dispatch(push(path, data, transition))
+	updateUser: (user, token) => dispatch(updateUser(user, token)),
+	push: (path, data, transition) => dispatch(push(path, data, transition))
 });
 
 
 const withConnect = connect(
-    mapState,
-    mapDispatch
+	mapState,
+	mapDispatch
 );
 
 
@@ -99,7 +99,7 @@ const withSaga = injectSaga({ key: ID, saga });
 
 
 export default compose(
-    withReducer,
-    withSaga,
-    withConnect,
+	withReducer,
+	withSaga,
+	withConnect,
 )(Page);

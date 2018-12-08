@@ -19,7 +19,7 @@ import { ID } from "./constants";
 
 import render from './render';
 import logout from "../../components/AuthProvider/actions/logout";
-import selectUser from "../../components/AuthProvider/selectors/selectUser";
+import userSelector from "../../components/AuthProvider/selectors/userSelector";
 
 
 class Page extends BasePage {
@@ -33,18 +33,18 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	user: selectUser()
+	user: userSelector()
 });
 
 const mapDispatch = dispatch => ({
-    updateUser: (user, token) => dispatch(updateUser(user, token)),
-    logout: () => dispatch(logout()),
+	updateUser: (user, token) => dispatch(updateUser(user, token)),
+	logout: () => dispatch(logout()),
 });
 
 
 const withConnect = connect(
-    mapState,
-    mapDispatch
+	mapState,
+	mapDispatch
 );
 
 
@@ -55,7 +55,7 @@ const withSaga = injectSaga({ key: ID, saga });
 
 
 export default compose(
-    withReducer,
-    withSaga,
-    withConnect,
+	withReducer,
+	withSaga,
+	withConnect,
 )(Page);

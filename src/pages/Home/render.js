@@ -5,11 +5,13 @@ import pho from 'images/pho.jpg';
 import {getBoundingRect} from "utils/dom";
 
 export default ($this, $props, $state, $routes, ...$extra) => {
+	console.log('Home render', $props);
     return (
         <div>
             <Heading>Hello world!!! ops</Heading>
             <p>text: {$props.text}</p>
             <p>altText: {$props.altText}</p>
+            <p>object.text: {$props.objectText}</p>
 
             <input type="text" value={$props.text} onChange={(event) => $props.changeText(event.target.value)}/>
 
@@ -17,9 +19,26 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <button
                 onClick={() => $props.changeText("I am from the Button")}
             >Hey</button>
+			<br/>
             <button
-                onClick={() => $props.changeText("1")}
-            >Hey 1</button>
+                onClick={() => $props.changeObject({
+					text: "xxx"
+				})}
+            >Hey Object</button>
+			<br/>
+
+            <button
+                onClick={() => $props.changeAboutText("I am from Home")}
+            >Hey About</button>
+			<br/>
+
+			<b>state: {$state.test1}</b>
+			<br/>
+            <button
+                onClick={() => $this.setState({
+					test1: "2"
+				})}
+            >Hey State</button>
             <br/>
             <br/>
 

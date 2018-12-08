@@ -2,5 +2,9 @@
 
 export default {
             text: "ciao",
-            altText: ""
+            altText: "",
+            object: {
+				text: "omg",
+				str: "fff"
+            }
         }

@@ -2,9 +2,17 @@ import React from 'react';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
+	console.log('About render', $props);
     return (
         <div>
             About
+            <br/>
+            {$props.text}
+
+            <br/>
+            <button
+                onClick={() => $props.changeText('CHANGED')}
+            >Change please</button>
             <button
                 onClick={() => $props.push('/contact', {}, 'flyLeft')}
             >Go Contact (flyLeft)</button>

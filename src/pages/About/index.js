@@ -17,6 +17,8 @@ import saga from './saga';
 
 import { createStructuredSelector } from 'reselect';
 
+import textSelector from "./selectors/textSelector";
+import changeText from "./actions/changeText";
 
 import { ID } from "./constants";
 
@@ -33,10 +35,13 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-
+	text: textSelector(),
 });
 
 const mapDispatch = dispatch => ({
+	changeText: (text) => {
+		dispatch(changeText(text))
+	},
     push: (path, data, transition) => dispatch(push(path, data, transition)),
     go: (index) => dispatch(go(index)),
     goBack: () => dispatch(goBack()),

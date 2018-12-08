@@ -20,23 +20,32 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 import changeText from "./actions/changeText";
-import selectText from "./selectors/selectText";
-import selectAltText from "./selectors/selectAltText";
+import textSelector from "./selectors/textSelector";
+import altTextSelector from "./selectors/altTextSelector";
+import objectTextSelector from "./selectors/objectTextSelector";
+
 
 import render from './render';
 import goBack from "components/Navigator/actions/goBack";
 import goForward from "components/Navigator/actions/goForward";
+import changeObject from "./actions/changeObject";
 
+// import about_textSelector from "pages/About/selectors/textSelector";
+import about_changeText from "pages/About/actions/changeText";
 
 
 class Page extends BasePage {
-    render()
-    {
+	state = {
+		test1: '1'
+	};
 
-        // console.log('HOME RENDER: Home')
-        return render(this, this.props, this.state);
-        // return null;
-    }
+	render()
+	{
+
+		// console.log('HOME RENDER: Home')
+		return render(this, this.props, this.state);
+		// return null;
+	}
 }
 
 
@@ -49,31 +58,40 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-    text: selectText(),
-    altText: selectAltText(),
+	text: textSelector,
+	altText: altTextSelector,
+	objectText: objectTextSelector,
 });
 
+// console.log(mapState)
+
 const mapDispatch = dispatch => ({
-    changeText: (text) => {
-        dispatch(changeText(text))
-    },
-    push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
-    goBack: () => dispatch(goBack()),
-    goForward: () => dispatch(goForward()),
+	changeText: (text) => {
+		dispatch(changeText(text))
+	},
+	changeAboutText: (text) => {
+		dispatch(about_changeText(text))
+	},
+	changeObject: (object) => {
+		dispatch(changeObject(object))
+	},
+	push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
+	goBack: () => dispatch(goBack()),
+	goForward: () => dispatch(goForward()),
 });
 
 
 
 // const frontload = async props =>
 // {
-    // const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-    // props.changeText(data);
+	// const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
+	// props.changeText(data);
 // };
 
 
 const withConnect = connect(
-    mapState,
-    mapDispatch
+	mapState,
+	mapDispatch
 );
 
 
@@ -84,15 +102,15 @@ const withSaga = injectSaga({ key: ID, saga });
 
 
 export default compose(
-    withReducer,
-    withSaga,
-    withConnect,
+	withReducer,
+	withSaga,
+	withConnect,
 )(
-    // frontloadConnect(frontload, {
-    //     onMount: true,
-    //     onUpdate: false
-    // })(Page)
-    Page
+	// frontloadConnect(frontload, {
+	//     onMount: true,
+	//     onUpdate: false
+	// })(Page)
+	Page
 );
 
 

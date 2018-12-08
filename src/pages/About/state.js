@@ -1,3 +1,9 @@
+
+
 export default {
-  example: '1'
-};
+            text: "ABOUT CIAO",
+            altText: "",
+            object: {
+				text: "omg"
+            }
+        }
