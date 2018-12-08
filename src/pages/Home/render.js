@@ -11,7 +11,6 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <Heading>Hello world!!! ops</Heading>
             <p>text: {$props.text}</p>
             <p>altText: {$props.altText}</p>
-            <p>object.text: {$props.objectText}</p>
 
             <input type="text" value={$props.text} onChange={(event) => $props.changeText(event.target.value)}/>
 
@@ -21,12 +20,11 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             >Hey</button>
 			<br/>
             <button
-                onClick={() => $props.changeObject({
-					text: "xxx"
-				})}
+                onClick={() => $props.changeObjectText('zzz')}
             >Hey Object</button>
 			<br/>
 
+			<p>object.text: {$props.objectText}</p>
             <button
                 onClick={() => $props.changeAboutText("I am from Home")}
             >Hey About</button>

@@ -1,5 +1,5 @@
 import initialState from '../state';
 import {ID} from "../constants";
-import select from "utils/selector";
+import select from "utils/select";
 
 export default select('object')(ID, initialState);

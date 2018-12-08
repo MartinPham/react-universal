@@ -5,6 +5,6 @@ export default {
             altText: "",
             object: {
 				text: "omg",
-				str: "fff"
+				msg: "fff"
             }
         }

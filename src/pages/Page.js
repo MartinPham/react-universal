@@ -1,5 +1,10 @@
-import Component from 'components/Component';
+import Component, {PureComponent} from 'components/Component';
 
-export default class Page extends Component {
+export default class BasePage extends Component {
 	
+}
+
+
+export class BasePurePage extends PureComponent {
+
 }

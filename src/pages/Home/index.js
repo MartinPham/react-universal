@@ -1,5 +1,5 @@
 // import React from 'react';
-import BasePage from 'pages/Page';
+import {BasePurePage} from 'pages/Page';
 
 
 // import { frontloadConnect } from "react-frontload";
@@ -28,13 +28,13 @@ import objectTextSelector from "./selectors/objectTextSelector";
 import render from './render';
 import goBack from "components/Navigator/actions/goBack";
 import goForward from "components/Navigator/actions/goForward";
-import changeObject from "./actions/changeObject";
+import changeObjectText from "./actions/changeObjectText";
 
 // import about_textSelector from "pages/About/selectors/textSelector";
 import about_changeText from "pages/About/actions/changeText";
 
 
-class Page extends BasePage {
+class Page extends BasePurePage {
 	state = {
 		test1: '1'
 	};
@@ -72,8 +72,8 @@ const mapDispatch = dispatch => ({
 	changeAboutText: (text) => {
 		dispatch(about_changeText(text))
 	},
-	changeObject: (object) => {
-		dispatch(changeObject(object))
+	changeObjectText: (object) => {
+		dispatch(changeObjectText(object))
 	},
 	push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
 	goBack: () => dispatch(goBack()),
