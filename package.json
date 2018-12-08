@@ -17,6 +17,7 @@
     "cra:eject": "react-scripts eject",
 
 
+    "start": "npm run browser:dev",
     "browser:dev": "cross-env NODE_PATH=src craco start",
     "browser:build": "touch .building && rm -rf build && rm -rf build-browser && cross-env NODE_PATH=src craco build && mv build build-browser && rm .building",
     "browser:test": "cross-env NODE_PATH=src craco test",

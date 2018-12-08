@@ -4,12 +4,26 @@ import queryString from 'query-string';
 
 export default function*({path, data}) {
 	const history = sharedHistory().history;
+	const location = history.location;
+
+	let currentPath = location.pathname + location.search;
+
+	if(currentPath === '/')
+	{
+		currentPath = '/?';
+	}
 
 	// console.log('env ', process.env);
 	let finalPath = (process.env.PUBLIC_URL || '') + path;
 
 	finalPath += '?' + queryString.stringify(data);
 
+	console.log(currentPath, finalPath);
 
-	yield history.push(finalPath);
+	if(currentPath !== finalPath)
+	{
+		yield history.push(finalPath);
+	}
+
+
 }

@@ -52,6 +52,10 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             />
 
             <button
+                onClick={() => $props.push('/', {}, 'flyDown')}
+            >Go 127.0.0.1</button>
+            <br/>
+            <button
                 onClick={() => $props.push('/about', {}, 'flyLeft')}
             >Go about (flyLeft)</button>
             <br/>
