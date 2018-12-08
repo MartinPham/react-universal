@@ -27,10 +27,10 @@ export default
 		createSelector(
 			mainSelector(ID, initialState)(key, selector),
 			calculator !== null ? calculator :
-				// defaultCalculator
-				state => {
-					console.log('>>> try to calculate ' + key + ' with state ' + state);
-					return state;
-				}
+				defaultCalculator
+				// state => {
+				// 	console.log('>>> try to calculate ' + key + ' with state ' + state);
+				// 	return state;
+				// }
 		);
 
