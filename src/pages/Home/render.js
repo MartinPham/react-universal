@@ -21,6 +21,13 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 			<br/>
             <button
                 onClick={() => $props.changeObjectText('zzz')}
+            >Hey Object Text</button>
+			<br/>
+            <button
+                onClick={() => $props.changeObject({
+                		text: "omg",
+						msg: Math.random()
+                	})}
             >Hey Object</button>
 			<br/>
 

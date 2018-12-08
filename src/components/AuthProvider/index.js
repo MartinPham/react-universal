@@ -59,8 +59,8 @@ Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	user: userSelector(),
-	token: tokenSelector()
+	user: userSelector,
+	token: tokenSelector
 });
 
 const mapDispatch = dispatch => ({

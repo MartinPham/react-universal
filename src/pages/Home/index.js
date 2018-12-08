@@ -28,6 +28,7 @@ import objectTextSelector from "./selectors/objectTextSelector";
 import render from './render';
 import goBack from "components/Navigator/actions/goBack";
 import goForward from "components/Navigator/actions/goForward";
+import changeObject from "./actions/changeObject";
 import changeObjectText from "./actions/changeObjectText";
 
 // import about_textSelector from "pages/About/selectors/textSelector";
@@ -72,8 +73,11 @@ const mapDispatch = dispatch => ({
 	changeAboutText: (text) => {
 		dispatch(about_changeText(text))
 	},
-	changeObjectText: (object) => {
-		dispatch(changeObjectText(object))
+	changeObjectText: (text) => {
+		dispatch(changeObjectText(text))
+	},
+	changeObject: (object) => {
+		dispatch(changeObject(object))
 	},
 	push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
 	goBack: () => dispatch(goBack()),

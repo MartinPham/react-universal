@@ -76,9 +76,9 @@ Component.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	transition: transitionSelector(),
-	direction: directionSelector(),
-	originPosition: originPositionSelector(),
+	transition: transitionSelector,
+	direction: directionSelector,
+	originPosition: originPositionSelector,
 	// user: userSelector(),
 	// token: tokenSelector()
 });

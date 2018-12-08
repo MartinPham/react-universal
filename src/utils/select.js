@@ -1,3 +1,4 @@
+import { fromJS } from 'immutable';
 import { createSelector } from 'reselect';
 
 const defaultSelector = (mainState, key) => {
@@ -12,7 +13,7 @@ const defaultSelector = (mainState, key) => {
 };
 
 const mainSelector = (ID, initialState) => (key, selector = null) => rootState => {
-	const state = rootState[ID] || initialState;
+	const state = (rootState && rootState[ID]) || fromJS(initialState);
 
 	return selector !== null ? selector(state, key) :
 		defaultSelector(state, key)

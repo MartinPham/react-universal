@@ -18,7 +18,7 @@ export default function*({path, data}) {
 
 	finalPath += '?' + queryString.stringify(data);
 
-	console.log(currentPath, finalPath);
+	// console.log(currentPath, finalPath);
 
 	if(currentPath !== finalPath)
 	{

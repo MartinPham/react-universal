@@ -34,6 +34,7 @@ class Page extends BasePage {
 			{
 				return;
 			}
+
 			if(this.props.user && this.props.token)
 			{
 				this.gonnaLeave = true;
@@ -53,12 +54,13 @@ class Page extends BasePage {
 	};
 
 	componentDidUpdate() {
+		// console.log(this.props)
 		this.loggedInCheck();
 	}
 
-	// componentDidMount() {
-	// 	this.loggedInCheck();
-	// }
+	componentDidMount() {
+		this.loggedInCheck();
+	}
 
 	render() {
 		// console.log('PAGE RENDER: Login');
@@ -76,8 +78,8 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	user: userSelector(),
-	token: tokenSelector()
+	user: userSelector,
+	token: tokenSelector
 });
 
 const mapDispatch = dispatch => ({

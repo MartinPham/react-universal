@@ -33,7 +33,7 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-	user: userSelector()
+	user: userSelector
 });
 
 const mapDispatch = dispatch => ({

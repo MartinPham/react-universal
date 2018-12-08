@@ -1,8 +1,5 @@
-import { createSelector } from 'reselect';
 import initialState from '../state';
 import {ID} from "../constants";
+import select from "utils/select";
 
-const main = rootState => (rootState[ID] || initialState);
-
-export default () =>
-    createSelector(main, state => state.get('direction'));
+export default select('direction')(ID, initialState);
