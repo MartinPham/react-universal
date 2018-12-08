@@ -14,36 +14,6 @@ import Spinner from 'ink-spinner';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
-	const handleSelect = item => {
-		// console.log(item);
-
-		if(item.value === 'a')
-		{
-			$props.push('/about');
-		} else if(item.value === 'b')
-		{
-			$props.goBack();
-		}  else if(item.value === 'c')
-		{
-			$props.goForward();
-		} 
-	};
-
-
-	const items = [{
-		label: 'About',
-		value: 'a'
-	}, {
-		label: '<- back',
-		value: 'b'
-	}, {
-		label: 'forward ->',
-		value: 'c'
-	}];
-
-	// console.log('@@@', image)
-	// 
-	// const image = fs.readFileSync('src/images/pho.jpg');
 
     return (
        	<div>
@@ -56,7 +26,41 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <div>text: {$props.text}</div>
             <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>
 
-            <SelectInput items={items} onSelect={handleSelect}/>
+            <SelectInput 
+            	items={[
+							{
+								label: 'About',
+								value: '/about'
+							}, 
+							{
+								label: 'Dashboard',
+								value: '/dashboard'
+							}, 
+							{
+								label: 'Login',
+								value: '/login'
+							}, 
+							{
+								label: '<- back',
+								value: 'back'
+							}, 
+							{
+								label: 'forward ->',
+								value: 'forward'
+							}
+				]} 
+				onSelect={item => {
+					if(item.value === 'back')
+					{
+						$props.goBack();
+					} else if(item.value === 'forward')
+					{
+						$props.goForward();
+					} else {
+						$props.push(item.value);
+					}
+				}}
+			/>
 
 
        	    Enter something:

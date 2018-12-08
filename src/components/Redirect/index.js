@@ -7,6 +7,8 @@ import {createStructuredSelector} from "reselect";
 import {connect} from "react-redux";
 import push from "components/Navigator/actions/push";
 
+// import platform, {PLATFORM_CLI} from "utils/platform";
+
 class Component extends BaseComponent {
     shouldComponentUpdate() {
         return false;

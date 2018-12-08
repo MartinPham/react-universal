@@ -1,30 +1,34 @@
 import fs from 'fs';
 
-const storageDirectory = './storage/';
-
 // TODO implement simple key-value storage
 
 export default {
     read(itemKey) {
         try {
-            const item = fs.readFileSync(storageDirectory + itemKey, 'utf8');
+            const item = fs.readFileSync(process.env.STORAGE_DIRECTORY + itemKey, 'utf8');
             if (item === null) {
                 return null;
             }
 
             return JSON.parse(item);
-        } catch(e) {}
+       	} catch(e) 
+       	{}
+       	// { console.log(e)}
     },
 
     edit(itemKey, itemValue) {
         try {
-            fs.writeFileSync(storageDirectory + itemKey, JSON.stringify(itemValue), 'utf8');
-        } catch(e) {}
+            fs.writeFileSync(process.env.STORAGE_DIRECTORY + itemKey, JSON.stringify(itemValue), 'utf8');
+        } catch(e) 
+       	{}
+        // { console.log(e)}
     },
 
     delete(itemKey) {
         try {        
-            fs.unlinkSync(storageDirectory + itemKey);
-        } catch(e) {}
+            fs.unlinkSync(process.env.STORAGE_DIRECTORY + itemKey);
+        } catch(e) 
+       	{}
+        // { console.log(e)}
     }
 };

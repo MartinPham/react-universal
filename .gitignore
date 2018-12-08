@@ -18,6 +18,9 @@
 .DS_Store
 .env.local
 .idea
+.building
+.building-all
+.storage
 .env.development.local
 .env.test.local
 .env.production.local

@@ -43,7 +43,7 @@ class Page extends BasePage {
 
                 const queryParams = queryString.parse(location.search);
 
-                console.log(queryParams);
+                // console.log(queryParams);
 
                 this.props.push(queryParams.refererUrl || '/', {}, 'flyDown');
                 // this.props.push('/dashboard', {}, 'flyDown');
@@ -61,7 +61,7 @@ class Page extends BasePage {
 	// }
 
 	render() {
-        console.log('PAGE RENDER: Login');
+        // console.log('PAGE RENDER: Login');
 
         if(this.props.user && this.props.token)
         {

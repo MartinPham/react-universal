@@ -27,6 +27,8 @@ render(
   </Router>
 )
 */
+// import path from 'path';
+
 
 
 import React from 'react';
@@ -52,6 +54,17 @@ import resetHistory from "components/App/actions/resetHistory";
 
 import configureStore from 'utils/redux/configureStore';
 
+// console.log(process);
+import fs from 'fs';
+
+
+
+process.env.STORAGE_DIRECTORY = process.env.PWD + '/.storage/';
+
+if(!fs.existsSync(process.env.STORAGE_DIRECTORY))
+{
+	fs.mkdirSync(process.env.STORAGE_DIRECTORY);
+}
 
 let argv = process.argv.slice(2);
 

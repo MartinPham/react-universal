@@ -83,11 +83,17 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 		}
 	}
 
-	// if(matchedRoute)
-	// {	
-	// 	matchedRoute.props.history = history;
-	// 	matchedRoute.props.location = history.location;
-	// }
+	if(matchedRoute)
+	{	
+		// matchedRoute.props.history = history;
+		const matchedRouteProps = {
+			...matchedRoute.props,
+			location: history.location
+		};
+
+		matchedRoute.props = matchedRouteProps;
+
+	}
 
     return (
     	<AuthProvider>
