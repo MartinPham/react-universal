@@ -24,9 +24,10 @@ pages:
   script:
   - npm install --global yarn
   - yarn
-  - yarn build:all
+  - yarn cli:build
+  - yarn server:build:all
   - rm -rf public
-  - mv build public
+  - mv build-browser public
   - ls -la public
   artifacts:
     paths:

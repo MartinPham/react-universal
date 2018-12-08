@@ -6,9 +6,11 @@ import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
 import SelectInput from 'ink-select-input';
 import Spinner from 'ink-spinner';
+// import Image from 'components/Image.cli';
+// import fs from 'fs';
 
 
-
+// import image from 'images/pho.jpg';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -39,12 +41,17 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 		value: 'c'
 	}];
 
+	// console.log('@@@', image)
+	// 
+	// const image = fs.readFileSync('src/images/pho.jpg');
+
     return (
        	<div>
 			<Gradient name="rainbow">
 				<BigText text="Hello world!!! Ops"/>
 			</Gradient>       	
 
+			{/* <Image src={image}/> */}
 
             <div>text: {$props.text}</div>
             <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>

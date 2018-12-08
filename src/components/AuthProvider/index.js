@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import BaseComponent from 'components/Component';
 
 import { connect } from 'react-redux';
@@ -25,12 +25,17 @@ import logout from "./actions/logout";
 import Immutable from "immutable";
 
 
-
+import platform, {PLATFORM_CLI} from "utils/platform";
 
 class Component extends BaseComponent {
 
     shouldComponentUpdate(nextProps, nextState)
     {
+    	if(platform === PLATFORM_CLI)
+    	{
+    		return true; // seems ink refresh the route wrongly
+    	}
+
         if(
             !Immutable.is(this.props.user,  nextProps.user)
             || this.props.token !== nextProps.token

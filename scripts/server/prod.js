@@ -7,7 +7,6 @@ clearModule.all();
 
 const http = require('http');
 
-
 let port = Number(process.argv[2]);
 
 http.get('http://localhost:' + port + '/___stop___', (resp) => {
@@ -38,24 +37,23 @@ const run = () => {
 		const ipAddress = require('ip').address();
 		const qrcode = require('qrcode-terminal');
 
-		const package = require(path.resolve(__dirname, '../package.json'));
+		const package = require(path.resolve(__dirname, '../../package.json'));
 		const homepage = package.homepage;
 
 		const url = new URL(homepage);
 		const pathname = url.pathname;
 
-
 		const chokidar = require('chokidar');
 
 		let watchTimer = null;
 					
-		let buildingFlag = path.resolve(__dirname, '../.building');
-		let buildingAllFlag = path.resolve(__dirname, '../.building-all');
+		let buildingFlag = path.resolve(__dirname, '../../.building');
+		let buildingAllFlag = path.resolve(__dirname, '../../.building-all');
 
 		let chokidarInited = false;
 		chokidar.watch([
-			path.resolve(__dirname, '../build/'),
-			path.resolve(__dirname, '../build-server'),
+			path.resolve(__dirname, '../../build-browser/'),
+			path.resolve(__dirname, '../../build-server'),
 		], {})
 		.on('all', (event, path) => {
 			// console.log('changed', path);
@@ -88,7 +86,7 @@ const run = () => {
 		let chokidarSourceInited = false;
 		let watchSourceTimer = null;
 		chokidar.watch([
-			path.resolve(__dirname, '../src/'),
+			path.resolve(__dirname, '../../src/'),
 		], {})
 		.on('all', (event, path) => {
 			// console.log('src changed', path);
@@ -112,12 +110,17 @@ const run = () => {
 					console.log('> Rebuilding....');
 					for(let i in clients)
 					{
-						clients[i].send('rebuild');
+						try {
+							clients[i].send('rebuild');
+						} catch(e) {
+							console.log(e)
+						}
+						
 					}
 					// npmRun.exec('npm run build:all', {}, (err, stdout, stderr) => {
 					// 	console.log(stdout);
 					// });
-					console.log(npmRun.sync('npm run build').toString('utf8'));
+					console.log(npmRun.sync('npm run server:build:all').toString('utf8'));
 					console.log('> Finished building, gonna restart soon..');
 				}
 			}, 1000);
@@ -132,11 +135,14 @@ const run = () => {
 		const bodyParser = require('body-parser');
 		const compression = require('compression');
 		const express = require('express');
-		// const Loadable = require('react-loadable');
+		const Loadable = require('react-loadable');
 		const cookieParser = require('cookie-parser');
 
 
-		
+		const htmlFile = path.resolve(__dirname, '../../build-browser/index.html');
+		const manifestFile = path.resolve(__dirname, '../../build-browser/asset-manifest.json');
+		const serverFile = path.resolve(__dirname, '../../build-server/index.js');
+
 		// Create our express app using the port optionally specified
 		let app = express();
 
@@ -150,10 +156,10 @@ const run = () => {
 		// app.use(morgan('dev'));
 		app.use(cookieParser());
 
-		// var html = fs.readFileSync(htmlFile, 'utf8');
+		var html = fs.readFileSync(htmlFile, 'utf8');
 
-		// var manifest = require(manifestFile);
-		// var loader = require(serverFile).default(html, manifest, ipAddress + ':' + port);
+		var manifest = require(manifestFile);
+		var loader = require(serverFile).default(pathname, html, manifest, ipAddress + ':' + port);
 
 		app.get('/___stop___', function (req, res) {
 			res.send('Bye bye');
@@ -164,7 +170,11 @@ const run = () => {
 
 			for(let i in clients)
 			{
-				clients[i].send('reload');
+				try {
+					clients[i].send('reload');
+				} catch(e) {
+					console.log(e)
+				}
 			}
 
 			const argv = process.argv;
@@ -181,14 +191,14 @@ const run = () => {
 
 		})
 
-		// app.use(express.Router().get('/', loader));
-		app.use(pathname, express.static(path.resolve(__dirname, '../build')));
+		app.use(express.Router().get(pathname, loader));
+		app.use(pathname, express.static(path.resolve(__dirname, '../../build-browser')));
 		// app.use(reload(path.resolve(__dirname, '../build')));
 		// app.use(express.static(path.resolve(__dirname, '../server-build')));
-		// app.use(loader);
+		app.use(loader);
 
 		// We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
-		// Loadable.preloadAll().then(() => {
+		Loadable.preloadAll().then(() => {
 			let WSServer = require('ws').Server;
 			let server = require('http').createServer();
 
@@ -213,7 +223,7 @@ const run = () => {
 			// server = app.listen(port, () => {
 			// 	console.log(`> Server is listening on http://localhost:${port} (External http://${ipAddress}:${port})`);
 			// });
-		// });
+		});
 
 
 

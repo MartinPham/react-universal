@@ -3,7 +3,11 @@
 const resolvePath = require('babel-plugin-module-resolver').resolvePath;
 
 module.exports = {
-	cache: false,
+	babelrc: false,
+    configFile: false,
+    // cacheDirectory: false,
+    // cacheCompression: false,    
+	// cache: false,
 	ignore: [/\/(build|node_modules)\//],
 	presets: [
 		[
@@ -37,7 +41,7 @@ module.exports = {
 					'^react-redux$': 'ink-redux', // different redux
 					'^react-router$': 'ink-router', // different redux
 					'^react$': './cli/react', // different react
-					'^(.*)\.(png|jpg|gif)$': './cli/noop', // no image
+					'^(.*)\.(png|jpg|jpeg|gif)$': './cli/noop', // no image
 					'^(.*)\.(css|scss)$': './cli/noop', // no css
 					'^transitions$': './src/transitions.cli', // different react
 					'^components/Component$': './src/components/Component.cli', // different Component

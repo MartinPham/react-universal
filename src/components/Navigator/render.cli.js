@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthProvider from "components/AuthProvider";
-import sharedHistory from "utils/sharedHistory";
+// import sharedHistory from "utils/sharedHistory";
 
 
 
@@ -89,5 +89,9 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 	// 	matchedRoute.props.location = history.location;
 	// }
 
-    return matchedRoute;
+    return (
+    	<AuthProvider>
+    		{matchedRoute}
+    	</AuthProvider>
+    );
 }

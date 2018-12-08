@@ -4,11 +4,11 @@
 module.exports = function(api) {
 	api.cache(false);
 
-	if(process.env && process.env.NODE_ENV ==='cli')
-	{
-		// avoid override cli config
-		return {};
-	}
+	// if(process.env && process.env.NODE_ENV ==='cli')
+	// {
+	// 	// avoid override cli config
+	// 	return {};
+	// }
 
 	return {
 		presets: ['babel-preset-expo'],

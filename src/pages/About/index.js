@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import BasePage from 'pages/Page';
 
 import { connect } from 'react-redux';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextInput from 'ink-text-input';
+// import TextInput from 'ink-text-input';
 
 import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';

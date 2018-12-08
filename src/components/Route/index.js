@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import BaseComponent from 'components/Component';
-import { Route } from 'react-router';
+
 import {ID} from "./constants";
 import {createStructuredSelector} from "reselect";
 

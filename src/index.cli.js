@@ -86,27 +86,27 @@ historyWrapper.history.listen(location => {
 
 global.store = store; // dirty tricks, seems Provider context doesnt work here in ink
 
-// const historyResetter = () => {
-// 	console.log('reset')
-//     store.dispatch(resetHistory({
-//         ...historyWrapper.history.location,
-//         transition: 'slideLeft'
-//     }));
-// };
-// 
-// const authPreload = () => {
-//     const localUser = storage.read('user');
-//     const localToken = storage.read('token');
-// 
-//     // console.log(localUser, localToken);
-// 
-//     store.dispatch(updateUser(localUser, localToken));
-// };
+const historyResetter = () => {
+	// console.log('reset')
+    store.dispatch(resetHistory({
+        ...historyWrapper.history.location,
+        transition: 'slideLeft'
+    }));
+};
+
+const authPreload = () => {
+    const localUser = storage.read('user');
+    const localToken = storage.read('token');
+
+    // console.log(localUser, localToken);
+
+    store.dispatch(updateUser(localUser, localToken));
+};
 
 // console.log(historyWrapper.history.location);
 
-// historyResetter();
-// authPreload();
+historyResetter();
+authPreload();
 
 render (
     <Provider store={store}>

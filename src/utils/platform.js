@@ -14,7 +14,7 @@ else if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative'
   // I'm in react-native
   platform = PLATFORM_NATIVE;
 }
-else if (process && process.env && process.env.NODE_ENV ==='cli') {
+else if (process && process.env && process.env.PLATFORM ==='cli') {
   // I'm in node js
   platform = PLATFORM_CLI;
 }

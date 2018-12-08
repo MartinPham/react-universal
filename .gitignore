@@ -10,6 +10,8 @@
 
 # production
 /build
+/build-browser
+/build-cli
 /build-server
 
 # misc

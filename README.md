@@ -23,29 +23,35 @@ REACT UNIVERSAL
 **Server**
 
 ```
-yarn build:all && yarn start:server
+yarn server:prod
 ```
 
 **Browser**
 
 ```
-yarn start
+yarn browser:dev
 ```
 
 **Browser (production)**
 
 ```
-yarn build && yarn start:client
+yarn browser:prod
 ```
 
 **Native**
 
 ```
-yarn e-start
+yarn native:start
 ```
 
 **Command line**
 
 ```
-yarn start:cli
+yarn cli:dev
+```
+
+**Command line (production)**
+
+```
+yarn cli:prod
 ```

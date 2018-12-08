@@ -1,5 +1,5 @@
 import React from "react";
-import {Text} from "ink";
+// import {Text} from "ink";
 import BaseComponent from 'components/Component';
 
 import terminalImage from 'terminal-image';
@@ -12,7 +12,7 @@ export default class Image extends BaseComponent {
 
     componentDidMount() {
     	terminalImage
-    		.file(this.props.src)
+    		.buffer(this.props.src)
     		.then(image => this.setState({
     			image
     		}));

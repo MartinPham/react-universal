@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './styles.scss';
 
 
-import log from "utils/log";
+// import log from "utils/log";
 import AuthProvider from "components/AuthProvider";
 // import Navigator from "./index";
 
@@ -36,7 +36,7 @@ export default ($this, $props, $state, ...$extra) => {
                 const transition = $props.transition;
                 const originPosition = $props.originPosition.toJS();
 
-                let transitionModuleName = '';
+                // let transitionModuleName = '';
 
 
                 for(let moduleId in transitionModules)
