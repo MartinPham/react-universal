@@ -39,6 +39,7 @@ module.exports = {
 					// 	console.log(a)
 					// }, // different react
 					'^react-redux$': 'ink-redux', // different redux
+					'^react-frontload$': './cli/react-frontload', // different react-frontload
 					'^react-router$': 'ink-router', // different redux
 					'^react$': './cli/react', // different react
 					'^(.*)\.(png|jpg|jpeg|gif)$': './cli/noop', // no image

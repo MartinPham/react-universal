@@ -2,7 +2,7 @@
 import {BasePurePage} from 'pages/Page';
 
 
-// import { frontloadConnect } from "react-frontload";
+import { frontloadConnect } from "react-frontload";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
@@ -86,11 +86,11 @@ const mapDispatch = dispatch => ({
 
 
 
-// const frontload = async props =>
-// {
-	// const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-	// props.changeText(data);
-// };
+const frontload = async props =>
+{
+	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
+	props.changeText(data);
+};
 
 
 const withConnect = connect(
@@ -110,11 +110,11 @@ export default compose(
 	withSaga,
 	withConnect,
 )(
-	// frontloadConnect(frontload, {
-	//     onMount: true,
-	//     onUpdate: false
-	// })(Page)
-	Page
+	frontloadConnect(frontload, {
+	    onMount: true,
+	    onUpdate: false
+	})(Page)
+	// Page
 );
 
 
