@@ -11,7 +11,7 @@ import Image from 'components/Image.cli';
 
 
 // import image from '/Z/DEV/REACT/react-universal/src/images/pho.jpg';
-import image from 'images/pho.jpg';
+import vn from 'images/vn.png';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -22,7 +22,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 				<BigText text="Hello world!!! Ops"/>
 			</Gradient>       	
 
-			 <Image src={image}/>
+			 <Image src={vn}/>
 
             <div>text: {$props.text}</div>
             <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>
