@@ -7,6 +7,8 @@ Object.defineProperty(exports, "__esModule", {
  * Created at 16/5/15.
  * @Author Ling.
  * @Email i@zeroling.com
+ *
+ * Patched at 08/12/2018 by Martin Pham <i@martinpham.com>
  */
 
 function matchImages(sourceName) {
@@ -57,6 +59,12 @@ exports.default = function (_ref) {
               }
             }
           }
+
+          if(process.env.CLI_BUILDTIME)
+		  {
+		  	// console.log(source, path.node);
+			  require('fs').appendFileSync(__dirname + '/../.cli-imported-assets', source.value + "\n");
+		  }
 
           path.replaceWith(types.variableDeclaration('const', [types.variableDeclarator(types.identifier(id), 
           	types.identifier(
