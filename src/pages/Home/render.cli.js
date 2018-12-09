@@ -6,11 +6,12 @@ import Gradient from 'ink-gradient';
 import BigText from 'ink-big-text';
 import SelectInput from 'ink-select-input';
 import Spinner from 'ink-spinner';
-// import Image from 'components/Image.cli';
+import Image from 'components/Image.cli';
 // import fs from 'fs';
 
 
-// import image from 'images/pho.jpg';
+// import image from '/Z/DEV/REACT/react-universal/src/images/pho.jpg';
+import image from 'images/pho.jpg';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -21,7 +22,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 				<BigText text="Hello world!!! Ops"/>
 			</Gradient>       	
 
-			{/* <Image src={image}/> */}
+			 <Image src={image}/>
 
             <div>text: {$props.text}</div>
             <div>altText: {$props.altText === "..." ? (<Spinner/>) : $props.altText}</div>

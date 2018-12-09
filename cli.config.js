@@ -30,6 +30,7 @@ module.exports = {
 				pragmaFrag: 'React.Fragment'
 			}
 		],
+		'./cli/import-assets',
 		[
 			'module-resolver',
 			{
@@ -42,8 +43,8 @@ module.exports = {
 					'^react-frontload$': './cli/react-frontload', // different react-frontload
 					'^react-router$': 'ink-router', // different redux
 					'^react$': './cli/react', // different react
-					'^(.*)\.(png|jpg|jpeg|gif)$': './cli/noop', // no image
-					'^(.*)\.(css|scss)$': './cli/noop', // no css
+					// '^(.*)\.(png|jpg|jpeg|gif)$': './cli/noop', // no image
+					'^(.*).(css|scss)$': './cli/noop', // no css
 					'^transitions$': './src/transitions.cli', // different react
 					'^components/Component$': './src/components/Component.cli', // different Component
 					// '\.\/render': './render.cli', // different render - not working
@@ -59,11 +60,13 @@ module.exports = {
 			        {
 			        	path = './render.cli';
 			        }
-			        // console.log('>>>', sourcePath, currentFile, opts, ' == ', path);
+			        // console.log('>>> resolvePath ', sourcePath, currentFile, opts, ' == ', path);
 
 			        return path;
 			    }
 			}
 		],
+
+
 	]
 };
