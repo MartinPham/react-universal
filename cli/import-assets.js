@@ -59,7 +59,13 @@ exports.default = function (_ref) {
           }
 
           path.replaceWith(types.variableDeclaration('const', [types.variableDeclarator(types.identifier(id), 
-          	types.identifier('require(\'fs\').readFileSync(__dirname + \'/' + source.value + '\')')
+          	types.identifier(
+          		'(process.env.NODE_ENV === "development")' +
+				' ? ' +
+				'require(\'fs\').readFileSync(__dirname + \'/' + source.value + '\')' +
+				' : ' +
+				'require(\'fs\').readFileSync(__dirname + \'/' + source.value.replace('../../', './') + '\')'
+			)
           	// types.identifier('__dirname')
           	)]));
         }

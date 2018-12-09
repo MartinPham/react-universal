@@ -32,9 +32,10 @@ const resolveModule = relativePath => path.resolve(appDirectory + '/src', relati
 
 const nodeExternals = require('webpack-node-externals');
 
-
+// console.log(craWebpackConfig);die();
 craWebpackConfig.output.path = resolveApp('build');
 craWebpackConfig.target = 'node';
+craWebpackConfig.node.__dirname = false;
 craWebpackConfig.devtool = false;
 craWebpackConfig.entry = [resolveModule('index.cli.js')];
 
@@ -53,7 +54,8 @@ craWebpackConfig.plugins = [
  //         maxChunks: 1
  //    })
  	new webpack.DefinePlugin({
-		'process.env.PLATFORM': JSON.stringify(process.env.PLATFORM)
+		'process.env.PLATFORM': JSON.stringify(process.env.PLATFORM),
+		'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 	})
 ];
 
@@ -61,7 +63,10 @@ craWebpackConfig.module.rules[2].oneOf = craWebpackConfig.module.rules[2].oneOf.
   	return rule.loader.indexOf('/node_modules/babel-loader/') > -1
 });
 craWebpackConfig.module.rules[2].oneOf = craWebpackConfig.module.rules[2].oneOf.map(function(rule){
-	rule.options = require('../../cli.config');
+	if(rule.loader.indexOf('/node_modules/babel-loader/') > -1)
+	{
+		rule.options = require('../../cli.config');
+	}
   	return rule;
 });
 

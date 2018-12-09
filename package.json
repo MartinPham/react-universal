@@ -25,7 +25,7 @@
 		"server:prod:run": "node scripts/server/prod 3000",
 		"server:prod": "npm run server:build:all && npm run server:prod:run",
 		"cli:dev": "cross-env PLATFORM=cli node scripts/cli/dev",
-		"cli:build": "touch .building && rm -rf build && rm -rf build-cli && cross-env PLATFORM=cli node scripts/cli/build && mkdir build-cli && mv build/index.js build-cli/index.js && rm -rf build && rm .building",
+		"cli:build": "touch .building && rm -rf build && rm -rf build-cli && cross-env PLATFORM=cli node scripts/cli/build && mkdir build-cli && mv build/index.js build-cli/index.js && rm -rf build && cp -rv src/images build-cli/images && rm .building",
 		"cli:prod:run": "node build-cli",
 		"cli:prod": "npm run cli:build && npm run cli:prod:run"
 	},
