@@ -49,26 +49,30 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                     <TransitionGroup component={null} className={`pageTransition ${$props.transition}-${$props.direction}`}>
                         <Transition
                             key={location.key}
-                            timeout={300}
+                            timeout={200}
                             mountOnEnter={false}
                             unmountOnExit={false}
                         >
                             {(state) => {
+                                // console.log('@@@@@@@@', location.pathname, transition, direction, state)
 
-                                console.log(location.pathname, transition, direction, originPosition, state);
+                                // console.log(location.pathname, transition, direction, originPosition, state);
 
                                 const component = (
-                                    <AuthProvider>
+                                    // <AuthProvider>
                                         <Switch location={location}>
                                             {$props.children}
                                         </Switch>
-                                    </AuthProvider>
+                                    // </AuthProvider>
                                 );
 
-                                if(state === 'entered' || state === 'exited')
-                                {
-                                    return component;
-                                }
+                                const transitionProps = {};
+
+                                // if(state === 'entered' || state === 'exited')
+                                // {
+                                // 	console.log('@@@@@@@@ ====> render component');
+                                //     return component;
+                                // }
                                 // if(state === 'entered')
                                 // {
                                 //     state = 'entering';
@@ -83,54 +87,59 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                                 //     zIndex = 10;
                                 // }
 
-                                let transform = {};
-                                transform[transition] = {};
-                                transform[transition][direction] = {};
-                                transform[transition][direction][state] = {
-                                    from: {},
-                                    to: {},
-                                    zIndex: 1,
-                                    elevation: 1
-                                };
+								// if(state !== 'entered' && state !== 'exited')
+        //                         {
 
-                                for(let moduleId in transitionModules)
-                                {
-                                    const module = transitionModules[moduleId];
+	                                let transform = {};
+	                                transform[transition] = {};
+	                                transform[transition][direction] = {};
+	                                transform[transition][direction][state] = {
+	                                    from: {},
+	                                    to: {},
+	                                    zIndex: 1,
+	                                    elevation: 1
+	                                };
+
+	                                for(let moduleId in transitionModules)
+	                                {
+	                                    const module = transitionModules[moduleId];
 
 
-                                    if((new RegExp(module.test)).test(transition))
-                                    {
-                                        
-                                        transform = {
-                                            ...transform,
-                                            ...module.transformer.default(originPosition)
+	                                    if((new RegExp(module.test)).test(transition))
+	                                    {
+	                                        
+	                                        transform = {
+	                                            ...transform,
+	                                            ...module.transformer.default(originPosition)
+	                                        };
+
+	                                        break;
+	                                    }
+	                                }
+
+	                                transitionProps.style = {
+                                            zIndex: transform[transition][direction][state].zIndex,
+                                            elevation: transform[transition][direction][state].elevation
                                         };
 
-                                        break;
-                                    }
-                                }
+	                                transitionProps.from = transform[transition][direction][state].from;
 
+	                                transitionProps.to = transform[transition][direction][state].to;
 
-                                // console.log(location.pathname, transition, direction, state, transform[transition][direction][state].from, transform[transition][direction][state].to);
+	                                transitionProps.duration = 200;
+                                // }
 
-                                // console.log(
-                                //     location.pathname,
-                                //     transition,
-                                //     direction,
-                                //     state,
-                                //     originPosition,
-                                //     transform[transition][direction][state]
-                                // );
+								if(state === 'entered' || state === 'exited')
+								{
+									transitionProps.duration = 0;
+									// delete transitionProps.from;
+								}
+
+                                // console.log('@@@@@@@@', location.pathname, transition, direction, state, transitionProps)
 
                                 return (
                                     <TransitionView
-                                        style={{
-                                            zIndex: transform[transition][direction][state].zIndex,
-                                            elevation: transform[transition][direction][state].elevation
-                                        }}
-                                        from={transform[transition][direction][state].from}
-                                        to={transform[transition][direction][state].to}
-                                        duration={300}
+                                        {...transitionProps}
                                     >
                                         {component}
                                     </TransitionView>

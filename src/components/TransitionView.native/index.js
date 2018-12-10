@@ -8,38 +8,109 @@ export default class TransitionView extends BaseComponent {
         super(props);
 
         const from = props.from;
+        const to = props.to;
+        const duration = props.duration;
+
+        console.log('%%%%%%% constructor');
+
+        // const from = props.from;
+        // const to = props.to;
+        // const duration = props.duration;
 
         this.state = {
 
         };
 
-        Object.keys(from).forEach((styleName) => {
-            // console.log(styleName, 'from', from[styleName], props.to[styleName])
-            this.state['transition_' + styleName] = new Animated.Value(from[styleName])  // Initial value for opacity: 0
-        });
+     
+
+        this.animatedParallel = null;
+    }
+
+	// shouldComponentUpdate(nextProps, nextState)
+	// {
+	// 	return false;
+	// }
+	static getDerivedStateFromProps(props, state) {
+
+        const from = props.from;
+        const to = props.to;
+        const duration = props.duration;
+
+        console.log('%%%%%%% getDerivedStateFromProps');
+
+        const newState = {};
+        if(duration > 0)
+        {
+	        console.log('%%%%%%% duration > 0 -> set initial transition');
+
+		    Object.keys(from).forEach((styleName) => {
+		        // console.log(styleName, 'from', from[styleName], props.to[styleName])
+		        newState['transition_' + styleName] = new Animated.Value(from[styleName])  // Initial value for opacity: 0
+		    });	   
+        }
+
+		return newState;
+	}
+
+    componentDidMount() {
+
+        const from = this.props.from;
+        const to = this.props.to;
+        const duration = this.props.duration;
+
+        console.log('%%%%%%% componentDidMount');
 
 
     }
 
+    componentDidUpdate() {
+        const from = this.props.from;
+        const to = this.props.to;
+        const duration = this.props.duration;
 
-    componentDidMount() {
+
+        console.log('%%%%%%% componentDidUpdate');
+
+
         const parallel = [];
 
-        const from = this.props.from;
+        if(duration > 0)
+        {
 
-        Object.keys(from).forEach((styleName) => {
-            parallel.push(Animated.timing(this.state['transition_' + styleName], {
-                toValue: this.props.to[styleName],
-                duration: this.props.duration
-            }))
-        });
+        	console.log('%%%%%%% duration > 0 -> set up transition');
 
-        Animated.parallel(parallel).start(() => {
-            // callback
-        });
+	        Object.keys(from).forEach((styleName) => {
+	            parallel.push(Animated.timing(this.state['transition_' + styleName], {
+	                toValue: to[styleName],
+	                duration: duration
+	            }))
+	        });	
+        }
+
+
+
+        if(duration > 0 && parallel.length > 0)
+        {
+        	console.log('%%%%%%% duration > 0 && parallel > 0 -> start transition');
+
+        	// if(this.animatedParallel !== null)
+        	// {
+        	// 	this.animatedParallel.stop();
+        	// }
+
+	        this.animatedParallel = Animated.parallel(parallel).start(() => {
+	            // callback
+	        });
+        }
     }
 
     render() {
+        const from = this.props.from;
+        const to = this.props.to;
+        const duration = this.props.duration;
+
+
+        console.log('%%%%%%% render');
 
         let style = {
             ...this.props.style,
@@ -50,11 +121,10 @@ export default class TransitionView extends BaseComponent {
             width: '100%',
         };
 
-        const from = this.props.from;
 
-        Object.keys(from).forEach((styleName) => {
-            style[styleName] = this.state['transition_' + styleName];
-        });
+	    Object.keys(from).forEach((styleName) => {
+	        style[styleName] = this.state['transition_' + styleName];
+	    });
 
         return (
             <Animated.View                 // Special animatable View

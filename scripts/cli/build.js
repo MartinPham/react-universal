@@ -1,5 +1,5 @@
 process.env.NODE_ENV = "production";
-process.env.CLI_BUILDTIME = true;
+process.env.CLI_BUILDING = true;
 
 const fs = require('fs');
 fs.writeFileSync(__dirname + '/../../.cli-imported-assets', '');

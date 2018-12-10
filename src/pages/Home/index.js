@@ -110,11 +110,11 @@ export default compose(
 	withSaga,
 	withConnect,
 )(
-	frontloadConnect(frontload, {
-	    onMount: true,
-	    onUpdate: false
-	})(Page)
-	// Page
+	// frontloadConnect(frontload, {
+	//     onMount: true,
+	//     onUpdate: false
+	// })(Page)
+	Page
 );
 
 

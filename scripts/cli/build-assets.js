@@ -1,5 +1,5 @@
 process.env.NODE_ENV = "production";
-process.env.CLI_BUILDTIME = true;
+
 
 const fs = require('fs');
 const path = require('path');
@@ -15,7 +15,7 @@ fs.readFileSync(__dirname + '/../../.cli-imported-assets', 'utf8').split("\n").f
 	{
 		let finalAsset = asset.replace(/\.\.\//g, '', '');
 
-		console.log('Copy ', finalAsset);
+		console.log('- Copy ', finalAsset);
 		try {
 			fs.copyFileSync(__dirname + '/../../src/' + finalAsset, __dirname + '/../../build-cli/' + finalAsset);
 		} catch (e) {

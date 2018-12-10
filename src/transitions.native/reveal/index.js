@@ -36,6 +36,19 @@ export default (originPosition) => {
             elevation: 1
         }
     };
+    transform['revealIn'].forward.entered = transform['revealOut'].back.entered = {
+		...transform['revealIn'].forward.entering,
+		from: transform['revealIn'].forward.entering.to,
+		to: transform['revealIn'].forward.entering.to
+	};
+	transform['revealIn'].forward.exited = transform['revealOut'].back.exited = {
+		...transform['revealIn'].forward.exiting,
+		from: transform['revealIn'].forward.exiting.to,
+		to: transform['revealIn'].forward.exiting.to
+	};
+
+
+	
 
     transform['revealIn'].back = transform['revealOut'].forward = {
         entering: {
@@ -63,6 +76,16 @@ export default (originPosition) => {
             elevation: 10
         }
     };
+    transform['revealIn'].back.entered = transform['revealOut'].forward.entered = {
+		...transform['revealIn'].back.entering,
+		from: transform['revealIn'].back.entering.to,
+		to: transform['revealIn'].back.entering.to
+	};
+	transform['revealIn'].back.exited = transform['revealOut'].forward.exited = {
+		...transform['revealIn'].back.exiting,
+		from: transform['revealIn'].back.exiting.to,
+		to: transform['revealIn'].back.exiting.to
+	};
 
 
     // console.log('created', transform);

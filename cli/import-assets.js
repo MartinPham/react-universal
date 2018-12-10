@@ -60,7 +60,7 @@ exports.default = function (_ref) {
             }
           }
 
-          if(process.env.CLI_BUILDTIME)
+          if(process.env.CLI_BUILDING)
 		  {
 		  	// console.log(source, path.node);
 			  require('fs').appendFileSync(__dirname + '/../.cli-imported-assets', source.value + "\n");

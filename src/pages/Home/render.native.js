@@ -7,6 +7,7 @@ import {getBoundingRect} from "../../utils/dom";
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
+	console.log('>>> Home render');
     return (
         <View>
             <Text></Text>
@@ -46,7 +47,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             </ItemImage>
 
             <Button
-                onPress={() => $props.push('/about', {}, 'flyLeft')}
+                onPress={() => $props.push('/about', {}, 'slideLeft')}
                 title="Go about (flyLeft)" />
 
             <Button

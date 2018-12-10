@@ -19,7 +19,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
     return (
        	<div>
 			<Gradient name="rainbow">
-				<BigText text="Hello world!!! Ops"/>
+				<BigText text="Hello world!!! Ops zzz"/>
 			</Gradient>       	
 
 			 <Image src={vn}/>

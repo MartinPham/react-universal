@@ -3,6 +3,7 @@ import {Button, Text, TextInput, View} from "react-native";
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
+	console.log('>>> About render');
     return (
         <View>
             
@@ -11,7 +12,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
             <Text></Text>
             <Text>About</Text>
             <Button
-                onPress={() => $props.push('/contact', {}, 'flyLeft')}
+                onPress={() => $props.push('/contact', {}, 'slideLeft')}
                 title="Go Contact (flyLeft)" />
 
             <Button

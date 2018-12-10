@@ -34,6 +34,16 @@ export default (originPosition) => {
             elevation: 1
         }
     };
+    transform['flyLeft'].forward.entered = transform['flyRight'].back.entered = {
+		...transform['flyLeft'].forward.entering,
+		from: transform['flyLeft'].forward.entering.to,
+		to: transform['flyLeft'].forward.entering.to
+	};
+	transform['flyLeft'].forward.exited = transform['flyRight'].back.exited = {
+		...transform['flyLeft'].forward.exiting,
+		from: transform['flyLeft'].forward.exiting.to,
+		to: transform['flyLeft'].forward.exiting.to
+	};
 
     transform['flyLeft'].back = transform['flyRight'].forward = {
         entering: {
@@ -61,6 +71,25 @@ export default (originPosition) => {
             elevation: 10
         }
     };
+    transform['flyLeft'].back.entered = transform['flyRight'].forward.entered = {
+		...transform['flyLeft'].back.entering,
+		from: transform['flyLeft'].back.entering.to,
+		to: transform['flyLeft'].back.entering.to
+	};
+	transform['flyLeft'].back.exited = transform['flyRight'].forward.exited = {
+		...transform['flyLeft'].back.exiting,
+		from: transform['flyLeft'].back.exiting.to,
+		to: transform['flyLeft'].back.exiting.to
+	};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,6 +124,17 @@ export default (originPosition) => {
         }
     };
 
+	transform['flyUp'].forward.entered = transform['flyDown'].back.entered = {
+		...transform['flyUp'].forward.entering,
+		from: transform['flyUp'].forward.entering.to,
+		to: transform['flyUp'].forward.entering.to
+	};
+	transform['flyUp'].forward.exited = transform['flyDown'].back.exited = {
+		...transform['flyUp'].forward.exiting,
+		from: transform['flyUp'].forward.exiting.to,
+		to: transform['flyUp'].forward.exiting.to
+	};	
+
     transform['flyUp'].back = transform['flyDown'].forward = {
         entering: {
             from: {
@@ -122,6 +162,16 @@ export default (originPosition) => {
 
         }
     };
+    transform['flyUp'].back.entered = transform['flyDown'].forward.entered = {
+		...transform['flyUp'].back.entering,
+		from: transform['flyUp'].back.entering.to,
+		to: transform['flyUp'].back.entering.to
+	};
+	transform['flyUp'].back.exited = transform['flyDown'].forward.exited = {
+		...transform['flyUp'].back.exiting,
+		from: transform['flyUp'].back.exiting.to,
+		to: transform['flyUp'].back.exiting.to
+	};
 
 
     return transform;
