@@ -13,13 +13,13 @@ import platform, {PLATFORM_CLI} from "utils/platform";
 import render from './render';
 
 class Component extends BaseComponent {
-	shouldComponentUpdate(nextProps, nextState) {
-		if(platform === PLATFORM_CLI)
-		{
-			return true; // seems ink refresh the route wrongly
-		}
-		return false;
-	}
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	if(platform === PLATFORM_CLI)
+	// 	{
+	// 		return true; // seems ink refresh the route wrongly
+	// 	}
+	// 	return false;
+	// }
 
 
 	render() {

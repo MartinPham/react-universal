@@ -5,6 +5,7 @@ import BigText from 'ink-big-text';
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
+	console.log('### RENDER DASHBOARD')
     return (
         <div>
 

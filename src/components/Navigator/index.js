@@ -25,7 +25,7 @@ import directionSelector from './selectors/directionSelector';
 import originPositionSelector from "./selectors/originPositionSelector";
 // import userSelector from "../AuthProvider/selectors/userSelector";
 // import tokenSelector from "../AuthProvider/selectors/tokenSelector";
-// import Immutable from "immutable";
+import Immutable from "immutable";
 
 
 
@@ -43,10 +43,10 @@ class Component extends BaseComponent {
 	//     }
 	//     return false;
 	// }
-
-	// componentDidUpdate() {
-	// 	console.log('nav update')
-	// }
+// 
+// 	componentDidUpdate() {
+// 		console.log('nav update')
+// 	}
 
 	componentDidMount() {
 		componentDidMount(this, this.props, this.state);
