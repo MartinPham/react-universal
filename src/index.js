@@ -15,7 +15,7 @@ import historyChanged from 'components/App/actions/historyChanged';
 import resetHistory from 'components/App/actions/resetHistory';
 import log from 'utils/log';
 import storage from 'utils/storage';
-
+import AuthProvider from "components/AuthProvider";
 
 import configureStore from 'utils/redux/configureStore';
 
@@ -51,7 +51,7 @@ const createApp = (AppComponent) => (
 		<Provider store={store}>
 				<Router history={historyWrapper.history}>
 						<Frontload noServerRender={true}>
-
+							
 								<AppComponent/>
 
 						</Frontload>

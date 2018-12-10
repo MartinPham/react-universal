@@ -17,7 +17,7 @@ class Component extends BaseComponent {
     componentDidMount() {
         setTimeout(() => {
             this.props.push(this.props.to, this.props.data || {})
-        }, 400);
+        }, 1000);
     }
 
     render() {

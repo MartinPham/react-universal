@@ -29,6 +29,7 @@ export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) 
 
 export default ($this, $props, $state, ...$extra) => {
     return (
+    <AuthProvider>
         <Route
             render={({ location }) => {
                 let styleInjection = null;
@@ -88,7 +89,7 @@ export default ($this, $props, $state, ...$extra) => {
 
 
                 return (
-                    <>
+                	<>
                         {styleInjection}
 
                         <TransitionGroup className={`pageTransition ${$props.transition}-${$props.direction}`}>
@@ -101,11 +102,11 @@ export default ($this, $props, $state, ...$extra) => {
                             >
                                 <div className="pageTransitionContent">
 
-                                    <AuthProvider>
+                                    
                                         <Switch location={location}>
                                             {$props.children}
                                         </Switch>
-                                    </AuthProvider>
+                                    
                                 </div>
                             </CSSTransition>
                         </TransitionGroup>
@@ -113,6 +114,7 @@ export default ($this, $props, $state, ...$extra) => {
                 );
             }}
         />
+    </AuthProvider>
     );
 
 }

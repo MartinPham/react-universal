@@ -43,13 +43,15 @@ export default ($this, $props, $state, $routes, ...$extra) => {
     originPosition = $props.originPosition && $props.originPosition.toJS() || {};
 
     return (
+
+    <AuthProvider>
         <Route
             render={({ location }) => {
                 return (
                     <TransitionGroup component={null} className={`pageTransition ${$props.transition}-${$props.direction}`}>
                         <Transition
                             key={location.key}
-                            timeout={200}
+                            timeout={140}
                             mountOnEnter={false}
                             unmountOnExit={false}
                         >
@@ -59,11 +61,9 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                                 // console.log(location.pathname, transition, direction, originPosition, state);
 
                                 const component = (
-                                    // <AuthProvider>
                                         <Switch location={location}>
                                             {$props.children}
                                         </Switch>
-                                    // </AuthProvider>
                                 );
 
                                 const transitionProps = {};
@@ -126,7 +126,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 	                                transitionProps.to = transform[transition][direction][state].to;
 
-	                                transitionProps.duration = 200;
+	                                transitionProps.duration = 150;
                                 // }
 
 								if(state === 'entered' || state === 'exited')
@@ -153,5 +153,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 );
             }}
         />
+
+    </AuthProvider>
     );
 }

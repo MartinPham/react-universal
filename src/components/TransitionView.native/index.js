@@ -93,13 +93,15 @@ export default class TransitionView extends BaseComponent {
         {
         	console.log('%%%%%%% duration > 0 && parallel > 0 -> start transition');
 
-        	// if(this.animatedParallel !== null)
-        	// {
-        	// 	this.animatedParallel.stop();
-        	// }
+        	if(this.animatedParallel !== null)
+        	{
+        		// this.animatedParallel.stop();
+        		return;
+        	}
 
 	        this.animatedParallel = Animated.parallel(parallel).start(() => {
 	            // callback
+	            this.animatedParallel = null;
 	        });
         }
     }

@@ -50,12 +50,6 @@ authPreload().then(() => {
 
 
 export default class AppComponent extends BaseComponent {
-	componentDidMount()
-	{
-
-        // historyResetter();
-	}
-
 	render() {
 		return (
 			<Provider store={store}>
