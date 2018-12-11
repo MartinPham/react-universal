@@ -1,26 +1,9 @@
 import styled from 'styled-components/native';
 import React from "react";
-import {TouchableOpacity, View} from "react-native";
+import ManagedTouchableOpacity from 'components/ManagedTouchableOpacity.native';
 
 
-class ManagedTouchableOpacity extends React.Component {
-    ref = null;
 
-    render() {
-        return (
-            <TouchableOpacity
-				activeOpacity={1}
-                ref={component => this.ref = component}
-                onPress={(event) => {
-                    this.props.onPress(event, this.ref)
-                }}
-                style={this.props.style}
-            >
-				{this.props.children}
-            </TouchableOpacity>
-        );
-    }
-}
 
 
 
