@@ -1,12 +1,15 @@
 const modules = {
 	reveal: {
-		test: '(revealIn|revealOut)'
+		test: '(revealIn|revealOut)',
+		timeout: 150,
 	},
 	slide: {
-		test: 'slide(Left|Right|Up|Down)'
+		test: 'slide(Left|Right|Up|Down)',
+		timeout: 150,
 	},
 	fly: {
-		test: 'fly(Left|Right|Up|Down)'
+		test: 'fly(Left|Right|Up|Down)',
+		timeout: 150,
 	}
 };
 

@@ -1,5 +1,8 @@
 import { Dimensions } from 'react-native';
 
+const enteringDuration = 300;
+const exitingDuration = 300;
+
 export default (originPosition) => {
     let transform = {};
 
@@ -19,19 +22,27 @@ export default (originPosition) => {
                 left: 0
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
                 opacity: 1,
                 left: 0,
+				transform: {
+					scale: 1
+				}
             },
             to: {
                 opacity: 0,
-                left: -window.width * 0.2
+                left: -window.width * 0.2,
+				transform: {
+					scale: 0.8
+				}
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: exitingDuration,
         }
     };
     transform['flyLeft'].forward.entered = transform['flyRight'].back.entered = {
@@ -49,14 +60,21 @@ export default (originPosition) => {
         entering: {
             from: {
                 opacity: 0,
-                left: -window.width * 0.2
+                left: -window.width * 0.2,
+				transform: {
+					scale: 0.8
+				}
             },
             to: {
                 opacity: 1,
                 left: 0,
+				transform: {
+					scale: 1
+				}
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
@@ -68,7 +86,8 @@ export default (originPosition) => {
                 left: window.width
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: exitingDuration,
         }
     };
     transform['flyLeft'].back.entered = transform['flyRight'].forward.entered = {
@@ -107,7 +126,8 @@ export default (originPosition) => {
                 top: 0
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
@@ -119,7 +139,8 @@ export default (originPosition) => {
                 top: window.height * 0.1
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: exitingDuration,
 
         }
     };
@@ -146,7 +167,8 @@ export default (originPosition) => {
                 top: 0
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
@@ -158,7 +180,8 @@ export default (originPosition) => {
                 top: window.height
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: exitingDuration,
 
         }
     };

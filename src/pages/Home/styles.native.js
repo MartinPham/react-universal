@@ -9,15 +9,14 @@ class ManagedTouchableOpacity extends React.Component {
     render() {
         return (
             <TouchableOpacity
+				activeOpacity={1}
                 ref={component => this.ref = component}
                 onPress={(event) => {
                     this.props.onPress(event, this.ref)
                 }}
                 style={this.props.style}
             >
-                <View>
-                    {this.props.children}
-                </View>
+				{this.props.children}
             </TouchableOpacity>
         );
     }

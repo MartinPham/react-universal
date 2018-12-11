@@ -1,14 +1,7 @@
-// .pageTransition-appear {
-// 	opacity: 0;
-// }
 
-// .pageTransition-appear-active {
+#NavigatorTransitionGroup {
+	.NavigatorTransition {
 
-// }
-
-.pageTransition {
-	&> .pageTransitionContent {
-		
 		position: absolute;
 		width: 100%;
 		height: 100vh;
@@ -18,7 +11,14 @@
 	}
 }
 
-
+//#NavigatorTransitionGhost {
+//	position: absolute;
+//	width: 100%;
+//	height: 100vh;
+//	background: #fff;
+//
+//	overflow: hidden;
+//}
 
 
 

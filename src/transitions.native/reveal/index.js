@@ -1,5 +1,8 @@
 import { Dimensions } from 'react-native';
 
+const enteringDuration = 300;
+const exitingDuration = 300;
+
 export default (originPosition) => {
     let transform = {};
 
@@ -8,7 +11,7 @@ export default (originPosition) => {
     transform['revealIn'] = {};
     transform['revealOut'] = {};
 
-    // console.log('creating', originPosition, originPosition.top, originPosition.left, originPosition.width, originPosition.height);
+    // console.log('creating reveal', );
 
     transform['revealIn'].forward = transform['revealOut'].back = {
         entering: {
@@ -25,7 +28,8 @@ export default (originPosition) => {
                 height: window.height
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
@@ -33,7 +37,8 @@ export default (originPosition) => {
             to: {
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: exitingDuration,
         }
     };
     transform['revealIn'].forward.entered = transform['revealOut'].back.entered = {
@@ -57,7 +62,8 @@ export default (originPosition) => {
             to: {
             },
             zIndex: 1,
-            elevation: 1
+            elevation: 1,
+			duration: enteringDuration,
         },
         exiting: {
             from: {
@@ -73,7 +79,8 @@ export default (originPosition) => {
                 height: originPosition.height
             },
             zIndex: 10,
-            elevation: 10
+            elevation: 10,
+			duration: exitingDuration,
         }
     };
     transform['revealIn'].back.entered = transform['revealOut'].forward.entered = {

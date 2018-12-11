@@ -29,131 +29,121 @@ let transition = 'slideLeft';
 let originPosition = {};
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
-    BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
-}
+	BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
+};
 
 export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
-    BackHandler.removeEventListener('hardwareBackPress', $this.handleBackPress);
-}
+	BackHandler.removeEventListener('hardwareBackPress', $this.handleBackPress);
+};
 
 
 export default ($this, $props, $state, $routes, ...$extra) => {
-    direction = $props.direction;
-    transition = $props.transition;
-    originPosition = $props.originPosition && $props.originPosition.toJS() || {};
+	direction = $props.direction;
+	transition = $props.transition;
+	originPosition = ($props.originPosition && $props.originPosition.toJS()) || {};
 
-    return (
+	return (
 
-    <AuthProvider>
-        <Route
-            render={({ location }) => {
-                return (
-                    <TransitionGroup component={null} className={`pageTransition ${$props.transition}-${$props.direction}`}>
-                        <Transition
-                            key={location.key}
-                            timeout={140}
-                            mountOnEnter={false}
-                            unmountOnExit={false}
-                        >
-                            {(state) => {
-                                // console.log('@@@@@@@@', location.pathname, transition, direction, state)
+		<AuthProvider>
+			<Route
+				render={({ location }) => {
+					const component = (
+						<Switch location={location}>
+							{$props.children}
+						</Switch>
+					);
 
-                                // console.log(location.pathname, transition, direction, originPosition, state);
+					return (
+						<TransitionGroup component={null}>
+							<Transition
+								key={location.key}
+								timeout={300}
+								mountOnEnter={false}
+								unmountOnExit={false}
+							>
+								{(state) => {
+									// console.log('@@@@@@@@', location.pathname, transition, direction, state)
 
-                                const component = (
-                                        <Switch location={location}>
-                                            {$props.children}
-                                        </Switch>
-                                );
+									// console.log(location.pathname, transition, direction, originPosition, state);
 
-                                const transitionProps = {};
-
-                                // if(state === 'entered' || state === 'exited')
-                                // {
-                                // 	console.log('@@@@@@@@ ====> render component');
-                                //     return component;
-                                // }
-                                // if(state === 'entered')
-                                // {
-                                //     state = 'entering';
-                                // } else if(state === 'exited')
-                                // {
-                                //     return component;
-                                // }
-                                // let zIndex = 1;
-                                //
-                                // if(state === 'entering')
-                                // {
-                                //     zIndex = 10;
-                                // }
-
-								// if(state !== 'entered' && state !== 'exited')
-        //                         {
-
-	                                let transform = {};
-	                                transform[transition] = {};
-	                                transform[transition][direction] = {};
-	                                transform[transition][direction][state] = {
-	                                    from: {},
-	                                    to: {},
-	                                    zIndex: 1,
-	                                    elevation: 1
-	                                };
-
-	                                for(let moduleId in transitionModules)
-	                                {
-	                                    const module = transitionModules[moduleId];
+									const transitionProps = {
+										delay: 0
+									};
 
 
-	                                    if((new RegExp(module.test)).test(transition))
-	                                    {
-	                                        
-	                                        transform = {
-	                                            ...transform,
-	                                            ...module.transformer.default(originPosition)
-	                                        };
+									// if(state !== 'entered' && state !== 'exited')
+									//                         {
 
-	                                        break;
-	                                    }
-	                                }
+									let transform = {};
+									transform[transition] = {};
+									transform[transition][direction] = {};
+									transform[transition][direction][state] = {
+										from: {},
+										to: {},
+										zIndex: 1,
+										elevation: 1
+									};
 
-	                                transitionProps.style = {
-                                            zIndex: transform[transition][direction][state].zIndex,
-                                            elevation: transform[transition][direction][state].elevation
-                                        };
-
-	                                transitionProps.from = transform[transition][direction][state].from;
-
-	                                transitionProps.to = transform[transition][direction][state].to;
-
-	                                transitionProps.duration = 150;
-                                // }
-
-								if(state === 'entered' || state === 'exited')
-								{
-									transitionProps.duration = 0;
-									// delete transitionProps.from;
-								}
-
-                                // console.log('@@@@@@@@', location.pathname, transition, direction, state, transitionProps)
-
-                                return (
-                                    <TransitionView
-                                        {...transitionProps}
-                                    >
-                                        {component}
-                                    </TransitionView>
-                                );
-
-                            }}
+									for(let moduleId in transitionModules)
+									{
+										const module = transitionModules[moduleId];
 
 
-                        </Transition>
-                    </TransitionGroup>
-                );
-            }}
-        />
+										if((new RegExp(module.test)).test(transition))
+										{
 
-    </AuthProvider>
-    );
+											transform = {
+												...transform,
+												...module.transformer.default(originPosition)
+											};
+
+											break;
+										}
+									}
+
+									transitionProps.style = {
+										overflow: 'hidden',
+										position: 'absolute',
+										height: '100%',
+										width: '100%',
+										backgroundColor: '#ffffff',
+										zIndex: transform[transition][direction][state].zIndex,
+										elevation: transform[transition][direction][state].elevation
+									};
+
+									transitionProps.from = transform[transition][direction][state].from;
+
+									transitionProps.to = transform[transition][direction][state].to;
+
+									transitionProps.duration
+										= transform[transition][direction][state].duration;
+									// }
+
+									if(state === 'entered' || state === 'exited')
+									{
+										transitionProps.duration = 0;
+										// delete transitionProps.from;
+									}
+
+									// console.log('@@@@@@@@', location.pathname, transition, direction, state, transitionProps)
+
+									return (
+										<TransitionView
+											{...transitionProps}
+										>
+											{component}
+										</TransitionView>
+									);
+
+								}}
+
+
+							</Transition>
+						</TransitionGroup>
+					);
+				}}
+			/>
+
+		</AuthProvider>
+	);
 }

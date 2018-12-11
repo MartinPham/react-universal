@@ -46,70 +46,33 @@ export default ($this, $props, $state, ...$extra) => {
 
                     if((new RegExp(module.test)).test(transition))
                     {
-                        styleInjection = (<style jsx="">{module.styleInjector.default(originPosition)}</style>);
+                        styleInjection = (<style>{module.styleInjector.default(originPosition)}</style>);
                         break;
                     }
                 }
-
-//                 if(
-//                     transition === 'revealIn'
-//                     || transition === 'revealOut'
-//                 ) {
-//                     transitionModuleName = 'reveal';
-//                 }else if(
-//                     transition === 'slideLeft'
-//                     || transition === 'slideRight'
-//                     || transition === 'slideUp'
-//                     || transition === 'slideDown'
-//                 ) {
-//                     transitionModuleName = 'slide';
-//                 }else if(
-//                     transition === 'flyLeft'
-//                     || transition === 'flyRight'
-//                     || transition === 'flyUp'
-//                     || transition === 'flyDown'
-//                 ) {
-//                     transitionModuleName = 'fly';
-//                 }
-// 
-//                 try {
-// 
-// 
-//                     //import('./transitions/' + transitionModuleName)
-//                     //    .then(module => {
-//                     //        module.default()
-//                     //    });
-// 
-//                     const transitionModule = require('./transitions/' + transitionModuleName).default;
-// 
-//                     styleInjection = (<style jsx="">{transitionModule(originPosition)}</style>);
-//                 } catch (e) {
-//                     log.error('Could not load transition ' + transition);
-//                 }
 
 
                 return (
                 	<>
                         {styleInjection}
 
-                        <TransitionGroup className={`pageTransition ${$props.transition}-${$props.direction}`}>
+                        <TransitionGroup id="NavigatorTransitionGroup" className={`${$props.transition}-${$props.direction}`}>
                             <CSSTransition
                                 key={location.key}
-                                timeout={280}
+                                timeout={300}
                                 classNames="pageTransition"
                                 mountOnEnter={false}
                                 unmountOnExit={false}
                             >
-                                <div className="pageTransitionContent">
-
-                                    
+                                <div className="NavigatorTransition">
                                         <Switch location={location}>
                                             {$props.children}
                                         </Switch>
-                                    
                                 </div>
                             </CSSTransition>
                         </TransitionGroup>
+
+						{/*<div id="NavigatorTransitionGhost"/>*/}
                     </>
                 );
             }}

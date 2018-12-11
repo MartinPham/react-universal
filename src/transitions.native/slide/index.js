@@ -1,5 +1,8 @@
 import { Dimensions } from 'react-native';
 
+const enteringDuration = 300;
+const exitingDuration = 300;
+
 export default (originPosition) => {
 	let transform = {};
 
@@ -19,7 +22,8 @@ export default (originPosition) => {
 				left: 0
 			},
 			zIndex: 10,
-			elevation: 10
+			elevation: 10,
+			duration: enteringDuration,
 		},
 		exiting: {
 			from: {
@@ -31,7 +35,8 @@ export default (originPosition) => {
 				left: -window.width
 			},
 			zIndex: 1,
-			elevation: 1
+			elevation: 1,
+			duration: exitingDuration,
 		}
 	};
 	transform['slideLeft'].forward.entered = transform['slideRight'].back.entered = {
@@ -56,7 +61,8 @@ export default (originPosition) => {
 				left: 0
 			},
 			zIndex: 10,
-			elevation: 10
+			elevation: 10,
+			duration: enteringDuration,
 		},
 		exiting: {
 			from: {
@@ -68,7 +74,8 @@ export default (originPosition) => {
 				left: window.width
 			},
 			zIndex: 1,
-			elevation: 1
+			elevation: 1,
+			duration: exitingDuration,
 		}
 	};
 	transform['slideLeft'].back.entered = transform['slideRight'].forward.entered = {
@@ -103,7 +110,8 @@ export default (originPosition) => {
 				opacity: 1,
 				top: 0
 			},
-			zIndex: 10
+			zIndex: 10,
+			duration: enteringDuration,
 		},
 		exiting: {
 			from: {
@@ -114,7 +122,8 @@ export default (originPosition) => {
 				opacity: 0,
 				top: -window.height
 			},
-			zIndex: 1
+			zIndex: 1,
+			duration: exitingDuration,
 
 		}
 	};
@@ -139,7 +148,8 @@ export default (originPosition) => {
 				opacity: 1,
 				top: 0
 			},
-			zIndex: 10
+			zIndex: 10,
+			duration: enteringDuration,
 		},
 		exiting: {
 			from: {
@@ -150,7 +160,8 @@ export default (originPosition) => {
 				opacity: 1,
 				top: window.height
 			},
-			zIndex: 1
+			zIndex: 1,
+			duration: exitingDuration,
 
 		}
 	};
