@@ -1,5 +1,5 @@
 // import React from 'react';
-import BasePage from 'pages/Page';
+import {BasePurePage} from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,7 +21,7 @@ import render from './render';
 import goBack from "../../components/Navigator/actions/goBack";
 import goForward from "../../components/Navigator/actions/goForward";
 
-class Page extends BasePage {
+class Page extends BasePurePage {
     render() {
         return render(this, this.props, this.state);
     }

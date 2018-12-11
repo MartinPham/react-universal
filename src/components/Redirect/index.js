@@ -1,5 +1,5 @@
 // import React from 'react';
-import BaseComponent from 'components/Component';
+import {PureComponent} from 'components/Component';
 import {ID} from "./constants";
 import {createStructuredSelector} from "reselect";
 
@@ -9,10 +9,10 @@ import push from "components/Navigator/actions/push";
 
 // import platform, {PLATFORM_CLI} from "utils/platform";
 
-class Component extends BaseComponent {
-    shouldComponentUpdate() {
-        return false;
-    }
+class Component extends PureComponent {
+    // shouldComponentUpdate() {
+    //     return false;
+    // }
 
     componentDidMount() {
         setTimeout(() => {

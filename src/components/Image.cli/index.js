@@ -1,14 +1,14 @@
 import React from "react";
 // import {Text} from "ink";
-import BaseComponent from 'components/Component';
+import {PureComponent} from 'components/Component';
 
 import terminalImage from 'terminal-image';
 import Box from 'ink-box';
 
-export default class Image extends BaseComponent {
+export default class Image extends PureComponent {
     state = {
     	image: null
-    }
+    };
 
     componentDidMount() {
     	terminalImage

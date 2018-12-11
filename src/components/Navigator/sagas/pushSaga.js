@@ -2,7 +2,7 @@ import sharedHistory from 'utils/sharedHistory';
 import queryString from 'query-string';
 // import platform, {PLATFORM_BROWSER, PLATFORM_NATIVE} from 'utils/platform';
 
-export default function*({path, data}) {
+export default function*({path, data, transition, originPosition}) {
 	const history = sharedHistory().history;
 	const location = history.location;
 
@@ -22,7 +22,10 @@ export default function*({path, data}) {
 
 	if(currentPath !== finalPath)
 	{
-		yield history.push(finalPath);
+		yield history.push(finalPath, {
+			transition,
+			originPosition
+		});
 	}
 
 

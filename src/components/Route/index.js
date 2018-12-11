@@ -1,5 +1,5 @@
 // import React from 'react';
-import BaseComponent from 'components/Component';
+import {PureComponent} from 'components/Component';
 
 import {ID} from "./constants";
 import {createStructuredSelector} from "reselect";
@@ -12,7 +12,7 @@ import platform, {PLATFORM_CLI} from "utils/platform";
 
 import render from './render';
 
-class Component extends BaseComponent {
+class Component extends PureComponent {
 	// shouldComponentUpdate(nextProps, nextState) {
 	// 	if(platform === PLATFORM_CLI)
 	// 	{

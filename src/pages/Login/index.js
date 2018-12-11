@@ -1,5 +1,5 @@
 // import React from 'react';
-import BasePage from 'pages/Page';
+import {BasePurePage} from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -25,7 +25,7 @@ import sharedHistory from "utils/sharedHistory";
 
 import queryString from 'query-string';
 
-class Page extends BasePage {
+class Page extends BasePurePage {
 	gonnaLeave = false;
 
 	loggedInCheck = () => {

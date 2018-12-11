@@ -74,7 +74,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 			{/*</TransitionView>*/}
 
             <Button
-                onPress={() => $props.push('/about', {}, 'flyLeft')}
+                onPress={() => $props.push('/about', {}, 'fadeIn')}
                 title="Go about (flyLeft)" />
 
             <Button

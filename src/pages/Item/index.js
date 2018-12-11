@@ -1,5 +1,5 @@
 // import React from 'react';
-import BasePage from 'pages/Page';
+import {BasePurePage} from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,11 +21,12 @@ import { createStructuredSelector } from 'reselect';
 import { ID } from "./constants";
 
 import render from './render';
+import sharedHistory from "../../utils/sharedHistory";
 
 
-class Page extends BasePage {
+class Page extends BasePurePage {
 	render() {
-        console.log('PAGE RENDER: Item');
+        console.log('PAGE RENDER: Item', sharedHistory().history.location);
 		return render(this, this.props, this.state);
 	}
 }

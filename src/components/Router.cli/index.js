@@ -1,8 +1,8 @@
 // import React from "react";
-import BaseComponent from 'components/Component';
+import {PureComponent} from 'components/Component';
 
 
-export class Router extends BaseComponent {
+export class Router extends PureComponent {
 	state = {
 		location: null
 	};

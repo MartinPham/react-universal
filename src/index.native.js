@@ -49,9 +49,7 @@ authPreload().then(() => {
 });
 
 
-export default class AppComponent extends BaseComponent {
-	render() {
-		return (
+export default () => (
 			<Provider store={store}>
 				<Router history={historyWrapper.history}>
                     <Frontload noServerRender={true} isServer={false}>
@@ -60,5 +58,3 @@ export default class AppComponent extends BaseComponent {
 				</Router>
 			</Provider>
 		);
-	}
-}
