@@ -1,4 +1,5 @@
 // import React from 'react';
+// import BaseComponent from 'components/Component';
 import {PureComponent} from 'components/Component';
 
 import { connect } from 'react-redux';
@@ -27,23 +28,24 @@ import Immutable from "immutable";
 
 import platform, {PLATFORM_CLI} from "utils/platform";
 
+// class Component extends BaseComponent {
 class Component extends PureComponent {
 
-// 	shouldComponentUpdate(nextProps, nextState)
-// 	{
-// 		if(platform === PLATFORM_CLI)
-// 		{
-// 			return true; // seems ink refresh the route wrongly
-// 		}
-// 
-// 		if(
-// 			!Immutable.is(this.props.user,  nextProps.user)
-// 			|| this.props.token !== nextProps.token
-// 		) {
-// 			return true;
-// 		}
-// 		return false;
-// 	}
+	// shouldComponentUpdate(nextProps, nextState)
+	// {
+	// 	if(platform === PLATFORM_CLI)
+	// 	{
+	// 		return true; // seems ink refresh the route wrongly
+	// 	}
+	//
+	// 	if(
+	// 		!Immutable.is(this.props.user,  nextProps.user)
+	// 		|| this.props.token !== nextProps.token
+	// 	) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
 
 	render()
 	{

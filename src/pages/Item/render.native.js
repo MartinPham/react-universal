@@ -6,6 +6,7 @@ import pho from "images/pho.jpg";
 
 export default ($this, $props, $state, $routes, ...$extra) => {
     return (
+
         <View>
             <ItemBanner
                 source={pho}

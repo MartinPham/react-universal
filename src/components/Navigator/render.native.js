@@ -16,7 +16,7 @@ import React from 'react';
 import {BackHandler} from 'react-native';
 import { Switch, Route } from 'react-router';
 import { Transition, TransitionGroup } from 'react-transition-group';
-import TransitionView from 'components/TransitionView.native';
+import TransitionContainer from 'components/TransitionContainer';
 
 import AuthProvider from 'components/AuthProvider';
 
@@ -27,6 +27,7 @@ import transitionModules from 'transitions.native';
 let direction = 'forward';
 let transition = 'slideLeft';
 let originPosition = {};
+let timeout = 300;
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
 	BackHandler.addEventListener('hardwareBackPress', $this.handleBackPress);
@@ -42,11 +43,24 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 	transition = $props.transition;
 	originPosition = ($props.originPosition && $props.originPosition.toJS()) || {};
 
+
+
 	return (
 
 		<AuthProvider>
 			<Route
 				render={({ location }) => {
+
+					// console.warn('!!!', transition)
+
+					if(transition.indexOf(':') > -1)
+					{
+						// with timeout, dirty way...
+						let transitionComponents = transition.split(':');
+						transition = transitionComponents[0];
+						// timeout = transitionComponents[1]; // could not change timeout..
+					}
+
 					const component = (
 						<Switch location={location}>
 							{$props.children}
@@ -57,7 +71,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 						<TransitionGroup component={null}>
 							<Transition
 								key={location.key}
-								timeout={300}
+								timeout={timeout}
 								mountOnEnter={false}
 								unmountOnExit={false}
 							>
@@ -115,8 +129,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 									transitionProps.to = transform[transition][direction][state].to;
 
-									transitionProps.duration
-										= transform[transition][direction][state].duration;
+									transitionProps.duration =
+										transform[transition][direction][state].duration;
 									// }
 
 									if(state === 'entered' || state === 'exited')
@@ -125,14 +139,19 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 										// delete transitionProps.from;
 									}
 
-									// console.log('@@@@@@@@', location.pathname, transition, direction, state, transitionProps)
+									// if(state === 'exited')
+									// {
+									// 	return null;
+									// }
+
+									// console.log('@@@@@@@@', location.pathname, timeout, transition, direction, state, transitionProps)
 
 									return (
-										<TransitionView
+										<TransitionContainer
 											{...transitionProps}
 										>
 											{component}
-										</TransitionView>
+										</TransitionContainer>
 									);
 
 								}}

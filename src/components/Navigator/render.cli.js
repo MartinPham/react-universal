@@ -6,11 +6,11 @@ import AuthProvider from "components/AuthProvider";
 
 export const componentDidMount = ($this, $props, $state, $routes, ...$extra) => {
 
-}
+};
 
 export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) => {
-	
-}
+
+};
 
 export default ($this, $props, $state, $routes, ...$extra) => {
 	const history = $this.context.history;
@@ -25,15 +25,15 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 	const argv = history.location.pathname.split('/').slice(1);
 
-	for(let i = 0; i < $props.children.length; i++) 
+	for(let i = 0; i < $props.children.length; i++)
 	{
 		const route = $props.children[i];
 		const childProps = route.props;
 
 		const path = childProps.path;
-	
+
 		let routeParams = {};
-	
+
 		const pathArgv = path.slice(1).split('/');
 
 		// console.log(
@@ -84,7 +84,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 	}
 
 	if(matchedRoute)
-	{	
+	{
 		// matchedRoute.props.history = history;
 		const matchedRouteProps = {
 			...matchedRoute.props,
@@ -95,9 +95,9 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 
 	}
 
-    return (
-    	<AuthProvider>
-    		{matchedRoute}
-    	</AuthProvider>
-    );
+	return (
+		<AuthProvider>
+			{matchedRoute}
+		</AuthProvider>
+	);
 }

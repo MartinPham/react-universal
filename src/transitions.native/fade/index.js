@@ -5,8 +5,8 @@ const exitingDuration = 300;
 
 export default (originPosition) => {
 	let transform = {};
-
-	const window = Dimensions.get('window');
+	//
+	// const window = Dimensions.get('window');
 
 	transform['fadeIn'] = {};
 	transform['fadeOut'] = {};

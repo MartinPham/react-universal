@@ -25,3 +25,4 @@ export const ItemImage = styled.div`
     transform: scale(0.9);
   }
 `;
+

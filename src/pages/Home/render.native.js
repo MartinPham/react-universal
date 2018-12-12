@@ -3,7 +3,7 @@ import {Image, Button, Text, TextInput, View, ImageBackground} from "react-nativ
 import {Heading, ItemImage} from "./styles";
 import pho from "images/pho.jpg";
 
-import TransitionView from 'components/TransitionView.native';
+// import TransitionContainer from 'components/TransitionContainer';
 
 
 
@@ -38,7 +38,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                             height: height,
                         };
 
-                        $props.push('/item', {}, 'revealIn', position);
+                        // $props.push('/item', {}, 'revealIn', position);
+                        $props.push('/item2', {}, 'fadeIn', position);
                     })
                 }}
             >
@@ -48,34 +49,13 @@ export default ($this, $props, $state, $routes, ...$extra) => {
                 }}/>
             </ItemImage>
 
-			{/*<TransitionView*/}
-				{/*from={{*/}
-					{/*transform: {*/}
-						{/*scale: 1*/}
-					{/*}*/}
-				{/*}}*/}
-				{/*to={{*/}
-					{/*transform: {*/}
-						{/*scale: 0.5*/}
-					{/*}*/}
-				{/*}}*/}
-				{/*duration={1000}*/}
-				{/*delay={1000}*/}
-			{/*>*/}
-				{/*<View*/}
-					{/*style={{*/}
-						{/*width: '100%',*/}
-						{/*height: '100%',*/}
-						{/*backgroundColor: '#00ff00'*/}
-					{/*}}>*/}
-
-					{/*<Text>xxx</Text>*/}
-				{/*</View>*/}
-			{/*</TransitionView>*/}
 
             <Button
                 onPress={() => $props.push('/about', {}, 'fadeIn')}
                 title="Go about (flyLeft)" />
+
+
+
 
             <Button
                 onPress={() => $props.push('/dashboard', {}, 'flyUp')}
