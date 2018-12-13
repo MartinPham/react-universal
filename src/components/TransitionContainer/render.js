@@ -18,6 +18,16 @@ export default ($this, $props, $state) => {
         const duration = $props.duration;
 		const delay = $props.delay;
 
+		const config = {};
+		if(typeof duration !=='undefined')
+		{
+			config.duration = duration;
+		}
+		if(typeof delay !=='undefined')
+		{
+			config.delay = delay;
+		}
+
         return (
 			<Spring 
 				from={{ 
@@ -34,9 +44,7 @@ export default ($this, $props, $state) => {
 					height: 300,
 					transform: 'translate3d(0px,0,0) scale(2) rotateX(0deg)', 
 				}}
-				config={{
-					duration: 1000
-					}}
+				config={config}
 				>
 			  {springProps => (
 			  		<div style={{

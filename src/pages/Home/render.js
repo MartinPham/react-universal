@@ -30,6 +30,8 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 			backgroundColor: 'red',
 			position: 'absolute'
 		}}
+	delay={1000}
+	duration={5000}
 	>
   				hello
 </TransitionContainer>
