@@ -30,12 +30,14 @@
 		"cli:prod": "npm run cli:build && npm run cli:prod:run"
 	},
 	"dependencies": {
+		"blessed": "^0.1.81",
 		"history": "^4.7.2",
 		"immutable": "^4.0.0-rc.12",
 		"ink": "^0.5.1",
 		"ink-redux": "^1.0.0",
 		"query-string": "5",
 		"react": "^16.6.3",
+		"react-blessed": "^0.5.0",
 		"react-dom": "^16.6.3",
 		"react-frontload": "^1.0.3",
 		"react-helmet": "^5.2.0",

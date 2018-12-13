@@ -1,11 +1,17 @@
 // import React from "react";
 import {PureComponent} from 'components/Component';
-
+import PropTypes from 'prop-types';
 
 export class Router extends PureComponent {
+
+	static childContextTypes = {
+		history: PropTypes.object,
+	};
+	
 	state = {
 		location: null
 	};
+
 
 	unlisten = null;
 

@@ -26,8 +26,8 @@ module.exports = {
 		'@babel/plugin-proposal-export-default-from',
 		[
 			'@babel/plugin-transform-react-jsx', {
-				pragma: 'React',
-				pragmaFrag: 'React.Fragment'
+				// pragma: 'React',
+				// pragmaFrag: 'React.Fragment'
 			}
 		],
 		'./cli/import-assets',
@@ -39,14 +39,14 @@ module.exports = {
 					// '(.+)': (a) => {
 					// 	console.log(a)
 					// }, // different react
-					'^react-redux$': 'ink-redux', // different redux
+					// '^react-redux$': 'ink-redux', // different redux
 					'^react-frontload$': './cli/react-frontload', // different react-frontload
-					'^react-router$': 'ink-router', // different redux
-					'^react$': './cli/react', // different react
+					// '^react-router$': 'ink-router', // different redux
+					// '^react$': './cli/react', // different react
 					// '^(.*)\.(png|jpg|jpeg|gif)$': './cli/noop', // no image
 					'^(.*).(css|scss)$': './cli/noop', // no css
 					'^transitions$': './src/transitions.cli', // different react
-					'^components/Component$': './src/components/Component.cli', // different Component
+					// '^components/Component$': './src/components/Component.cli', // different Component
 					// '\.\/render': './render.cli', // different render - not working
 					'^pages/(.+)/async$': './src/pages/\\1', // ignore async component
 					'^utils/storage$': './src/utils/storage.cli', // ignore async component

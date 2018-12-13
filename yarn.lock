@@ -2262,6 +2262,11 @@ binary-extensions@^1.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.12.0.tgz#c2d780f53d45bba8317a8902d4ceeaf3a6385b14"
   integrity sha512-DYWGk01lDcxeS/K9IHPGWfT8PsJmbXRtRd2Sx72Tnb8pcYZQFF1oSDb8hJtS1vhp212q1Rzi5dUf9+nq0o9UIg==
 
+blessed@^0.1.81:
+  version "0.1.81"
+  resolved "https://registry.yarnpkg.com/blessed/-/blessed-0.1.81.tgz#f962d687ec2c369570ae71af843256e6d0ca1129"
+  integrity sha1-+WLWh+wsNpVwrnGvhDJW5tDKESk=
+
 block-stream@*:
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -10463,6 +10468,13 @@ react-app-polyfill@^0.1.3:
     raf "3.4.0"
     whatwg-fetch "3.0.0"
 
+react-blessed@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-blessed/-/react-blessed-0.5.0.tgz#c8228d5e5251232ce542c5e6b443694f84e1be74"
+  integrity sha512-JeKHJ1t2kVyrfNOsLUf119q6OP6QfwFF0+6yepobsyHPIKr834aQ5x0uO7H6PWiB+ZvtKFXy4K7AB2oOtxcIiA==
+  dependencies:
+    react-reconciler "^0.18.0-alpha.2"
+
 react-clone-referenced-element@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.1.0.tgz#9cdda7f2aeb54fea791f3ab8c6ab96c7a77d0158"
@@ -10697,6 +10709,16 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
+
+react-reconciler@^0.18.0-alpha.2:
+  version "0.18.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.18.0-alpha.2.tgz#ae7295dce4bafa3a332be05b3c1b242c3dd93bf2"
+  integrity sha512-nAFtHPz44QhQlCN18xj2v2Ey4AxDI7wg7tpar5qlZE0kbTpM1x4EkfoB5IJXEGvsdcJ72fYsRSgD8+Aa9yoTQw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.12.0-alpha.2"
 
 react-redux@^5.1.1:
   version "5.1.1"
@@ -11435,6 +11457,14 @@ scheduler@^0.11.2:
   version "0.11.3"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.3.tgz#b5769b90cf8b1464f3f3cfcafe8e3cd7555a2d6b"
   integrity sha512-i9X9VRRVZDd3xZw10NY5Z2cVMbdYg6gqFecfj79USv1CFN+YrJ3gIPRKf1qlY+Sxly4djoKdfx1T+m9dnRB8kQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.12.0-alpha.2:
+  version "0.12.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.12.0-alpha.3.tgz#59afcaba1cb79e3e8bee91de94eb8f42c9152c2b"
+  integrity sha512-KADuBlOWSrT/DCt/oA+NgsNamRCsfz7wj+leaeGjGHipNClsqhjOPogKkJgem6WLAv/QzxW8bE7zlGc9OxiYSQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

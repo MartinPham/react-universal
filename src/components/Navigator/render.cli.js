@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthProvider from "components/AuthProvider";
-// import sharedHistory from "utils/sharedHistory";
+import sharedHistory from "utils/sharedHistory";
 
 
 
@@ -13,7 +13,13 @@ export const componentWillUnmount = ($this, $props, $state, $routes, ...$extra) 
 };
 
 export default ($this, $props, $state, $routes, ...$extra) => {
-	const history = $this.context.history;
+	let history = $this.context.history;
+
+	if(typeof history === 'undefined')
+	{
+		history = sharedHistory().history;
+	}
+
 
 	let matchedRoute = null;
 
@@ -91,7 +97,7 @@ export default ($this, $props, $state, $routes, ...$extra) => {
 			location: history.location
 		};
 
-		matchedRoute.props = matchedRouteProps;
+		// matchedRoute.props = matchedRouteProps;
 
 	}
 

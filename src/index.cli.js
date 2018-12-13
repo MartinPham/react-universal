@@ -36,7 +36,8 @@ import { Provider } from 'react-redux';
 
 import { Router } from 'components/Router.cli';
 
-import {render} from 'ink';
+import blessed from 'blessed';
+import {render} from 'react-blessed';
 
 import createHistory from 'history/createMemoryHistory';
 import sharedHistory from 'utils/sharedHistory';
@@ -121,13 +122,35 @@ const authPreload = () => {
 historyResetter();
 authPreload();
 
+// Creating our screen
+const screen = blessed.screen({
+  autoPadding: true,
+  smartCSR: true,
+  title: 'react-blessed hello world'
+});
+
+// Adding a way to quit the program
+screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+  return process.exit(0);
+});
+
+const App2 = () => (
+	      <box top="center"
+           left="center"
+           width="50%"
+           height="50%"
+           border={{type: 'line'}}
+           style={{border: {fg: 'blue'}}}>
+        Hello World!
+      </box>
+	)
 render (
     <Provider store={store}>
 		<Router history={historyWrapper.history}>
-				<App/>
+			<App/>
 		</Router>
-    </Provider>
-);
+	</Provider>
+, screen);
 
 
 
