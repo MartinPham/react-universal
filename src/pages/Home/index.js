@@ -24,7 +24,7 @@ import objectSelector from "./selectors/objectSelector";
 import changeObject from "./actions/changeObject";
 import changeObjectText from "./actions/changeObjectText";
 
-
+import A from 'components/Navigator/Link';
 
 class Page extends BasePurePage {
 	state = {
@@ -113,18 +113,18 @@ class Page extends BasePurePage {
 				<hr/>
 
 				<br/>
-				<button
-					onClick={() => this.push('@SampleWithSelector?a=b', {}, 'flyLeft')}
-				>Go Sample with selector</button>
+				<A href='@SampleWithSelector?a=b' data={{x: 1, y:2}} transition='flyLeft'>Go Sample with selector</A>
+				
 				<br/>
-				<button
-					onClick={() => this.push('@SampleWithReducer?a=b', {}, 'flyLeft')}
-				>Go Sample with reducer</button>
+				<A href='@SampleWithReducer?b=c' data={{x: 1, b:2}} transition='flyLeft'>Go Sample with reducer</A>
+				
 				<br/>
-				<button
-					onClick={() => this.push('@SampleWithSaga?a=b', {}, 'flyLeft')}
-				>Go Sample with saga</button>
+				<A href='@SampleWithSaga?c=d' data={{c: 1, y:2}} transition='flyLeft'>Go Sample with saga</A>
+				
 				<br/>
+				<hr/>
+
+				<A href='/sample' data={{x: 1, y:2}} transition='flyLeft'>Go with link (directly)</A>
 			</div>
 		);
 	}

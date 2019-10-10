@@ -1,3 +1,10 @@
+// var localStorage = localStorage || {
+// 	getItem: () => null,
+// 	setItem: () => {},
+// 	removeItem: () => {},
+// }
+
+
 export default {
 
     read(itemKey) {

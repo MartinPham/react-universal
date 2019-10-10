@@ -2,6 +2,8 @@ import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 
+import A from 'components/Navigator/Link';
+
 
 
 import { ID } from "./constants";
@@ -14,15 +16,10 @@ class Page extends BasePurePage {
 				<h1>Sample!</h1>
 
 				<hr/>
-				<button
-					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyLeft')}
-				>Go Sample (flyLeft)</button>
+				<A href='@Sample' data={{ random: Math.random() }} transition='flyLeft'>Go Sample (flyLeft)</A>
 				<hr/>
 
-				<button
-					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyUp')}
-				>Go Sample (flyUp)</button>
-
+				<A href='@Sample' data={{ random: Math.random() }} transition='flyUp'>Go Sample (flyUp)</A>
 				<hr/>
 
 
