@@ -4,12 +4,7 @@ import {getBoundingRect} from "utils/dom";
 import {BasePurePage} from 'pages/Page';
 
 
-// import { frontloadConnect } from "react-frontload";
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import injectReducer from 'utils/redux/injectReducer';
-import injectSaga from 'utils/redux/injectSaga';
-
+import compose from 'utils/redux/compose';
 
 import push from 'components/Navigator/actions/push';
 
@@ -153,35 +148,10 @@ const mapDispatch = dispatch => ({
 });
 
 
-
-// const frontload = async props =>
-// {
-// 	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-// 	props.changeText(data);
-// };
-
-
-const withConnect = connect(
+export default compose({
+	ID,
 	mapState,
-	mapDispatch
-);
-
-
-
-
-const withReducer = injectReducer({ key: ID, reducer });
-const withSaga = injectSaga({ key: ID, saga });
-
-
-export default compose(
-	withReducer,
-	withSaga,
-	withConnect,
-)(
-	// frontloadConnect(frontload, {
-	//     onMount: true,
-	//     onUpdate: false
-	// })(Page)
-	Page
-);
-
+	mapDispatch,
+	reducer,
+	saga
+})(Page)

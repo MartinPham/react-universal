@@ -2,7 +2,7 @@ import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 
-import { connect } from 'react-redux';
+import compose from 'utils/redux/compose';
 import { createStructuredSelector } from 'reselect';
 
 import push from 'components/Navigator/actions/push';
@@ -71,7 +71,8 @@ const mapDispatch = dispatch => ({
     goForward: () => dispatch(goForward()),
 });
 
-export default connect(
-    mapState,
-    mapDispatch
-)(Page);
+export default compose({
+	ID,
+	mapState,
+	mapDispatch
+})(Page)

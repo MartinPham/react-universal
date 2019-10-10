@@ -1,16 +1,10 @@
 import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import injectReducer from 'utils/redux/injectReducer';
-import injectSaga from 'utils/redux/injectSaga';
-// import log from 'utils/log';
+import compose from 'utils/redux/compose';
 
 import updateUser from 'components/AuthProvider/actions/updateUser';
 
-import reducer from './reducer';
-import saga from './saga';
 
 import { createStructuredSelector } from 'reselect';
 
@@ -100,20 +94,9 @@ const mapDispatch = dispatch => ({
 });
 
 
-const withConnect = connect(
+
+export default compose({
+	ID,
 	mapState,
 	mapDispatch
-);
-
-
-
-
-const withReducer = injectReducer({ key: ID, reducer });
-const withSaga = injectSaga({ key: ID, saga });
-
-
-export default compose(
-	withReducer,
-	withSaga,
-	withConnect,
-)(Page);
+})(Page)
