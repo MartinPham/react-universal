@@ -2,17 +2,7 @@
 	"name": "react-universal",
 	"version": "0.1.0",
 	"homepage": "https://martinpham.gitlab.io/react-universal",
-	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
-		"native:start": "expo start",
-		"native:android": "expo start --android",
-		"native:ios": "expo start --ios",
-		"native:clean": "watchman watch-del-all && rm -rf $TMPDIR/metro-* && rm -rf node_modules/.cache",
-		"expo:eject": "expo eject",
-		"cra:start": "react-scripts start",
-		"cra:build": "react-scripts build",
-		"cra:test": "react-scripts test",
-		"cra:eject": "react-scripts eject",
 		"start": "npm run browser:dev",
 		"browser:dev": "cross-env NODE_PATH=src craco start",
 		"browser:build": "touch .building && rm -rf build && rm -rf build-browser && cross-env NODE_PATH=src craco build && mv build build-browser && rm .building",
@@ -23,11 +13,7 @@
 		"server:build": "touch .building && rm -rf build && rm -rf build-server && cross-env NODE_PATH=src node scripts/server/build && mv build build-server && rm .building",
 		"server:build:all": "touch .building-all && npm run server:build && npm run browser:build && rm .building-all",
 		"server:prod:run": "node scripts/server/prod 3000",
-		"server:prod": "npm run server:build:all && npm run server:prod:run",
-		"cli:dev": "cross-env PLATFORM=cli node scripts/cli/dev",
-		"cli:build": "touch .building && rm -rf build && rm -rf build-cli && cross-env PLATFORM=cli node scripts/cli/build && mkdir build-cli && mv build/index.js build-cli/index.js && node scripts/cli/build-assets && rm .building",
-		"cli:prod:run": "node build-cli",
-		"cli:prod": "npm run cli:build && npm run cli:prod:run"
+		"server:prod": "npm run server:build:all && npm run server:prod:run"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -40,11 +26,8 @@
 	],
 	"private": true,
 	"dependencies": {
-		"expo": "^35.0.0",
 		"history": "^4.10.1",
 		"immutable": "^4.0.0-rc.12",
-		"ink": "^2.5.0",
-		"ink-redux": "^1.0.0",
 		"query-string": "^6.8.3",
 		"react": "^16.10.2",
 		"react-dom": "^16.10.2",
@@ -74,7 +57,6 @@
 		"qrcode-terminal": "^0.12.0",
 		"react-scripts": "^3.2.0",
 		"reactotron-react-js": "^3.3.4",
-		"reactotron-react-native": "^4.0.2",
 		"webpack-node-externals": "^1.7.2",
 		"ws": "^7.1.2"
 	}
