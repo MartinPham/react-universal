@@ -6,14 +6,10 @@ import compose from 'utils/redux/compose';
 import updateUser from 'components/AuthProvider/actions/updateUser';
 
 
-import { createStructuredSelector } from 'reselect';
-
-
 import { ID } from "./constants";
 
 import userSelector from "components/AuthProvider/selectors/userSelector";
 import tokenSelector from "components/AuthProvider/selectors/tokenSelector";
-import push from "components/Navigator/actions/push";
 import sharedHistory from "utils/sharedHistory";
 
 import queryString from 'query-string';
@@ -39,7 +35,7 @@ class Page extends BasePurePage {
 
 				// console.log(queryParams);
 
-				this.props.push(queryParams.refererUrl || '/', {}, 'flyDown');
+				this.push(queryParams.refererUrl || '/', {}, 'flyDown');
 				// this.props.push('/dashboard', {}, 'flyDown');
 			}
 		}, 500);
@@ -72,7 +68,7 @@ class Page extends BasePurePage {
 					}, 'nekot'))}
 				>Login</button>
 				<button
-					onClick={() => this.props.dispatch(push('/', {}, 'flyDown'))}
+					onClick={() => this.push('/', {}, 'flyDown')}
 				>Go Home</button>
 	
 			</div>

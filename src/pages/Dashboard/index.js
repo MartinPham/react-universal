@@ -5,10 +5,6 @@ import {BasePurePage} from 'pages/Page';
 import compose from 'utils/redux/compose';
 
 
-import updateUser from 'components/AuthProvider/actions/updateUser';
-
-import { createStructuredSelector } from 'reselect';
-
 
 import { ID } from "./constants";
 

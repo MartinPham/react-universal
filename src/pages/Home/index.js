@@ -6,12 +6,10 @@ import {BasePurePage} from 'pages/Page';
 
 import compose from 'utils/redux/compose';
 
-import push from 'components/Navigator/actions/push';
 
 import reducer from './reducer';
 import saga from './saga';
 
-import { createStructuredSelector } from 'reselect';
 
 
 import { ID } from "./constants";
@@ -23,8 +21,6 @@ import objectTextSelector from "./selectors/objectTextSelector";
 import objectSelector from "./selectors/objectSelector";
 
 
-import goBack from "components/Navigator/actions/goBack";
-import goForward from "components/Navigator/actions/goForward";
 import changeObject from "./actions/changeObject";
 import changeObjectText from "./actions/changeObjectText";
 
@@ -82,51 +78,51 @@ class Page extends BasePurePage {
 						const target = event.currentTarget;
 						let position = getBoundingRect(target);
 	
-						this.props.dispatch(push('@Sample', {}, 'revealIn', position));
+						this.push('@Sample', {}, 'revealIn', position);
 					}}
 				>Go Sample page</button>
 	
 				<button
-					onClick={() => this.props.dispatch(push('/', {}, 'flyDown'))}
+					onClick={() => this.push('/', {}, 'flyDown')}
 				>Go Home</button>
 				<br/>
 				<button
-					onClick={() => this.props.dispatch(push('@Sample?a=b', {}, 'flyLeft'))}
+					onClick={() => this.push('@Sample?a=b', {}, 'flyLeft')}
 				>Go Sample (flyLeft)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.dispatch(push('@Dashboard?x=1&y=2', {}, 'flyUp'))}
+					onClick={() => this.push('@Dashboard?x=1&y=2', {}, 'flyUp')}
 				>Go dashboard (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.dispatch(push('@Login?z=3', { x: 4 }, 'flyUp'))}
+					onClick={() => this.push('@Login?z=3', { x: 4 }, 'flyUp')}
 				>Go login (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.dispatch(goBack())}
+					onClick={() => this.goBack()}
 				 >Go Back</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.dispatch(goForward())}
+					onClick={() => this.goForward()}
 				 >Go Forward</button>
 				<br/>
 				<hr/>
 
 				<br/>
 				<button
-					onClick={() => this.props.dispatch(push('@SampleWithSelector?a=b', {}, 'flyLeft'))}
+					onClick={() => this.push('@SampleWithSelector?a=b', {}, 'flyLeft')}
 				>Go Sample with selector</button>
 				<br/>
 				<button
-					onClick={() => this.props.dispatch(push('@SampleWithReducer?a=b', {}, 'flyLeft'))}
+					onClick={() => this.push('@SampleWithReducer?a=b', {}, 'flyLeft')}
 				>Go Sample with reducer</button>
 				<br/>
 				<button
-					onClick={() => this.props.dispatch(push('@SampleWithSaga?a=b', {}, 'flyLeft'))}
+					onClick={() => this.push('@SampleWithSaga?a=b', {}, 'flyLeft')}
 				>Go Sample with saga</button>
 				<br/>
 			</div>

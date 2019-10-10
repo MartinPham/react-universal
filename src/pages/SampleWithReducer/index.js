@@ -3,13 +3,6 @@ import {BasePurePage} from 'pages/Page';
 
 
 import compose from 'utils/redux/compose';
-import { createStructuredSelector } from 'reselect';
-
-import push from 'components/Navigator/actions/push';
-import go from 'components/Navigator/actions/go';
-import goBack from 'components/Navigator/actions/goBack';
-import goForward from 'components/Navigator/actions/goForward';
-
 
 import reducer from './reducer';
 import increaseCounter from './actions/increaseCounter';
@@ -44,33 +37,33 @@ class Page extends BasePurePage {
 
 				<hr/>
 				<button
-					onClick={() => this.props.dispatch(push('@Sample', { random: Math.random() }, 'flyLeft'))}
+					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyLeft')}
 				>Go Sample (flyLeft)</button>
 				<hr/>
 
 				<button
-					onClick={() => this.props.dispatch(push('@Sample', { random: Math.random() }, 'flyUp'))}
+					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyUp')}
 				>Go Sample (flyUp)</button>
 
 				<hr/>
 
 
 				<button
-					onClick={() => this.props.dispatch(goBack())}
+					onClick={() => this.goBack()}
 				>Go Back</button>
 				<hr/>
 
 				<button
-					onClick={() => this.props.dispatch(goForward())}
+					onClick={() => this.goForward()}
 				>Go Forward</button>
 
 				<hr/>
 				<button
-					onClick={() => this.props.dispatch(go(-2))}
+					onClick={() => this.go(-2)}
 				>Go -2</button>
 				<hr/>
 				<button
-					onClick={() => this.props.dispatch(go(2))}
+					onClick={() => this.go(2)}
 				>Go +2</button>
 
         </div>
