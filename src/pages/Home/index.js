@@ -106,7 +106,7 @@ class Page extends BasePurePage {
 				<br/>
 	
 				<button
-					onClick={() => this.props.push('@Login?z=3', {}, 'flyUp')}
+					onClick={() => this.props.push('@Login?z=3', { x: 4 }, 'flyUp')}
 				>Go login (flyUp)</button>
 				<br/>
 	

@@ -20,18 +20,16 @@ class Page extends BasePurePage {
 		return (
 			<div>
 				Sample
-				<hr/>
-				{this.props.text}
 
 				<hr/>
 				<button
-					onClick={() => this.props.push('/contact', {}, 'flyLeft')}
-				>Go Contact (flyLeft)</button>
+					onClick={() => this.props.push('@Sample', { random: Math.random() }, 'flyLeft')}
+				>Go Sample (flyLeft)</button>
 				<hr/>
 
 				<button
-					onClick={() => this.props.push('/contact', {}, 'flyUp')}
-				>Go Contact (flyUp)</button>
+					onClick={() => this.props.push('@Sample', { random: Math.random() }, 'flyUp')}
+				>Go Sample (flyUp)</button>
 
 				<hr/>
 
@@ -76,4 +74,4 @@ const mapDispatch = dispatch => ({
 export default connect(
     mapState,
     mapDispatch
-);
+)(Page);
