@@ -11,16 +11,28 @@ import goBack from 'components/Navigator/actions/goBack';
 import goForward from 'components/Navigator/actions/goForward';
 
 
+import textSelector from "./selectors/textSelector";
+import uppercaseTextSelector from "./selectors/uppercaseTextSelector";
 
 import { ID } from "./constants";
 
 
 class Page extends BasePurePage {
+	state = {
+		number: 1
+	}
 	render() {
 		return (
 			<div>
-				<h1>Sample!</h1>
-
+				<h1>Sample with selector</h1>
+				text: {this.props.text}<br/>
+				uppercase text: {this.props.uppercaseText}<br/>
+				<br/>
+				<button
+					onClick={() => this.setState({
+						number: Math.random()
+					})}
+				>Change state.number = {this.state.number}</button>
 				<hr/>
 				<button
 					onClick={() => this.props.push('@Sample', { random: Math.random() }, 'flyLeft')}
@@ -59,6 +71,12 @@ class Page extends BasePurePage {
 
 Page.displayName = ID;
 
+
+const mapState = createStructuredSelector({
+	text: textSelector,
+	uppercaseText: uppercaseTextSelector,
+});
+
 const mapDispatch = dispatch => ({
     push: (path, data, transition) => dispatch(push(path, data, transition)),
     go: (index) => dispatch(go(index)),
@@ -67,5 +85,7 @@ const mapDispatch = dispatch => ({
 });
 
 export default compose({
+	ID,
+	mapState,
 	mapDispatch
 })(Page)

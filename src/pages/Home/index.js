@@ -114,6 +114,21 @@ class Page extends BasePurePage {
 					onClick={() => this.props.goForward()}
 				 >Go Forward</button>
 				<br/>
+				<hr/>
+
+				<br/>
+				<button
+					onClick={() => this.props.push('@SampleWithSelector?a=b', {}, 'flyLeft')}
+				>Go Sample with selector</button>
+				<br/>
+				<button
+					onClick={() => this.props.push('@SampleWithReducer?a=b', {}, 'flyLeft')}
+				>Go Sample with reducer</button>
+				<br/>
+				<button
+					onClick={() => this.props.push('@SampleWithSaga?a=b', {}, 'flyLeft')}
+				>Go Sample with saga</button>
+				<br/>
 			</div>
 		);
 	}

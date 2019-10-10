@@ -19,7 +19,7 @@ class Page extends BasePurePage {
 	render() {
 		return (
 			<div>
-				<h1>Sample!</h1>
+				Sample
 
 				<hr/>
 				<button
@@ -59,6 +59,11 @@ class Page extends BasePurePage {
 
 Page.displayName = ID;
 
+
+const mapState = createStructuredSelector({
+
+});
+
 const mapDispatch = dispatch => ({
     push: (path, data, transition) => dispatch(push(path, data, transition)),
     go: (index) => dispatch(go(index)),
@@ -67,5 +72,7 @@ const mapDispatch = dispatch => ({
 });
 
 export default compose({
+	ID,
+	mapState,
 	mapDispatch
 })(Page)

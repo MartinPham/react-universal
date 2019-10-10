@@ -2,12 +2,26 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
+import { createStructuredSelector } from 'reselect';
 
 export default ({ID, mapState, mapDispatch, reducer, saga}) => {
 	let functions = []
 
-	if(mapState !== void 0 && mapDispatch !== void 0)
+	if(ID === void 0)
 	{
+		ID = 'Component-' + Math.floor(Math.random() * 1000000)
+	}
+
+	if(mapDispatch !== void 0)
+	{
+		if(mapState === void 0)
+		{
+			mapState = createStructuredSelector({
+
+			});
+		}
+		
+		
 		functions.push(connect(
 			mapState,
 			mapDispatch
