@@ -3,7 +3,6 @@ import {BasePurePage} from 'pages/Page';
 
 
 import compose from 'utils/redux/compose';
-import { createStructuredSelector } from 'reselect';
 
 import push from 'components/Navigator/actions/push';
 import go from 'components/Navigator/actions/go';

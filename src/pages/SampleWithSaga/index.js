@@ -11,15 +11,39 @@ import goBack from 'components/Navigator/actions/goBack';
 import goForward from 'components/Navigator/actions/goForward';
 
 
+import reducer from './reducer';
+import saga from './saga';
+import increaseCounter from './actions/increaseCounter';
+
+import anotherCounterSelector from "./selectors/anotherCounterSelector";
+import counterSelector from "./selectors/counterSelector";
+import funnyCounterSelector from "./selectors/funnyCounterSelector";
 
 import { ID } from "./constants";
 
 
 class Page extends BasePurePage {
+	state = {
+		number: 1
+	}
 	render() {
 		return (
 			<div>
 				Sample
+				counter: {this.props.counter}<br/>
+				funny counter: {this.props.funnyCounter}<br/>
+				another counter: {this.props.anotherCounter}<br/>
+				<br/>
+				<button
+					onClick={() => this.props.increaseCounter(5)}
+				>Increase counter</button>
+				<br/>
+				<button
+					onClick={() => this.setState({
+						number: Math.random()
+					})}
+				>Change state.number = {this.state.number}</button>
+				<hr/>
 
 				<hr/>
 				<button
@@ -61,18 +85,23 @@ Page.displayName = ID;
 
 
 const mapState = createStructuredSelector({
-
+	counter: counterSelector,
+	funnyCounter: funnyCounterSelector,
+	anotherCounter: anotherCounterSelector,
 });
 
 const mapDispatch = dispatch => ({
     push: (path, data, transition) => dispatch(push(path, data, transition)),
     go: (index) => dispatch(go(index)),
     goBack: () => dispatch(goBack()),
-    goForward: () => dispatch(goForward()),
+	goForward: () => dispatch(goForward()),
+	increaseCounter: (plus) => dispatch(increaseCounter(plus))
 });
 
 export default compose({
 	ID,
 	mapState,
-	mapDispatch
+	mapDispatch,
+	reducer,
+	saga
 })(Page)
