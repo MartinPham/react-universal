@@ -1,3 +1,4 @@
+import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 
@@ -17,7 +18,45 @@ import render from './render';
 
 class Page extends BasePurePage {
 	render() {
-		return render(this, this.props, this.state);
+		return (
+			<div>
+				Sample
+				<hr/>
+				{this.props.text}
+
+				<hr/>
+				<button
+					onClick={() => this.props.push('/contact', {}, 'flyLeft')}
+				>Go Contact (flyLeft)</button>
+				<hr/>
+
+				<button
+					onClick={() => this.props.push('/contact', {}, 'flyUp')}
+				>Go Contact (flyUp)</button>
+
+				<hr/>
+
+
+				<button
+					onClick={() => this.props.goBack()}
+				>Go Back</button>
+				<hr/>
+
+				<button
+					onClick={() => this.props.goForward()}
+				>Go Forward</button>
+
+				<hr/>
+				<button
+					onClick={() => this.props.go(-2)}
+				>Go -2</button>
+				<hr/>
+				<button
+					onClick={() => this.props.go(2)}
+				>Go +2</button>
+
+        </div>
+		)
 	}
 }
 

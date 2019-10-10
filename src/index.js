@@ -69,7 +69,7 @@ const createApp = (AppComponent) => (
 authPreload();
 historyResetter();
 
-console.log('env', process.env);
+// console.log('env', process.env);
 
 
 if (rootElement.hasChildNodes() === true) {

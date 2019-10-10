@@ -14,7 +14,12 @@ export default function*({path, data, transition, originPosition}) {
 	}
 
 	// console.log('env ', process.env);
-	let finalPath = (process.env.PUBLIC_URL || '') + path;
+	let finalPath = path;
+	if(finalPath && finalPath[0] === '@')
+	{
+		
+	}
+	finalPath = (process.env.PUBLIC_URL || '') + finalPath;
 
 	finalPath += '?' + queryString.stringify(data);
 

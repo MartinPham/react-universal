@@ -20,6 +20,11 @@ export default ($this, $props, $state, ...$extra) => {
 
 							const pathPrefix = (process.env.PUBLIC_URL || '');
 
+							let Component = route.source;
+							if(typeof Component === 'string')
+							{
+								Component = require('../' + Component)
+							}
 
 							return (
 								<Route
