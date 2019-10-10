@@ -1,82 +1,74 @@
 import React from 'react';
-import { Heading, ItemImage } from "./styles";
-import pho from 'images/pho.jpg';
-// import log from "utils/log";
+import { Heading } from "./styles";
 import {getBoundingRect} from "utils/dom";
     
 
 export default ($this, $props, $state, $routes, ...$extra) => {
-	console.log('Home render', $props);
     return (
         <div>
-
-
-            <Heading>Hello world!!! ops</Heading>
-            <p>text: {$props.text}</p>
-            <p>altText: {$props.altText}</p>
-
+            <Heading>Hello world!!!</Heading>
+			<hr/>
+            <p>text selector: {$props.text}</p>
+            <p>altText selector: {$props.altText}</p>
+			<hr/>
+			text selector & input: 
             <input type="text" value={$props.text} onChange={(event) => $props.changeText(event.target.value)}/>
-
+			<hr/>
 
             <button
                 onClick={() => $props.changeText("I am from the Button")}
-            >Hey</button>
-			<br/>
+            >Change text</button>
+			<hr/>
+			<p>object.text selector: {$props.objectText}</p>
+			<p>object selector: {JSON.stringify($props.object)}</p>
+			<hr/>
             <button
                 onClick={() => $props.changeObjectText('zzz')}
-            >Hey Object Text</button>
-			<br/>
+            >Change Object Text</button>
+			<hr/>
             <button
                 onClick={() => $props.changeObject({
                 		text: "omg",
 						msg: Math.random()
                 	})}
-            >Hey Object</button>
-			<br/>
+            >Change Object</button>
+			<hr/>
 
-			<p>object.text: {$props.objectText}</p>
-            <button
-                onClick={() => $props.changeAboutText("I am from Home")}
-            >Hey About</button>
-			<br/>
-
-			<b>state: {$state.test1}</b>
+			<b>state.count: {$state.count}</b>
 			<br/>
             <button
-                onClick={() => $this.setState({
-					test1: "2"
-				})}
-            >Hey State</button>
+                onClick={() => $this.setState(state => ({
+					count: state.count + 1
+				}))}
+            >Increase State.count</button>
             <br/>
             <br/>
 
-            <ItemImage
-                image={pho}
+            <button
                 onClick={(event) => {
                     const target = event.currentTarget;
                     let position = getBoundingRect(target);
-                    // log(target, position);
 
-                    $props.push('/item', {}, 'revealIn', position);
+                    $props.push('@Sample', {}, 'revealIn', position);
                 }}
-            />
+            >Go Sample page</button>
 
             <button
                 onClick={() => $props.push('/', {}, 'flyDown')}
-            >Go 127.0.0.1</button>
+            >Go Home</button>
             <br/>
             <button
-                onClick={() => $props.push('/about', {}, 'flyLeft')}
-            >Go about (flyLeft)</button>
+                onClick={() => $props.push('@Sample?a=b', {}, 'flyLeft')}
+            >Go Sample (flyLeft)</button>
             <br/>
 
             <button
-                onClick={() => $props.push('/dashboard', {}, 'flyUp')}
+                onClick={() => $props.push('@Dashboard?x=1&y=2', {}, 'flyUp')}
             >Go dashboard (flyUp)</button>
             <br/>
 
             <button
-                onClick={() => $props.push('/login', {}, 'flyUp')}
+                onClick={() => $props.push('@Login?z=3', {}, 'flyUp')}
             >Go login (flyUp)</button>
             <br/>
 

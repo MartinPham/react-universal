@@ -1,13 +1,12 @@
-// import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 
-import { frontloadConnect } from "react-frontload";
+// import { frontloadConnect } from "react-frontload";
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
-// import log from 'utils/log';
+
 
 import push from 'components/Navigator/actions/push';
 
@@ -23,6 +22,7 @@ import changeText from "./actions/changeText";
 import textSelector from "./selectors/textSelector";
 import altTextSelector from "./selectors/altTextSelector";
 import objectTextSelector from "./selectors/objectTextSelector";
+import objectSelector from "./selectors/objectSelector";
 
 
 import render from './render';
@@ -31,21 +31,16 @@ import goForward from "components/Navigator/actions/goForward";
 import changeObject from "./actions/changeObject";
 import changeObjectText from "./actions/changeObjectText";
 
-// import about_textSelector from "pages/About/selectors/textSelector";
-import about_changeText from "pages/About/actions/changeText";
 
 
 class Page extends BasePurePage {
 	state = {
-		test1: '1'
+		count: 1
 	};
 
 	render()
 	{
-
-		// console.log('HOME RENDER: Home')
 		return render(this, this.props, this.state);
-		// return null;
 	}
 }
 
@@ -54,24 +49,17 @@ class Page extends BasePurePage {
 
 Page.displayName = ID;
 
-//export default Page;
-
-
 
 const mapState = createStructuredSelector({
 	text: textSelector,
 	altText: altTextSelector,
 	objectText: objectTextSelector,
+	object: objectSelector,
 });
-
-// console.log(mapState)
 
 const mapDispatch = dispatch => ({
 	changeText: (text) => {
 		dispatch(changeText(text))
-	},
-	changeAboutText: (text) => {
-		dispatch(about_changeText(text))
 	},
 	changeObjectText: (text) => {
 		dispatch(changeObjectText(text))
@@ -86,11 +74,11 @@ const mapDispatch = dispatch => ({
 
 
 
-const frontload = async props =>
-{
-	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-	props.changeText(data);
-};
+// const frontload = async props =>
+// {
+// 	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
+// 	props.changeText(data);
+// };
 
 
 const withConnect = connect(
@@ -117,9 +105,3 @@ export default compose(
 	Page
 );
 
-
-// export default compose(
-//     withReducer,
-//     withSaga,
-//     withConnect,
-// )(Page);

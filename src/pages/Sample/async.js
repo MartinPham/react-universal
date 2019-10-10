@@ -1,9 +1,10 @@
 import React from 'react';
 import Loadable from 'react-loadable';
+import { ID } from "./constants";
 
 export default Loadable({
-    loader: () => import(/* webpackChunkName: "Contact" */ __dirname + '/index'),
+    loader: () => import(/* webpackChunkName: "Sample" */ __dirname + '/index'),
     loading: () => (<div>Loading</div>),
-    modules: ['Contact'],
+    modules: [ID],
     webpack: () => [require.resolveWeak(__dirname + '/index')],
 });

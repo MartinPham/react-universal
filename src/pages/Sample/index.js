@@ -1,28 +1,19 @@
-// import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
+
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import injectReducer from 'utils/redux/injectReducer';
-import injectSaga from 'utils/redux/injectSaga';
-// import log from 'utils/log';
+import { createStructuredSelector } from 'reselect';
 
 import push from 'components/Navigator/actions/push';
 import go from 'components/Navigator/actions/go';
 import goBack from 'components/Navigator/actions/goBack';
 import goForward from 'components/Navigator/actions/goForward';
 
-import reducer from './reducer';
-import saga from './saga';
-
-import { createStructuredSelector } from 'reselect';
 
 
 import { ID } from "./constants";
 
 import render from './render';
-import sharedHistory from "../../utils/sharedHistory";
-
 
 class Page extends BasePurePage {
 	render() {
@@ -44,21 +35,7 @@ const mapDispatch = dispatch => ({
     goForward: () => dispatch(goForward()),
 });
 
-
-const withConnect = connect(
+export default connect(
     mapState,
     mapDispatch
 );
-
-
-
-
-const withReducer = injectReducer({ key: ID, reducer });
-const withSaga = injectSaga({ key: ID, saga });
-
-
-export default compose(
-    withReducer,
-    withSaga,
-    withConnect,
-)(Page);
