@@ -8,22 +8,28 @@
 		"native:android": "expo start --android",
 		"native:ios": "expo start --ios",
 		"native:clean": "watchman watch-del-all && rm -rf $TMPDIR/metro-* && rm -rf node_modules/.cache",
+
 		"expo:eject": "expo eject",
+
 		"cra:start": "react-scripts start",
 		"cra:build": "react-scripts build",
 		"cra:test": "react-scripts test",
 		"cra:eject": "react-scripts eject",
+
 		"start": "npm run browser:dev",
+
 		"browser:dev": "cross-env NODE_PATH=src craco start",
 		"browser:build": "touch .building && rm -rf build && rm -rf build-browser && cross-env NODE_PATH=src craco build && mv build build-browser && rm .building",
 		"browser:test": "cross-env NODE_PATH=src craco test",
 		"browser:prod:run": "node scripts/browser/prod 3000",
 		"browser:prod": "npm run browser:build && npm run browser:prod:run",
 		"browser:deploy:github": "npm run browser:build && gh-pages -d build-browser",
+
 		"server:build": "touch .building && rm -rf build && rm -rf build-server && cross-env NODE_PATH=src node scripts/server/build && mv build build-server && rm .building",
 		"server:build:all": "touch .building-all && npm run server:build && npm run browser:build && rm .building-all",
 		"server:prod:run": "node scripts/server/prod 3000",
 		"server:prod": "npm run server:build:all && npm run server:prod:run",
+		
 		"cli:dev": "cross-env PLATFORM=cli node scripts/cli/dev",
 		"cli:build": "touch .building && rm -rf build && rm -rf build-cli && cross-env PLATFORM=cli node scripts/cli/build && mkdir build-cli && mv build/index.js build-cli/index.js && node scripts/cli/build-assets && rm .building",
 		"cli:prod:run": "node build-cli",
