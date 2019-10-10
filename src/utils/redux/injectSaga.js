@@ -19,9 +19,7 @@ import getInjectors from './sagaInjectors';
 export default ({ key, saga, mode }) => WrappedComponent => {
 	class InjectSaga extends PureComponent {
 		static WrappedComponent = WrappedComponent;
-		static contextTypes = {
-			store: PropTypes.object.isRequired,
-		};
+
 		static displayName = `withSaga(${WrappedComponent.displayName ||
 			WrappedComponent.name ||
 			'Component'})`;

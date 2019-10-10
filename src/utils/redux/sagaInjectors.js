@@ -6,6 +6,7 @@ export const ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount';
 
 export function injectSagaFactory(store, isValid) {
 	return function injectSaga(key, descriptor = {}, args) {
+		// if(store === void 0) return
 
 		const newDescriptor = {
 			...descriptor,
@@ -56,12 +57,18 @@ export function ejectSagaFactory(store, isValid) {
 }
 
 export default function getInjectors(store) {
-	
-	if(typeof store ==='undefined')
+	if(store === void 0)
 	{
-		store = global.store;
+		console.log('no store')
+		if(global && global.store)
+		{
+			store = global.store;
+		} else if(window && window.store)
+		{
+			store = window.store;
+		} 
 	}
-	
+
 	return {
 		injectSaga: injectSagaFactory(store, true),
 		ejectSaga: ejectSagaFactory(store, true),

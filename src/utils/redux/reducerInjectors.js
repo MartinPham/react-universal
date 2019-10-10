@@ -17,10 +17,15 @@ export function injectReducerFactory(store, isValid) {
 }
 
 export default function getInjectors(store) {
-
-	if(typeof store ==='undefined')
+	if(store === void 0)
 	{
-		store = global.store;
+		if(global && global.store)
+		{
+			store = global.store;
+		} else if(window && window.store)
+		{
+			store = window.store;
+		} 
 	}
 
 	return {

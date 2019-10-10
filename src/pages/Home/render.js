@@ -3,7 +3,6 @@ import { Heading, ItemImage } from "./styles";
 import pho from 'images/pho.jpg';
 // import log from "utils/log";
 import {getBoundingRect} from "utils/dom";
-import TransitionContainer from 'components/TransitionContainer';
     
 
 export default ($this, $props, $state, $routes, ...$extra) => {
@@ -11,30 +10,6 @@ export default ($this, $props, $state, $routes, ...$extra) => {
     return (
         <div>
 
-<TransitionContainer 
-	from={{ 
-		top: 0,
-		left: 0,
-		width: 100,
-		height: 100,
-		transform: 'translate3d(0px,0,0) scale(1) rotateX(0deg)', 
-	}} 
-	to={{ 
-		top: 100,
-		left: 100,
-		width: 200,
-		height: 300,
-		transform: 'translate3d(0px,0,0) scale(2) rotateX(0deg)', 
-	}}
-	style={{
-			backgroundColor: 'red',
-			position: 'absolute'
-		}}
-	delay={1000}
-	duration={5000}
-	>
-  				hello
-</TransitionContainer>
 
             <Heading>Hello world!!! ops</Heading>
             <p>text: {$props.text}</p>

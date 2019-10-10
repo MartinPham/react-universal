@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import { Frontload } from 'react-frontload';
 import Loadable from 'react-loadable';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
 // import 'utils/reactotron';
 
@@ -24,7 +24,12 @@ import updateUser from "components/AuthProvider/actions/updateUser";
 
 const historyWrapper = sharedHistory(createHistory());
 const store = configureStore({});
+window.store = store;
+console.log('set store')
+
 const rootElement = document.getElementById('root');
+
+
 
 historyWrapper.history.listen(location => {
 	store.dispatch(historyChanged(location));
