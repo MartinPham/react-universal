@@ -10,16 +10,16 @@ import checkAuthenticatedUser from "firewalls/checkAuthenticatedUser";
 export default {
     Sample: {
         path: "/sample",
-        source: 'pages/Sample/async'
+        source: Sample
 	},
 	
     Login: {
         path: "/login",
-        source: 'pages/Login/async'
+        source: Login
     },
     Dashboard: {
         path: "/dashboard",
-        source: 'pages/Dashboard/async',
+        source: Dashboard,
         firewall: checkAuthenticatedUser
     },
 
@@ -27,7 +27,7 @@ export default {
 
     Home: {
         path: "/",
-        source: 'pages/Home/async',
+        source: Home,
         exact: true
     }
 };
