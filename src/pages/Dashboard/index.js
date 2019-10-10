@@ -1,11 +1,11 @@
-// import React from 'react';
+import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
-// import log from 'utils/log';
+
 
 import updateUser from 'components/AuthProvider/actions/updateUser';
 
@@ -17,7 +17,6 @@ import { createStructuredSelector } from 'reselect';
 
 import { ID } from "./constants";
 
-import render from './render';
 import logout from "../../components/AuthProvider/actions/logout";
 import userSelector from "../../components/AuthProvider/selectors/userSelector";
 
@@ -25,7 +24,17 @@ import userSelector from "../../components/AuthProvider/selectors/userSelector";
 class Page extends BasePurePage {
 
 	render() {
-		return render(this, this.props, this.state);
+		return (
+			<div>
+	
+				Hello {this.props.user && this.props.user.get('name')}
+	
+	
+				<button
+					onClick={this.props.logout}
+				>Logout</button>
+			</div>
+		);
 	}
 }
 

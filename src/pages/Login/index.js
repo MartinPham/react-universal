@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import {BasePurePage} from 'pages/Page';
 
 import { connect } from 'react-redux';
@@ -17,7 +17,6 @@ import { createStructuredSelector } from 'reselect';
 
 import { ID } from "./constants";
 
-import render from './render';
 import userSelector from "components/AuthProvider/selectors/userSelector";
 import tokenSelector from "components/AuthProvider/selectors/tokenSelector";
 import push from "components/Navigator/actions/push";
@@ -70,7 +69,20 @@ class Page extends BasePurePage {
 			return null;
 		}
 
-		return render(this, this.props, this.state);
+		return (
+			<div>
+	
+				<button
+					onClick={() => this.props.updateUser({
+						name: 'Martin'
+					}, 'nekot')}
+				>Login</button>
+				<button
+					onClick={() => this.props.push('/', {}, 'flyDown')}
+				>Go Home</button>
+	
+			</div>
+		);
 	}
 }
 

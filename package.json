@@ -45,7 +45,6 @@
 	},
 	"devDependencies": {
 		"@craco/craco": "^5.5.0",
-		"babel-preset-expo": "^7.0.0",
 		"chokidar": "^3.2.1",
 		"clear-module": "^4.0.0",
 		"cookie-parser": "^1.4.4",

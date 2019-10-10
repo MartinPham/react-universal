@@ -14,7 +14,6 @@ import goForward from 'components/Navigator/actions/goForward';
 
 import { ID } from "./constants";
 
-import render from './render';
 
 class Page extends BasePurePage {
 	render() {

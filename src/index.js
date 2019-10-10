@@ -25,7 +25,6 @@ import updateUser from "components/AuthProvider/actions/updateUser";
 const historyWrapper = sharedHistory(createHistory());
 const store = configureStore({});
 window.store = store;
-console.log('set store')
 
 const rootElement = document.getElementById('root');
 
