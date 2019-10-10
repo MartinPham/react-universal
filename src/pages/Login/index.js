@@ -67,12 +67,12 @@ class Page extends BasePurePage {
 			<div>
 	
 				<button
-					onClick={() => this.props.updateUser({
+					onClick={() => this.props.dispatch(updateUser({
 						name: 'Martin'
-					}, 'nekot')}
+					}, 'nekot'))}
 				>Login</button>
 				<button
-					onClick={() => this.props.push('/', {}, 'flyDown')}
+					onClick={() => this.props.dispatch(push('/', {}, 'flyDown'))}
 				>Go Home</button>
 	
 			</div>
@@ -83,20 +83,13 @@ class Page extends BasePurePage {
 Page.displayName = ID;
 
 
-const mapState = createStructuredSelector({
+const mapState = {
 	user: userSelector,
 	token: tokenSelector
-});
-
-const mapDispatch = dispatch => ({
-	updateUser: (user, token) => dispatch(updateUser(user, token)),
-	push: (path, data, transition) => dispatch(push(path, data, transition))
-});
-
+};
 
 
 export default compose({
 	ID,
-	mapState,
-	mapDispatch
+	mapState
 })(Page)

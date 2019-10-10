@@ -5,7 +5,7 @@ import { StaticRouter as Router } from 'react-router';
 import { Frontload, frontloadServerRender } from 'react-frontload';
 import Loadable from 'react-loadable';
 import Helmet from 'react-helmet';
-import createHistory from 'history/createMemoryHistory';
+import {createMemoryHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
 
 

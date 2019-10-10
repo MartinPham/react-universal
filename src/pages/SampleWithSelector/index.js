@@ -35,33 +35,33 @@ class Page extends BasePurePage {
 				>Change state.number = {this.state.number}</button>
 				<hr/>
 				<button
-					onClick={() => this.props.push('@Sample', { random: Math.random() }, 'flyLeft')}
+					onClick={() => this.props.dispatch(push('@Sample', { random: Math.random() }, 'flyLeft'))}
 				>Go Sample (flyLeft)</button>
 				<hr/>
 
 				<button
-					onClick={() => this.props.push('@Sample', { random: Math.random() }, 'flyUp')}
+					onClick={() => this.props.dispatch(push('@Sample', { random: Math.random() }, 'flyUp'))}
 				>Go Sample (flyUp)</button>
 
 				<hr/>
 
 
 				<button
-					onClick={() => this.props.goBack()}
+					onClick={() => this.props.dispatch(goBack())}
 				>Go Back</button>
 				<hr/>
 
 				<button
-					onClick={() => this.props.goForward()}
+					onClick={() => this.props.dispatch(goForward())}
 				>Go Forward</button>
 
 				<hr/>
 				<button
-					onClick={() => this.props.go(-2)}
+					onClick={() => this.props.dispatch(go(-2))}
 				>Go -2</button>
 				<hr/>
 				<button
-					onClick={() => this.props.go(2)}
+					onClick={() => this.props.dispatch(go(2))}
 				>Go +2</button>
 
         </div>
@@ -72,20 +72,12 @@ class Page extends BasePurePage {
 Page.displayName = ID;
 
 
-const mapState = createStructuredSelector({
+const mapState = {
 	text: textSelector,
 	uppercaseText: uppercaseTextSelector,
-});
-
-const mapDispatch = dispatch => ({
-    push: (path, data, transition) => dispatch(push(path, data, transition)),
-    go: (index) => dispatch(go(index)),
-    goBack: () => dispatch(goBack()),
-    goForward: () => dispatch(goForward()),
-});
+};
 
 export default compose({
 	ID,
-	mapState,
-	mapDispatch
+	mapState
 })(Page)

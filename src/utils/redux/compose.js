@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
 import { createStructuredSelector } from 'reselect';
+import select from "utils/select";
 
 export default ({ID, mapState, mapDispatch, reducer, saga}) => {
 	let functions = []
@@ -12,16 +13,23 @@ export default ({ID, mapState, mapDispatch, reducer, saga}) => {
 		ID = 'Component-' + Math.floor(Math.random() * 1000000)
 	}
 
-	if(mapDispatch !== void 0)
+	if(mapState !== void 0 || mapDispatch !== void 0)
 	{
 		if(mapState === void 0)
 		{
-			mapState = createStructuredSelector({
-
-			});
+			mapState = {}
 		}
+		mapState = createStructuredSelector(mapState);
+
+		if(mapDispatch === void 0)
+		{
+			mapDispatch = dispatch => ({
+				dispatch: (call) => dispatch(call)
+			});
+		}		
 		
 		
+
 		functions.push(connect(
 			mapState,
 			mapDispatch

@@ -38,7 +38,6 @@ export default function*({path, data, transition, originPosition}) {
 	{
 		const routeId = finalPath.substr(1)
 		
-		console.log(finalPath, routeId, routes[routeId])
 		if(routes[routeId] !== void 0)
 		{
 			finalPath = routes[routeId].path

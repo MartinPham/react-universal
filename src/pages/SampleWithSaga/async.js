@@ -3,7 +3,7 @@ import Loadable from 'react-loadable';
 import { ID } from "./constants";
 
 export default Loadable({
-    loader: () => import(/* webpackChunkName: "Sample" */ __dirname + '/index'),
+    loader: () => import(/* webpackChunkName: "SampleWithSaga" */ __dirname + '/index'),
     loading: () => (<div>Loading</div>),
     modules: [ID],
     webpack: () => [require.resolveWeak(__dirname + '/index')],

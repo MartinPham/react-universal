@@ -45,25 +45,25 @@ class Page extends BasePurePage {
 				<p>altText selector: {this.props.altText}</p>
 				<hr/>
 				text selector & input: 
-				<input type="text" value={this.props.text} onChange={(event) => this.props.changeText(event.target.value)}/>
+				<input type="text" value={this.props.text} onChange={(event) => this.props.dispatch(changeText(event.target.value))}/>
 				<hr/>
 	
 				<button
-					onClick={() => this.props.changeText("I am from the Button")}
+					onClick={() => this.props.dispatch(changeText("I am from the Button"))}
 				>Change text</button>
 				<hr/>
 				<p>object.text selector: {this.props.objectText}</p>
 				<p>object selector: {JSON.stringify(this.props.object)}</p>
 				<hr/>
 				<button
-					onClick={() => this.props.changeObjectText('zzz')}
+					onClick={() => this.props.dispatch(changeObjectText('zzz'))}
 				>Change Object Text</button>
 				<hr/>
 				<button
-					onClick={() => this.props.changeObject({
+					onClick={() => this.props.dispatch(changeObject({
 							text: "omg",
 							msg: Math.random()
-						})}
+						}))}
 				>Change Object</button>
 				<hr/>
 	
@@ -82,51 +82,51 @@ class Page extends BasePurePage {
 						const target = event.currentTarget;
 						let position = getBoundingRect(target);
 	
-						this.props.push('@Sample', {}, 'revealIn', position);
+						this.props.dispatch(push('@Sample', {}, 'revealIn', position));
 					}}
 				>Go Sample page</button>
 	
 				<button
-					onClick={() => this.props.push('/', {}, 'flyDown')}
+					onClick={() => this.props.dispatch(push('/', {}, 'flyDown'))}
 				>Go Home</button>
 				<br/>
 				<button
-					onClick={() => this.props.push('@Sample?a=b', {}, 'flyLeft')}
+					onClick={() => this.props.dispatch(push('@Sample?a=b', {}, 'flyLeft'))}
 				>Go Sample (flyLeft)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.push('@Dashboard?x=1&y=2', {}, 'flyUp')}
+					onClick={() => this.props.dispatch(push('@Dashboard?x=1&y=2', {}, 'flyUp'))}
 				>Go dashboard (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.push('@Login?z=3', { x: 4 }, 'flyUp')}
+					onClick={() => this.props.dispatch(push('@Login?z=3', { x: 4 }, 'flyUp'))}
 				>Go login (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.goBack()}
+					onClick={() => this.props.dispatch(goBack())}
 				 >Go Back</button>
 				<br/>
 	
 				<button
-					onClick={() => this.props.goForward()}
+					onClick={() => this.props.dispatch(goForward())}
 				 >Go Forward</button>
 				<br/>
 				<hr/>
 
 				<br/>
 				<button
-					onClick={() => this.props.push('@SampleWithSelector?a=b', {}, 'flyLeft')}
+					onClick={() => this.props.dispatch(push('@SampleWithSelector?a=b', {}, 'flyLeft'))}
 				>Go Sample with selector</button>
 				<br/>
 				<button
-					onClick={() => this.props.push('@SampleWithReducer?a=b', {}, 'flyLeft')}
+					onClick={() => this.props.dispatch(push('@SampleWithReducer?a=b', {}, 'flyLeft'))}
 				>Go Sample with reducer</button>
 				<br/>
 				<button
-					onClick={() => this.props.push('@SampleWithSaga?a=b', {}, 'flyLeft')}
+					onClick={() => this.props.dispatch(push('@SampleWithSaga?a=b', {}, 'flyLeft'))}
 				>Go Sample with saga</button>
 				<br/>
 			</div>
@@ -140,33 +140,18 @@ class Page extends BasePurePage {
 Page.displayName = ID;
 
 
-const mapState = createStructuredSelector({
+const mapState = {
 	text: textSelector,
 	altText: altTextSelector,
 	objectText: objectTextSelector,
 	object: objectSelector,
-});
+};
 
-const mapDispatch = dispatch => ({
-	changeText: (text) => {
-		dispatch(changeText(text))
-	},
-	changeObjectText: (text) => {
-		dispatch(changeObjectText(text))
-	},
-	changeObject: (object) => {
-		dispatch(changeObject(object))
-	},
-	push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
-	goBack: () => dispatch(goBack()),
-	goForward: () => dispatch(goForward()),
-});
 
 
 export default compose({
 	ID,
 	mapState,
-	mapDispatch,
 	reducer,
 	saga
 })(Page)

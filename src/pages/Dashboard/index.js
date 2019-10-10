@@ -26,7 +26,7 @@ class Page extends BasePurePage {
 	
 	
 				<button
-					onClick={this.props.logout}
+					onClick={() => this.props.dispatch(logout())}
 				>Logout</button>
 			</div>
 		);
@@ -36,18 +36,13 @@ class Page extends BasePurePage {
 Page.displayName = ID;
 
 
-const mapState = createStructuredSelector({
+const mapState = {
 	user: userSelector
-});
+};
 
-const mapDispatch = dispatch => ({
-	updateUser: (user, token) => dispatch(updateUser(user, token)),
-	logout: () => dispatch(logout()),
-});
 
 
 export default compose({
 	ID,
-	mapState,
-	mapDispatch
+	mapState
 })(Page)

@@ -41,8 +41,8 @@ const run = () => {
 		const homepage = package.homepage;
 
 		const url = new URL(homepage);
-		const pathname = url.pathname;
-
+		const pathname = url.pathname === '/' ? '' : url.pathname;
+		
 		const chokidar = require('chokidar');
 
 		let watchTimer = null;
@@ -159,6 +159,7 @@ const run = () => {
 		var html = fs.readFileSync(htmlFile, 'utf8');
 
 		var manifest = require(manifestFile);
+
 		var loader = require(serverFile).default(pathname, html, manifest, ipAddress + ':' + port);
 
 		app.get('/___stop___', function (req, res) {
