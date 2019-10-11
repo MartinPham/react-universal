@@ -72,14 +72,14 @@ historyResetter();
 
 
 if (rootElement.hasChildNodes() === true) {
-	log.warn('React Hydrate App from SSR');
+	console.log('React Hydrate App');
   	Loadable.preloadReady().then(() => {
     	ReactDOM.hydrate(createApp(App), rootElement);
     	// historyResetter();
         // authPreload();
   	});
 } else {
-	log.warn('React Render App');
+	console.log('React Render App');
   	ReactDOM.render(createApp(App), rootElement);
     // historyResetter();
     // authPreload();

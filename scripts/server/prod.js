@@ -40,8 +40,12 @@ const run = () => {
 		const package = require(path.resolve(__dirname, '../../package.json'));
 		const homepage = package.homepage;
 
-		const url = new URL(homepage);
-		const pathname = url.pathname === '/' ? '' : url.pathname;
+		let pathname = ''
+		if(homepage !== void 0)
+		{
+			const url = new URL(homepage);
+			pathname = url.pathname === '/' ? '' : url.pathname;
+		}
 		
 		const chokidar = require('chokidar');
 

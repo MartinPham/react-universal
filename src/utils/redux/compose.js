@@ -3,7 +3,10 @@ import { compose } from 'redux';
 import injectReducer from 'utils/redux/injectReducer';
 import injectSaga from 'utils/redux/injectSaga';
 import { createStructuredSelector } from 'reselect';
-export default ({ID, mapState, mapDispatch, reducer, saga}) => {
+
+import { frontloadConnect } from "react-frontload";
+
+export default ({ID, mapState, mapDispatch, reducer, saga, frontload}) => {
 	let functions = []
 
 	if(ID === void 0)
@@ -41,5 +44,14 @@ export default ({ID, mapState, mapDispatch, reducer, saga}) => {
 		functions.push(injectSaga({ key: ID, saga }))
 	}
 
-	return compose(...functions)
+	const composed = compose(...functions)
+
+	if(frontload !== void 0)
+	{
+		return (component) => composed(frontloadConnect(frontload, {
+			onMount: true,
+			onUpdate: false
+		})(component))
+	}
+	return composed
 }

@@ -2,7 +2,7 @@ import queryString from 'query-string';
 import routes from 'config/routes';
 
 export const generateUrl = (path, data = {}) => {
-	console.log(path, data)
+	// console.log(path, data)
 	let finalPath = path;
 	let finalPathQueryData = {};
 

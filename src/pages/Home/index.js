@@ -1,8 +1,7 @@
 import React from 'react';
-import { Heading } from "./styles";
+// import { Heading } from "./styles";
 import {getBoundingRect} from "utils/dom";
 import {BasePurePage} from 'pages/Page';
-
 
 import compose from 'utils/redux/compose';
 
@@ -26,6 +25,7 @@ import changeObjectText from "./actions/changeObjectText";
 
 import A from 'components/Navigator/Link';
 
+
 class Page extends BasePurePage {
 	state = {
 		count: 1
@@ -35,7 +35,7 @@ class Page extends BasePurePage {
 	{
 		return (
 			<div>
-				<Heading>Hello world!!!</Heading>
+				<h1>Hello world!!!</h1>
 				<hr/>
 				<p>text selector: {this.props.text}</p>
 				<p>altText selector: {this.props.altText}</p>
@@ -131,6 +131,12 @@ class Page extends BasePurePage {
 }
 
 
+const frontload = async props =>
+{
+	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
+	props.dispatch(changeText(data))
+};
+
 
 
 Page.displayName = ID;
@@ -149,5 +155,6 @@ export default compose({
 	ID,
 	mapState,
 	reducer,
-	saga
+	saga,
+	frontload
 })(Page)
