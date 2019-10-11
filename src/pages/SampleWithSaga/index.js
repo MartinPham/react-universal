@@ -20,6 +20,8 @@ class Page extends BasePurePage {
 	state = {
 		number: 1
 	}
+
+
 	render() {
 		return (
 			<div>
@@ -41,33 +43,33 @@ class Page extends BasePurePage {
 
 				<hr/>
 				<button
-					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyLeft')}
+					onClick={() => this.navigator.push('@Sample', { random: Math.random() }, 'flyLeft')}
 				>Go Sample (flyLeft)</button>
 				<hr/>
 
 				<button
-					onClick={() => this.push('@Sample', { random: Math.random() }, 'flyUp')}
+					onClick={() => this.navigator.push('@Sample', { random: Math.random() }, 'flyUp')}
 				>Go Sample (flyUp)</button>
 
 				<hr/>
 
 
 				<button
-					onClick={() => this.goBack()}
+					onClick={() => this.navigator.goBack()}
 				>Go Back</button>
 				<hr/>
 
 				<button
-					onClick={() => this.goForward()}
+					onClick={() => this.navigator.goForward()}
 				>Go Forward</button>
 
 				<hr/>
 				<button
-					onClick={() => this.go(-2)}
+					onClick={() => this.navigator.go(-2)}
 				>Go -2</button>
 				<hr/>
 				<button
-					onClick={() => this.go(2)}
+					onClick={() => this.navigator.go(2)}
 				>Go +2</button>
 
         </div>
@@ -77,6 +79,12 @@ class Page extends BasePurePage {
 
 Page.displayName = ID;
 
+const frontload = async props =>
+{
+	console.log('frontload dispatch')
+	props.dispatch(increaseCounter(100))
+
+};
 
 const mapState = {
 	counter: counterSelector,
@@ -88,5 +96,6 @@ export default compose({
 	ID,
 	mapState,
 	reducer,
-	saga
+	saga,
+	frontload
 })(Page)

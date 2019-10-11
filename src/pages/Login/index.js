@@ -19,14 +19,14 @@ class Page extends BasePurePage {
 
 	loggedInCheck = () => {
 		setTimeout(() => {
-			if(this.gonnaLeave)
+			if(this.navigator.gonnaLeave)
 			{
 				return;
 			}
 
 			if(this.props.user && this.props.token)
 			{
-				this.gonnaLeave = true;
+				this.navigator.gonnaLeave = true;
 
 				// console.log('>>>', sharedHistory().history.location)
 				const location = sharedHistory().history.location;
@@ -35,7 +35,7 @@ class Page extends BasePurePage {
 
 				// console.log(queryParams);
 
-				this.push(queryParams.refererUrl || '/', {}, 'flyDown');
+				this.navigator.push(queryParams.refererUrl || '/', {}, 'flyDown');
 				// this.props.push('/dashboard', {}, 'flyDown');
 			}
 		}, 500);
@@ -68,7 +68,7 @@ class Page extends BasePurePage {
 					}, 'nekot'))}
 				>Login</button>
 				<button
-					onClick={() => this.push('/', {}, 'flyDown')}
+					onClick={() => this.navigator.push('/', {}, 'flyDown')}
 				>Go Home</button>
 	
 			</div>

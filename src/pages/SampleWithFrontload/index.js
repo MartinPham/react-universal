@@ -4,8 +4,10 @@ import {BasePurePage} from 'pages/Page';
 
 import compose from 'utils/redux/compose';
 
+import reducer from './reducer';
+import changeText from './actions/changeText';
+
 import textSelector from "./selectors/textSelector";
-import uppercaseTextSelector from "./selectors/uppercaseTextSelector";
 
 import { ID } from "./constants";
 
@@ -17,16 +19,21 @@ class Page extends BasePurePage {
 	render() {
 		return (
 			<div>
-				<h1>Sample with selector</h1>
+				Sample
 				text: {this.props.text}<br/>
-				uppercase text: {this.props.uppercaseText}<br/>
+				<br/>
+				<button
+					onClick={() => this.props.dispatch(changeText('From button'))}
+				>Change text</button>
 				<br/>
 				<button
 					onClick={() => this.setState({
 						number: Math.random()
 					})}
 				>Change state.number = {this.state.number}</button>
-								<hr/>
+				<hr/>
+
+				<hr/>
 				<button
 					onClick={() => this.navigator.push('@Sample', { random: Math.random() }, 'flyLeft')}
 				>Go Sample (flyLeft)</button>
@@ -67,10 +74,18 @@ Page.displayName = ID;
 
 const mapState = {
 	text: textSelector,
-	uppercaseText: uppercaseTextSelector,
+};
+
+const frontload = async props =>
+{
+	const data = await (new Promise(resolve => setTimeout(() => resolve('From async'), 2000)))
+	console.log('frontload loaded', data)
+	props.dispatch(changeText(data))
 };
 
 export default compose({
 	ID,
-	mapState
+	mapState,
+	reducer,
+	frontload
 })(Page)

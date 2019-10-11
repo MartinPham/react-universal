@@ -6,6 +6,7 @@ export const ONCE_TILL_UNMOUNT = '@@saga-injector/once-till-unmount';
 
 export function injectSagaFactory(store, isValid) {
 	return function injectSaga(key, descriptor = {}, args) {
+		console.log('Injecting saga ' + key)
 		// if(store === void 0) return
 
 		const newDescriptor = {
@@ -18,15 +19,18 @@ export function injectSagaFactory(store, isValid) {
 		let hasSaga = Reflect.has(store.injectedSagas, key);
 
 		if (process.env.NODE_ENV !== 'production') {
+			console.log('> prod')
 			const oldDescriptor = store.injectedSagas[key];
 			// enable hot reloading of daemon and once-till-unmount sagas
 			if (hasSaga && oldDescriptor.saga !== saga) {
+				console.log('> > cancel')
 				oldDescriptor.task.cancel();
 				hasSaga = false;
 			}
 		}
 
 		if (!hasSaga || (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)) {
+			console.log('> inject')
 
 			const task = store.runSaga(saga, args);
 
@@ -35,6 +39,9 @@ export function injectSagaFactory(store, isValid) {
 				...newDescriptor,
 				task,
 			};
+
+
+			console.log('> injected', store.injectedSagas)
 
 		}
 	};

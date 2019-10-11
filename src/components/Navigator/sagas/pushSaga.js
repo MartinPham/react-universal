@@ -24,6 +24,7 @@ export default function*({path, data, transition, originPosition}) {
 		// history.action = 'PUSH';
 
 		yield history.push(finalPath, {
+			data,
 			transition,
 			originPosition
 		});

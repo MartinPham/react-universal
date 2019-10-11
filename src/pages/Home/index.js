@@ -78,39 +78,45 @@ class Page extends BasePurePage {
 						const target = event.currentTarget;
 						let position = getBoundingRect(target);
 	
-						this.push('@Sample', {}, 'revealIn', position);
+						this.navigator.push('@Sample', {}, 'revealIn', position);
 					}}
 				>Go Sample page</button>
 	
 				<button
-					onClick={() => this.push('/', {}, 'flyDown')}
+					onClick={() => this.navigator.push('/', {}, 'flyDown')}
 				>Go Home</button>
 				<br/>
 				<button
-					onClick={() => this.push('@Sample?a=b', {}, 'flyLeft')}
+					onClick={() => this.navigator.push('@Sample?a=b', {}, 'flyLeft')}
 				>Go Sample (flyLeft)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.push('@Dashboard?x=1&y=2', {}, 'flyUp')}
+					onClick={() => this.navigator.push('@Dashboard?x=1&y=2', {}, 'flyUp')}
 				>Go dashboard (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.push('@Login?z=3', { x: 4 }, 'flyUp')}
+					onClick={() => this.navigator.push('@Login?z=3', { x: 4 }, 'flyUp')}
 				>Go login (flyUp)</button>
 				<br/>
 	
 				<button
-					onClick={() => this.goBack()}
+					onClick={() => this.navigator.goBack()}
 				 >Go Back</button>
 				<br/>
 	
 				<button
-					onClick={() => this.goForward()}
+					onClick={() => this.navigator.goForward()}
 				 >Go Forward</button>
 				<br/>
 				<hr/>
+
+				<br/>
+				<A href='@SampleWithParam?id=3' data={{id: 'test', y:2}} transition='flyLeft'>Go Sample with param</A>
+
+				<br/>
+				<A href='@SampleWithFrontload?id=3' data={{id: 'test', y:2}} transition='flyLeft'>Go Sample with frontload</A>
 
 				<br/>
 				<A href='@SampleWithSelector?a=b' data={{x: 1, y:2}} transition='flyLeft'>Go Sample with selector</A>
@@ -124,7 +130,7 @@ class Page extends BasePurePage {
 				<br/>
 				<hr/>
 
-				<A href='/sample' data={{x: 1, y:2}} transition='flyLeft'>Go with link (directly)</A>
+				<A href='/sample?a=b&x=3' data={{x: 1, y:2}} transition='flyLeft'>Go with link (directly)</A>
 			</div>
 		);
 	}

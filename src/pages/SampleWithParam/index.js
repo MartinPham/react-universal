@@ -14,7 +14,7 @@ class Page extends BasePurePage {
 		console.log(this)
 		return (
 			<div>
-				<h1>Sample!</h1>
+				<h1>Sample with param id = {this.navigator.param.id}</h1>
 
 				<hr/>
 				<A href='@Sample' data={{ random: Math.random() }} transition='flyLeft'>Go Sample (flyLeft)</A>

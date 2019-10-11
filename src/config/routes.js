@@ -1,6 +1,9 @@
 
 import Home from 'pages/Home/async';
+import NotFound from 'pages/NotFound/async';
 import Sample from 'pages/Sample/async';
+import SampleWithFrontload from 'pages/SampleWithFrontload/async';
+import SampleWithParam from 'pages/SampleWithParam/async';
 import SampleWithReducer from 'pages/SampleWithReducer/async';
 import SampleWithSaga from 'pages/SampleWithSaga/async';
 import SampleWithSelector from 'pages/SampleWithSelector/async';
@@ -14,6 +17,14 @@ export default {
     Sample: {
         path: "/sample",
         source: Sample
+	},
+    SampleWithFrontload: {
+        path: "/sample-frontload",
+        source: SampleWithFrontload
+	},
+    SampleWithParam: {
+        path: "/sample-param/:id",
+        source: SampleWithParam
 	},
     SampleWithReducer: {
         path: "/sample-reducer",
@@ -36,7 +47,8 @@ export default {
         path: "/dashboard",
         source: Dashboard,
         firewall: checkAuthenticatedUser
-    },
+	},
+	
 
 
 
@@ -44,5 +56,10 @@ export default {
         path: "/",
         source: Home,
         exact: true
-    }
+    },
+
+    NotFound: {
+		path: "*",
+        source: NotFound,
+    },
 };
