@@ -81,7 +81,7 @@ Page.displayName = ID;
 
 const frontload = async props =>
 {
-	console.log('frontload dispatch')
+	console.log('frontload dispatch', props)
 	props.dispatch(increaseCounter(100))
 
 };

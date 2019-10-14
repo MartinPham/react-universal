@@ -59,7 +59,7 @@ export default ($this, $props, $state, ...$extra) => {
                         <TransitionGroup id="NavigatorTransitionGroup" className={`${$props.transition}-${$props.direction}`}>
                             <CSSTransition
                                 key={location.key}
-                                timeout={300}
+                                timeout={5000}
                                 classNames="pageTransition"
                                 mountOnEnter={false}
                                 unmountOnExit={false}
