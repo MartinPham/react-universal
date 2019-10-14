@@ -1,52 +1,26 @@
 import React from 'react';
-import {BasePurePage} from 'pages/Page';
+import log from 'loglevel';
 
+export default (props) => {
 
-import A from 'components/Navigator/Link';
+	const colors = ['red', 'green', 'blue', 'yellow', 'pink', 'white', 'black']
+	const [id] = React.useState(Math.random())
+	const [background] = React.useState(colors[Math.floor(Math.random() * colors.length)])
 
+	log.info('[Sample] render')
 
+	return (
+    	<div style={{backgroundColor: background}}>
+			<h1>ID: {props.params.id}</h1>
+      		Sample<br/>
+      		Sample<br/>
+      		Sample<br/>
+      		Sample<br/>
+      		Sample<br/>
+      		Sample<br/>
+      		Sample<br/>
 
-import { ID } from "./constants";
-
-
-class Page extends BasePurePage {
-	render() {
-		console.log(this)
-		return (
-			<div>
-				<h1>Sample!</h1>
-
-				<hr/>
-				<A href='@Sample' data={{ random: Math.random() }} transition='flyLeft'>Go Sample (flyLeft)</A>
-				<hr/>
-
-				<A href='@Sample' data={{ random: Math.random() }} transition='flyUp'>Go Sample (flyUp)</A>
-				<hr/>
-
-
-				<button
-					onClick={() => this.navigator.goBack()}
-				>Go Back</button>
-				<hr/>
-
-				<button
-					onClick={() => this.navigator.goForward()}
-				>Go Forward</button>
-
-				<hr/>
-				<button
-					onClick={() => this.navigator.go(-2)}
-				>Go -2</button>
-				<hr/>
-				<button
-					onClick={() => this.navigator.go(2)}
-				>Go +2</button>
-
-        </div>
-		)
-	}
-}
-
-Page.displayName = ID;
-
-export default Page;
+			<button onClick={() => props.navigator.push(`/sample/${id}?r=` + Math.random())}>Sample ID = {id}</button>
+    	</div>
+  	);
+};

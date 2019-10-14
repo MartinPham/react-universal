@@ -1,6 +1,6 @@
-import {GO} from "../constants";
+import {ACTION_GO} from "../constants";
 
-export default (index) => ({
-    type: GO,
-    index
+export default (steps) => ({
+    type: ACTION_GO,
+    steps
 })

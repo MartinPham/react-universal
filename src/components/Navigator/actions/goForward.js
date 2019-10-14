@@ -1,5 +1,5 @@
-import {GO_FORWARD} from "../constants";
+import {ACTION_GO_FORWARD} from "../constants";
 
 export default () => ({
-    type: GO_FORWARD
+    type: ACTION_GO_FORWARD
 })

@@ -1,19 +1,13 @@
+import log from 'loglevel';
 
-let instance = null;
+let historyInstance = null
 
-class History {
-
-	constructor(history){
-		if(instance){
-			return instance;
-		}
-
-		this.history = history;
-
-		instance = this;
+export default (history = null) => {
+	if(historyInstance === null)
+	{
+		log.info('[history] Creating history instance')
+		historyInstance = history
 	}
-}
 
-export default (history) => {
-	return new History(history);
+	return historyInstance
 }

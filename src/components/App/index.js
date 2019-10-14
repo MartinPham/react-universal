@@ -1,17 +1,34 @@
-// import React from 'react';
-import BaseComponent from 'components/Component';
+import React from 'react';
+import Navigator from 'components/Navigator';
+import {Route} from 'components/Navigator';
+import log from 'loglevel';
 
+import Home from 'pages/Home';
+import Sample from 'pages/Sample';
 
-import render from './render';
+export default (props) => {
+	log.info('[App] render')
 
+	return (
+    	<>
+      		<Navigator>
+				<Route
+					exact
+					path='/sample/:id'
+					component={Sample}
+					/>
+				<Route
+					exact
+					path='/sample'
+					component={Sample}
+					/>
 
-
-class App extends BaseComponent {
-
-
-	render() {
-        return render(this, this.props, this.state);
-	}
+				<Route
+					exact
+					path='/'
+					component={Home}
+					/>
+			</Navigator>
+    	</>
+  	);
 }
-
-export default App;

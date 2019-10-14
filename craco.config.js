@@ -1,5 +1,2 @@
-module.exports = function({ env, paths }) {
-    return {
-
-    };
-}
+module.exports = {
+};
