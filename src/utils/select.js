@@ -1,5 +1,6 @@
 
-import { createSelector } from 'reselect';
+import {createSelector} from 'reselect';
+
 
 const defaultSelector = (mainState, key) => {
 	return mainState[key];
@@ -13,7 +14,9 @@ const mainSelector = (ID, initialState) => (key, selector = null) => rootState =
 	;
 };
 
-const defaultCalculator = state => state;
+const defaultCalculator = state => {
+	return state
+}
 
 export default
 (key, selector = null, calculator = null) =>
