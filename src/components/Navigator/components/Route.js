@@ -7,6 +7,8 @@ import go from '../actions/go';
 import log from 'loglevel';
 import queryString from 'query-string';
 
+import AsyncPage from 'components/AsyncPage';
+
 class Route extends React.Component {
 	shouldComponentUpdate()
 	{
@@ -15,7 +17,7 @@ class Route extends React.Component {
 
 	render()
 	{
-		const {component: Component, exact, path, computedMatch, location, ...props} = this.props
+		const {page, exact, path, computedMatch, location, ...props} = this.props
 		log.info(`[Route] render ${path}`, props)
 
 		const navigator = {
@@ -25,18 +27,23 @@ class Route extends React.Component {
 			goForward: () => props.dispatch(goForward()),
 		}
 
-		return <Component 
+		// console.log(Component())
+
+		return <AsyncPage 
 					{...props} 
+					page={page}
 					queryParams={queryString.parse(location.search)}
+					data={(location.state && location.state.data) || {}}
 					navigator={navigator} 
 					location={location} 
 					params={computedMatch.params}
-					/>
+				/>
 	}
 }
 
 const withConnect = connect(
-
+	(state) => ({ state }),
+	null
 )
 
 export default withConnect(Route)

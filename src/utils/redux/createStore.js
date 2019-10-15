@@ -3,8 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import createReducer from './createReducer';
 import createSaga from './createSaga';
 import log from 'loglevel';
-
-
+import {getPlatform, PLATFORM_BROWSER} from "../platform";
 
 export default (initialState = {}) => {
 	log.info('[redux] Creating store')
@@ -25,10 +24,11 @@ export default (initialState = {}) => {
 			  })
 			: compose;
 
+	const preloadedInitialState = (getPlatform() === PLATFORM_BROWSER && window.__PRELOADED_STATE__) ? window.__PRELOADED_STATE__ : initialState
 
 	const store = createStore(
 		createReducer(),
-		initialState,
+		preloadedInitialState,
 		composeEnhancers(...enhancers),
 	);
 

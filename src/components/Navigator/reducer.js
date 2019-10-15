@@ -34,13 +34,9 @@ export default (state = preloadedInitialState, action) => {
 	
 				const currentLocationIndex = currentStack.findIndex(stackItem => currentLocation.key === stackItem.key)
 				const existedLocationIndex = currentStack.findIndex(stackItem => draftState.location.key === stackItem.key)
-	
-				console.log('currentStack', currentStack)
-				console.log('location', location)
 
 				if(existedLocationIndex === -1)
 				{
-					console.log('not exists -> forward')
 					draftState.stack = currentStack.slice(0, currentLocationIndex + 1)
 			
 			
@@ -55,8 +51,6 @@ export default (state = preloadedInitialState, action) => {
 				} else {
 					if(existedLocationIndex < currentLocationIndex)
 					{
-
-						console.log('lower -> back')
 						draftState.direction = 'back'
 			
 						const nextOfExistedLocation = currentStack[existedLocationIndex + 1]
@@ -65,8 +59,6 @@ export default (state = preloadedInitialState, action) => {
 						draftState.originPosition = nextOfExistedLocation.originPosition
 			
 					} else {
-
-						console.log('higher -> forward')
 						draftState.direction = 'forward';
 			
 			

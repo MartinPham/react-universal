@@ -48,20 +48,26 @@ const configureHttpServer = (server) => {
 
 		let output = template
 
+		let injectScript = '';
+		if(preloadedState && preloadedState.Navigator && preloadedState.Navigator.location)
+		{
+			injectScript += `window.history.replaceState({ key: '${preloadedState.Navigator.location.key}', state: {}}, '')`;
+		}
+
+
 		output = output.replace('<html>', `<html ${helmet.htmlAttributes.toString()}>`)
 		output = output.replace(/<title>.*?<\/title>/g, helmet.title.toString())
-		output = output.replace('</head>', `<!--helmet.meta-->${helmet.meta.toString()}<!--/helmet.meta--></head>`)
-		// output = output.replace('</head>', `<!--loadable.link-->${clientExtractor.getLinkTags()}<!--/loadable.link--></head>`)
-		output = output.replace('</head>', `<!--loadable.style-->${clientExtractor.getStyleTags()}<!--/loadable.style--></head>`)
+		output = output.replace('</head>', `${helmet.meta.toString()}</head>`)
+		// output = output.replace('</head>', `${clientExtractor.getLinkTags()}</head>`)
+		output = output.replace('</head>', `${clientExtractor.getStyleTags()}</head>`)
 		output = output.replace(
 		  '<div id="root"></div>',
-		  `<div id="root"><!--react.render-->${renderedString}<!--react.render--></div><!--redux.state--><script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script><!--redux.state-->`
+		  `<div id="root">${renderedString}</div><script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script><script>${injectScript}</script>`
 		);
-		output = output.replace('</body>', `<!--loadable.script-->${clientExtractor.getScriptTags()}<!--/loadable.script--></body>`)
+		output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
 	
 		response.send(output);
 	}
-
 	
 	expressApp.use(express.Router().get(basename, serverLoader));
 	expressApp.use(basename, express.static(path.resolve(__dirname, '../build')));
@@ -73,7 +79,7 @@ const configureHttpServer = (server) => {
 
 main();
 
-chokidar.watch(['build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
+chokidar.watch(['server/index.js', 'build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
     .on('change', (event, path) => {
         console.log('[watcher] File(s) changed');
         main();

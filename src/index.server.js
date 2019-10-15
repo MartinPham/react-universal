@@ -14,7 +14,6 @@ import App from 'components/App';
 import 'styles.scss';
 
 
-
 export default (request, clientLoadableStatsFile, basename = '') => {
 	log.info('[index] React Render App (' + request.path + ')')
 

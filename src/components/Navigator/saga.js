@@ -1,6 +1,8 @@
 import {takeLatest, all} from 'redux-saga/effects';
 import {ACTION_GO, ACTION_GO_BACK, ACTION_GO_FORWARD, ACTION_PUSH} from './constants';
 import sharedHistory from 'utils/sharedHistory';
+import log from 'loglevel';
+
 
 export default function*() {
 	yield all([
@@ -17,7 +19,7 @@ export default function*() {
 			yield history.goForward();
 		}),
 		takeLatest(ACTION_PUSH, function*({path, data, transition, originPosition}) {
-			console.log('saga push', path)
+			log.info('[Navigator][saga] push', path)
 			const history = sharedHistory();
 		
 			yield history.push(path, {

@@ -2,9 +2,8 @@ import React from 'react';
 import Navigator from 'components/Navigator';
 import {Route} from 'components/Navigator';
 import log from 'loglevel';
+import routes from 'config/routes';
 
-import Home from 'pages/Home/async';
-import Sample from 'pages/Sample/async';
 
 export default (props) => {
 	log.info('[App] render')
@@ -12,22 +11,23 @@ export default (props) => {
 	return (
     	<>
       		<Navigator>
-				<Route
-					exact
-					path='/sample/:id'
-					component={Sample}
-					/>
-				<Route
-					exact
-					path='/sample'
-					component={Sample}
-					/>
-
-				<Route
-					exact
-					path='/'
-					component={Home}
-					/>
+				{
+					Object.keys(routes).map((routeId) => {
+						const route = routes[routeId];
+				
+						return (
+							<Route
+								key={routeId}
+								id={routeId}
+								{...{
+									...route,
+									path: route.path
+								}}
+							/>
+						);
+					})
+				}
+				
 			</Navigator>
     	</>
   	);
