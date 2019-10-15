@@ -1,5 +1,6 @@
 import React from 'react';
 import log from 'loglevel';
+import styles from './styles.module.scss';
 
 export default (props) => {
 
@@ -11,7 +12,7 @@ export default (props) => {
 
 	return (
     	<div style={{backgroundColor: background}}>
-			<h1>ID: {props.params.id}</h1>
+			<div className={styles.heading}>ID: {props.params.id}</div>
       		Sample<br/>
       		Sample<br/>
       		Sample<br/>

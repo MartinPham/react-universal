@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.5.0",
+    "@jackwilsdon/craco-use-babelrc": "^1.0.0",
+    "@loadable/component": "^5.10.3",
+    "@loadable/server": "^5.10.3",
     "immer": "^4.0.1",
     "loglevel": "^1.6.4",
     "node-sass": "^4.12.0",
@@ -20,13 +23,13 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
-    "start": "yarn client:dev",
-	"test": "craco test",
-	"client:clean": "rm -rf build",
-    "client:dev": "craco start",
+    "start": "yarn client:run",
+    "test": "craco test",
+    "client:clean": "rm -rf build",
+    "client:run": "craco start",
     "client:build": "yarn client:clean && craco build",
     "client:watch": "node client/build.js --watch",
-	"server:clean": "rm -rf build.server",
+    "server:clean": "rm -rf build.server",
     "server:build": "yarn server:clean && node server/build.js",
     "server:watch": "node server/build.js --watch",
     "ssr:build": "yarn client:build && yarn server:build",
@@ -49,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@loadable/babel-plugin": "^5.10.3",
+    "@loadable/webpack-plugin": "^5.7.1",
     "chokidar": "^3.2.1",
     "clear-module": "^4.0.0",
     "express": "^4.17.1",

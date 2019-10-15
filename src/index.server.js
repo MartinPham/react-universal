@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import {ChunkExtractor} from '@loadable/server';
 import {Provider} from 'react-redux';
 import {StaticRouter as Router} from 'react-router';
 import {createMemoryHistory as createHistory} from 'history';
@@ -16,7 +17,7 @@ import Helmet from 'react-helmet';
 
 log.setLevel('info');
 
-export default (basename, html, manifest) => (req, res) => {
+export default (basename, template, manifest, serverLoadableStatsFile, clientLoadableStatsFile) => (req, res) => {
 	log.info('[redux] Serving ' + req.url + ' (' + req.path + ')')
 
 	const history = sharedHistory(createHistory({
@@ -29,51 +30,41 @@ export default (basename, html, manifest) => (req, res) => {
 
 	const createApp = (AppComponent) => (
 		<Provider store={store}>
-			<Router basename={basename} location={req.url} context={context} history={history}>
+			<Router basename={basename} location={req.url} history={history}>
 				<App/>
 			</Router>
 		</Provider>
 	)
 
-	const context = {};
-	const modules = [];
-	
-	const markupString = ReactDOMServer.renderToString(
-		createApp(App)
+
+	// const serverExtractor = new ChunkExtractor({ statsFile: serverLoadableStatsFile })
+	const clientExtractor = new ChunkExtractor({ statsFile: clientLoadableStatsFile })
+
+	let result = ReactDOMServer.renderToString(
+		clientExtractor.collectChunks(createApp(App))
 	)
 
-	const injectHTML = (data, { html, title, meta, body, scripts, state }) => {
-		data = data.replace('<html>', `<html ${html}>`);
-		data = data.replace(/<title>.*?<\/title>/g, title);
-		data = data.replace('</head>', `${meta}</head>`);
-		data = data.replace(
-		  '<div id="root"></div>',
-		  `<div id="root">${body}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`
-		);
-		data = data.replace('</body>', scripts.join('') + '</body>');
-		
-		return data;
-	};
+	const helmet = Helmet.renderStatic()
 
-	const extractAssets = (assets, chunks) =>
-		Object.keys(assets)
-			.filter(asset => chunks.indexOf(asset.replace('.js', '')) > -1)
-			.map(k => assets[k]);
+	const preloadedState = store.getState()
 
-	const extraChunks = extractAssets(manifest, modules).map(
-		c => `<script type="text/javascript" src="/${c.replace(/^\//, '')}"></script>`
+	let output = template
+
+	output = output.replace('<html>', `<html ${helmet.htmlAttributes.toString()}>`)
+	output = output.replace(/<title>.*?<\/title>/g, helmet.title.toString())
+	output = output.replace('</head>', `${helmet.meta.toString()}</head>`)
+	output = output.replace('</head>', `${clientExtractor.getLinkTags()}</head>`)
+	output = output.replace('</head>', `${clientExtractor.getStyleTags()}</head>`)
+	output = output.replace(
+	  '<div id="root"></div>',
+	  `<div id="root">${result}</div><script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>`
 	);
+	output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
 
-	const helmet = Helmet.renderStatic();
-	
-	const output = injectHTML(html, {
-		html: helmet.htmlAttributes.toString(),
-		title: helmet.title.toString(),
-		meta: helmet.meta.toString(),
-		body: markupString,
-		scripts: extraChunks,
-		state: JSON.stringify(store.getState()).replace(/</g, '\\u003c')
-	});
+
+
+
+
 
 	res.send(output);
 }

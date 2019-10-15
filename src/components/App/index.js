@@ -3,8 +3,8 @@ import Navigator from 'components/Navigator';
 import {Route} from 'components/Navigator';
 import log from 'loglevel';
 
-import Home from 'pages/Home';
-import Sample from 'pages/Sample';
+import Home from 'pages/Home/async';
+import Sample from 'pages/Sample/async';
 
 export default (props) => {
 	log.info('[App] render')

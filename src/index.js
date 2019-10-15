@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import * as serviceWorker from 'serviceWorker';
 import {Router} from 'react-router';
+import {loadableReady} from '@loadable/component';
 import {createBrowserHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
 import createStore from 'utils/redux/createStore';
@@ -32,7 +33,11 @@ const createApp = (AppComponent) => (
 
 if (rootElement.hasChildNodes() === true) {
 	log.info('[index] React Hydrate App')
-	ReactDOM.hydrate(createApp(App), rootElement)
+	loadableReady(() => {
+		log.info('[index][loadable] Ready')
+		ReactDOM.hydrate(createApp(App), rootElement)
+	})
+	
 } else {
 	log.info('[index] React Render App')
   	ReactDOM.render(createApp(App), rootElement)

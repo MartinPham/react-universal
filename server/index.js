@@ -35,12 +35,14 @@ const configureHttpServer = (server) => {
 
 
 
-	const template = fs.readFileSync(path.resolve(__dirname, '../build/index.html'), 'utf8');
+	const template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), 'utf8');
 	const manifest = require(path.resolve(__dirname, '../build/asset-manifest.json'));
+	const serverLoadableStatsFile = path.resolve(__dirname, '../build.server/loadable-stats.json');
+	const clientLoadableStatsFile = path.resolve(__dirname, '../build/loadable-stats.json');
 
 	const pathname = '';
 	const ssr = requireUncached(path.resolve(__dirname, '../build.server/index.js'))
-				.default(pathname, template, manifest);
+				.default(pathname, template, manifest, serverLoadableStatsFile, clientLoadableStatsFile);
 	
 	expressApp.use(express.Router().get(pathname, ssr));
 	expressApp.use(pathname, express.static(path.resolve(__dirname, '../build')));

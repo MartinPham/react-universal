@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'components/Navigator';
+import {Link as A} from 'components/Navigator';
 import log from 'loglevel';
 import styles from './styles.module.scss';
 
@@ -26,7 +26,7 @@ export default (props) => {
 			<br/>
 			{/* <button onClick={() => history.push('/sample')}>Sample h</button> */}
 			<br/>
-			<Link href="/sample">Click here</Link>
+			<A href="/sample" transition="flyLeft">Click here</A>
     	</div>
 	);
 }
