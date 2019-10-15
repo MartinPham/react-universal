@@ -8,20 +8,18 @@ import sharedHistory from 'utils/sharedHistory';
 import createStore from 'utils/redux/createStore';
 import initialState from 'config/state';
 import resetStack from 'components/Navigator/actions/resetStack';
+import Helmet from 'react-helmet';
 import log from 'loglevel';
-
 import App from 'components/App';
 import 'styles.scss';
 
-import Helmet from 'react-helmet';
 
-log.setLevel('info');
 
-export default (basename, template, manifest, serverLoadableStatsFile, clientLoadableStatsFile) => (req, res) => {
-	log.info('[redux] Serving ' + req.url + ' (' + req.path + ')')
+export default (request, clientLoadableStatsFile, basename = '') => {
+	log.info('[index] React Render App (' + request.path + ')')
 
 	const history = sharedHistory(createHistory({
-		initialEntries: [req.path]
+		initialEntries: [request.path]
 	}))
 	const store = createStore(initialState)
 
@@ -30,17 +28,15 @@ export default (basename, template, manifest, serverLoadableStatsFile, clientLoa
 
 	const createApp = (AppComponent) => (
 		<Provider store={store}>
-			<Router basename={basename} location={req.url} history={history}>
-				<App/>
+			<Router basename={basename} location={request.url} history={history}>
+				<AppComponent/>
 			</Router>
 		</Provider>
 	)
 
-
-	// const serverExtractor = new ChunkExtractor({ statsFile: serverLoadableStatsFile })
 	const clientExtractor = new ChunkExtractor({ statsFile: clientLoadableStatsFile })
 
-	let result = ReactDOMServer.renderToString(
+	let renderedString = ReactDOMServer.renderToString(
 		clientExtractor.collectChunks(createApp(App))
 	)
 
@@ -48,24 +44,11 @@ export default (basename, template, manifest, serverLoadableStatsFile, clientLoa
 
 	const preloadedState = store.getState()
 
-	let output = template
-
-	output = output.replace('<html>', `<html ${helmet.htmlAttributes.toString()}>`)
-	output = output.replace(/<title>.*?<\/title>/g, helmet.title.toString())
-	output = output.replace('</head>', `${helmet.meta.toString()}</head>`)
-	output = output.replace('</head>', `${clientExtractor.getLinkTags()}</head>`)
-	output = output.replace('</head>', `${clientExtractor.getStyleTags()}</head>`)
-	output = output.replace(
-	  '<div id="root"></div>',
-	  `<div id="root">${result}</div><script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>`
-	);
-	output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
-
-
-
-
-
-
-	res.send(output);
+	return {
+		renderedString,
+		helmet,
+		clientExtractor,
+		preloadedState
+	}
 }
 
