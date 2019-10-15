@@ -20,11 +20,18 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
-    "start": "craco start",
-    "test": "craco test",
-    "client:build": "craco build",
-    "server:build": "node server/build.js",
-    "server:watch": "node server/build.js --watch"
+    "start": "yarn client:dev",
+	"test": "craco test",
+	"client:clean": "rm -rf build",
+    "client:dev": "craco start",
+    "client:build": "yarn client:clean && craco build",
+    "client:watch": "node client/build.js --watch",
+	"server:clean": "rm -rf build.server",
+    "server:build": "yarn server:clean && node server/build.js",
+    "server:watch": "node server/build.js --watch",
+    "ssr:build": "yarn client:build && yarn server:build",
+    "ssr:watch": "yarn ssr:build && nohup yarn client:watch > watch.client.log & echo $! > watch.client.pid & nohup yarn server:watch > watch.server.log & echo $! > watch.server.pid && yarn ssr:run && kill -9 `cat watch.client.pid` && kill -9 `cat watch.server.pid` && rm watch.client.pid && rm watch.server.pid",
+    "ssr:run": "node server"
   },
   "eslintConfig": {
     "extends": "react-app"

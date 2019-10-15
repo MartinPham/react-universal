@@ -1,13 +1,15 @@
 import React from 'react';
 import {Link} from 'components/Navigator';
 import log from 'loglevel';
+import styles from './styles.module.scss';
 
 
 export default (props) => {
 	log.info('[Home] render')
 
 	return (
-    	<div style={{backgroundColor: 'white'}}>
+    	<div className={styles.container}>
+			<h1>HOME</h1>
       		Home Home Home Home Home Home Home Home Home Home Home Home <br/>
       		Home Home Home Home Home Home Home Home Home Home Home Home <br/>
       		Home Home Home Home Home Home Home Home Home Home Home Home <br/>

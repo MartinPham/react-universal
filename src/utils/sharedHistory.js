@@ -3,9 +3,9 @@ import log from 'loglevel';
 let historyInstance = null
 
 export default (history = null) => {
-	if(historyInstance === null)
+	if(history !== null)
 	{
-		log.info('[history] Creating history instance')
+		log.info('[history] Setting history instance')
 		historyInstance = history
 	}
 

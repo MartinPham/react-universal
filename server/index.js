@@ -53,7 +53,7 @@ const configureHttpServer = (server) => {
 
 main();
 
-chokidar.watch('build.server/index.js')
+chokidar.watch(['build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
     .on('change', (event, path) => {
         console.log('[watcher] File(s) changed');
         main();
