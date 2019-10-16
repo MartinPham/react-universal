@@ -1,5 +1,6 @@
 {
-  "name": "bp",
+  "name": "react-universal",
+  "homepage": "https://martinpham.gitlab.io/react-universal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

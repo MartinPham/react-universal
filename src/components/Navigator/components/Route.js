@@ -80,6 +80,7 @@ class Route extends React.Component {
 						})
 						.then(data => {
 							this.pageProps.initialData = {...data}
+							window.__PAGE_DATA__ = window.__PAGE_DATA__ || {}
 							window.__PAGE_DATA__[location.key] = {...data}
 							
 							this.setState({

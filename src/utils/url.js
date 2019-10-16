@@ -1,6 +1,6 @@
 import queryString from 'query-string';
 import routes from 'config/routes';
-import { generatePath } from "react-router";
+import {generatePath} from 'react-router';
 
 export const generateUrl = (path, data = {}) => {
 	let workingPath = path
@@ -46,6 +46,7 @@ export const generateUrl = (path, data = {}) => {
 			finalData[i] = workingData[i]
 		}
 	}
+
 
 	finalPath += '?' + queryString.stringify(finalData)
 

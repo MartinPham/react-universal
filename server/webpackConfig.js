@@ -6,7 +6,6 @@ clearModule.all();
 const {createWebpackProdConfig} = require('@craco/craco');
 const {loadCracoConfig} = require("@craco/craco/lib/config");
 const {getCraPaths} = require("@craco/craco/lib/cra");
-const LoadablePlugin = require('@loadable/webpack-plugin');
 
 const context = {
     env: process.env.NODE_ENV
@@ -43,18 +42,9 @@ webpackConfig.plugins = webpackConfig.plugins.filter(function(plugin){
   return ['MiniCssExtractPlugin'].indexOf(plugin.constructor.name) > -1 || ['LoadablePlugin'].indexOf(plugin.constructor.name) > -1;
 });
 
-// webpackConfig.plugins.push(new LoadablePlugin());
 
 webpackConfig.externals = [
     nodeExternals()
 ];
-
-// const babelLoader = webpackConfig.module.rules[2].oneOf[1]
-
-// babelLoader.options.plugins.push('@loadable/babel-plugin')
-
-// webpackConfig.module.rules[2].oneOf[1] = babelLoader
-
-
 
 module.exports = webpackConfig

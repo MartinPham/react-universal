@@ -16,15 +16,18 @@ import 'styles.scss';
 
 
 export default async (request, clientLoadableStatsFile, basename = '') => {
-	log.info('[index] React Load App')
+	log.info('[index] React Server App. Basename = ' + basename)
 
 	const history = sharedHistory(createHistory({
 		initialEntries: [request.path]
 	}))
+
+	history.basename = basename
+
 	const store = createStore(initialState)
 	const locationKey = history.location.key
 
-	log.info('[redux] Gonna reset Navigator stack')
+	log.info('[redux] Gonna reset Navigator stack', history.location)
 	store.dispatch(resetStack(history.location))
 
 	const routeKeys = Object.keys(routes)
@@ -33,16 +36,23 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	for(let routeId of routeKeys)
 	{
 		const route = routes[routeId]
-		const match = matchPath(request.path, route.path)
+		const match = matchPath(request.path, basename + route.path)
 
 		if(match !== null)
 		{
-			log.info('[router] matched', route.path, route.page)
+			log.info('[router] matched', routeId, route)
 
-			pageInitialData = await require('./pages/' + route.page + '/data.js').default({
-				params: {...match.params},
-				queryParams: {...request.query},
-			})
+			log.info('[router] loading page inital data')
+			try {
+				pageInitialData = await require('./pages/' + route.page + '/data.js').default({
+					params: {...match.params},
+					queryParams: {...request.query},
+				})	
+			} catch (error)
+			{
+				log.info('[router] page inital data error', error)
+			}
+
 
 			log.info('[router] page inital data loaded')
 			break
@@ -51,7 +61,7 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	
 	const createApp = (AppComponent) => (
 		<Provider store={store}>
-			<Router basename={basename} location={request.url} history={history}>
+			<Router location={request.path} history={history}>
 				<AppComponent pageInitialData={pageInitialData}/>
 			</Router>
 		</Provider>
@@ -62,7 +72,6 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	let renderedString = ReactDOMServer.renderToString(
 		clientExtractor.collectChunks(createApp(App))
 	)
-	
 
 	const helmet = Helmet.renderStatic()
 

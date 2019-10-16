@@ -5,7 +5,9 @@ const chokidar = require('chokidar');
 const fs = require('fs');
 const log = require('loglevel');
 log.setLevel('info');
-const port = 8088;
+
+
+const port = process.env.PORT || 80
 
 const requireUncached = (module) => {
     delete require.cache[require.resolve(module)]
@@ -15,46 +17,58 @@ const requireUncached = (module) => {
 const main = () => {
     if(!global.server)
     {
-		log.info('[server] Creating new server');
-        global.server = http.createServer();
-        configureHttpServer(global.server);
+		log.info('[server] Creating new server')
+        global.server = http.createServer()
+        configureHttpServer(global.server)
         global.server.listen(port, () => {
             log.info(`[server] Listening on http://0.0.0.0:${port}/`)
-        });
+        })
     } else {
-		log.info('[server] Updating existing server');
-        global.server.removeAllListeners('request');
-        configureHttpServer(global.server);
+		log.info('[server] Updating existing server')
+        global.server.removeAllListeners('request')
+        configureHttpServer(global.server)
     }
 }
 
 
 
 const configureHttpServer = (server) => {
-    log.info('[server] Configure server');
-    const expressApp = express();
+    log.info('[server] Configure server')
+    const expressApp = express()
+
+	const package = requireUncached(path.resolve(__dirname, '../package.json'))
+
+	let basename = ''
+
+	if(package.homepage)
+	{
+		const url = new URL(package.homepage)
+		basename = url.pathname
+	}
+	
+	process.env.PUBLIC_URL = basename
 
 
-
-	const template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), 'utf8');
-	const clientLoadableStatsFile = path.resolve(__dirname, '../build/loadable-stats.json');
-	const serverRenderer = requireUncached(path.resolve(__dirname, '../build.server/index.js')).default;
-	const basename = '';
+	const template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), 'utf8')
+	const clientLoadableStatsFile = path.resolve(__dirname, '../build/loadable-stats.json')
+	const serverRenderer = requireUncached(path.resolve(__dirname, '../build.server/index.js')).default
 
 	const serverLoader = async (request, response) => {
 		log.info('[loader] Serving ' + request.url + ' (' + request.path + ')')
 
-		const {renderedString, helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename);
+		const {renderedString, helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename)
 
 		let output = template
 
-		let injectScript = '';
+		let injectScript = ''
 		if(preloadedState && preloadedState.Navigator && preloadedState.Navigator.location)
 		{
-			injectScript += `window.history.replaceState({ key: '${preloadedState.Navigator.location.key}', state: {}}, '')`;
+			injectScript += `window.history.replaceState({ key: '${preloadedState.Navigator.location.key}', state: {}}, '')`
 		}
 
 
+
+		output = output.replace(/%PUBLIC_URL%/g, `${basename}`)
 		output = output.replace('<html>', `<html ${helmet.htmlAttributes.toString()}>`)
 		output = output.replace(/<title>.*?<\/title>/g, helmet.title.toString())
 		output = output.replace('</head>', `${helmet.meta.toString()}</head>`)
@@ -66,24 +80,24 @@ const configureHttpServer = (server) => {
 		  <script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>
 		  <script>window.__PAGE_DATA__ = ${JSON.stringify(pageData).replace(/</g, '\\u003c')}</script>
 		  <script>${injectScript}</script>`
-		);
+		)
 		output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
 	
-		response.send(output);
+		response.send(output)
 	}
 	
-	expressApp.use(express.Router().get(basename, serverLoader));
-	expressApp.use(basename, express.static(path.resolve(__dirname, '../build')));
+	expressApp.use(express.Router().get(basename, serverLoader))
+	expressApp.use(basename, express.static(path.resolve(__dirname, '../build')))
     expressApp.use(serverLoader)
     
-    server.on('request', expressApp);
-};
+    server.on('request', expressApp)
+}
   
 
-main();
+main()
 
-chokidar.watch(['server/index.js', 'build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
+chokidar.watch(['build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
     .on('change', (event, path) => {
-        log.warn('[watcher] File(s) changed');
-        main();
-    });
+        log.warn('[watcher] File(s) changed')
+        main()
+    })

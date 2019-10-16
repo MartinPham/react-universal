@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/SampleWithSelector/state.js"],"names":["text"],"mappings":"kHAEA,OAAe,WACHA,KAAM","file":"static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js","sourcesContent":["\n\nexport default {\n            text: \"text from initial\"\n        }\n"],"sourceRoot":""}

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import push from 'components/Navigator/actions/push';
 import {generateUrl} from 'utils/url';
-
+import sharedHistory from 'utils/sharedHistory';
 
 
 const isModifiedEvent = (event) => {
@@ -45,7 +45,7 @@ class Link extends React.PureComponent {
 		}
 
 		return (
-			<a href={finalHref} target={target} onClick={handleClick}>
+			<a href={sharedHistory().basename + finalHref} target={target} onClick={handleClick}>
 				{children}
 			</a>
 		)

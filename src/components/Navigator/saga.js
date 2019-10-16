@@ -25,7 +25,9 @@ export default function*() {
 		
 
 
-			const finalPath = generateUrl(path, data);
+			const finalPath = sharedHistory().basename + generateUrl(path, data);
+
+			log.info('[Navigator][saga] push finalPath', finalPath)
 
 
 			yield history.push(finalPath, {

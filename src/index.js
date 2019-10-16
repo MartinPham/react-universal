@@ -17,15 +17,20 @@ import 'styles.scss';
 log.setLevel('info');
 
 
-
 const store = createStore(initialState)
 const history = sharedHistory(createHistory())
+
+const basename = process.env.PUBLIC_URL
+history.basename = basename
+
+log.info('[index] React Client App. Basename = ' + history.basename)
+
 
 if(store.getState().Navigator && store.getState().Navigator.stack && store.getState().Navigator.stack.length > 0)
 {
 	log.info('[redux] Navigator stack already filled')
 } else {
-	log.info('[redux] Gonna reset Navigator stack')
+	log.info('[redux] Gonna reset Navigator stack', history.location)
 	store.dispatch(resetStack(history.location))
 }
 
@@ -34,7 +39,7 @@ const rootElement = document.getElementById('root')
 
 const createApp = (AppComponent) => (
 	<Provider store={store}>
-		<Router history={history}>
+		<Router basename={basename} history={history}>
 			<AppComponent/>
 		</Router>
 	</Provider>

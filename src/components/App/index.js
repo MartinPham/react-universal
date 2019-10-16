@@ -3,7 +3,7 @@ import Navigator from 'components/Navigator';
 import {Route} from 'components/Navigator';
 import log from 'loglevel';
 import routes from 'config/routes';
-
+import sharedHistory from 'utils/sharedHistory';
 
 export default (props) => {
 	log.info('[App] render')
@@ -21,7 +21,7 @@ export default (props) => {
 								id={routeId}
 								{...{
 									...route,
-									path: route.path
+									path: sharedHistory().basename + route.path
 								}}
 								initialData={props.pageInitialData}
 							/>

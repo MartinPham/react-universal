@@ -1,0 +1,2108 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.41.0",
+  "hash": "f7688351707159a3bca7",
+  "publicPath": "/react-universal/",
+  "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+  "assetsByChunkName": {
+    "pages-Home": [
+      "static/css/pages-Home.5f788ec1.chunk.css",
+      "static/js/pages-Home.16a3ca91.chunk.js",
+      "static/js/pages-Home.16a3ca91.chunk.js.map"
+    ],
+    "pages-Home-data": [
+      "static/js/pages-Home-data.51290f35.chunk.js",
+      "static/js/pages-Home-data.51290f35.chunk.js.map"
+    ],
+    "pages-Sample": [
+      "static/css/pages-Sample.53fed5b4.chunk.css",
+      "static/js/pages-Sample.93685761.chunk.js",
+      "static/js/pages-Sample.93685761.chunk.js.map"
+    ],
+    "pages-SampleWithParam": [
+      "static/js/pages-SampleWithParam.7d0f3351.chunk.js",
+      "static/js/pages-SampleWithParam.7d0f3351.chunk.js.map"
+    ],
+    "pages-SampleWithParam-data": [
+      "static/js/pages-SampleWithParam-data.512b8857.chunk.js",
+      "static/js/pages-SampleWithParam-data.512b8857.chunk.js.map"
+    ],
+    "pages-SampleWithReducer": [
+      "static/js/pages-SampleWithReducer.10a987e5.chunk.js",
+      "static/js/pages-SampleWithReducer.10a987e5.chunk.js.map"
+    ],
+    "pages-SampleWithSaga": [
+      "static/js/pages-SampleWithSaga.1206caf1.chunk.js",
+      "static/js/pages-SampleWithSaga.1206caf1.chunk.js.map"
+    ],
+    "pages-SampleWithSelector": [
+      "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js",
+      "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js.map"
+    ],
+    "pages-SampleWithParam-styles": [
+      "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js",
+      "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js.map"
+    ],
+    "pages-SampleWithReducer-actions-increaseCounter": [
+      "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js",
+      "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js.map"
+    ],
+    "pages-SampleWithReducer-selectors-counterSelector": [
+      "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js",
+      "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js.map"
+    ],
+    "pages-SampleWithReducer-selectors-funnyCounterSelector": [
+      "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js",
+      "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js.map"
+    ],
+    "pages-SampleWithSaga-actions-increaseCounter": [
+      "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js",
+      "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js.map"
+    ],
+    "pages-SampleWithSaga-sagas-increaseCounterSaga": [
+      "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js",
+      "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js.map"
+    ],
+    "pages-SampleWithSaga-selectors-anotherCounterSelector": [
+      "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js",
+      "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js.map"
+    ],
+    "pages-SampleWithSaga-selectors-counterSelector": [
+      "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js",
+      "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js.map"
+    ],
+    "pages-SampleWithSaga-selectors-funnyCounterSelector": [
+      "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js",
+      "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js.map"
+    ],
+    "pages-SampleWithSelector-constants": [
+      "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js",
+      "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js.map"
+    ],
+    "pages-SampleWithSelector-selectors-textSelector": [
+      "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js",
+      "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js.map"
+    ],
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector": [
+      "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js",
+      "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js.map"
+    ],
+    "pages-SampleWithSelector-state": [
+      "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js",
+      "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js.map"
+    ],
+    "main": [
+      "static/css/main.12300935.chunk.css",
+      "static/js/main.860975db.chunk.js",
+      "static/js/main.860975db.chunk.js.map"
+    ],
+    "pages-Home-styles-module-scss": [
+      "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+      "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js",
+      "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js.map"
+    ],
+    "pages-Sample-styles-module-scss": [
+      "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+      "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js",
+      "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js.map"
+    ],
+    "runtime-main": [
+      "static/js/runtime-main.8f8e4865.js",
+      "static/js/runtime-main.8f8e4865.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "index.html",
+      "size": 6374,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "precache-manifest.ec2d468145761277f09d8bdc3c8a3e27.js",
+      "size": 4532,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "service-worker.js",
+      "size": 1215,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/main.12300935.chunk.css",
+      "size": 9291,
+      "chunks": [
+        22
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/main.12300935.chunk.css.map",
+      "size": 2461,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+      "size": 121,
+      "chunks": [
+        23
+      ],
+      "chunkNames": [
+        "pages-Home-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css.map",
+      "size": 218,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home.5f788ec1.chunk.css",
+      "size": 102,
+      "chunks": [
+        1,
+        23
+      ],
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home.5f788ec1.chunk.css.map",
+      "size": 199,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+      "size": 118,
+      "chunks": [
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css.map",
+      "size": 203,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample.53fed5b4.chunk.css",
+      "size": 99,
+      "chunks": [
+        3,
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample.53fed5b4.chunk.css.map",
+      "size": 184,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/js/0.27b85ceb.chunk.js",
+      "size": 17766,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/0.27b85ceb.chunk.js.map",
+      "size": 70391,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/26.11c115cc.chunk.js",
+      "size": 233587,
+      "chunks": [
+        26
+      ],
+      "chunkNames": [],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/26.11c115cc.chunk.js.map",
+      "size": 933664,
+      "chunks": [
+        26
+      ],
+      "chunkNames": [],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/main.860975db.chunk.js",
+      "size": 27435,
+      "chunks": [
+        22
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/main.860975db.chunk.js.map",
+      "size": 62912,
+      "chunks": [
+        22
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home-data.51290f35.chunk.js",
+      "size": 683,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "pages-Home-data"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home-data.51290f35.chunk.js.map",
+      "size": 718,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "pages-Home-data"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js",
+      "size": 226,
+      "chunks": [
+        23
+      ],
+      "chunkNames": [
+        "pages-Home-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js.map",
+      "size": 334,
+      "chunks": [
+        23
+      ],
+      "chunkNames": [
+        "pages-Home-styles-module-scss"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home.16a3ca91.chunk.js",
+      "size": 2476,
+      "chunks": [
+        1,
+        23
+      ],
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Home.16a3ca91.chunk.js.map",
+      "size": 3132,
+      "chunks": [
+        1,
+        23
+      ],
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js",
+      "size": 224,
+      "chunks": [
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js.map",
+      "size": 334,
+      "chunks": [
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample-styles-module-scss"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Sample.93685761.chunk.js",
+      "size": 1635,
+      "chunks": [
+        3,
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-Sample.93685761.chunk.js.map",
+      "size": 4316,
+      "chunks": [
+        3,
+        24
+      ],
+      "chunkNames": [
+        "pages-Sample"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam-data.512b8857.chunk.js",
+      "size": 797,
+      "chunks": [
+        5
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam-data"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam-data.512b8857.chunk.js.map",
+      "size": 849,
+      "chunks": [
+        5
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam-data"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js",
+      "size": 175,
+      "chunks": [
+        9
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam-styles"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js.map",
+      "size": 133,
+      "chunks": [
+        9
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam-styles"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam.7d0f3351.chunk.js",
+      "size": 1262,
+      "chunks": [
+        4
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithParam.7d0f3351.chunk.js.map",
+      "size": 1898,
+      "chunks": [
+        4
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js",
+      "size": 352,
+      "chunks": [
+        10
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-actions-increaseCounter"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js.map",
+      "size": 439,
+      "chunks": [
+        10
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-actions-increaseCounter"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js",
+      "size": 295,
+      "chunks": [
+        11
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-counterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js.map",
+      "size": 460,
+      "chunks": [
+        11
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-counterSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js",
+      "size": 381,
+      "chunks": [
+        12
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js.map",
+      "size": 643,
+      "chunks": [
+        12
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer.10a987e5.chunk.js",
+      "size": 2555,
+      "chunks": [
+        6,
+        10,
+        11,
+        12
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithReducer.10a987e5.chunk.js.map",
+      "size": 4125,
+      "chunks": [
+        6,
+        10,
+        11,
+        12
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js",
+      "size": 349,
+      "chunks": [
+        13
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-actions-increaseCounter"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js.map",
+      "size": 457,
+      "chunks": [
+        13
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-actions-increaseCounter"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js",
+      "size": 673,
+      "chunks": [
+        14
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-sagas-increaseCounterSaga"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js.map",
+      "size": 878,
+      "chunks": [
+        14
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-sagas-increaseCounterSaga"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js",
+      "size": 306,
+      "chunks": [
+        15
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-anotherCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js.map",
+      "size": 476,
+      "chunks": [
+        15
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-anotherCounterSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js",
+      "size": 292,
+      "chunks": [
+        16
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-counterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js.map",
+      "size": 454,
+      "chunks": [
+        16
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-counterSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js",
+      "size": 378,
+      "chunks": [
+        17
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js.map",
+      "size": 637,
+      "chunks": [
+        17
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga.1206caf1.chunk.js",
+      "size": 2787,
+      "chunks": [
+        7,
+        13,
+        15,
+        16,
+        17
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSaga.1206caf1.chunk.js.map",
+      "size": 4677,
+      "chunks": [
+        7,
+        13,
+        15,
+        16,
+        17
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js",
+      "size": 265,
+      "chunks": [
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-constants"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js.map",
+      "size": 267,
+      "chunks": [
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-constants"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js",
+      "size": 475,
+      "chunks": [
+        19,
+        18,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-textSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js.map",
+      "size": 709,
+      "chunks": [
+        19,
+        18,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-textSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js",
+      "size": 563,
+      "chunks": [
+        20,
+        18,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-uppercaseTextSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js.map",
+      "size": 898,
+      "chunks": [
+        20,
+        18,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-uppercaseTextSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js",
+      "size": 236,
+      "chunks": [
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-state"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js.map",
+      "size": 293,
+      "chunks": [
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-state"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js",
+      "size": 2376,
+      "chunks": [
+        8,
+        18,
+        19,
+        20,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js.map",
+      "size": 3853,
+      "chunks": [
+        8,
+        18,
+        19,
+        20,
+        21
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/runtime-main.8f8e4865.js",
+      "size": 5741,
+      "chunks": [
+        25
+      ],
+      "chunkNames": [
+        "runtime-main"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/js/runtime-main.8f8e4865.js.map",
+      "size": 20002,
+      "chunks": [
+        25
+      ],
+      "chunkNames": [
+        "runtime-main"
+      ],
+      "info": {
+        "development": true
+      },
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        25,
+        26,
+        22
+      ],
+      "assets": [
+        "static/js/runtime-main.8f8e4865.js",
+        "static/js/runtime-main.8f8e4865.js.map",
+        "static/js/26.11c115cc.chunk.js",
+        "static/js/26.11c115cc.chunk.js.map",
+        "static/css/main.12300935.chunk.css",
+        "static/js/main.860975db.chunk.js",
+        "static/js/main.860975db.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        25,
+        26,
+        22
+      ],
+      "assets": [
+        "static/js/runtime-main.8f8e4865.js",
+        "static/js/runtime-main.8f8e4865.js.map",
+        "static/js/26.11c115cc.chunk.js",
+        "static/js/26.11c115cc.chunk.js.map",
+        "static/css/main.12300935.chunk.css",
+        "static/js/main.860975db.chunk.js",
+        "static/js/main.860975db.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-data": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "static/js/pages-Home-data.51290f35.chunk.js",
+        "static/js/pages-Home-data.51290f35.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-data-js": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "static/js/pages-Home-data.51290f35.chunk.js",
+        "static/js/pages-Home-data.51290f35.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home": {
+      "chunks": [
+        0,
+        1
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "static/js/pages-Home.16a3ca91.chunk.js",
+        "static/js/pages-Home.16a3ca91.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-index": {
+      "chunks": [
+        0,
+        1
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "static/js/pages-Home.16a3ca91.chunk.js",
+        "static/js/pages-Home.16a3ca91.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-index-js": {
+      "chunks": [
+        0,
+        1
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "static/js/pages-Home.16a3ca91.chunk.js",
+        "static/js/pages-Home.16a3ca91.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-styles-module-scss": {
+      "chunks": [
+        23
+      ],
+      "assets": [
+        "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+        "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js",
+        "static/js/pages-Home-styles-module-scss.c95b8b7b.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "static/js/pages-Sample.93685761.chunk.js",
+        "static/js/pages-Sample.93685761.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-index": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "static/js/pages-Sample.93685761.chunk.js",
+        "static/js/pages-Sample.93685761.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-index-js": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "static/js/pages-Sample.93685761.chunk.js",
+        "static/js/pages-Sample.93685761.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-styles-module-scss": {
+      "chunks": [
+        24
+      ],
+      "assets": [
+        "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+        "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js",
+        "static/js/pages-Sample-styles-module-scss.3cbd30fb.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-data": {
+      "chunks": [
+        5
+      ],
+      "assets": [
+        "static/js/pages-SampleWithParam-data.512b8857.chunk.js",
+        "static/js/pages-SampleWithParam-data.512b8857.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-data-js": {
+      "chunks": [
+        5
+      ],
+      "assets": [
+        "static/js/pages-SampleWithParam-data.512b8857.chunk.js",
+        "static/js/pages-SampleWithParam-data.512b8857.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam": {
+      "chunks": [
+        0,
+        4
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-index": {
+      "chunks": [
+        0,
+        4
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-index-js": {
+      "chunks": [
+        0,
+        4
+      ],
+      "assets": [
+        "static/js/0.27b85ceb.chunk.js",
+        "static/js/0.27b85ceb.chunk.js.map",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js",
+        "static/js/pages-SampleWithParam.7d0f3351.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-styles": {
+      "chunks": [
+        9
+      ],
+      "assets": [
+        "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js",
+        "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-styles-js": {
+      "chunks": [
+        9
+      ],
+      "assets": [
+        "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js",
+        "static/js/pages-SampleWithParam-styles.693a1d38.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-actions-increaseCounter": {
+      "chunks": [
+        10
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js",
+        "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-actions-increaseCounter-js": {
+      "chunks": [
+        10
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js",
+        "static/js/pages-SampleWithReducer-actions-increaseCounter.87d0ab84.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-constants": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-constants-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js",
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-index": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js",
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-index-js": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js",
+        "static/js/pages-SampleWithReducer.10a987e5.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-reducer": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-reducer-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-counterSelector": {
+      "chunks": [
+        11
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js",
+        "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-counterSelector-js": {
+      "chunks": [
+        11
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js",
+        "static/js/pages-SampleWithReducer-selectors-counterSelector.5c367552.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-funnyCounterSelector": {
+      "chunks": [
+        12
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js",
+        "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-funnyCounterSelector-js": {
+      "chunks": [
+        12
+      ],
+      "assets": [
+        "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js",
+        "static/js/pages-SampleWithReducer-selectors-funnyCounterSelector.18e5b155.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-state": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-state-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-changeAnotherCounter": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-changeAnotherCounter-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-increaseCounter": {
+      "chunks": [
+        13
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js",
+        "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-increaseCounter-js": {
+      "chunks": [
+        13
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js",
+        "static/js/pages-SampleWithSaga-actions-increaseCounter.ede33c99.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-constants": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-constants-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js",
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-index": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js",
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-index-js": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js",
+        "static/js/pages-SampleWithSaga.1206caf1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-reducer": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-reducer-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-saga": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-saga-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-sagas-increaseCounterSaga": {
+      "chunks": [
+        14
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js",
+        "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-sagas-increaseCounterSaga-js": {
+      "chunks": [
+        14
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js",
+        "static/js/pages-SampleWithSaga-sagas-increaseCounterSaga.851c0f46.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-anotherCounterSelector": {
+      "chunks": [
+        15
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-anotherCounterSelector-js": {
+      "chunks": [
+        15
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-anotherCounterSelector.b7c95da2.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-counterSelector": {
+      "chunks": [
+        16
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-counterSelector-js": {
+      "chunks": [
+        16
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-counterSelector.4a2181e9.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-funnyCounterSelector": {
+      "chunks": [
+        17
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-funnyCounterSelector-js": {
+      "chunks": [
+        17
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js",
+        "static/js/pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-state": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-state-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-constants": {
+      "chunks": [
+        18
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js",
+        "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-constants-js": {
+      "chunks": [
+        18
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js",
+        "static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector": {
+      "chunks": [
+        8
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js",
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-index": {
+      "chunks": [
+        8
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js",
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-index-js": {
+      "chunks": [
+        8
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js",
+        "static/js/pages-SampleWithSelector.5fafdbbd.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-textSelector": {
+      "chunks": [
+        19
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js",
+        "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-textSelector-js": {
+      "chunks": [
+        19
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js",
+        "static/js/pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector": {
+      "chunks": [
+        20
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js",
+        "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector-js": {
+      "chunks": [
+        20
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js",
+        "static/js/pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-state": {
+      "chunks": [
+        21
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js",
+        "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-state-js": {
+      "chunks": [
+        21
+      ],
+      "assets": [
+        "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js",
+        "static/js/pages-SampleWithSelector-state.b8ae1138.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {
+        "HtmlWebpackPlugin_0": "__child-HtmlWebpackPlugin_0"
+      },
+      "assets": [
+        {
+          "name": "__child-HtmlWebpackPlugin_0",
+          "size": 546249,
+          "chunks": [
+            0
+          ],
+          "chunkNames": [
+            "HtmlWebpackPlugin_0"
+          ],
+          "info": {},
+          "emitted": false
+        }
+      ],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "HtmlWebpackPlugin_0": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "__child-HtmlWebpackPlugin_0"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "HtmlWebpackPlugin_0": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "__child-HtmlWebpackPlugin_0"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "HtmlWebpackCompiler"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/fly/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/reveal/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/slide/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-6-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-6-4!src/pages/Home/styles.module.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-6-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-6-4!src/pages/Sample/styles.module.scss"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+(this.__LOADABLE_LOADED_CHUNKS__=this.__LOADABLE_LOADED_CHUNKS__||[]).push([[19,18,21],{63:function(t,e,i){"use strict";i.r(e),i.d(e,"ID",(function(){return r}));var r="SampleWithSelector"},64:function(t,e,i){"use strict";i.r(e),e.default={text:"text from initial"}},72:function(t,e,i){"use strict";i.r(e);var r=i(64),u=i(63),_=i(49);e.default=Object(_.a)("text")(u.ID,r.default)}}]);
+//# sourceMappingURL=pages-SampleWithSelector-selectors-textSelector.e2eb8971.chunk.js.map
