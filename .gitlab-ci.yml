@@ -24,8 +24,7 @@ pages:
   script:
   - npm install --global yarn
   - yarn
-  - yarn cli:build
-  - yarn server:build:all
+  - yarn client:build
   - rm -rf public
   - mv build-browser public
   - ls -la public
