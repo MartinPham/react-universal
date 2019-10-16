@@ -41,10 +41,10 @@ const configureHttpServer = (server) => {
 	const serverRenderer = requireUncached(path.resolve(__dirname, '../build.server/index.js')).default;
 	const basename = '';
 
-	const serverLoader = (request, response) => {
+	const serverLoader = async (request, response) => {
 		log.info('[redux] Serving ' + request.url + ' (' + request.path + ')')
 
-		const {renderedString, helmet, clientExtractor, preloadedState} = serverRenderer(request, clientLoadableStatsFile, basename);
+		const {renderedString, helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename);
 
 		let output = template
 
@@ -62,7 +62,10 @@ const configureHttpServer = (server) => {
 		output = output.replace('</head>', `${clientExtractor.getStyleTags()}</head>`)
 		output = output.replace(
 		  '<div id="root"></div>',
-		  `<div id="root">${renderedString}</div><script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script><script>${injectScript}</script>`
+		  `<div id="root">${renderedString}</div>
+		  <script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>
+		  <script>window.__PAGE_DATA__ = ${JSON.stringify(pageData).replace(/</g, '\\u003c')}</script>
+		  <script>${injectScript}</script>`
 		);
 		output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
 	

@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {createStructuredSelector} from 'reselect';
-import {ID} from './constants';
 import updateStack from './actions/updateStack';
-import select from 'utils/select';
+import {ID} from './constants';
 import initialState from './state';
+import select from 'utils/select';
 import transitionModules from './transitions';
 import {Switch} from 'react-router';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';

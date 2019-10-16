@@ -6,8 +6,10 @@ import goForward from '../actions/goForward';
 import go from '../actions/go';
 import log from 'loglevel';
 import queryString from 'query-string';
+import {getPlatform, PLATFORM_BROWSER} from 'utils/platform';
+import loadable from '@loadable/component';
 
-import AsyncPage from 'components/AsyncPage';
+const AsyncPage = loadable(async (props) => import(/* webpackChunkName: "[request]" */`pages/${props.page}`))
 
 class Route extends React.Component {
 	shouldComponentUpdate()
@@ -15,10 +17,18 @@ class Route extends React.Component {
 		return false
 	}
 
-	render()
+	pageProps = {}
+
+	constructor(initialProps)
 	{
-		const {page, exact, path, computedMatch, location, ...props} = this.props
-		log.info(`[Route] render ${path}`, props)
+		super(initialProps)
+
+		const state = {
+			Fallback: () => <div/>
+		}
+
+		const {page, exact, path, computedMatch, location, ...props} = initialProps
+		log.info(`[Route] constructor ${path}`, props)
 
 		const navigator = {
 			push: (path, data = {}, transition = '', originPosition = {}) => props.dispatch(push(path, data, transition, originPosition)),
@@ -27,23 +37,82 @@ class Route extends React.Component {
 			goForward: () => props.dispatch(goForward()),
 		}
 
-		// console.log(Component())
+		const pageProps = {
+			...props,
+			page,
+			queryParams: queryString.parse(location.search),
+			data: (location.state && location.state.data) || {},
+			navigator,
+			location,
+			params: computedMatch.params
+		}
 
-		return <AsyncPage 
-					{...props} 
-					page={page}
-					queryParams={queryString.parse(location.search)}
-					data={(location.state && location.state.data) || {}}
-					navigator={navigator} 
-					location={location} 
-					params={computedMatch.params}
-				/>
+		state.componentIsReady = true
+
+		if(getPlatform() === PLATFORM_BROWSER)
+		{
+			if(window.__PAGE_DATA__)
+			{
+				log.info('[Route] apply inital data from server', window.__PAGE_DATA__)
+				pageProps.initialData = {...window.__PAGE_DATA__}
+				window.__PAGE_DATA__ = null
+			} else {
+				log.info('[Route] set inital data promise', window.__PAGE_DATA__)
+
+				import('../../../pages/' + pageProps.page + '/data.js')
+						.then(module => {
+							if(module.Fallback)
+							{
+								this.setState({
+									Fallback: module.Fallback
+								}, () => {
+									this.forceUpdate()
+								})
+							}
+
+							return module.default({
+								params: {...pageProps.params},
+								queryParams: {...pageProps.queryParams},
+							})
+						})
+						.catch(error => {
+							log.info('[Route] inital data promise error', error)
+						})
+						.then(data => {
+							this.pageProps.initialData = {...data}
+							
+							this.setState({
+								componentIsReady: true
+							}, () => {
+								this.forceUpdate()
+							})
+						})
+				state.componentIsReady = false
+			}
+		}
+
+
+		this.pageProps = pageProps
+		this.state = state
+	}
+	
+	render()
+	{
+		log.info('[Route] render', this.pageProps.path)
+		
+		if(!this.state.componentIsReady)
+		{
+			return <this.state.Fallback {...this.pageProps}/>
+		}
+		
+		return <AsyncPage {...this.pageProps}/>
+
 	}
 }
 
 const withConnect = connect(
-	(state) => ({ state }),
-	null
+	(state) => ({ state })
 )
+
 
 export default withConnect(Route)

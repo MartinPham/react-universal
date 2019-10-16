@@ -7,6 +7,11 @@ const preloadedInitialState = getPreloadState(ID, initialState)
 
 export default (state = preloadedInitialState, action) => {
     switch(action.type) {
+		case 'SET_INITIAL_DATA':
+			return produce(state, draftState => {
+				console.log('SET_INITIAL_DATA', action.data)
+				draftState.pageInitialData = 'xxx'
+			})
         case ACTION_PUSH:
             return produce(state, draftState => {
 				const {transition, originalPosition} = action

@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import push from 'components/Navigator/actions/push';
+import {generateUrl} from 'utils/url';
+
 
 
 const isModifiedEvent = (event) => {
@@ -14,6 +16,13 @@ class Link extends React.PureComponent {
 
 		let finalHref = href;
 		let finalData = data;
+
+		if(finalHref[0] === '@')
+		{
+			finalHref = generateUrl(finalHref, finalData);
+			// finalData = {};
+		}
+		
 
 
 		const handleClick = (event) => {

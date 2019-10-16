@@ -6,7 +6,7 @@ import routes from 'config/routes';
 
 
 export default (props) => {
-	log.info('[App] render')
+	log.info('[App] render', props)
 
 	return (
     	<>
@@ -23,6 +23,7 @@ export default (props) => {
 									...route,
 									path: route.path
 								}}
+								initialData={props.pageInitialData}
 							/>
 						);
 					})
