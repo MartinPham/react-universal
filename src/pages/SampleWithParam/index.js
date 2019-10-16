@@ -3,8 +3,6 @@ import React from 'react';
 import {Link as A} from 'components/Navigator';
 
 export default (props) => {
-	console.log('props', props)
-	
 	return (
 		<div>
 			<h1>Sample with param id = {props.params.id} . {props.initialData.text}</h1>

@@ -15,14 +15,14 @@ const requireUncached = (module) => {
 const main = () => {
     if(!global.server)
     {
-		console.info('[server] Creating new server');
+		log.info('[server] Creating new server');
         global.server = http.createServer();
         configureHttpServer(global.server);
         global.server.listen(port, () => {
-            console.log(`[server] Listening on http://0.0.0.0:${port}/`)
+            log.info(`[server] Listening on http://0.0.0.0:${port}/`)
         });
     } else {
-		console.info('[server] Updating existing server');
+		log.info('[server] Updating existing server');
         global.server.removeAllListeners('request');
         configureHttpServer(global.server);
     }
@@ -31,7 +31,7 @@ const main = () => {
 
 
 const configureHttpServer = (server) => {
-    console.info('[server] Configure server');
+    log.info('[server] Configure server');
     const expressApp = express();
 
 
@@ -42,7 +42,7 @@ const configureHttpServer = (server) => {
 	const basename = '';
 
 	const serverLoader = async (request, response) => {
-		log.info('[redux] Serving ' + request.url + ' (' + request.path + ')')
+		log.info('[loader] Serving ' + request.url + ' (' + request.path + ')')
 
 		const {renderedString, helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename);
 
@@ -84,6 +84,6 @@ main();
 
 chokidar.watch(['server/index.js', 'build.server/index.js', 'build/index.html', 'build/asset-manifest.json'])
     .on('change', (event, path) => {
-        console.log('[watcher] File(s) changed');
+        log.warn('[watcher] File(s) changed');
         main();
     });

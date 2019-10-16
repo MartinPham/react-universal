@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import {Link as A} from 'components/Navigator';
 
 export default (props) => {
-	log.info('[Sample] render', props)
+	log.info('[Sample] render')
 
 	const colors = ['red', 'green', 'blue', 'yellow', 'pink', 'white', 'black']
 	const [id] = React.useState(Math.random())

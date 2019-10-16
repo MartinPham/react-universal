@@ -16,7 +16,7 @@ import 'styles.scss';
 
 
 export default async (request, clientLoadableStatsFile, basename = '') => {
-	log.info('[index] React Render App', request)
+	log.info('[index] React Load App')
 
 	const history = sharedHistory(createHistory({
 		initialEntries: [request.path]
@@ -24,7 +24,7 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	const store = createStore(initialState)
 	const locationKey = history.location.key
 
-	log.info('[redux] Gonna reset Navigator stack', history.location)
+	log.info('[redux] Gonna reset Navigator stack')
 	store.dispatch(resetStack(history.location))
 
 	const routeKeys = Object.keys(routes)
@@ -37,14 +37,14 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 
 		if(match !== null)
 		{
-			log.info('[router] matched', route, match)
+			log.info('[router] matched', route.path, route.page)
 
 			pageInitialData = await require('./pages/' + route.page + '/data.js').default({
 				params: {...match.params},
 				queryParams: {...request.query},
 			})
 
-			log.info('[router] page data', pageInitialData)
+			log.info('[router] page inital data loaded')
 			break
 		}
 	}

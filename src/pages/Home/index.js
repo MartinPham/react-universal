@@ -9,11 +9,7 @@ export default class Home extends React.PureComponent {
 	{
 		const props = this.props
 
-		
-		console.log('data = ', this.props.initialData)
-
-
-		log.info('[Home] render', props)
+		log.info('[Home] render')
 
 		return (
 			<div className={styles.container}>

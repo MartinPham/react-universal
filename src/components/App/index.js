@@ -6,7 +6,7 @@ import routes from 'config/routes';
 
 
 export default (props) => {
-	log.info('[App] render', props)
+	log.info('[App] render')
 
 	return (
     	<>

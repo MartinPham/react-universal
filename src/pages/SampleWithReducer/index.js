@@ -8,15 +8,12 @@ import increaseCounter from './actions/increaseCounter';
 import counterSelector from './selectors/counterSelector';
 import funnyCounterSelector from './selectors/funnyCounterSelector';
 
-import {ID} from './constants';
-
 
 class Page extends React.PureComponent {
 	state = {
 		number: 1
 	}
 	render() {
-		console.log(ID + ' render')
 		return (
 			<div>
 				Sample

@@ -28,7 +28,7 @@ class Route extends React.Component {
 		}
 
 		const {page, exact, path, computedMatch, location, ...props} = initialProps
-		log.info(`[Route] constructor ${path}`, props)
+		log.info(`[Route] constructor ${path}`)
 
 		const navigator = {
 			push: (path, data = {}, transition = '', originPosition = {}) => props.dispatch(push(path, data, transition, originPosition)),
@@ -53,7 +53,7 @@ class Route extends React.Component {
 		{
 			if(window.__PAGE_DATA__ && window.__PAGE_DATA__[location.key])
 			{
-				log.info('[Route] apply loaded inital data', window.__PAGE_DATA__)
+				log.info('[Route] apply loaded inital data')
 				pageProps.initialData = {...window.__PAGE_DATA__[location.key]}
 			} else {
 				log.info('[Route] loading inital data')
@@ -65,6 +65,7 @@ class Route extends React.Component {
 								this.setState({
 									Fallback: module.Fallback
 								}, () => {
+									log.info('[Route] force update with fallback')
 									this.forceUpdate()
 								})
 							}
@@ -84,6 +85,7 @@ class Route extends React.Component {
 							this.setState({
 								componentIsReady: true
 							}, () => {
+								log.info('[Route] force update with initial data')
 								this.forceUpdate()
 							})
 						})
@@ -98,11 +100,16 @@ class Route extends React.Component {
 	
 	render()
 	{
-		log.info('[Route] render', this.pageProps.path)
+		log.info('[Route] render', this.pageProps)
 		
 		if(!this.state.componentIsReady)
 		{
-			return <this.state.Fallback {...this.pageProps}/>
+			if(this.state.Fallback)
+			{
+				return <this.state.Fallback {...this.pageProps}/>
+			}
+
+			return <div/>
 		}
 		
 		return <AsyncPage {...this.pageProps}/>
