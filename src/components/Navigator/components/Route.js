@@ -51,13 +51,12 @@ class Route extends React.Component {
 
 		if(getPlatform() === PLATFORM_BROWSER)
 		{
-			if(window.__PAGE_DATA__)
+			if(window.__PAGE_DATA__ && window.__PAGE_DATA__[location.key])
 			{
-				log.info('[Route] apply inital data from server', window.__PAGE_DATA__)
-				pageProps.initialData = {...window.__PAGE_DATA__}
-				window.__PAGE_DATA__ = null
+				log.info('[Route] apply loaded inital data', window.__PAGE_DATA__)
+				pageProps.initialData = {...window.__PAGE_DATA__[location.key]}
 			} else {
-				log.info('[Route] set inital data promise', window.__PAGE_DATA__)
+				log.info('[Route] loading inital data')
 
 				import('../../../pages/' + pageProps.page + '/data.js')
 						.then(module => {
@@ -80,6 +79,7 @@ class Route extends React.Component {
 						})
 						.then(data => {
 							this.pageProps.initialData = {...data}
+							window.__PAGE_DATA__[location.key] = {...data}
 							
 							this.setState({
 								componentIsReady: true

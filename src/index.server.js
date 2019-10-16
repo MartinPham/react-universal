@@ -22,13 +22,13 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 		initialEntries: [request.path]
 	}))
 	const store = createStore(initialState)
-
+	const locationKey = history.location.key
 
 	log.info('[redux] Gonna reset Navigator stack', history.location)
 	store.dispatch(resetStack(history.location))
 
 	const routeKeys = Object.keys(routes)
-	let pageData = null
+	let pageInitialData = null
 
 	for(let routeId of routeKeys)
 	{
@@ -39,12 +39,12 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 		{
 			log.info('[router] matched', route, match)
 
-			pageData = await require('./pages/' + route.page + '/data.js').default({
+			pageInitialData = await require('./pages/' + route.page + '/data.js').default({
 				params: {...match.params},
 				queryParams: {...request.query},
 			})
 
-			log.info('[router] page data', pageData)
+			log.info('[router] page data', pageInitialData)
 			break
 		}
 	}
@@ -52,7 +52,7 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	const createApp = (AppComponent) => (
 		<Provider store={store}>
 			<Router basename={basename} location={request.url} history={history}>
-				<AppComponent pageInitialData={pageData}/>
+				<AppComponent pageInitialData={pageInitialData}/>
 			</Router>
 		</Provider>
 	)
@@ -73,7 +73,9 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 		helmet,
 		clientExtractor,
 		preloadedState,
-		pageData
+		pageData: {
+			[locationKey]: pageInitialData
+		}
 	}
 }
 
