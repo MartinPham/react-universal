@@ -1,1 +1,0 @@
-export default from './render.js'; // add .js to avoid loop

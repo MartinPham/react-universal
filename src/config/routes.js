@@ -1,33 +1,49 @@
-
-import Home from 'pages/Home/async';
-import Sample from 'pages/Sample/async';
-import Login from 'pages/Login/async';
-import Dashboard from 'pages/Dashboard/async';
-import checkAuthenticatedUser from "firewalls/checkAuthenticatedUser";
-
-
-
 export default {
+    SampleSame: {
+        path: '/sample/:id',
+        page: 'Sample'
+	},
     Sample: {
-        path: "/sample",
-        source: Sample
+        path: '/sample',
+        page: 'Sample'
+	},
+    SampleWithParam: {
+        path: '/sample-param/:id',
+        page: 'SampleWithParam'
+	},
+    SampleWithReducer: {
+        path: '/sample-reducer',
+        page: 'SampleWithReducer'
+	},
+    SampleWithSaga: {
+        path: '/sample-saga',
+        page: 'SampleWithSaga'
+	},
+    SampleWithSelector: {
+        path: '/sample-selector',
+        page: 'SampleWithSelector'
 	},
 	
     Login: {
-        path: "/login",
-        source: Login
+        path: '/login',
+        page: 'Login'
     },
     Dashboard: {
-        path: "/dashboard",
-        source: Dashboard,
-        firewall: checkAuthenticatedUser
-    },
+        path: '/dashboard',
+        page: 'Dashboard'
+	},
+	
 
 
 
     Home: {
-        path: "/",
-        source: Home,
+        path: '/',
+        page: 'Home',
         exact: true
-    }
+    },
+
+    NotFound: {
+		path: '*',
+        page: 'Home',
+    },
 };

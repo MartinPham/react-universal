@@ -1,107 +1,46 @@
-import {BasePurePage} from 'pages/Page';
+import React from 'react';
+import {Link as A} from 'components/Navigator';
+import log from 'loglevel';
+import {Helmet} from 'react-helmet';
+import styles from './styles.module.scss';
 
 
-// import { frontloadConnect } from "react-frontload";
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import injectReducer from 'utils/redux/injectReducer';
-import injectSaga from 'utils/redux/injectSaga';
-
-
-import push from 'components/Navigator/actions/push';
-
-import reducer from './reducer';
-import saga from './saga';
-
-import { createStructuredSelector } from 'reselect';
-
-
-import { ID } from "./constants";
-
-import changeText from "./actions/changeText";
-import textSelector from "./selectors/textSelector";
-import altTextSelector from "./selectors/altTextSelector";
-import objectTextSelector from "./selectors/objectTextSelector";
-import objectSelector from "./selectors/objectSelector";
-
-
-import render from './render';
-import goBack from "components/Navigator/actions/goBack";
-import goForward from "components/Navigator/actions/goForward";
-import changeObject from "./actions/changeObject";
-import changeObjectText from "./actions/changeObjectText";
-
-
-
-class Page extends BasePurePage {
-	state = {
-		count: 1
-	};
-
+export default class Home extends React.PureComponent {
 	render()
 	{
-		return render(this, this.props, this.state);
+		const props = this.props
+
+		log.info('[Home] render')
+
+		return (
+			<>
+				<Helmet>
+					<title>Home - {this.props.initialData.text}</title>
+				</Helmet>
+				<div className={styles.container}>
+					<h1>"HOME {props.text}" - {this.props.initialData.text}</h1>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+					Home Home Home Home Home Home Home Home Home Home Home Home <br/>
+		
+					<button onClick={() => props.navigator.push('@Sample?z=1')}>Sample</button>
+					<br/>
+					<br/>
+					<A href="@Sample?test=1" transition="flyLeft" data={{a: 'b'}}>Click here</A>
+					<br/>
+					<A href="@SampleSame?test=1" transition="flyLeft" data={{id: 'zzz', big: 'ooo'}}>Click here 2</A>
+					<br/>
+					<A href="@SampleWithParam?test=1" transition="flyLeft" data={{id: 'kkk', big: 'ooo'}}>Click here 3</A>
+				</div>
+			</>
+		);
 	}
 }
-
-
-
-
-Page.displayName = ID;
-
-
-const mapState = createStructuredSelector({
-	text: textSelector,
-	altText: altTextSelector,
-	objectText: objectTextSelector,
-	object: objectSelector,
-});
-
-const mapDispatch = dispatch => ({
-	changeText: (text) => {
-		dispatch(changeText(text))
-	},
-	changeObjectText: (text) => {
-		dispatch(changeObjectText(text))
-	},
-	changeObject: (object) => {
-		dispatch(changeObject(object))
-	},
-	push: (path, data, transition, originPosition) => dispatch(push(path, data, transition, originPosition)),
-	goBack: () => dispatch(goBack()),
-	goForward: () => dispatch(goForward()),
-});
-
-
-
-// const frontload = async props =>
-// {
-// 	const data = await (new Promise(resolve => setTimeout(() => resolve('ciao mondo from async'), 1000)));
-// 	props.changeText(data);
-// };
-
-
-const withConnect = connect(
-	mapState,
-	mapDispatch
-);
-
-
-
-
-const withReducer = injectReducer({ key: ID, reducer });
-const withSaga = injectSaga({ key: ID, saga });
-
-
-export default compose(
-	withReducer,
-	withSaga,
-	withConnect,
-)(
-	// frontloadConnect(frontload, {
-	//     onMount: true,
-	//     onUpdate: false
-	// })(Page)
-	Page
-);
-

@@ -1,5 +1,5 @@
-import {GO_BACK} from "../constants";
+import {ACTION_GO_BACK} from "../constants";
 
 export default () => ({
-    type: GO_BACK
+    type: ACTION_GO_BACK
 })

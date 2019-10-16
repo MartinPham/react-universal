@@ -1,81 +1,66 @@
 {
-	"name": "react-universal",
-	"version": "0.1.0",
-	"homepage": "https://martinpham.gitlab.io/react-universal",
-	"main": "node_modules/expo/AppEntry.js",
-	"scripts": {
-		"native:start": "expo start",
-		"native:android": "expo start --android",
-		"native:ios": "expo start --ios",
-		"native:clean": "watchman watch-del-all && rm -rf $TMPDIR/metro-* && rm -rf node_modules/.cache",
-		"expo:eject": "expo eject",
-		"cra:start": "react-scripts start",
-		"cra:build": "react-scripts build",
-		"cra:test": "react-scripts test",
-		"cra:eject": "react-scripts eject",
-		"start": "npm run browser:dev",
-		"browser:dev": "cross-env NODE_PATH=src craco start",
-		"browser:build": "touch .building && rm -rf build && rm -rf build-browser && cross-env NODE_PATH=src craco build && mv build build-browser && rm .building",
-		"browser:test": "cross-env NODE_PATH=src craco test",
-		"browser:prod:run": "node scripts/browser/prod 3000",
-		"browser:prod": "npm run browser:build && npm run browser:prod:run",
-		"browser:deploy:github": "npm run browser:build && gh-pages -d build-browser",
-		"server:build": "touch .building && rm -rf build && rm -rf build-server && cross-env NODE_PATH=src node scripts/server/build && mv build build-server && rm .building",
-		"server:build:all": "touch .building-all && npm run server:build && npm run browser:build && rm .building-all",
-		"server:prod:run": "node scripts/server/prod 3000",
-		"server:prod": "npm run server:build:all && npm run server:prod:run",
-		"cli:dev": "cross-env PLATFORM=cli node scripts/cli/dev",
-		"cli:build": "touch .building && rm -rf build && rm -rf build-cli && cross-env PLATFORM=cli node scripts/cli/build && mkdir build-cli && mv build/index.js build-cli/index.js && node scripts/cli/build-assets && rm .building",
-		"cli:prod:run": "node build-cli",
-		"cli:prod": "npm run cli:build && npm run cli:prod:run"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not ie <= 11",
-		"not op_mini all"
-	],
-	"private": true,
-	"dependencies": {
-		"expo": "^35.0.0",
-		"history": "^4.10.1",
-		"immutable": "^4.0.0-rc.12",
-		"ink": "^2.5.0",
-		"ink-redux": "^1.0.0",
-		"query-string": "^6.8.3",
-		"react": "^16.10.2",
-		"react-dom": "^16.10.2",
-		"react-frontload": "^1.1.0",
-		"react-helmet": "^5.2.1",
-		"react-loadable": "^5.5.0",
-		"react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
-		"react-redux": "^7.1.1",
-		"react-router": "^5.1.2",
-		"react-transition-group": "^4.3.0",
-		"redux": "^4.0.4",
-		"redux-saga": "^1.1.1",
-		"reselect": "^4.0.0",
-		"styled-components": "^4.4.0"
-	},
-	"devDependencies": {
-		"@craco/craco": "^5.5.0",
-		"babel-preset-expo": "^7.0.0",
-		"chokidar": "^3.2.1",
-		"clear-module": "^4.0.0",
-		"cookie-parser": "^1.4.4",
-		"cross-env": "^6.0.3",
-		"find-free-port": "^2.0.0",
-		"gh-pages": "^2.1.1",
-		"node-sass": "^4.12.0",
-		"npm-run": "^5.0.1",
-		"qrcode-terminal": "^0.12.0",
-		"react-scripts": "^3.2.0",
-		"reactotron-react-js": "^3.3.4",
-		"reactotron-react-native": "^4.0.2",
-		"webpack-node-externals": "^1.7.2",
-		"ws": "^7.1.2"
-	}
+  "name": "react-universal",
+  "homepage": "https://martinpham.gitlab.io/react-universal",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^5.5.0",
+    "@jackwilsdon/craco-use-babelrc": "^1.0.0",
+    "@loadable/component": "^5.10.3",
+    "@loadable/server": "^5.10.3",
+    "immer": "^4.0.1",
+    "loglevel": "^1.6.4",
+    "node-sass": "^4.12.0",
+    "query-string": "^6.8.3",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-frontload": "^1.1.0",
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.1",
+    "react-router": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "react-transition-group": "^4.3.0",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1",
+    "reselect": "^4.0.0"
+  },
+  "scripts": {
+    "start": "yarn client:run",
+    "test": "craco test",
+    "client:snap": "react-snap",
+    "client:clean": "rm -rf build",
+    "client:run": "craco start",
+    "client:build": "yarn client:clean && craco build",
+    "client:watch": "node client/build.js --watch",
+    "server:clean": "rm -rf build.server",
+    "server:build": "yarn server:clean && node server/build.js",
+    "server:watch": "node server/build.js --watch",
+    "ssr:build": "yarn client:build && yarn server:build",
+    "ssr:watch": "yarn ssr:build && nohup yarn client:watch > watch.client.log & echo $! > watch.client.pid & nohup yarn server:watch > watch.server.log & echo $! > watch.server.pid && yarn ssr:run && kill -9 `cat watch.client.pid` && kill -9 `cat watch.server.pid` && rm watch.client.pid && rm watch.server.pid",
+    "ssr:run": "node server"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@loadable/babel-plugin": "^5.10.3",
+    "@loadable/webpack-plugin": "^5.7.1",
+    "chokidar": "^3.2.1",
+    "clear-module": "^4.0.0",
+    "express": "^4.17.1",
+    "react-snap": "^1.23.0",
+    "webpack-node-externals": "^1.7.2"
+  }
 }

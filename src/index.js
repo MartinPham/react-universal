@@ -1,105 +1,72 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { Router } from 'react-router';
-import { Frontload } from 'react-frontload';
-import Loadable from 'react-loadable';
-import { createBrowserHistory as createHistory} from 'history';
+import {Provider} from 'react-redux';
+import * as serviceWorker from 'serviceWorker';
+import {Router} from 'react-router';
+import {loadableReady} from '@loadable/component';
+import {createBrowserHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
-// import 'utils/reactotron';
-
-// import * as serviceWorker from './serviceWorker';
+import createStore from 'utils/redux/createStore';
+import initialState from 'config/state';
+import resetStack from 'components/Navigator/actions/resetStack';
+import log from 'loglevel';
 
 import App from 'components/App';
-import historyChanged from 'components/App/actions/historyChanged';
-import resetHistory from 'components/App/actions/resetHistory';
-import log from 'utils/log';
-import storage from 'utils/storage';
-// import AuthProvider from "components/AuthProvider";
-
-import configureStore from 'utils/redux/configureStore';
-
 import 'styles.scss';
-import updateUser from "components/AuthProvider/actions/updateUser";
 
-const historyWrapper = sharedHistory(createHistory());
-const store = configureStore({});
-window.store = store;
-console.log('set store')
-
-const rootElement = document.getElementById('root');
+log.setLevel('info');
 
 
+const store = createStore(initialState)
+const history = sharedHistory(createHistory())
 
-historyWrapper.history.listen(location => {
-	store.dispatch(historyChanged(location));
-});
+const basename = process.env.PUBLIC_URL
+history.basename = basename
 
-const historyResetter = () => {
-	store.dispatch(resetHistory({
-		...historyWrapper.history.location,
-		transition: 'slideLeft'
-	}));
-};
-
-const authPreload = () => {
-    const localUser = storage.read('user');
-    const localToken = storage.read('token');
+log.info('[index] React Client App. Basename = ' + history.basename)
 
 
-    store.dispatch(updateUser(localUser, localToken));
-};
+if(store.getState().Navigator && store.getState().Navigator.stack && store.getState().Navigator.stack.length > 0)
+{
+	log.info('[redux] Navigator stack already filled')
+} else {
+	log.info('[redux] Gonna reset Navigator stack', history.location)
+	store.dispatch(resetStack(history.location))
+}
+
+const rootElement = document.getElementById('root')
 
 
 const createApp = (AppComponent) => (
-	<div id='app'>
-		<Provider store={store}>
-				<Router history={historyWrapper.history}>
-						<Frontload noServerRender={true}>
-							
-								<AppComponent/>
-
-						</Frontload>
-				</Router>
-		</Provider>
-	</div>
-);
-
-
-authPreload();
-historyResetter();
-
-// console.log('env', process.env);
-
+	<Provider store={store}>
+		<Router basename={basename} history={history}>
+			<AppComponent/>
+		</Router>
+	</Provider>
+)
 
 if (rootElement.hasChildNodes() === true) {
-	log.warn('React Hydrate App from SSR');
-  	Loadable.preloadReady().then(() => {
-    	ReactDOM.hydrate(createApp(App), rootElement);
-    	// historyResetter();
-        // authPreload();
-  	});
+	log.info('[index] React Hydrate App')
+	loadableReady(() => {
+		log.info('[index][loadable] Ready')
+		ReactDOM.hydrate(createApp(App), rootElement)
+	})
+	
 } else {
-	log.warn('React Render App');
-  	ReactDOM.render(createApp(App), rootElement);
-    // historyResetter();
-    // authPreload();
+	log.info('[index] React Render App')
+  	ReactDOM.render(createApp(App), rootElement)
 }
 
 if (module.hot) {
 	module.hot.accept(['components/App'], (files) => {
-		log.group('Webpack Hot Update', () => {
-			files.forEach(file => log.warn('-> ' + file));
-		});
+		log.info('[webpack] Webpack Hot Update')
 		
-		ReactDOM.unmountComponentAtNode(rootElement);
-		ReactDOM.render(createApp(App), rootElement);
+		ReactDOM.unmountComponentAtNode(rootElement)
+		ReactDOM.render(createApp(App), rootElement)
 	});
 }
 
-
-
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-// serviceWorker.unregister();
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister()

@@ -1,0 +1,1402 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.41.0",
+  "hash": "adecd57b1f80c089817e",
+  "publicPath": "/react-universal/",
+  "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+  "assetsByChunkName": {
+    "pages-Home": [
+      "static/css/pages-Home.5f788ec1.chunk.css",
+      "js/pages-Home.ce7cb4eb.chunk.js"
+    ],
+    "pages-Sample": [
+      "static/css/pages-Sample.53fed5b4.chunk.css",
+      "js/pages-Sample.6754a1d5.chunk.js"
+    ],
+    "pages-SampleWithParam": "js/pages-SampleWithParam.d0bd12a5.chunk.js",
+    "pages-SampleWithReducer": "js/pages-SampleWithReducer.b687fc26.chunk.js",
+    "pages-SampleWithSaga": "js/pages-SampleWithSaga.98bbafd1.chunk.js",
+    "pages-SampleWithSelector": "js/pages-SampleWithSelector.ec60afc4.chunk.js",
+    "pages-SampleWithParam-styles": "js/pages-SampleWithParam-styles.045370f5.chunk.js",
+    "pages-SampleWithReducer-actions-increaseCounter": "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js",
+    "pages-SampleWithReducer-selectors-counterSelector": "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js",
+    "pages-SampleWithReducer-selectors-funnyCounterSelector": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js",
+    "pages-SampleWithSaga-actions-increaseCounter": "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js",
+    "pages-SampleWithSaga-sagas-increaseCounterSaga": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js",
+    "pages-SampleWithSaga-selectors-anotherCounterSelector": "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js",
+    "pages-SampleWithSaga-selectors-counterSelector": "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js",
+    "pages-SampleWithSaga-selectors-funnyCounterSelector": "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js",
+    "pages-SampleWithSelector-constants": "js/pages-SampleWithSelector-constants.460cb55b.chunk.js",
+    "pages-SampleWithSelector-selectors-textSelector": "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js",
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector": "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js",
+    "pages-SampleWithSelector-state": "js/pages-SampleWithSelector-state.bbfdebef.chunk.js",
+    "main": [
+      "static/css/main.12300935.css",
+      "index.js"
+    ],
+    "pages-Home-styles-module-scss": [
+      "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+      "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js"
+    ],
+    "pages-Sample-styles-module-scss": [
+      "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+      "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js"
+    ]
+  },
+  "assets": [
+    {
+      "name": "index.js",
+      "size": 39174,
+      "chunks": [
+        19
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js",
+      "size": 103,
+      "chunks": [
+        20
+      ],
+      "chunkNames": [
+        "pages-Home-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-Home.ce7cb4eb.chunk.js",
+      "size": 2371,
+      "chunks": [
+        0,
+        20
+      ],
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js",
+      "size": 99,
+      "chunks": [
+        21
+      ],
+      "chunkNames": [
+        "pages-Sample-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-Sample.6754a1d5.chunk.js",
+      "size": 1909,
+      "chunks": [
+        1,
+        21
+      ],
+      "chunkNames": [
+        "pages-Sample"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithParam-styles.045370f5.chunk.js",
+      "size": 53,
+      "chunks": [
+        6
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam-styles"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithParam.d0bd12a5.chunk.js",
+      "size": 1146,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "pages-SampleWithParam"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js",
+      "size": 209,
+      "chunks": [
+        7
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-actions-increaseCounter"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js",
+      "size": 150,
+      "chunks": [
+        8
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-counterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js",
+      "size": 231,
+      "chunks": [
+        9
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithReducer.b687fc26.chunk.js",
+      "size": 2461,
+      "chunks": [
+        3,
+        7,
+        8,
+        9
+      ],
+      "chunkNames": [
+        "pages-SampleWithReducer"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js",
+      "size": 210,
+      "chunks": [
+        10
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-actions-increaseCounter"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js",
+      "size": 534,
+      "chunks": [
+        11
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-sagas-increaseCounterSaga"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js",
+      "size": 158,
+      "chunks": [
+        12
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-anotherCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js",
+      "size": 151,
+      "chunks": [
+        13
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-counterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js",
+      "size": 232,
+      "chunks": [
+        14
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga-selectors-funnyCounterSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSaga.98bbafd1.chunk.js",
+      "size": 2698,
+      "chunks": [
+        4,
+        10,
+        12,
+        13,
+        14
+      ],
+      "chunkNames": [
+        "pages-SampleWithSaga"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSelector-constants.460cb55b.chunk.js",
+      "size": 137,
+      "chunks": [
+        15
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-constants"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js",
+      "size": 334,
+      "chunks": [
+        16,
+        15,
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-textSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js",
+      "size": 413,
+      "chunks": [
+        17,
+        15,
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-selectors-uppercaseTextSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSelector-state.bbfdebef.chunk.js",
+      "size": 112,
+      "chunks": [
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector-state"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-SampleWithSelector.ec60afc4.chunk.js",
+      "size": 2287,
+      "chunks": [
+        5,
+        15,
+        16,
+        17,
+        18
+      ],
+      "chunkNames": [
+        "pages-SampleWithSelector"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/main.12300935.css",
+      "size": 9285,
+      "chunks": [
+        19
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/main.12300935.css.map",
+      "size": 2455,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+      "size": 121,
+      "chunks": [
+        20
+      ],
+      "chunkNames": [
+        "pages-Home-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css.map",
+      "size": 218,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home.5f788ec1.chunk.css",
+      "size": 102,
+      "chunks": [
+        0,
+        20
+      ],
+      "chunkNames": [
+        "pages-Home"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Home.5f788ec1.chunk.css.map",
+      "size": 199,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+      "size": 118,
+      "chunks": [
+        21
+      ],
+      "chunkNames": [
+        "pages-Sample-styles-module-scss"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css.map",
+      "size": 203,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample.53fed5b4.chunk.css",
+      "size": 99,
+      "chunks": [
+        1,
+        21
+      ],
+      "chunkNames": [
+        "pages-Sample"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "static/css/pages-Sample.53fed5b4.chunk.css.map",
+      "size": 184,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        19
+      ],
+      "assets": [
+        "static/css/main.12300935.css",
+        "index.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        19
+      ],
+      "assets": [
+        "static/css/main.12300935.css",
+        "index.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-data": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-data-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "js/pages-Home.ce7cb4eb.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-index": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "js/pages-Home.ce7cb4eb.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-index-js": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "static/css/pages-Home.5f788ec1.chunk.css",
+        "js/pages-Home.ce7cb4eb.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Home-styles-module-scss": {
+      "chunks": [
+        20
+      ],
+      "assets": [
+        "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
+        "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "js/pages-Sample.6754a1d5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-index": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "js/pages-Sample.6754a1d5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-index-js": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "static/css/pages-Sample.53fed5b4.chunk.css",
+        "js/pages-Sample.6754a1d5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-Sample-styles-module-scss": {
+      "chunks": [
+        21
+      ],
+      "assets": [
+        "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
+        "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-data": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-data-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-index": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-index-js": {
+      "chunks": [
+        2
+      ],
+      "assets": [
+        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-styles": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "js/pages-SampleWithParam-styles.045370f5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithParam-styles-js": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "js/pages-SampleWithParam-styles.045370f5.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-actions-increaseCounter": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-actions-increaseCounter-js": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-constants": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-constants-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-index": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-index-js": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-reducer": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-reducer-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-counterSelector": {
+      "chunks": [
+        8
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-counterSelector-js": {
+      "chunks": [
+        8
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-funnyCounterSelector": {
+      "chunks": [
+        9
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-selectors-funnyCounterSelector-js": {
+      "chunks": [
+        9
+      ],
+      "assets": [
+        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-state": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithReducer-state-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-changeAnotherCounter": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-changeAnotherCounter-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-increaseCounter": {
+      "chunks": [
+        10
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-actions-increaseCounter-js": {
+      "chunks": [
+        10
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-constants": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-constants-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga": {
+      "chunks": [
+        4
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-index": {
+      "chunks": [
+        4
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-index-js": {
+      "chunks": [
+        4
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-reducer": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-reducer-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-saga": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-saga-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-sagas-increaseCounterSaga": {
+      "chunks": [
+        11
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-sagas-increaseCounterSaga-js": {
+      "chunks": [
+        11
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-anotherCounterSelector": {
+      "chunks": [
+        12
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-anotherCounterSelector-js": {
+      "chunks": [
+        12
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-counterSelector": {
+      "chunks": [
+        13
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-counterSelector-js": {
+      "chunks": [
+        13
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-funnyCounterSelector": {
+      "chunks": [
+        14
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-selectors-funnyCounterSelector-js": {
+      "chunks": [
+        14
+      ],
+      "assets": [
+        "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-state": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSaga-state-js": {
+      "chunks": [],
+      "assets": [],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-constants": {
+      "chunks": [
+        15
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-constants.460cb55b.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-constants-js": {
+      "chunks": [
+        15
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-constants.460cb55b.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector": {
+      "chunks": [
+        5
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-index": {
+      "chunks": [
+        5
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-index-js": {
+      "chunks": [
+        5
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-textSelector": {
+      "chunks": [
+        16
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-textSelector-js": {
+      "chunks": [
+        16
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector": {
+      "chunks": [
+        17
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-selectors-uppercaseTextSelector-js": {
+      "chunks": [
+        17
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-state": {
+      "chunks": [
+        18
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-state.bbfdebef.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-SampleWithSelector-state-js": {
+      "chunks": [
+        18
+      ],
+      "assets": [
+        "js/pages-SampleWithSelector-state.bbfdebef.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": [
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/fly/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/reveal/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/components/Navigator/transitions/slide/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-5-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-5-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-5-4!src/styles.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-6-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-6-4!src/pages/Home/styles.module.scss"
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "publicPath": "/react-universal/",
+      "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
+      "assetsByChunkName": {},
+      "assets": [],
+      "filteredAssets": 0,
+      "entrypoints": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "namedChunkGroups": {
+        "mini-css-extract-plugin": {
+          "chunks": [
+            0
+          ],
+          "assets": [
+            "*"
+          ],
+          "children": {},
+          "childAssets": {}
+        }
+      },
+      "logging": {
+        "webpack.buildChunkGraph.visitModules": {
+          "entries": [],
+          "filteredEntries": 2,
+          "debug": false
+        }
+      },
+      "children": [],
+      "name": "mini-css-extract-plugin node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!node_modules/postcss-loader/src/index.js??postcss!node_modules/resolve-url-loader/index.js??ref--6-oneOf-6-3!node_modules/sass-loader/lib/loader.js??ref--6-oneOf-6-4!src/pages/Sample/styles.module.scss"
+    }
+  ]
+}

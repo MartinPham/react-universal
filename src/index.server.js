@@ -1,102 +1,90 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { Provider } from 'react-redux';
-import { StaticRouter as Router } from 'react-router';
-import { Frontload, frontloadServerRender } from 'react-frontload';
-import Loadable from 'react-loadable';
-import Helmet from 'react-helmet';
-import createHistory from 'history/createMemoryHistory';
+import {ChunkExtractor} from '@loadable/server';
+import {Provider} from 'react-redux';
+import {StaticRouter as Router, matchPath} from 'react-router';
+import {createMemoryHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
+import createStore from 'utils/redux/createStore';
+import initialState from 'config/state';
+import resetStack from 'components/Navigator/actions/resetStack';
+import Helmet from 'react-helmet';
+import log from 'loglevel';
+import App from 'components/App';
+import routes from 'config/routes';
+import 'styles.scss';
 
 
-import App from './components/App';
-// import log from 'utils/log';
-import saga from './components/App/saga';
+export default async (request, clientLoadableStatsFile, basename = '') => {
+	log.info('[index] React Server App. Basename = ' + basename)
 
-import configureStore from './utils/redux/configureStore';
+	const history = sharedHistory(createHistory({
+		initialEntries: [request.path]
+	}))
 
+	history.basename = basename
 
-export default (basename, html, manifest, liveReloadServer) => (req, res) => {
+	const store = createStore(initialState)
+	const locationKey = history.location.key
 
-	const historyWrapper = sharedHistory(createHistory());
-	const store = configureStore({}, historyWrapper.history);
+	log.info('[redux] Gonna reset Navigator stack', history.location)
+	store.dispatch(resetStack(history.location))
 
-	store.runSaga(saga);
+	const routeKeys = Object.keys(routes)
+	let pageInitialData = null
 
-	const context = {};
-    const modules = [];
+	for(let routeId of routeKeys)
+	{
+		const route = routes[routeId]
+		const match = matchPath(request.path, basename + route.path)
 
-	frontloadServerRender(() =>
-		ReactDOMServer.renderToString(
-            <div id='app'>
-				<Loadable.Capture report={m => modules.push(m)}>
-					<Provider store={store}>
-						<Router basename={basename} location={req.url} context={context} history={historyWrapper.history}>
-							<Frontload isServer={true}>
-								<App/>
-							</Frontload>
-						</Router>
-					</Provider>
-				</Loadable.Capture>
-			</div>
-		)
-	).then(routeMarkup => {
+		if(match !== null)
+		{
+			log.info('[router] matched', routeId, route)
 
-		const injectHTML = (data, { html, title, meta, body, scripts, state }) => {
-			data = data.replace('<html>', `<html ${html}>`);
-			data = data.replace(/<title>.*?<\/title>/g, title);
-			data = data.replace('</head>', `${meta}</head>`);
-			data = data.replace(
-			  '<div id="root"></div>',
-			  `<div id="root">${body}</div><script>window.__PRELOADED_STATE__ = ${state}</script>`
-			);
-			data = data.replace('</body>', scripts.join('') + '</body>');
-
-			if (liveReloadServer !== null)
+			log.info('[router] loading page inital data')
+			try {
+				pageInitialData = await require('./pages/' + route.page + '/data.js').default({
+					params: {...match.params},
+					queryParams: {...request.query},
+				})	
+			} catch (error)
 			{
-				data = data.replace('</body>', `
-					<script>
-						var socket = new WebSocket('ws://${liveReloadServer}');
-						socket.addEventListener('open', function (event) {
-						});
-						socket.addEventListener('message', function (event) {
-						    if(event.data == 'rebuild')
-						    {	
-						    	console.log('Server Rebuilding...');
-						    } else if(event.data == 'reload')
-						    {	
-						    	setTimeout(function(){ location.reload() }, 2000);
-						    	document.querySelector('body').innerHTML = 'Reloading...';
-						    }
-						});
-					</script>
-					</body>
-					`);
+				log.info('[router] page inital data error', error)
 			}
-			return data;
-		};
 
-	    const extractAssets = (assets, chunks) =>
-	    	Object.keys(assets)
-	    		.filter(asset => chunks.indexOf(asset.replace('.js', '')) > -1)
-	    		.map(k => assets[k]);
 
-	    const extraChunks = extractAssets(manifest, modules).map(
-	    	c => `<script type="text/javascript" src="/${c.replace(/^\//, '')}"></script>`
-	    );
+			log.info('[router] page inital data loaded')
+			break
+		}
+	}
+	
+	const createApp = (AppComponent) => (
+		<Provider store={store}>
+			<Router location={request.path} history={history}>
+				<AppComponent pageInitialData={pageInitialData}/>
+			</Router>
+		</Provider>
+	)
 
-	    const helmet = Helmet.renderStatic();
-		
-		const output = injectHTML(html, {
-			html: helmet.htmlAttributes.toString(),
-			title: helmet.title.toString(),
-			meta: helmet.meta.toString(),
-			body: routeMarkup,
-			scripts: extraChunks,
-			state: JSON.stringify(store.getState()).replace(/</g, '\\u003c')
-		});
+	const clientExtractor = new ChunkExtractor({ statsFile: clientLoadableStatsFile })
 
-		res.send(output);
-	});
+	let renderedString = ReactDOMServer.renderToString(
+		clientExtractor.collectChunks(createApp(App))
+	)
+
+	const helmet = Helmet.renderStatic()
+
+	const preloadedState = store.getState()
+
+	return {
+		renderedString,
+		helmet,
+		clientExtractor,
+		preloadedState,
+		pageData: {
+			[locationKey]: pageInitialData
+		}
+	}
 }
 

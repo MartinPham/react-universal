@@ -1,110 +1,92 @@
-// import React from 'react';
-import {PureComponent} from 'components/Component';
+import React from 'react';
+import {connect} from 'react-redux';
+import {createStructuredSelector} from 'reselect';
+import updateStack from './actions/updateStack';
+import {ID} from './constants';
+import initialState from './state';
+import select from 'utils/select';
+import transitionModules from './transitions';
+import {Switch} from 'react-router';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import sharedHistory from 'utils/sharedHistory';
+import log from 'loglevel';
 
+import './styles.scss';
 
-import { connect } from 'react-redux';
-// import { compose } from 'redux';
-// import injectReducer from 'utils/redux/injectReducer';
-// import injectSaga from 'utils/redux/injectSaga';
-// import log from 'utils/log';
+export {default as Route} from './components/Route';
+export {default as Link} from './components/Link';
 
-
-// import reducer from './reducer';
-// import saga from './saga';
-import goBack from './actions/goBack';
-
-import { createStructuredSelector } from 'reselect';
-
-
-import { ID } from "./constants";
-
-
-import render, {componentDidMount, componentWillUnmount} from './render';
-import transitionSelector from './selectors/transitionSelector';
-import directionSelector from './selectors/directionSelector';
-import originPositionSelector from "./selectors/originPositionSelector";
-// import userSelector from "../AuthProvider/selectors/userSelector";
-// import tokenSelector from "../AuthProvider/selectors/tokenSelector";
-// import Immutable from "immutable";
-
-
-
-class Component extends PureComponent {
-
-	// shouldComponentUpdate(nextProps, nextState)
-	// {
-	//     if (
-	//         this.props.transition != nextProps.transition
-	//         || this.props.direction != nextProps.direction
-	//         || !Immutable.is(this.props.originPosition,  nextProps.originPosition)
-	//     ) {
-	//         console.log('nav should update');
-	//         return true;
-	//     }
-	//     return false;
-	// }
-// 
-// 	componentDidUpdate() {
-// 		console.log('nav update')
-// 	}
-
-	componentDidMount() {
-		componentDidMount(this, this.props, this.state);
+class Navigator extends React.PureComponent {
+	componentDidMount()
+	{
+		sharedHistory().listen(location => {
+			this.props.dispatch(updateStack(location))
+		})
 	}
-
-	componentWillUnmount() {
-		componentWillUnmount(this, this.props, this.state);
-	}
-
-	handleBackPress = () => {
-		console.log('back!');
-		this.props.goBack();
-		return true;
-	};
 
 	render()
 	{
-		// console.log('nav render');
-		return render(this, this.props, this.state);
+		log.info('[Navigator] render')
+
+		const location = this.props.location
+		if(location === null) return null
+
+		let styleInjection = null
+
+		const direction = this.props.direction
+		const transition = this.props.transition
+		const originPosition = this.props.originPosition
+
+		let timeout = 500
+
+		for(let moduleId in transitionModules)
+		{
+			const module = transitionModules[moduleId]
+
+			if((new RegExp(module.test)).test(transition))
+			{
+				styleInjection = (<style>{module.styleInjector.default(originPosition)}</style>)
+				timeout = module.timeout
+				break
+			}
+		}
+
+
+		return (
+			<>
+				{styleInjection}
+
+				<TransitionGroup id="NavigatorTransitionGroup" className={`${transition}-${direction}`}>
+					<CSSTransition
+						key={location.key}
+						timeout={timeout}
+						classNames="pageTransition"
+						mountOnEnter={false}
+						unmountOnExit={false}
+					>
+						<div className="NavigatorTransition">
+							<Switch location={location}>
+								{this.props.children}
+							</Switch>
+						</div>
+					</CSSTransition>
+				</TransitionGroup>
+			</>
+		)
 	}
 }
 
 
-
-
-Component.displayName = ID;
-
-
 const mapState = createStructuredSelector({
-	transition: transitionSelector,
-	direction: directionSelector,
-	originPosition: originPositionSelector,
-	// user: userSelector(),
-	// token: tokenSelector()
-});
-
-const mapDispatch = dispatch => ({
-	goBack: () => dispatch(goBack())
-});
-
-
-
+	transition: select('transition')(ID, initialState),
+	direction: select('direction')(ID, initialState),
+	originPosition: select('originPosition')(ID, initialState),
+	location: select('location')(ID, initialState)
+})
 
 const withConnect = connect(
-	mapState,
-	mapDispatch
-);
+	mapState
+)
 
 
-export default withConnect(Component);
-
-
-// const withReducer = injectReducer({ key: ID, reducer });
-// const withSaga = injectSaga({ key: ID, saga });
-//
-//
-// export default compose(
-//     withReducer,
-//     withSaga,
-//     withConnect,
-// )(Component);
+export default withConnect(Navigator)

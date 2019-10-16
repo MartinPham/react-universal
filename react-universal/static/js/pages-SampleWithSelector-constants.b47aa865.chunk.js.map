@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/SampleWithSelector/constants.js"],"names":["ID"],"mappings":"kHAAA,0CAAO,IAAMA,EAAK","file":"static/js/pages-SampleWithSelector-constants.b47aa865.chunk.js","sourcesContent":["export const ID = \"SampleWithSelector\";"],"sourceRoot":""}

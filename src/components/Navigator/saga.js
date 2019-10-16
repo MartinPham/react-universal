@@ -1,16 +1,40 @@
-import { takeLatest, all } from 'redux-saga/effects';
-import {GO, GO_BACK, GO_FORWARD, PUSH} from './constants';
-import pushSaga from './sagas/pushSaga';
-import goSaga from "./sagas/goSaga";
-import goBackSaga from "./sagas/goBackSaga";
-import goForwardSaga from "./sagas/goForwardSaga";
+import {takeLatest, all} from 'redux-saga/effects';
+import {ACTION_GO, ACTION_GO_BACK, ACTION_GO_FORWARD, ACTION_PUSH} from './constants';
+import sharedHistory from 'utils/sharedHistory';
+import {generateUrl} from 'utils/url';
+import log from 'loglevel';
+
 
 export default function*() {
-	// console.log('run nav saga')
 	yield all([
-		takeLatest(PUSH, pushSaga),
-		takeLatest(GO, goSaga),
-		takeLatest(GO_BACK, goBackSaga),
-		takeLatest(GO_FORWARD, goForwardSaga),
-	]);
+		takeLatest(ACTION_GO, function*({steps}) {
+			const history = sharedHistory();
+			yield history.go(steps);
+		}),
+		takeLatest(ACTION_GO_BACK, function*() {
+			const history = sharedHistory();
+			yield history.goBack();
+		}),
+		takeLatest(ACTION_GO_FORWARD, function*() {
+			const history = sharedHistory();
+			yield history.goForward();
+		}),
+		takeLatest(ACTION_PUSH, function*({path, data, transition, originPosition}) {
+			log.info('[Navigator][saga] push', path)
+			const history = sharedHistory();
+		
+
+
+			const finalPath = sharedHistory().basename + generateUrl(path, data);
+
+			log.info('[Navigator][saga] push finalPath', finalPath)
+
+
+			yield history.push(finalPath, {
+				data,
+				transition,
+				originPosition
+			});
+		}),
+	])
 }

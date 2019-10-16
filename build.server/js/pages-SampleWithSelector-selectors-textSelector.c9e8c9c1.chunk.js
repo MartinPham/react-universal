@@ -1,0 +1,1 @@
+exports.ids=[16,15,18],exports.modules={47:function(t,e,r){"use strict";r.r(e),r.d(e,"ID",(function(){return i}));var i="SampleWithSelector"},48:function(t,e,r){"use strict";r.r(e),e.default={text:"text from initial"}},56:function(t,e,r){"use strict";r.r(e);var i=r(48),u=r(47),n=r(38);e.default=Object(n.a)("text")(u.ID,i.default)}};
