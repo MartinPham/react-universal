@@ -25,16 +25,16 @@
   "scripts": {
     "start": "yarn client:run",
     "test": "craco test",
-    "snap": "yarn ssr:build ; nohup yarn ssr:run > ssr.log & echo $! > ssr.pid; sleep 3 ; cp -r build build.snap.pre ; rm -rf build.snap.post ; react-snap ; rm -rf build.snap.pre ; cp -r build build.snap ; cp -rv build.snap.post/http:/localhost/* build.snap ; rm -rf build.snap.post ; kill -9 `cat ssr.pid`",
+    "snap": "yarn ssr:build ; nohup yarn ssr:run > ssr.log & echo $! > ssr.pid; sleep 3 ; cp -r build build.snap.pre ; rm -rf build.snap.post ; react-snap ; rm -rf build.snap.pre ; cp -r build build.snap ; cp -rv build.snap.post/http:/localhost/* build.snap ; rm -rf build.snap.post ; kill -9 `cat ssr.pid` ; rm -rf ssr.pid",
     "client:clean": "rm -rf build",
     "client:run": "craco start",
-    "client:build": "yarn client:clean && craco build",
+    "client:build": "yarn client:clean ; craco build",
     "client:watch": "node client/build.js --watch",
     "server:clean": "rm -rf build.server",
-    "server:build": "yarn server:clean && node server/build.js",
+    "server:build": "yarn server:clean ; node server/build.js",
     "server:watch": "node server/build.js --watch",
-    "ssr:build": "yarn client:build && yarn server:build",
-    "ssr:watch": "yarn ssr:build && nohup yarn client:watch > watch.client.log & echo $! > watch.client.pid & nohup yarn server:watch > watch.server.log & echo $! > watch.server.pid && yarn ssr:run && kill -9 `cat watch.client.pid` && kill -9 `cat watch.server.pid` && rm watch.client.pid && rm watch.server.pid",
+    "ssr:build": "yarn client:build ; yarn server:build",
+    "ssr:watch": "yarn ssr:build ; nohup yarn client:watch > watch.client.log & echo $! > watch.client.pid ; nohup yarn server:watch > watch.server.log & echo $! > watch.server.pid ; yarn ssr:run && kill -9 `cat watch.client.pid` && kill -9 `cat watch.server.pid` && rm watch.client.pid && rm watch.server.pid",
     "ssr:run": "node server"
   },
   "eslintConfig": {
