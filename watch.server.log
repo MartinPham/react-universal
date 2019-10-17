@@ -1,3 +1,0 @@
-$ node server/build.js --watch
-[Webpack][server] Compiling
-[Webpack][server] Compiled
