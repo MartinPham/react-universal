@@ -62,16 +62,9 @@
     "@loadable/babel-plugin": "^5.10.3",
     "@loadable/webpack-plugin": "^5.7.1",
     "chokidar": "^3.2.1",
-    "clean-css": "^4.2.1",
     "clear-module": "^4.0.0",
     "express": "^4.17.1",
-    "express-history-api-fallback": "^2.2.1",
-    "html-minifier": "^4.0.0",
-    "minimalcss": "^0.8.3",
-    "mkdirp": "^0.5.1",
     "react-snap": "^1.23.0",
-    "webpack-node-externals": "^1.7.2",
-    "website-scraper": "^4.2.0",
-    "website-scraper-puppeteer": "^0.1.2"
+    "webpack-node-externals": "^1.7.2"
   }
 }
