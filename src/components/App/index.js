@@ -23,7 +23,8 @@ export default (props) => {
 									...route,
 									path: sharedHistory().basename + route.path
 								}}
-								initialData={props.pageInitialData}
+								route={route}
+								pageData={props.pageData}
 							/>
 						);
 					})

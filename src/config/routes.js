@@ -44,6 +44,6 @@ export default {
 
     NotFound: {
 		path: '*',
-        page: 'Home',
+        page: 'NotFound',
     },
 };

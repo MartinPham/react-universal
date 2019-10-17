@@ -2,54 +2,50 @@
   "errors": [],
   "warnings": [],
   "version": "4.41.0",
-  "hash": "adecd57b1f80c089817e",
+  "hash": "451466cf178d76c96a03",
   "publicPath": "/react-universal/",
   "outputPath": "/Users/zzz/Z/DEV/REACT/react-universal/build.server",
   "assetsByChunkName": {
     "pages-Home": [
       "static/css/pages-Home.5f788ec1.chunk.css",
-      "js/pages-Home.ce7cb4eb.chunk.js"
+      "js/pages-Home.afa20e7b.chunk.js"
     ],
+    "pages-NotFound": "js/pages-NotFound.80e5665d.chunk.js",
     "pages-Sample": [
       "static/css/pages-Sample.53fed5b4.chunk.css",
-      "js/pages-Sample.6754a1d5.chunk.js"
+      "js/pages-Sample.12d6fc9c.chunk.js"
     ],
-    "pages-SampleWithParam": "js/pages-SampleWithParam.d0bd12a5.chunk.js",
-    "pages-SampleWithReducer": "js/pages-SampleWithReducer.b687fc26.chunk.js",
-    "pages-SampleWithSaga": "js/pages-SampleWithSaga.98bbafd1.chunk.js",
-    "pages-SampleWithSelector": "js/pages-SampleWithSelector.ec60afc4.chunk.js",
-    "pages-SampleWithParam-styles": "js/pages-SampleWithParam-styles.045370f5.chunk.js",
-    "pages-SampleWithReducer-actions-increaseCounter": "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js",
-    "pages-SampleWithReducer-selectors-counterSelector": "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js",
-    "pages-SampleWithReducer-selectors-funnyCounterSelector": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js",
-    "pages-SampleWithSaga-actions-increaseCounter": "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js",
-    "pages-SampleWithSaga-sagas-increaseCounterSaga": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js",
-    "pages-SampleWithSaga-selectors-anotherCounterSelector": "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js",
-    "pages-SampleWithSaga-selectors-counterSelector": "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js",
-    "pages-SampleWithSaga-selectors-funnyCounterSelector": "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js",
-    "pages-SampleWithSelector-constants": "js/pages-SampleWithSelector-constants.460cb55b.chunk.js",
-    "pages-SampleWithSelector-selectors-textSelector": "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js",
-    "pages-SampleWithSelector-selectors-uppercaseTextSelector": "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js",
-    "pages-SampleWithSelector-state": "js/pages-SampleWithSelector-state.bbfdebef.chunk.js",
+    "pages-SampleWithParam": "js/pages-SampleWithParam.78672dd8.chunk.js",
+    "pages-SampleWithReducer": "js/pages-SampleWithReducer.90460acf.chunk.js",
+    "pages-SampleWithSaga": "js/pages-SampleWithSaga.d688e575.chunk.js",
+    "pages-SampleWithSelector": "js/pages-SampleWithSelector.40077439.chunk.js",
+    "pages-SampleWithParam-styles": "js/pages-SampleWithParam-styles.3a2fad3a.chunk.js",
+    "pages-SampleWithReducer-actions-increaseCounter": "js/pages-SampleWithReducer-actions-increaseCounter.9f59b327.chunk.js",
+    "pages-SampleWithReducer-selectors-counterSelector": "js/pages-SampleWithReducer-selectors-counterSelector.92dc391e.chunk.js",
+    "pages-SampleWithReducer-selectors-funnyCounterSelector": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.80ec2e7d.chunk.js",
+    "pages-SampleWithSaga-actions-increaseCounter": "js/pages-SampleWithSaga-actions-increaseCounter.515a537f.chunk.js",
+    "pages-SampleWithSaga-sagas-increaseCounterSaga": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f00ffa05.chunk.js",
+    "pages-SampleWithSelector-constants": "js/pages-SampleWithSelector-constants.564b7160.chunk.js",
+    "pages-SampleWithSelector-state": "js/pages-SampleWithSelector-state.6a832685.chunk.js",
     "main": [
       "static/css/main.12300935.css",
       "index.js"
     ],
     "pages-Home-styles-module-scss": [
       "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
-      "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js"
+      "js/pages-Home-styles-module-scss.3929c2df.chunk.js"
     ],
     "pages-Sample-styles-module-scss": [
       "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
-      "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js"
+      "js/pages-Sample-styles-module-scss.f3aa16b9.chunk.js"
     ]
   },
   "assets": [
     {
       "name": "index.js",
-      "size": 39174,
+      "size": 37870,
       "chunks": [
-        19
+        15
       ],
       "chunkNames": [
         "main"
@@ -58,10 +54,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js",
+      "name": "js/pages-Home-styles-module-scss.3929c2df.chunk.js",
       "size": 103,
       "chunks": [
-        20
+        16
       ],
       "chunkNames": [
         "pages-Home-styles-module-scss"
@@ -72,11 +68,11 @@
       "emitted": false
     },
     {
-      "name": "js/pages-Home.ce7cb4eb.chunk.js",
+      "name": "js/pages-Home.afa20e7b.chunk.js",
       "size": 2371,
       "chunks": [
         0,
-        20
+        16
       ],
       "chunkNames": [
         "pages-Home"
@@ -87,10 +83,24 @@
       "emitted": false
     },
     {
-      "name": "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js",
+      "name": "js/pages-NotFound.80e5665d.chunk.js",
+      "size": 1715,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "pages-NotFound"
+      ],
+      "info": {
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "js/pages-Sample-styles-module-scss.f3aa16b9.chunk.js",
       "size": 99,
       "chunks": [
-        21
+        17
       ],
       "chunkNames": [
         "pages-Sample-styles-module-scss"
@@ -101,11 +111,11 @@
       "emitted": false
     },
     {
-      "name": "js/pages-Sample.6754a1d5.chunk.js",
+      "name": "js/pages-Sample.12d6fc9c.chunk.js",
       "size": 1909,
       "chunks": [
-        1,
-        21
+        2,
+        17
       ],
       "chunkNames": [
         "pages-Sample"
@@ -116,10 +126,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithParam-styles.045370f5.chunk.js",
+      "name": "js/pages-SampleWithParam-styles.3a2fad3a.chunk.js",
       "size": 53,
       "chunks": [
-        6
+        7
       ],
       "chunkNames": [
         "pages-SampleWithParam-styles"
@@ -130,10 +140,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithParam.d0bd12a5.chunk.js",
+      "name": "js/pages-SampleWithParam.78672dd8.chunk.js",
       "size": 1146,
       "chunks": [
-        2
+        3
       ],
       "chunkNames": [
         "pages-SampleWithParam"
@@ -144,10 +154,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js",
+      "name": "js/pages-SampleWithReducer-actions-increaseCounter.9f59b327.chunk.js",
       "size": 209,
       "chunks": [
-        7
+        8
       ],
       "chunkNames": [
         "pages-SampleWithReducer-actions-increaseCounter"
@@ -158,10 +168,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js",
+      "name": "js/pages-SampleWithReducer-selectors-counterSelector.92dc391e.chunk.js",
       "size": 150,
       "chunks": [
-        8
+        9
       ],
       "chunkNames": [
         "pages-SampleWithReducer-selectors-counterSelector"
@@ -172,10 +182,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js",
-      "size": 231,
+      "name": "js/pages-SampleWithReducer-selectors-funnyCounterSelector.80ec2e7d.chunk.js",
+      "size": 232,
       "chunks": [
-        9
+        10
       ],
       "chunkNames": [
         "pages-SampleWithReducer-selectors-funnyCounterSelector"
@@ -186,13 +196,11 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithReducer.b687fc26.chunk.js",
-      "size": 2461,
+      "name": "js/pages-SampleWithReducer.90460acf.chunk.js",
+      "size": 2517,
       "chunks": [
-        3,
-        7,
-        8,
-        9
+        4,
+        8
       ],
       "chunkNames": [
         "pages-SampleWithReducer"
@@ -203,10 +211,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js",
+      "name": "js/pages-SampleWithSaga-actions-increaseCounter.515a537f.chunk.js",
       "size": 210,
       "chunks": [
-        10
+        11
       ],
       "chunkNames": [
         "pages-SampleWithSaga-actions-increaseCounter"
@@ -217,10 +225,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js",
+      "name": "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f00ffa05.chunk.js",
       "size": 534,
       "chunks": [
-        11
+        12
       ],
       "chunkNames": [
         "pages-SampleWithSaga-sagas-increaseCounterSaga"
@@ -231,56 +239,11 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js",
-      "size": 158,
+      "name": "js/pages-SampleWithSaga.d688e575.chunk.js",
+      "size": 2610,
       "chunks": [
-        12
-      ],
-      "chunkNames": [
-        "pages-SampleWithSaga-selectors-anotherCounterSelector"
-      ],
-      "info": {
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
-      "name": "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js",
-      "size": 151,
-      "chunks": [
-        13
-      ],
-      "chunkNames": [
-        "pages-SampleWithSaga-selectors-counterSelector"
-      ],
-      "info": {
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
-      "name": "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js",
-      "size": 232,
-      "chunks": [
-        14
-      ],
-      "chunkNames": [
-        "pages-SampleWithSaga-selectors-funnyCounterSelector"
-      ],
-      "info": {
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
-      "name": "js/pages-SampleWithSaga.98bbafd1.chunk.js",
-      "size": 2698,
-      "chunks": [
-        4,
-        10,
-        12,
-        13,
-        14
+        5,
+        11
       ],
       "chunkNames": [
         "pages-SampleWithSaga"
@@ -291,10 +254,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSelector-constants.460cb55b.chunk.js",
+      "name": "js/pages-SampleWithSelector-constants.564b7160.chunk.js",
       "size": 137,
       "chunks": [
-        15
+        13
       ],
       "chunkNames": [
         "pages-SampleWithSelector-constants"
@@ -305,42 +268,10 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js",
-      "size": 334,
-      "chunks": [
-        16,
-        15,
-        18
-      ],
-      "chunkNames": [
-        "pages-SampleWithSelector-selectors-textSelector"
-      ],
-      "info": {
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
-      "name": "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js",
-      "size": 413,
-      "chunks": [
-        17,
-        15,
-        18
-      ],
-      "chunkNames": [
-        "pages-SampleWithSelector-selectors-uppercaseTextSelector"
-      ],
-      "info": {
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
-      "name": "js/pages-SampleWithSelector-state.bbfdebef.chunk.js",
+      "name": "js/pages-SampleWithSelector-state.6a832685.chunk.js",
       "size": 112,
       "chunks": [
-        18
+        14
       ],
       "chunkNames": [
         "pages-SampleWithSelector-state"
@@ -351,14 +282,12 @@
       "emitted": false
     },
     {
-      "name": "js/pages-SampleWithSelector.ec60afc4.chunk.js",
-      "size": 2287,
+      "name": "js/pages-SampleWithSelector.40077439.chunk.js",
+      "size": 2345,
       "chunks": [
-        5,
-        15,
-        16,
-        17,
-        18
+        6,
+        13,
+        14
       ],
       "chunkNames": [
         "pages-SampleWithSelector"
@@ -372,7 +301,7 @@
       "name": "static/css/main.12300935.css",
       "size": 9285,
       "chunks": [
-        19
+        15
       ],
       "chunkNames": [
         "main"
@@ -394,7 +323,7 @@
       "name": "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
       "size": 121,
       "chunks": [
-        20
+        16
       ],
       "chunkNames": [
         "pages-Home-styles-module-scss"
@@ -417,7 +346,7 @@
       "size": 102,
       "chunks": [
         0,
-        20
+        16
       ],
       "chunkNames": [
         "pages-Home"
@@ -439,7 +368,7 @@
       "name": "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
       "size": 118,
       "chunks": [
-        21
+        17
       ],
       "chunkNames": [
         "pages-Sample-styles-module-scss"
@@ -461,8 +390,8 @@
       "name": "static/css/pages-Sample.53fed5b4.chunk.css",
       "size": 99,
       "chunks": [
-        1,
-        21
+        2,
+        17
       ],
       "chunkNames": [
         "pages-Sample"
@@ -485,7 +414,7 @@
   "entrypoints": {
     "main": {
       "chunks": [
-        19
+        15
       ],
       "assets": [
         "static/css/main.12300935.css",
@@ -498,7 +427,7 @@
   "namedChunkGroups": {
     "main": {
       "chunks": [
-        19
+        15
       ],
       "assets": [
         "static/css/main.12300935.css",
@@ -525,7 +454,7 @@
       ],
       "assets": [
         "static/css/pages-Home.5f788ec1.chunk.css",
-        "js/pages-Home.ce7cb4eb.chunk.js"
+        "js/pages-Home.afa20e7b.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -536,7 +465,7 @@
       ],
       "assets": [
         "static/css/pages-Home.5f788ec1.chunk.css",
-        "js/pages-Home.ce7cb4eb.chunk.js"
+        "js/pages-Home.afa20e7b.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -547,62 +476,92 @@
       ],
       "assets": [
         "static/css/pages-Home.5f788ec1.chunk.css",
-        "js/pages-Home.ce7cb4eb.chunk.js"
+        "js/pages-Home.afa20e7b.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-Home-styles-module-scss": {
       "chunks": [
-        20
+        16
       ],
       "assets": [
         "static/css/pages-Home-styles-module-scss.5f788ec1.chunk.css",
-        "js/pages-Home-styles-module-scss.54fcc8ae.chunk.js"
+        "js/pages-Home-styles-module-scss.3929c2df.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-NotFound": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "js/pages-NotFound.80e5665d.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-NotFound-index": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "js/pages-NotFound.80e5665d.chunk.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "pages-NotFound-index-js": {
+      "chunks": [
+        1
+      ],
+      "assets": [
+        "js/pages-NotFound.80e5665d.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-Sample": {
       "chunks": [
-        1
+        2
       ],
       "assets": [
         "static/css/pages-Sample.53fed5b4.chunk.css",
-        "js/pages-Sample.6754a1d5.chunk.js"
+        "js/pages-Sample.12d6fc9c.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-Sample-index": {
       "chunks": [
-        1
+        2
       ],
       "assets": [
         "static/css/pages-Sample.53fed5b4.chunk.css",
-        "js/pages-Sample.6754a1d5.chunk.js"
+        "js/pages-Sample.12d6fc9c.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-Sample-index-js": {
       "chunks": [
-        1
+        2
       ],
       "assets": [
         "static/css/pages-Sample.53fed5b4.chunk.css",
-        "js/pages-Sample.6754a1d5.chunk.js"
+        "js/pages-Sample.12d6fc9c.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-Sample-styles-module-scss": {
       "chunks": [
-        21
+        17
       ],
       "assets": [
         "static/css/pages-Sample-styles-module-scss.53fed5b4.chunk.css",
-        "js/pages-Sample-styles-module-scss.7ddda25f.chunk.js"
+        "js/pages-Sample-styles-module-scss.f3aa16b9.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -621,70 +580,70 @@
     },
     "pages-SampleWithParam": {
       "chunks": [
-        2
+        3
       ],
       "assets": [
-        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+        "js/pages-SampleWithParam.78672dd8.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithParam-index": {
       "chunks": [
-        2
+        3
       ],
       "assets": [
-        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+        "js/pages-SampleWithParam.78672dd8.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithParam-index-js": {
       "chunks": [
-        2
+        3
       ],
       "assets": [
-        "js/pages-SampleWithParam.d0bd12a5.chunk.js"
+        "js/pages-SampleWithParam.78672dd8.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithParam-styles": {
       "chunks": [
-        6
+        7
       ],
       "assets": [
-        "js/pages-SampleWithParam-styles.045370f5.chunk.js"
+        "js/pages-SampleWithParam-styles.3a2fad3a.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithParam-styles-js": {
       "chunks": [
-        6
+        7
       ],
       "assets": [
-        "js/pages-SampleWithParam-styles.045370f5.chunk.js"
+        "js/pages-SampleWithParam-styles.3a2fad3a.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-actions-increaseCounter": {
       "chunks": [
-        7
+        8
       ],
       "assets": [
-        "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js"
+        "js/pages-SampleWithReducer-actions-increaseCounter.9f59b327.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-actions-increaseCounter-js": {
       "chunks": [
-        7
+        8
       ],
       "assets": [
-        "js/pages-SampleWithReducer-actions-increaseCounter.849c3f59.chunk.js"
+        "js/pages-SampleWithReducer-actions-increaseCounter.9f59b327.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -703,30 +662,30 @@
     },
     "pages-SampleWithReducer": {
       "chunks": [
-        3
+        4
       ],
       "assets": [
-        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+        "js/pages-SampleWithReducer.90460acf.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-index": {
       "chunks": [
-        3
+        4
       ],
       "assets": [
-        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+        "js/pages-SampleWithReducer.90460acf.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-index-js": {
       "chunks": [
-        3
+        4
       ],
       "assets": [
-        "js/pages-SampleWithReducer.b687fc26.chunk.js"
+        "js/pages-SampleWithReducer.90460acf.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -745,40 +704,40 @@
     },
     "pages-SampleWithReducer-selectors-counterSelector": {
       "chunks": [
-        8
+        9
       ],
       "assets": [
-        "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js"
+        "js/pages-SampleWithReducer-selectors-counterSelector.92dc391e.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-selectors-counterSelector-js": {
       "chunks": [
-        8
+        9
       ],
       "assets": [
-        "js/pages-SampleWithReducer-selectors-counterSelector.f1591a62.chunk.js"
+        "js/pages-SampleWithReducer-selectors-counterSelector.92dc391e.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-selectors-funnyCounterSelector": {
       "chunks": [
-        9
+        10
       ],
       "assets": [
-        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js"
+        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.80ec2e7d.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithReducer-selectors-funnyCounterSelector-js": {
       "chunks": [
-        9
+        10
       ],
       "assets": [
-        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.c4a253c9.chunk.js"
+        "js/pages-SampleWithReducer-selectors-funnyCounterSelector.80ec2e7d.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -809,20 +768,20 @@
     },
     "pages-SampleWithSaga-actions-increaseCounter": {
       "chunks": [
-        10
+        11
       ],
       "assets": [
-        "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js"
+        "js/pages-SampleWithSaga-actions-increaseCounter.515a537f.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSaga-actions-increaseCounter-js": {
       "chunks": [
-        10
+        11
       ],
       "assets": [
-        "js/pages-SampleWithSaga-actions-increaseCounter.ea81d573.chunk.js"
+        "js/pages-SampleWithSaga-actions-increaseCounter.515a537f.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -841,30 +800,30 @@
     },
     "pages-SampleWithSaga": {
       "chunks": [
-        4
+        5
       ],
       "assets": [
-        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+        "js/pages-SampleWithSaga.d688e575.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSaga-index": {
       "chunks": [
-        4
+        5
       ],
       "assets": [
-        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+        "js/pages-SampleWithSaga.d688e575.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSaga-index-js": {
       "chunks": [
-        4
+        5
       ],
       "assets": [
-        "js/pages-SampleWithSaga.98bbafd1.chunk.js"
+        "js/pages-SampleWithSaga.d688e575.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -895,80 +854,20 @@
     },
     "pages-SampleWithSaga-sagas-increaseCounterSaga": {
       "chunks": [
-        11
+        12
       ],
       "assets": [
-        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js"
+        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f00ffa05.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSaga-sagas-increaseCounterSaga-js": {
       "chunks": [
-        11
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f5bb55a4.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-anotherCounterSelector": {
-      "chunks": [
         12
       ],
       "assets": [
-        "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-anotherCounterSelector-js": {
-      "chunks": [
-        12
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-selectors-anotherCounterSelector.6f97562b.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-counterSelector": {
-      "chunks": [
-        13
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-counterSelector-js": {
-      "chunks": [
-        13
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-selectors-counterSelector.9e88e8cd.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-funnyCounterSelector": {
-      "chunks": [
-        14
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSaga-selectors-funnyCounterSelector-js": {
-      "chunks": [
-        14
-      ],
-      "assets": [
-        "js/pages-SampleWithSaga-selectors-funnyCounterSelector.256e62a4.chunk.js"
+        "js/pages-SampleWithSaga-sagas-increaseCounterSaga.f00ffa05.chunk.js"
       ],
       "children": {},
       "childAssets": {}
@@ -987,110 +886,70 @@
     },
     "pages-SampleWithSelector-constants": {
       "chunks": [
-        15
+        13
       ],
       "assets": [
-        "js/pages-SampleWithSelector-constants.460cb55b.chunk.js"
+        "js/pages-SampleWithSelector-constants.564b7160.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector-constants-js": {
       "chunks": [
-        15
+        13
       ],
       "assets": [
-        "js/pages-SampleWithSelector-constants.460cb55b.chunk.js"
+        "js/pages-SampleWithSelector-constants.564b7160.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector": {
       "chunks": [
-        5
+        6
       ],
       "assets": [
-        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
+        "js/pages-SampleWithSelector.40077439.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector-index": {
       "chunks": [
-        5
+        6
       ],
       "assets": [
-        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
+        "js/pages-SampleWithSelector.40077439.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector-index-js": {
       "chunks": [
-        5
+        6
       ],
       "assets": [
-        "js/pages-SampleWithSelector.ec60afc4.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSelector-selectors-textSelector": {
-      "chunks": [
-        16
-      ],
-      "assets": [
-        "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSelector-selectors-textSelector-js": {
-      "chunks": [
-        16
-      ],
-      "assets": [
-        "js/pages-SampleWithSelector-selectors-textSelector.c9e8c9c1.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSelector-selectors-uppercaseTextSelector": {
-      "chunks": [
-        17
-      ],
-      "assets": [
-        "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js"
-      ],
-      "children": {},
-      "childAssets": {}
-    },
-    "pages-SampleWithSelector-selectors-uppercaseTextSelector-js": {
-      "chunks": [
-        17
-      ],
-      "assets": [
-        "js/pages-SampleWithSelector-selectors-uppercaseTextSelector.ce8b4f2c.chunk.js"
+        "js/pages-SampleWithSelector.40077439.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector-state": {
       "chunks": [
-        18
+        14
       ],
       "assets": [
-        "js/pages-SampleWithSelector-state.bbfdebef.chunk.js"
+        "js/pages-SampleWithSelector-state.6a832685.chunk.js"
       ],
       "children": {},
       "childAssets": {}
     },
     "pages-SampleWithSelector-state-js": {
       "chunks": [
-        18
+        14
       ],
       "assets": [
-        "js/pages-SampleWithSelector-state.bbfdebef.chunk.js"
+        "js/pages-SampleWithSelector-state.6a832685.chunk.js"
       ],
       "children": {},
       "childAssets": {}

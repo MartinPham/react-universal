@@ -1,11 +1,8 @@
 import React from 'react';
 
-import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-
-import textSelector from './selectors/textSelector';
-import uppercaseTextSelector from './selectors/uppercaseTextSelector';
-// import {ID} from './constants';
+import quickConnect from 'utils/redux/quickConnect';
+import {ID} from './constants';
+import initialState from './state';
 
 
 class Page extends React.PureComponent {
@@ -18,8 +15,6 @@ class Page extends React.PureComponent {
 			<div>
 				<h1>Sample with selector</h1>
 				text: {this.props.text}<br/>
-				{/* text (from props): {this.props.state[ID].text}<br/> */}
-				uppercase text: {this.props.uppercaseText}<br/>
 				<br/>
 				<button
 					onClick={() => this.setState({
@@ -63,11 +58,10 @@ class Page extends React.PureComponent {
 }
 
 
-const mapState = createStructuredSelector({
-	text: textSelector,
-	uppercaseText: uppercaseTextSelector,
-})
-
-export default connect(
-	mapState
+export default quickConnect(
+	ID,
+	[
+		'text',
+	],
+	initialState
 )(Page)

@@ -1,1 +1,0 @@
-exports.ids=[8],exports.modules={50:function(t,e,r){"use strict";r.r(e);var s=r(24),u=r(8),o=r(38);e.default=Object(o.a)("counter")(u.ID,s.default)}};

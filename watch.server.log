@@ -1,29 +1,3 @@
 $ node server/build.js --watch
 [Webpack][server] Compiling
 [Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiler warnings
-[
-  './src/pages/Home/index.js\n' +
-    'Module Error (from ./node_modules/eslint-loader/dist/cjs.js):\n' +
-    '\n' +
-    "  Line 16:6:  'Helmet' is not defined  react/jsx-no-undef\n" +
-    '\n' +
-    'Search for the keywords to learn more about each error.\n' +
-    ' @ ./src/pages lazy ^\\.\\/.*$ namespace object ./Home/\n' +
-    ' @ ./src/components/Navigator/components/Route.js\n' +
-    ' @ ./src/components/Navigator/index.js\n' +
-    ' @ ./src/components/App/index.js\n' +
-    ' @ ./src/index.server.js\n' +
-    ' @ multi ./src/index.server.js'
-]
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled
-[Webpack][server] Compiled

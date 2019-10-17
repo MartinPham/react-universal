@@ -1,1 +1,0 @@
-exports.ids=[18],exports.modules={48:function(t,e,i){"use strict";i.r(e),e.default={text:"text from initial"}}};

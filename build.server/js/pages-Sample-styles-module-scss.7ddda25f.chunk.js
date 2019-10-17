@@ -1,1 +1,0 @@
-exports.ids=[21],exports.modules={92:function(e,s,o){e.exports={heading:"styles_heading__jYUqr"}}};

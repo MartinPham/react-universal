@@ -4,6 +4,7 @@ import {createStructuredSelector} from 'reselect';
 import updateStack from './actions/updateStack';
 import {ID} from './constants';
 import initialState from './state';
+import getPreloadState from 'utils/redux/getPreloadState';
 import select from 'utils/select';
 import transitionModules from './transitions';
 import {Switch} from 'react-router';
@@ -15,6 +16,8 @@ import './styles.scss';
 
 export {default as Route} from './components/Route';
 export {default as Link} from './components/Link';
+
+const preloadedInitialState = getPreloadState(ID, initialState)
 
 class Navigator extends React.PureComponent {
 	componentDidMount()
@@ -78,10 +81,10 @@ class Navigator extends React.PureComponent {
 
 
 const mapState = createStructuredSelector({
-	transition: select('transition')(ID, initialState),
-	direction: select('direction')(ID, initialState),
-	originPosition: select('originPosition')(ID, initialState),
-	location: select('location')(ID, initialState)
+	transition: select('transition')(ID, preloadedInitialState),
+	direction: select('direction')(ID, preloadedInitialState),
+	originPosition: select('originPosition')(ID, preloadedInitialState),
+	location: select('location')(ID, preloadedInitialState)
 })
 
 const withConnect = connect(

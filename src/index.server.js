@@ -45,6 +45,8 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 			log.info('[router] loading page inital data')
 			try {
 				pageInitialData = await require('./pages/' + route.page + '/data.js').default({
+					route: {...route},
+					location: {...history.location},
 					params: {...match.params},
 					queryParams: {...request.query},
 				})	
@@ -62,7 +64,9 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 	const createApp = (AppComponent) => (
 		<Provider store={store}>
 			<Router location={request.path} history={history}>
-				<AppComponent pageInitialData={pageInitialData}/>
+				<AppComponent pageData={{
+					[locationKey]: pageInitialData
+				}}/>
 			</Router>
 		</Provider>
 	)

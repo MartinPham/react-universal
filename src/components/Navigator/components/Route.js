@@ -6,7 +6,7 @@ import goForward from '../actions/goForward';
 import go from '../actions/go';
 import log from 'loglevel';
 import queryString from 'query-string';
-import {getPlatform, PLATFORM_BROWSER} from 'utils/platform';
+import {getPlatform, PLATFORM_BROWSER, PLATFORM_NODE} from 'utils/platform';
 import loadable from '@loadable/component';
 
 const AsyncPage = loadable(async (props) => import(/* webpackChunkName: "[request]" */`pages/${props.page}`))
@@ -27,7 +27,7 @@ class Route extends React.Component {
 			Fallback: () => <div/>
 		}
 
-		const {page, exact, path, computedMatch, location, ...props} = initialProps
+		const {page, exact, path, computedMatch, location, pageData, ...props} = initialProps
 		log.info(`[Route] constructor ${path}`)
 
 		const navigator = {
@@ -71,6 +71,8 @@ class Route extends React.Component {
 							}
 
 							return module.default({
+								route: {...pageProps.route},
+								location: {...location},
 								params: {...pageProps.params},
 								queryParams: {...pageProps.queryParams},
 							})
@@ -92,6 +94,9 @@ class Route extends React.Component {
 						})
 				state.componentIsReady = false
 			}
+		} else if(getPlatform() === PLATFORM_NODE)
+		{
+			pageProps.initialData = {...pageData[location.key]}
 		}
 
 

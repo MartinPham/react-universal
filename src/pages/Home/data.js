@@ -3,8 +3,8 @@ import React from 'react';
 
 const upperApi = (text) => new Promise(resolver => setTimeout(() => resolver(text.toUpperCase()), 1))
 
-export default async () => {
-	const text = await upperApi('test')
+export default async (props) => {
+	const text = await upperApi('test ' + JSON.stringify(props))
 	return {
 		text
 	}

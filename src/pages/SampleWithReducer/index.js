@@ -1,12 +1,9 @@
 import React from 'react';
 
-import {connect} from 'react-redux';
-import {createStructuredSelector} from 'reselect';
-
+import quickConnect from 'utils/redux/quickConnect';
+import {ID} from './constants';
+import initialState from './state';
 import increaseCounter from './actions/increaseCounter';
-
-import counterSelector from './selectors/counterSelector';
-import funnyCounterSelector from './selectors/funnyCounterSelector';
 
 
 class Page extends React.PureComponent {
@@ -18,7 +15,6 @@ class Page extends React.PureComponent {
 			<div>
 				Sample
 				counter: {this.props.counter}<br/>
-				funny counter: {this.props.funnyCounter}<br/>
 				<br/>
 				<button
 					onClick={() => this.props.dispatch(increaseCounter(5))}
@@ -68,12 +64,10 @@ class Page extends React.PureComponent {
 }
 
 
-const mapState = createStructuredSelector({
-	counter: counterSelector,
-	funnyCounter: funnyCounterSelector,
-})
-
-
-export default connect(
-	mapState
+export default quickConnect(
+	ID,
+	[
+		'counter',
+	],
+	initialState
 )(Page)

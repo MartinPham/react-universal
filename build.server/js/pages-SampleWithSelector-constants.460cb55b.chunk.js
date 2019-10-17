@@ -1,1 +1,0 @@
-exports.ids=[15],exports.modules={47:function(t,e,r){"use strict";r.r(e),r.d(e,"ID",(function(){return o}));var o="SampleWithSelector"}};
