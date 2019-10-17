@@ -25,7 +25,7 @@
   "scripts": {
     "start": "yarn client:run",
     "test": "craco test",
-    "client:snap": "react-snap",
+    "snap": "yarn ssr:build ; nohup yarn ssr:run > ssr.log & echo $! > ssr.pid; sleep 3 ; cp -r build build.snap.pre ; rm -rf build.snap.post ; react-snap ; rm -rf build.snap.pre ; cp -r build build.snap ; cp -rv build.snap.post/http:/localhost/* build.snap ; rm -rf build.snap.post ; kill -9 `cat ssr.pid`",
     "client:clean": "rm -rf build",
     "client:run": "craco start",
     "client:build": "yarn client:clean && craco build",
@@ -39,6 +39,12 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "reactSnap": {
+	"externalServer": true,
+	"port": 80,
+	"source": "build.snap.pre",
+	"destination": "build.snap.post"
   },
   "browserslist": {
     "production": [
@@ -56,9 +62,16 @@
     "@loadable/babel-plugin": "^5.10.3",
     "@loadable/webpack-plugin": "^5.7.1",
     "chokidar": "^3.2.1",
+    "clean-css": "^4.2.1",
     "clear-module": "^4.0.0",
     "express": "^4.17.1",
+    "express-history-api-fallback": "^2.2.1",
+    "html-minifier": "^4.0.0",
+    "minimalcss": "^0.8.3",
+    "mkdirp": "^0.5.1",
     "react-snap": "^1.23.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "website-scraper": "^4.2.0",
+    "website-scraper-puppeteer": "^0.1.2"
   }
 }

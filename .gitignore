@@ -12,6 +12,7 @@
 # production
 /build
 /build.server
+/build.snap
 
 # misc
 .DS_Store
@@ -29,7 +30,8 @@ yarn-debug.log*
 yarn-error.log*
 watch.*.log
 watch.*.pid
-
+ssr.log
+ssr.pid
 
 .expo/*
 npm-debug.*
