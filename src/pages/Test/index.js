@@ -1,9 +1,9 @@
 import React from 'react';
 import log from 'loglevel';
-import {Link as A, SharedElement} from 'components/Navigator';
+import {SharedElement} from 'components/Navigator';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
+// import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 
 export default (props) => {

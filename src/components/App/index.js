@@ -9,7 +9,7 @@ import theme from 'config/theme';
 import sharedHistory from 'utils/sharedHistory';
 import Header from 'components/Header';
 import Drawer from 'components/Drawer';
-import {ApolloProvider} from '@apollo/react-hooks';
+// import {ApolloProvider} from '@apollo/react-hooks';
 // import graphqlClient from 'utils/graphql/client';
 
 export default (props) => {
