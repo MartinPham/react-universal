@@ -3,10 +3,10 @@ import ReactDOMServer from 'react-dom/server';
 import {ChunkExtractor} from '@loadable/server';
 import {Provider} from 'react-redux';
 import {StaticRouter as Router, matchPath} from 'react-router';
+import {ServerStyleSheets} from '@material-ui/core/styles';
 import {createMemoryHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
-import createStore from 'utils/redux/createStore';
-import initialState from 'config/state';
+import store from 'utils/redux/store';
 import resetStack from 'components/Navigator/actions/resetStack';
 import Helmet from 'react-helmet';
 import log from 'loglevel';
@@ -24,11 +24,11 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 
 	history.basename = basename
 
-	const store = createStore(initialState)
+	const reduxStore = store()
 	const locationKey = history.location.key
 
 	log.info('[redux] Gonna reset Navigator stack', history.location)
-	store.dispatch(resetStack(history.location))
+	reduxStore.dispatch(resetStack(history.location))
 
 	const routeKeys = Object.keys(routes)
 	let pageInitialData = null
@@ -61,8 +61,10 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 		}
 	}
 	
+	const sheets = new ServerStyleSheets();
+
 	const createApp = (AppComponent) => (
-		<Provider store={store}>
+		<Provider store={reduxStore}>
 			<Router location={request.path} history={history}>
 				<AppComponent pageData={{
 					[locationKey]: pageInitialData
@@ -73,22 +75,28 @@ export default async (request, clientLoadableStatsFile, basename = '') => {
 
 	const clientExtractor = new ChunkExtractor({ statsFile: clientLoadableStatsFile })
 
-	let renderedString = ReactDOMServer.renderToString(
-		clientExtractor.collectChunks(createApp(App))
+	const renderedString = ReactDOMServer.renderToString(
+		clientExtractor.collectChunks(sheets.collect(createApp(App)))
 	)
 
 	const helmet = Helmet.renderStatic()
 
-	const preloadedState = store.getState()
+	const preloadedState = reduxStore.getState()
+
+	const extraCss = sheets.toString();
+
+	const extraJs = `var jssStyles=document.querySelector('#jss-server-side');if(jssStyles){jssStyles.parentNode.removeChild(jssStyles);}</script>`
 
 	return {
 		renderedString,
+		extraCss,
+		extraJs,
 		helmet,
 		clientExtractor,
 		preloadedState,
 		pageData: {
 			[locationKey]: pageInitialData
-		}
+		},
 	}
 }
 

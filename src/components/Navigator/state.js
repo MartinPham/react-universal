@@ -4,7 +4,7 @@ export default {
 	stack: [],
 	location: null,
 	direction: 'forward',
-	transition: 'slideLeft',
+	transition: 'none',
 	originPosition: {},
 	pageInitialData: {}
 }

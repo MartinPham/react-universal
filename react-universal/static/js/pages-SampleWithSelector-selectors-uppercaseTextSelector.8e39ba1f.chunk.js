@@ -1,2 +1,0 @@
-(this.__LOADABLE_LOADED_CHUNKS__=this.__LOADABLE_LOADED_CHUNKS__||[]).push([[20,18,21],{63:function(t,e,n){"use strict";n.r(e),n.d(e,"ID",(function(){return r}));var r="SampleWithSelector"},64:function(t,e,n){"use strict";n.r(e),e.default={text:"text from initial"}},73:function(t,e,n){"use strict";n.r(e);var r=n(64),u=n(63),i=n(49);e.default=Object(i.a)("text",null,(function(t){return console.log("making upper case..."),t.toUpperCase()}))(u.ID,r.default)}}]);
-//# sourceMappingURL=pages-SampleWithSelector-selectors-uppercaseTextSelector.8e39ba1f.chunk.js.map

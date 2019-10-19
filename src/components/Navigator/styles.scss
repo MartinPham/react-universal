@@ -6,7 +6,7 @@
 	height: 100vh;
 
 	.NavigatorTransition {
-		// margin-top: 56px;
+		margin-top: 56px;
 
 		position: absolute;
 		width: 100%;
@@ -27,3 +27,34 @@
 	}
 }
 
+#NavigatorSharedElementTransitionGhost {
+	position: absolute;
+	background: transparent;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: none;
+	z-index: 990;
+}
+
+#NavigatorSharedElementTransitionGhostBackground {
+	transition: all 0.1s;
+	background: #fff;
+	opacity: 0;
+	z-index: 991;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#NavigatorSharedElementTransitionGhostElements {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 992;
+}

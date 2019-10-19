@@ -2,6 +2,7 @@ import initialState from './state';
 import getPreloadState from 'utils/redux/getPreloadState';
 import {ID, ACTION_PUSH, ACTION_RESET_STACK, ACTION_UPDATE_STACK} from './constants';
 import produce from 'immer';
+import log from 'loglevel';
 
 const preloadedInitialState = getPreloadState(ID, initialState)
 
@@ -10,8 +11,10 @@ export default (state = preloadedInitialState, action) => {
         case ACTION_PUSH:
             return produce(state, draftState => {
 				const {transition, originalPosition} = action
+				global.navigatorTransition = transition || global.navigatorTransition
 				draftState.transition = transition || state.transition
 				draftState.originalPosition = originalPosition || {}
+				log.info('[Navigator][reducer] push', transition)
 			})
         case ACTION_RESET_STACK:
 			return produce(state, draftState => {
@@ -70,6 +73,8 @@ export default (state = preloadedInitialState, action) => {
 					}
 			
 				}
+
+				global.navigatorTransition = draftState.transition || global.navigatorTransition
 			})
         default:
             return state

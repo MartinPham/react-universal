@@ -1,17 +1,32 @@
 {
   "name": "react-universal",
-  "homepage": "https://martinpham.gitlab.io/react-universal",
+  "homepage": "http://martin/react-universal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.3",
     "@craco/craco": "^5.5.0",
+    "@loadable/babel-plugin": "^5.10.3",
     "@loadable/component": "^5.10.3",
     "@loadable/server": "^5.10.3",
+    "@loadable/webpack-plugin": "^5.7.1",
+    "@martinpham/publisher": "^1.0.5",
+    "@material-ui/core": "^4.5.1",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/styles": "^4.5.0",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link-error": "^1.1.12",
+    "apollo-link-http": "^1.5.16",
+    "apollo-link-ws": "^1.0.19",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
     "immer": "^4.0.1",
     "loglevel": "^1.6.4",
     "node-sass": "^4.12.0",
     "query-string": "^6.8.3",
     "react": "^16.10.2",
+    "react-apollo": "^3.1.3",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-redux": "^7.1.1",
@@ -20,13 +35,16 @@
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
     "redux-saga": "^1.1.1",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "styled-components": "^4.4.0",
+    "subscriptions-transport-ws": "^0.9.16"
   },
   "scripts": {
     "start": "yarn client:run",
     "test": "craco test",
     "snap": "yarn ssr:build ; nohup yarn ssr:run > ssr.log & echo $! > ssr.pid; sleep 3 ; cp -r build build.snap.pre ; rm -rf build.snap.post ; react-snap ; rm -rf build.snap.pre ; cp -r build build.snap ; cp -rv build.snap.post/http:/localhost/* build.snap ; rm -rf build.snap.post ; kill -9 `cat ssr.pid` ; rm -rf ssr.pid",
     "client:clean": "rm -rf build",
+    "client:dist": "publisher-prepare && yarn client:build && publisher --build build",
     "client:run": "craco start",
     "client:build": "yarn client:clean ; craco build",
     "client:watch": "node client/build.js --watch",
@@ -41,10 +59,10 @@
     "extends": "react-app"
   },
   "reactSnap": {
-	"externalServer": true,
-	"port": 80,
-	"source": "build.snap.pre",
-	"destination": "build.snap.post"
+    "externalServer": true,
+    "port": 80,
+    "source": "build.snap.pre",
+    "destination": "build.snap.post"
   },
   "browserslist": {
     "production": [
@@ -59,8 +77,6 @@
     ]
   },
   "devDependencies": {
-    "@loadable/babel-plugin": "^5.10.3",
-    "@loadable/webpack-plugin": "^5.7.1",
     "chokidar": "^3.2.1",
     "clear-module": "^4.0.0",
     "express": "^4.17.1",

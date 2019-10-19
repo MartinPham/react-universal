@@ -27,7 +27,7 @@ class Route extends React.Component {
 			Fallback: () => <div/>
 		}
 
-		const {page, exact, path, computedMatch, location, pageData, ...props} = initialProps
+		const {async, page: pageSource, id, exact, path, computedMatch, location, pageData, ...props} = initialProps
 		log.info(`[Route] constructor ${path}`)
 
 		const navigator = {
@@ -37,8 +37,15 @@ class Route extends React.Component {
 			goForward: () => props.dispatch(goForward()),
 		}
 
+		let page = id
+		if(pageSource)
+		{
+			page = pageSource
+		}
+
 		const pageProps = {
 			...props,
+			id,
 			page,
 			queryParams: queryString.parse(location.search),
 			data: (location.state && location.state.data) || {},
@@ -51,10 +58,10 @@ class Route extends React.Component {
 
 		if(getPlatform() === PLATFORM_BROWSER)
 		{
-			if(window.__PAGE_DATA__ && window.__PAGE_DATA__[location.key])
+			if(global.__PAGE_DATA__ && global.__PAGE_DATA__[location.key])
 			{
 				log.info('[Route] apply loaded inital data')
-				pageProps.initialData = {...window.__PAGE_DATA__[location.key]}
+				pageProps.initialData = {...global.__PAGE_DATA__[location.key]}
 			} else {
 				log.info('[Route] loading inital data')
 
@@ -82,8 +89,8 @@ class Route extends React.Component {
 						})
 						.then(data => {
 							this.pageProps.initialData = {...data}
-							window.__PAGE_DATA__ = window.__PAGE_DATA__ || {}
-							window.__PAGE_DATA__[location.key] = {...data}
+							global.__PAGE_DATA__ = global.__PAGE_DATA__ || {}
+							global.__PAGE_DATA__[location.key] = {...data}
 							
 							this.setState({
 								componentIsReady: true

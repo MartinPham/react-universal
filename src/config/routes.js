@@ -1,49 +1,18 @@
 export default {
-    SampleSame: {
-        path: '/sample/:id',
-        page: 'Sample'
-	},
-    Sample: {
-        path: '/sample',
-        page: 'Sample'
-	},
-    SampleWithParam: {
-        path: '/sample-param/:id',
-        page: 'SampleWithParam'
-	},
-    SampleWithReducer: {
-        path: '/sample-reducer',
-        page: 'SampleWithReducer'
-	},
-    SampleWithSaga: {
-        path: '/sample-saga',
-        page: 'SampleWithSaga'
-	},
-    SampleWithSelector: {
-        path: '/sample-selector',
-        page: 'SampleWithSelector'
-	},
-	
-    Login: {
-        path: '/login',
-        page: 'Login'
+    Test2: {
+        path: '/test2',
+        exact: true
     },
-    Dashboard: {
-        path: '/dashboard',
-        page: 'Dashboard'
-	},
-	
-
-
-
+    Test: {
+        path: '/test',
+        exact: true
+    },
     Home: {
         path: '/',
-        page: 'Home',
         exact: true
     },
 
     NotFound: {
 		path: '*',
-        page: 'NotFound',
     },
 };

@@ -10,6 +10,10 @@ const modules = {
 	fly: {
 		test: 'fly(Left|Right|Up|Down)',
 		timeout: 500,
+	},
+	none: {
+		test: 'none',
+		timeout: 100,
 	}
 };
 
@@ -18,7 +22,7 @@ const modules = {
 for(let moduleId in modules)
 {
 	import('./' + moduleId + '/styles.scss');
-	modules[moduleId].styleInjector = require('./' + moduleId);
+	modules[moduleId].main = require('./' + moduleId).default;
 }
 
 export default modules;

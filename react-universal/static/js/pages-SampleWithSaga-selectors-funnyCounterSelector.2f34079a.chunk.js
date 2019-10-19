@@ -1,2 +1,0 @@
-(this.__LOADABLE_LOADED_CHUNKS__=this.__LOADABLE_LOADED_CHUNKS__||[]).push([[17],{71:function(n,t,_){"use strict";_.r(t);var u=_(34),c=_(10),e=_(49);t.default=Object(e.a)("counter",null,(function(n){return console.log("making funny.."),"[-- ".concat(n," --]")}))(c.ID,u.default)}}]);
-//# sourceMappingURL=pages-SampleWithSaga-selectors-funnyCounterSelector.2f34079a.chunk.js.map

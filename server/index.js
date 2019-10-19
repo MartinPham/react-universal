@@ -56,7 +56,7 @@ const configureHttpServer = (server) => {
 	const serverLoader = async (request, response) => {
 		log.info('[loader] Serving ' + request.url + ' (' + request.path + ')')
 
-		const {renderedString, helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename)
+		const {renderedString, extraCss, extraJs,helmet, clientExtractor, preloadedState, pageData} = await serverRenderer(request, clientLoadableStatsFile, basename)
 
 		let output = template
 
@@ -74,6 +74,7 @@ const configureHttpServer = (server) => {
 		output = output.replace('</head>', `${helmet.meta.toString()}</head>`)
 		// output = output.replace('</head>', `${clientExtractor.getLinkTags()}</head>`)
 		output = output.replace('</head>', `${clientExtractor.getStyleTags()}</head>`)
+		output = output.replace('</head>', `<style id="jss-server-side">${extraCss}</style></head>`)
 		output = output.replace(
 		  '<div id="root"></div>',
 		  `<div id="root">${renderedString}</div>
@@ -82,6 +83,7 @@ const configureHttpServer = (server) => {
 		  <script>${injectScript}</script>`
 		)
 		output = output.replace('</body>', `${clientExtractor.getScriptTags()}</body>`)
+		output = output.replace('</body>', `<script id="jss-server-side-remover">${extraJs}</script></body>`)
 	
 		response.send(output)
 	}

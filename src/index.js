@@ -6,18 +6,20 @@ import {Router} from 'react-router';
 import {loadableReady} from '@loadable/component';
 import {createBrowserHistory as createHistory} from 'history';
 import sharedHistory from 'utils/sharedHistory';
-import createStore from 'utils/redux/createStore';
-import initialState from 'config/state';
+import store from 'utils/redux/store';
 import resetStack from 'components/Navigator/actions/resetStack';
 import log from 'loglevel';
 
 import App from 'components/App';
 import 'styles.scss';
 
-log.setLevel('info');
+if(process.env.NODE_ENV === 'production')
+{
+	log.setLevel('warn');
+}
 
 
-const store = createStore(initialState)
+const reduxStore = store()
 const history = sharedHistory(createHistory())
 
 const basename = process.env.PUBLIC_URL
@@ -26,19 +28,19 @@ history.basename = basename
 log.info('[index] React Client App. Basename = ' + history.basename)
 
 
-if(store.getState().Navigator && store.getState().Navigator.stack && store.getState().Navigator.stack.length > 0)
+if(reduxStore.getState().Navigator && reduxStore.getState().Navigator.stack && reduxStore.getState().Navigator.stack.length > 0)
 {
 	log.info('[redux] Navigator stack already filled')
 } else {
 	log.info('[redux] Gonna reset Navigator stack', history.location)
-	store.dispatch(resetStack(history.location))
+	reduxStore.dispatch(resetStack(history.location))
 }
 
 const rootElement = document.getElementById('root')
 
 
 const createApp = (AppComponent) => (
-	<Provider store={store}>
+	<Provider store={reduxStore}>
 		<Router basename={basename} history={history}>
 			<AppComponent/>
 		</Router>

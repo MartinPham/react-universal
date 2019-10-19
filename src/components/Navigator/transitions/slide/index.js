@@ -1,3 +1,7 @@
-export default (originPosition) => {
-    return '';
+export default {
+	style: (originPosition) => {
+		return '';
+	}
+    
 }
+
