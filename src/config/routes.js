@@ -1,11 +1,14 @@
+import Test from 'pages/Test'
+
 export default {
     Test2: {
         path: '/test2',
-        exact: true
+		exact: true
     },
     Test: {
         path: '/test',
-        exact: true
+		exact: true,
+		page: Test
     },
     Home: {
         path: '/',
@@ -13,6 +16,6 @@ export default {
     },
 
     NotFound: {
-		path: '*',
+		path: '*'
     },
 };

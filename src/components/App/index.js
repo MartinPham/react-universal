@@ -20,7 +20,7 @@ export default (props) => {
 			<ThemeProvider theme={theme}>
 				<StylesProvider injectFirst>
 					<Drawer/>
-					<Header/>
+					{/* <Header/> */}
 					<Navigator>
 						{
 							Object.keys(routes).map((routeId) => {

@@ -18,16 +18,21 @@ class Route extends React.Component {
 	}
 
 	pageProps = {}
+	Page = null
+	PageFallback = (props) => <div/>
+	DataFallback = (props) => <div/>
 
 	constructor(initialProps)
 	{
 		super(initialProps)
 
+
+
 		const state = {
-			Fallback: () => <div/>
+
 		}
 
-		const {async, page: pageSource, id, exact, path, computedMatch, location, pageData, ...props} = initialProps
+		const {page: pageSource, id, exact, path, computedMatch, location, pageData, ...props} = initialProps
 		log.info(`[Route] constructor ${path}`)
 
 		const navigator = {
@@ -38,10 +43,17 @@ class Route extends React.Component {
 		}
 
 		let page = id
+
 		if(pageSource)
 		{
-			page = pageSource
+			if(typeof pageSource !== 'string')
+			{
+				this.Page = pageSource
+			} else {
+				page = pageSource
+			}
 		}
+
 
 		const pageProps = {
 			...props,
@@ -54,6 +66,28 @@ class Route extends React.Component {
 			params: computedMatch.params
 		}
 
+
+
+		if(getPlatform() === PLATFORM_BROWSER)
+		{
+			if(this.Page === null)
+			{
+				try {
+					this.PageFallback = require('../../../pages/' + pageProps.page + '/components/PageFallback.js').default
+				} catch (error)
+				{
+					log.debug('[Route] loading Page Fallback error', error)
+				}
+			}
+			
+			try {
+				this.DataFallback = require('../../../pages/' + pageProps.page + '/components/DataFallback.js').default
+			} catch (error)
+			{
+				log.debug('[Route] loading Data Fallback error', error)
+			}
+		}
+
 		state.componentIsReady = true
 
 		if(getPlatform() === PLATFORM_BROWSER)
@@ -64,19 +98,10 @@ class Route extends React.Component {
 				pageProps.initialData = {...global.__PAGE_DATA__[location.key]}
 			} else {
 				log.info('[Route] loading inital data')
+				state.componentIsReady = false
 
 				import('../../../pages/' + pageProps.page + '/data.js')
 						.then(module => {
-							if(module.Fallback)
-							{
-								this.setState({
-									Fallback: module.Fallback
-								}, () => {
-									log.info('[Route] force update with fallback')
-									this.forceUpdate()
-								})
-							}
-
 							return module.default({
 								route: {...pageProps.route},
 								location: {...location},
@@ -85,7 +110,7 @@ class Route extends React.Component {
 							})
 						})
 						.catch(error => {
-							log.info('[Route] inital data promise error', error)
+							log.debug('[Route] inital data promise error', error)
 						})
 						.then(data => {
 							this.pageProps.initialData = {...data}
@@ -99,7 +124,7 @@ class Route extends React.Component {
 								this.forceUpdate()
 							})
 						})
-				state.componentIsReady = false
+				
 			}
 		} else if(getPlatform() === PLATFORM_NODE)
 		{
@@ -117,15 +142,14 @@ class Route extends React.Component {
 		
 		if(!this.state.componentIsReady)
 		{
-			if(this.state.Fallback)
-			{
-				return <this.state.Fallback {...this.pageProps}/>
-			}
-
-			return <div/>
+			return <this.DataFallback {...this.pageProps}/>
 		}
-		
-		return <AsyncPage {...this.pageProps}/>
+
+		if(this.Page !== null)
+		{
+			return <this.Page {...this.pageProps}/>
+		}
+		return <AsyncPage {...this.pageProps} fallback={this.PageFallback(this.pageProps)}/>
 
 	}
 }

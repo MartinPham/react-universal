@@ -22,7 +22,7 @@ export {default as SharedElement} from './components/SharedElement';
 
 const preloadedInitialState = getPreloadState(ID, initialState)
 
-const reduxStore = store()
+
 
 class Navigator extends React.PureComponent {
 	lastSharedElements = []
@@ -31,10 +31,13 @@ class Navigator extends React.PureComponent {
 	ghostLayer = null
 	ghostLayerBackground = null
 	ghostLayerElements = null
-
+	reduxStore = null
 
 	componentDidMount()
 	{
+		this.reduxStore = store()
+
+
 		sharedHistory().listen(location => {
 			this.props.dispatch(updateStack(location))
 		})
@@ -99,9 +102,9 @@ class Navigator extends React.PureComponent {
 						unmountOnExit={false}
 
 						onExit={html => {
-							log.info('onExit transition', reduxStore.getState().Navigator.transition)
+							log.info('onExit transition', this.reduxStore.getState().Navigator.transition)
 
-							if(reduxStore.getState().Navigator.transition !== 'none') return;
+							if(this.reduxStore.getState().Navigator.transition !== 'none') return;
 
 							const shareds = html.querySelectorAll('*[data-shared-element="1"]')
 					
@@ -149,7 +152,7 @@ class Navigator extends React.PureComponent {
 						}}
 						
 						onEntered={html => {
-							log.info('onEntered transition', reduxStore.getState().Navigator.transition)
+							log.info('onEntered transition', this.reduxStore.getState().Navigator.transition)
 
 							
 							
@@ -161,7 +164,7 @@ class Navigator extends React.PureComponent {
 									this.ghostLayerElements.innerHTML = ''
 								}, 110)
 							}
-							if(reduxStore.getState().Navigator.transition === 'none') 
+							if(this.reduxStore.getState().Navigator.transition === 'none') 
 							{
 								if(Object.keys(this.lastSharedElements).length > 0)
 								{
@@ -210,6 +213,8 @@ class Navigator extends React.PureComponent {
 												this.lastSharedElements[key].style.padding = shared.style.padding;
 												this.lastSharedElements[key].style.opacity = shared.style.opacity;
 												this.lastSharedElements[key].style.textShadow = shared.style.textShadow;
+												this.lastSharedElements[key].style.transform = shared.style.transform;
+												this.lastSharedElements[key].style.filter = shared.style.filter;
 												this.lastSharedElements[key].style.left = rect.left + 'px'
 												this.lastSharedElements[key].style.width = rect.width + 'px'
 												this.lastSharedElements[key].style.height = rect.height + 'px'

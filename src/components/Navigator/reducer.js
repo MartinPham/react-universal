@@ -3,16 +3,41 @@ import getPreloadState from 'utils/redux/getPreloadState';
 import {ID, ACTION_PUSH, ACTION_RESET_STACK, ACTION_UPDATE_STACK} from './constants';
 import produce from 'immer';
 import log from 'loglevel';
+import {matchPath} from 'react-router';
+import routes from 'config/routes';
+import sharedHistory from 'utils/sharedHistory';
 
 const preloadedInitialState = getPreloadState(ID, initialState)
+const routeKeys = Object.keys(routes)
+
+const computeMatch = (pathname) => {
+	const basename = sharedHistory().basename
+
+	for(let routeId of routeKeys)
+	{
+		const route = routes[routeId]
+		const match = matchPath(pathname, basename + route.path)
+
+		if(match !== null)
+		{
+			log.info('[Navigator][computeMatch] matched', routeId, match)
+
+			return {
+				id: routeId,
+				params: {...match.params}
+			}
+		}
+	}
+
+	return null
+}
 
 export default (state = preloadedInitialState, action) => {
     switch(action.type) {
         case ACTION_PUSH:
             return produce(state, draftState => {
 				const {transition, originalPosition} = action
-				global.navigatorTransition = transition || global.navigatorTransition
-				draftState.transition = transition || state.transition
+				global.navigatorTransition = draftState.transition = transition || 'none'
 				draftState.originalPosition = originalPosition || {}
 				log.info('[Navigator][reducer] push', transition)
 			})
@@ -22,6 +47,7 @@ export default (state = preloadedInitialState, action) => {
 				location.key = location.key || ''
 				draftState.stack = [location]
 				draftState.location = location
+				draftState.route = computeMatch(draftState.location.pathname)
 			})
         case ACTION_UPDATE_STACK:
             return produce(state, draftState => {
@@ -74,7 +100,11 @@ export default (state = preloadedInitialState, action) => {
 			
 				}
 
-				global.navigatorTransition = draftState.transition || global.navigatorTransition
+				
+
+				draftState.route = computeMatch(draftState.location.pathname)
+
+				global.navigatorTransition = draftState.transition || 'none'
 			})
         default:
             return state
