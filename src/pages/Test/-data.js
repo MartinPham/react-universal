@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 
 const upperApi = (text) => new Promise(resolver => setTimeout(() => resolver(text.toUpperCase()), 3000))
